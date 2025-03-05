@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+
+.header {
+    @apply flex bg-red-700 justify-around;
+}
+.header-item {
+    @apply m-3 text-3xl p-3 text-2xl;
+}
