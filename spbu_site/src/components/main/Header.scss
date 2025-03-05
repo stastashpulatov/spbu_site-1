@@ -1,6 +1,20 @@
 .header {
-    @apply flex bg-red-700 justify-around;
-}
+    @apply flex bg-stone-900 justify-around;
+  }
+  
 .header-item {
-    @apply m-3 text-3xl p-3 text-2xl;
+    @apply m-2 text-3xl p-2;
 }
+  
+.header-item:hover {
+    @apply text-white;
+}
+  
+.dropdown-menu {
+    @apply absolute left-0 bg-stone-900 top-full shadow-md rounded-md mt-2 p-2 space-y-1 z-10;
+}
+  
+.dropdown-item {
+    @apply block px-2 py-1 hover:text-red-700 rounded-md text-white;
+}
+  
