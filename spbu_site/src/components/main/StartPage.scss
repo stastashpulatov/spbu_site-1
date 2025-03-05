@@ -1,3 +1,5 @@
 @import "tailwindcss";
 
-.image {} 
+.image {
+    @apply flex py-4;
+} 
