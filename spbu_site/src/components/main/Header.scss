@@ -1,5 +1,5 @@
 .header {
-    @apply flex bg-stone-900 justify-around;
+    @apply flex bg-red-700 justify-around;
   }
   
 .header-item {
@@ -15,6 +15,6 @@
 }
   
 .dropdown-item {
-    @apply block px-2 py-1 hover:text-red-700 rounded-md text-white;
+    @apply block px-2 py-1 hover:text-red-700 rounded-md text-white text-xl;
 }
   
