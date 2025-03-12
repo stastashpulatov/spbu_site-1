@@ -1,0 +1,23 @@
+.theme-toggle {
+  @apply flex items-center justify-center p-2 rounded-full;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.theme-toggle:hover {
+  @apply bg-gray-200;
+}
+
+:root[data-theme="dark"] .theme-toggle:hover {
+  @apply bg-gray-700;
+}
+
+.theme-toggle-icon {
+  @apply text-gray-700;
+}
+
+:root[data-theme="dark"] .theme-toggle-icon {
+  @apply text-yellow-300;
+}

@@ -1,15 +1,35 @@
 @use "tailwindcss";
 
+/* Base styles for all themes */
 :root {
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  color: #1a1a1a;
+  background-color: #f8f8f8;
+  --header-bg: #f0f0f0;
+  --text-color: #1a1a1a;
+  --dropdown-bg: white;
+  --dropdown-border: #e5e5e5;
+  --hover-color: #dc2626;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  --header-bg: #1c1917;
+  --text-color: rgba(255, 255, 255, 0.87);
+  --dropdown-bg: #1c1917;
+  --dropdown-border: #2c2c2c;
+  --hover-color: #ef4444;
 }

@@ -1,6 +1,7 @@
 import './Header.scss';
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import ThemeToggle from '../common/ThemeToggle';
 
 interface MenuItems {
   [key: string]: string[];
@@ -41,30 +42,35 @@ function Header() {
 
   return (
     <div className="header">
-      {Object.keys(menuItems).map((key) => (
-        <div key={key} className="relative">
-          <button
-            className="header-item flex items-center space-x-1 text-sm"
-            onMouseEnter={() => toggleMenu(key)}
-          >
-            <span>{key}</span>
-            {menuItems[key].length > 0 && <ChevronDown size={16} />}
-          </button>
-          {openMenu === key && menuItems[key].length > 0 && (
-            <div className="dropdown-menu">
-              {menuItems[key].map((item, index) => (
-                <a
-                  key={item}
-                  href={menuLinks[key][index]}
-                  className="dropdown-item text-sm"
-                >
-                  {item}
-                </a>
-              ))}
-            </div>
-          )}
-        </div>
-      ))}
+      <div className="menu-section">
+        {Object.keys(menuItems).map((key) => (
+          <div key={key} className="relative">
+            <button
+              className="header-item flex items-center space-x-1 text-sm"
+              onMouseEnter={() => toggleMenu(key)}
+            >
+              <span>{key}</span>
+              {menuItems[key].length > 0 && <ChevronDown size={16} />}
+            </button>
+            {openMenu === key && menuItems[key].length > 0 && (
+              <div className="dropdown-menu">
+                {menuItems[key].map((item, index) => (
+                  <a
+                    key={item}
+                    href={menuLinks[key][index]}
+                    className="dropdown-item text-sm"
+                  >
+                    {item}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+      <div className="theme-toggle-container">
+        <ThemeToggle />
+      </div>
     </div>
   );
 }
