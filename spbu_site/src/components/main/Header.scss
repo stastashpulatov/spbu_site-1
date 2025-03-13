@@ -1,38 +1,201 @@
 .header {
-    @apply flex justify-between items-center px-4 py-2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
     background-color: var(--header-bg);
+    position: relative;
+    z-index: 50;
 }
 
 .menu-section {
-    @apply flex flex-1 justify-center flex-wrap;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0.25rem;
+
+    &:hover {
+        .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+            transition: 
+                opacity 0.5s ease,
+                transform 0.5s ease,
+                visibility 0s;
+        }
+    }
 }
 
 .theme-toggle-container {
-    @apply flex items-center;
+    display: flex;
+    align-items: center;
     margin-left: 1rem;
 }
   
 .header-item {
-    @apply m-2 text-3xl p-2;
+    margin: 0;
+    font-size: 1.5rem;
+    padding: 0.75rem;
     color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: color 0.2s ease;
+    
+    svg {
+        transition: transform 0.2s ease;
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+    
+    &.menu-open svg {
+        transform: rotate(180deg);
+    }
+
+    &:hover {
+        color: var(--hover-color);
+    }
 }
   
-.header-item:hover {
-    color: var(--hover-color);
-}
+
   
 .dropdown-menu {
-    @apply absolute left-0 top-full shadow-md rounded-md mt-2 p-2 space-y-1 z-10;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    min-width: 300px;
+    z-index: 10;
     background-color: var(--dropdown-bg);
     border: 1px solid var(--dropdown-border);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-5px);
+    transition: 
+        opacity 0.5s ease,
+        transform 0.5s ease,
+        visibility 0s linear 1.5s;
+    pointer-events: none;
+
+    &:hover,
+    .header-item:hover + & {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+        transition: 
+            opacity 0.5s ease,
+            transform 0.5s ease,
+            visibility 0s;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        left: 0;
+        width: 100%;
+        height: 20px;
+    }
 }
   
+.dropdown-item-container {
+    position: relative;
+}
+
 .dropdown-item {
-    @apply block px-2 py-1 rounded-md text-xl;
+    display: block;
+    padding: 1rem;
+    border-radius: 2px;
+    font-size: 1.25rem;
     color: var(--text-color);
+    transition: background-color 0.2s ease, color 0.2s ease;
+    text-decoration: none;
+    white-space: nowrap;
+    margin: 0;
+    
+    &.submenu-trigger {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        padding-right: 2.5rem;
+        
+        .submenu-icon {
+            margin-left: 0.5rem;
+            transition: transform 0.2s ease;
+            position: absolute;
+            right: 1rem;
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+        
+        &:hover .submenu-icon {
+            transform: rotate(-90deg);
+        }
+    }
 }
 
 .dropdown-item:hover {
-    color: var(--hover-color) ;
+    color: var(--hover-color);
+    background-color: var(--hover-bg);
 }
-  
+
+.dropdown-item:active {
+    background-color: var(--active-bg);
+}
+
+.submenu {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 0.5rem;
+    z-index: 20;
+    min-width: 300px;
+    background-color: var(--dropdown-bg);
+    border: 1px solid var(--dropdown-border);
+    margin-left: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-5px);
+    transition: 
+        opacity 0.5s ease,
+        transform 0.5s ease,
+        visibility 0s linear 1.5s;
+    pointer-events: none;
+
+    .dropdown-item-container:hover > &,
+    &:hover {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+        pointer-events: auto;
+        transition: 
+            opacity 0.5s ease,
+            transform 0.5s ease,
+            visibility 0s;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -20px;
+        width: 20px;
+        height: 100%;
+    }
+}
+
+.dropdown-item-container:hover > .dropdown-item {
+    color: var(--hover-color);
+    background-color: var(--hover-bg);
+}

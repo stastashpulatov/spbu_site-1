@@ -126,7 +126,7 @@ export const translations = {
     },
     startPage: {
         ru: {
-            welcome: 'Добро пожаловать в СПбГУ',
+            welcome: 'Добро пожаловать в филиал СПбГУ',
             description: 'Ведущий центр образования и науки'
         },
         en: {

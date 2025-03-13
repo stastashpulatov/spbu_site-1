@@ -4,9 +4,9 @@ import { useLanguage } from '../../hooks/useLanguage';
 import './LanguageSelector.scss';
 
 const languages: Record<string, string> = {
-    'ru': 'Русский',
-    'en': 'English',
-    'uz': 'Oʻzbek'
+    'ru': '🇷🇺',
+    'en': '🇬🇧',
+    'uz': '🇺🇿'
 };
 
 const LanguageSelector: React.FC = () => {
@@ -28,7 +28,7 @@ const LanguageSelector: React.FC = () => {
             </button>
             {isOpen && (
                 <div className="language-dropdown">
-                    {Object.entries(languages).map(([code, name]) => (
+                    {Object.entries(languages).map(([code]) => (
                         <button
                             key={code}
                             className={`language-option ${code === language ? 'active' : ''}`}
@@ -37,7 +37,7 @@ const LanguageSelector: React.FC = () => {
                                 setIsOpen(false);
                             }}
                         >
-                            {name}
+                            <span className="flag">{languages[code]}</span>
                         </button>
                     ))}
                 </div>
