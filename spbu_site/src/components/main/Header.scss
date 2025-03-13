@@ -28,11 +28,11 @@
 }
   
 .dropdown-item {
-    @apply block px-2 py-1 rounded-md;
+    @apply block px-2 py-1 rounded-md text-xl;
     color: var(--text-color);
 }
 
 .dropdown-item:hover {
-    color: var(--hover-color);
+    color: var(--hover-color) ;
 }
   
