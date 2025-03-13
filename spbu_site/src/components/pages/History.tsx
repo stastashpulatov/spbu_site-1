@@ -23,7 +23,14 @@ const History: React.FC = () => {
           Врубель, Михаил Глинка, Николай Рерих, Лев Ландау, Леонид Канторович, Владимир Путин, Дмитрий Медведев и 
           другие.
         </p>
-        <button className="details-button">Подробнее</button>
+        <a 
+          href="https://spbu.ru/history" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="details-button"
+        >
+          Подробнее
+        </a>
       </div>
     </div>
   );

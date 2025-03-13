@@ -20,17 +20,12 @@ const menuItems: MenuItems = {
       title: 'Об университете',
       submenu: [
         { title: 'История', link: '/about/history' },
-        { title: 'Сведения об СПбГУ', link: '/about/info' }
       ]
     },
     { title: 'Филиал в г.Ташкенте', 
       submenu: [
         { title: 'О филиале', link: '/branch-tashkent/about_filial' },
         { title: 'Руководство', link: '/branch-tashkent/guide' },
-        { title: 'Образовательные программы', link: '/branch-tashkent/programs' },
-        { title: 'Поступление', link: '/branch-tashkent/admission' },
-        { title: 'Студенческая жизнь', link: '/branch-tashkent/student-life' },
-        { title: 'Контакты', link: '/branch-tashkent/contacts' }
       ]
     }
   ],

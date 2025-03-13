@@ -1,10 +1,33 @@
-:root{
-    @apply font-sans font-bold;
+:root {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-weight: bold;
+}
+
+[data-theme='light'] {
+    --bg-color: #ffffff;
+    --text-color: #1a1a1a;
+    --text-color-secondary: #666666;
+    --primary-color: #2563eb;
+    --primary-color-dark: #1d4ed8;
+    --border-color: #e5e7eb;
+    --card-bg: #ffffff;
+    --hover-bg: #f3f4f6;
+}
+
+[data-theme='dark'] {
+    --bg-color: #111827;
+    --text-color: #f3f4f6;
+    --text-color-secondary: #9ca3af;
+    --primary-color: #60a5fa;
+    --primary-color-dark: #93c5fd;
+    --border-color: #374151;
+    --card-bg: #1f2937;
+    --hover-bg: #374151;
 }
 
 .app-container {
     min-height: 100vh;
     transition: background-color 0.3s ease, color 0.3s ease;
     background-color: var(--bg-color);
-    color: var(--text-color, #1a1a1a);
+    color: var(--text-color);
 }
