@@ -2,6 +2,7 @@ import './Header.scss';
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import ThemeToggle from '../common/ThemeToggle';
+import LanguageSelector from '../common/LanguageSelector';
 
 interface MenuItems {
   [key: string]: string[];
@@ -19,7 +20,7 @@ const menuItems: MenuItems = {
 };
 
 const menuLinks: MenuItems = {
-  "Университет": ['/about/', '/branch-tashkent/'],
+  "Университет": ['/about', '/branch-tashkent/'],
   "Образование": ['/undergraduate/', '/graduate/'],
   "Поступающим": ['/admissions/', '/applicant-account/'],
   "Студентам": ['/class-schedule/', '/library/', '/student-account/'],
@@ -69,6 +70,7 @@ function Header() {
         ))}
       </div>
       <div className="theme-toggle-container">
+        <LanguageSelector />
         <ThemeToggle />
       </div>
     </div>
