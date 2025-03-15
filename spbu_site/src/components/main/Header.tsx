@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Header.scss';
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
@@ -20,13 +21,13 @@ const menuItems: MenuItems = {
       title: 'Об университете',
       submenu: [
         { title: 'История', link: '/about/history' },
-        { title: 'Сведения об СПбГУ', link: '/university-info' }
+        { title: 'Сведения об СПбГУ', link: '/about/info' }
       ]
     },
     { title: 'Филиал в г.Ташкенте', 
       submenu: [
         { title: 'О филиале', link: '/branch-tashkent/about_filial' },
-        { title: 'Руководство', link: '/branch-tashkent/guide' },
+        { title: 'Руководство', link: '/branch-tashkent/leadership' }
       ]
     }
   ],
@@ -115,9 +116,15 @@ function Header() {
                 {menuItems[key].map((item, index) => (
                   <div key={index} className="dropdown-item-container">
                     {item.link ? (
-                      <a href={item.link} className="dropdown-item text-sm">
-                        {item.title}
-                      </a>
+                      item.link.startsWith('http') ? (
+                        <a href={item.link} className="dropdown-item text-sm" target="_blank" rel="noopener noreferrer">
+                          {item.title}
+                        </a>
+                      ) : (
+                        <Link to={item.link} className="dropdown-item text-sm">
+                          {item.title}
+                        </Link>
+                      )
                     ) : (
                       <div 
                         className={`dropdown-item text-sm submenu-trigger ${item.submenu ? 'has-submenu' : ''}`}
@@ -140,13 +147,25 @@ function Header() {
                         onMouseLeave={handleSubmenuLeave}
                       >
                         {item.submenu.map((subItem, subIndex) => (
-                          <a
-                            key={subIndex}
-                            href={subItem.link}
-                            className="dropdown-item text-sm"
-                          >
-                            {subItem.title}
-                          </a>
+                          subItem.link?.startsWith('http') ? (
+                            <a
+                              key={subIndex}
+                              href={subItem.link}
+                              className="dropdown-item text-sm"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {subItem.title}
+                            </a>
+                          ) : (
+                            <Link
+                              key={subIndex}
+                              to={subItem.link || ''}
+                              className="dropdown-item text-sm"
+                            >
+                              {subItem.title}
+                            </Link>
+                          )
                         ))}
                       </div>
                     )}

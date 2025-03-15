@@ -1,6 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { Language } from '../../contexts/LanguageContextType';
+import { useTheme } from '../../contexts/ThemeContext';
+import { ExternalLink } from 'lucide-react';
 import './UniversityInfo.scss';
 
 type Translations = {
@@ -8,11 +10,6 @@ type Translations = {
     title: string;
     description: string;
     button: string;
-    submenu: {
-      title: string;
-      description: string;
-      link: string;
-    };
   };
 };
 
@@ -20,64 +17,47 @@ const translations: Translations = {
   ru: {
     title: 'Сведения об СПбГУ',
     description: 'Вы будете перенаправлены на официальную страницу СПбГУ с основными сведениями об университете.',
-    button: 'Перейти к сведениям',
-    submenu: {
-      title: 'Сведения об СПбГУ',
-      description: 'Вы будете перенаправлены на официальную страницу СПбГУ с основными сведениями об университете.',
-      link: 'https://spbu.ru/sveden/common'
-    }
+    button: 'Перейти к сведениям'
   },
   uz: {
     title: 'SPbDU haqida ma\'lumot',
     description: 'Siz universitet haqidagi asosiy ma\'lumotlar bilan SPbDUning rasmiy veb-sahifasiga yo\'naltirilasiz.',
-    button: 'Ma\'lumotlarga o\'tish',
-    submenu: {
-      title: 'SPbDU haqida ma\'lumot',
-      description: 'Siz universitet haqidagi asosiy ma\'lumotlar bilan SPbDUning rasmiy veb-sahifasiga yo\'naltirilasiz.',
-      link: 'https://spbu.ru/sveden/common'
-    }
+    button: 'Ma\'lumotlarga o\'tish'
   },
   en: {
     title: 'Information about SPbU',
     description: 'You will be redirected to the official SPbU webpage with basic information about the university.',
-    button: 'Go to information',
-    submenu: {
-      title: 'Information about SPbU',
-      description: 'You will be redirected to the official SPbU webpage with basic information about the university.',
-      link: 'https://spbu.ru/sveden/common'
-    }
+    button: 'Go to information'
   }
 };
 
 const UniversityInfo: React.FC = () => {
-  const context = useContext(LanguageContext);
-  if (!context) throw new Error('UniversityInfo must be used within a LanguageProvider');
+  const { theme } = useTheme();
+  const langContext = React.useContext(LanguageContext);
   
-  const { language } = context;
+  if (!langContext) {
+    throw new Error('UniversityInfo must be used within Language Provider');
+  }
+  
+  const { language } = langContext;
   const t = translations[language];
 
   return (
-    <div className="university-info">
-      <div className="info-content">
-        <h1>{t.title}</h1>
-        <p>{t.description}</p>
+    <div className={`university-info ${theme}`}>
+      <div className="content-container">
+        <div className="text-content">
+          <h1 className="title">{t.title}</h1>
+          <p className="description">{t.description}</p>
+        </div>
         <a
           href="https://spbu.ru/sveden/common"
           target="_blank"
           rel="noopener noreferrer"
-          className="info-link"
+          className="info-button"
         >
-          {t.button}
+          <span>{t.button}</span>
+          <ExternalLink size={20} />
         </a>
-      </div>
-      <div className="submenu">
-        {Object.values(translations).map((submenu, index) => (
-          <div key={index}>
-            <h1>{submenu.submenu.title}</h1>
-            <p>{submenu.submenu.description}</p>
-            <a href={submenu.submenu.link} className="btn">{submenu.button}</a>
-          </div>
-        ))}
       </div>
     </div>
   );
