@@ -8,6 +8,11 @@ type Translations = {
     title: string;
     description: string;
     button: string;
+    submenu: {
+      title: string;
+      description: string;
+      link: string;
+    };
   };
 };
 
@@ -15,17 +20,32 @@ const translations: Translations = {
   ru: {
     title: 'Сведения об СПбГУ',
     description: 'Вы будете перенаправлены на официальную страницу СПбГУ с основными сведениями об университете.',
-    button: 'Перейти к сведениям'
+    button: 'Перейти к сведениям',
+    submenu: {
+      title: 'Сведения об СПбГУ',
+      description: 'Вы будете перенаправлены на официальную страницу СПбГУ с основными сведениями об университете.',
+      link: 'https://spbu.ru/sveden/common'
+    }
   },
   uz: {
     title: 'SPbDU haqida ma\'lumot',
     description: 'Siz universitet haqidagi asosiy ma\'lumotlar bilan SPbDUning rasmiy veb-sahifasiga yo\'naltirilasiz.',
-    button: 'Ma\'lumotlarga o\'tish'
+    button: 'Ma\'lumotlarga o\'tish',
+    submenu: {
+      title: 'SPbDU haqida ma\'lumot',
+      description: 'Siz universitet haqidagi asosiy ma\'lumotlar bilan SPbDUning rasmiy veb-sahifasiga yo\'naltirilasiz.',
+      link: 'https://spbu.ru/sveden/common'
+    }
   },
   en: {
     title: 'Information about SPbU',
     description: 'You will be redirected to the official SPbU webpage with basic information about the university.',
-    button: 'Go to information'
+    button: 'Go to information',
+    submenu: {
+      title: 'Information about SPbU',
+      description: 'You will be redirected to the official SPbU webpage with basic information about the university.',
+      link: 'https://spbu.ru/sveden/common'
+    }
   }
 };
 
@@ -41,17 +61,23 @@ const UniversityInfo: React.FC = () => {
       <div className="info-content">
         <h1>{t.title}</h1>
         <p>{t.description}</p>
-        <a 
-          href="https://spbu.ru/sveden/common" 
-          target="_blank" 
-          rel="noopener noreferrer" 
+        <a
+          href="https://spbu.ru/sveden/common"
+          target="_blank"
+          rel="noopener noreferrer"
           className="info-link"
-          onClick={() => {
-            window.open('https://spbu.ru/sveden/common', '_blank', 'noopener,noreferrer');
-          }}
         >
           {t.button}
         </a>
+      </div>
+      <div className="submenu">
+        {Object.values(translations).map((submenu, index) => (
+          <div key={index}>
+            <h1>{submenu.submenu.title}</h1>
+            <p>{submenu.submenu.description}</p>
+            <a href={submenu.submenu.link} className="btn">{submenu.button}</a>
+          </div>
+        ))}
       </div>
     </div>
   );

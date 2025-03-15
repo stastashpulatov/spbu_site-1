@@ -20,6 +20,7 @@ const menuItems: MenuItems = {
       title: 'Об университете',
       submenu: [
         { title: 'История', link: '/about/history' },
+        { title: 'Сведения об СПбГУ', link: '/university-info' }
       ]
     },
     { title: 'Филиал в г.Ташкенте', 
