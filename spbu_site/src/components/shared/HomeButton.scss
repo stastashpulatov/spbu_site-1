@@ -1,0 +1,153 @@
+.home-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+  padding: 0;
+  transform-origin: center;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  &:hover {
+    transform: scale(1.05);
+
+    .button-content {
+      background: linear-gradient(135deg, #2c5282 0%, #4299e1 100%);
+      box-shadow: 0 8px 20px rgba(66, 153, 225, 0.3);
+
+      .icon {
+        transform: translateY(-2px) rotate(-5deg);
+        
+        .icon-path {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      .text {
+        transform: translateY(-2px);
+        opacity: 1;
+      }
+
+      .particles .particle {
+        animation: particle-burst 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      }
+    }
+  }
+
+  .button-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #2c5282 0%, #3182ce 100%);
+    border-radius: 50px;
+    color: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(49, 130, 206, 0.2);
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+      transform: rotate(0deg);
+      transition: transform 0.6s ease;
+    }
+
+    &:hover::before {
+      transform: rotate(180deg);
+    }
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .icon-path {
+      stroke: currentColor;
+      stroke-dasharray: 80;
+      stroke-dashoffset: 80;
+      transition: stroke-dashoffset 0.6s ease;
+    }
+  }
+
+  .text {
+    font-size: 1rem;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+    opacity: 0.9;
+  }
+
+  .particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.8);
+      opacity: 0;
+
+      @for $i from 1 through 6 {
+        &:nth-child(#{$i}) {
+          $angle: 60deg * $i;
+          $delay: 0.1s * $i;
+          
+          transform: rotate($angle) translateY(0);
+          animation-delay: $delay;
+        }
+      }
+    }
+  }
+}
+
+@keyframes particle-burst {
+  0% {
+    opacity: 1;
+    transform: rotate(var(--rotation)) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(var(--rotation)) translateY(-20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .home-button {
+    bottom: 1.5rem;
+    right: 1.5rem;
+
+    .button-content {
+      padding: 0.6rem 1.2rem;
+    }
+
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .text {
+      font-size: 0.9rem;
+    }
+  }
+}

@@ -32,10 +32,17 @@ const menuItems: MenuItems = {
     }
   ],
   "Образование": [
-    { title: 'Бакалавриат',
+    { 
+      title: 'Бакалавриат',
       submenu: [
-        { title: 'Международный бизнес в цифровой экономике', link: 'economy' },
-        {title: 'Программирование и информационные технологии', link: 'fundamental-computer-science-and-information-technology'}
+        { 
+          title: 'Международный бизнес в цифровой экономике',
+          link: '/education/bachelor/economy'
+        },
+        { 
+          title: 'Программирование и информационные технологии',
+          link: '/education/bachelor/programming'
+        }
       ]
     },
     { title: 'Магистратура',
