@@ -9,6 +9,7 @@ import BranchAbout from "./components/pages/BranchAbout";
 import Leadership from "./components/pages/Leadership";
 import InternationalBusiness from "./components/pages/InternationalBusiness";
 import Programming from "./components/pages/Programming";
+import DigitalEntrepreneurship from "./components/pages/DigitalEntrepreneurship";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
 
@@ -28,6 +29,7 @@ function App() {
               <Route path='/branch-tashkent/leadership' element={<Leadership />} />
               <Route path='/education/bachelor/economy' element={<InternationalBusiness />} />
               <Route path='/education/bachelor/programming' element={<Programming />} />
+              <Route path='/education/master/digital-entrepreneurship' element={<DigitalEntrepreneurship />} />
             </Routes>
           </Router>
         </div>
