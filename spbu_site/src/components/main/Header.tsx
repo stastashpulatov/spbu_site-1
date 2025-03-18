@@ -48,7 +48,7 @@ const menuItems: MenuItems = {
     { title: 'Магистратура',
       submenu: [
         { title: 'Международное предпринимательство в цифровой экономике', link: '/education/master/digital-entrepreneurship'},
-        { title: 'Международное частное право', link: '/education/master/private-international-law'},
+        { title: 'Международное частное право', link: '/education/master/international-private-law'},
         { title: 'Современный Китай: экономика, политика, общество', link: '/education/master/modern-china'}
 
       ]
