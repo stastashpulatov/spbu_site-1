@@ -1,88 +1,134 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { LanguageContext } from '../../contexts/LanguageContext';
+import { Language } from '../../contexts/LanguageContextType';
+import { useTheme } from '../../contexts/ThemeContext';
+import HomeButton from '../shared/HomeButton';
 import './About.scss';
 
+type Translations = {
+  [key in Language]: {
+    title: string;
+    description: string[];
+    facts: {
+      title: string;
+      items: {
+        number: string;
+        text: string;
+      }[];
+    };
+    mission: {
+      title: string;
+      text: string;
+    };
+  };
+};
+
+const translations: Translations = {
+  ru: {
+    title: 'О СПбГУ',
+    description: [
+      'Санкт-Петербургский государственный университет — один из старейших, крупнейших и ведущих классических университетов России.',
+      'Основанный в 1724 году по указу Петра I, университет сегодня является научно-образовательным центром мирового значения.',
+      'СПбГУ — первый университет России, в котором обучаются более 30 000 студентов по различным программам.'
+    ],
+    facts: {
+      title: 'СПбГУ в цифрах',
+      items: [
+        { number: '1724', text: 'Год основания' },
+        { number: '398', text: 'Образовательных программ' },
+        { number: '30000+', text: 'Студентов' },
+        { number: '6000+', text: 'Преподавателей' }
+      ]
+    },
+    mission: {
+      title: 'Миссия',
+      text: 'Приумножение образовательного, научного и культурного потенциала России через сохранение традиций, развитие инноваций и интеграцию в международное академическое сообщество.'
+    }
+  },
+  uz: {
+    title: 'SPbDU haqida',
+    description: [
+      'Sankt-Peterburg davlat universiteti - Rossiyaning eng qadimgi, eng yirik va yetakchi klassik universitetlaridan biri.',
+      'Pyotr I farmoni bilan 1724 yilda tashkil etilgan universitet bugungi kunda jahon ahamiyatiga ega ilmiy-ta\'lim markazidir.',
+      'SPbDU - Rossiyaning birinchi universiteti bo\'lib, unda turli dasturlar bo\'yicha 30 000 dan ortiq talaba ta\'lim oladi.'
+    ],
+    facts: {
+      title: 'SPbDU raqamlarda',
+      items: [
+        { number: '1724', text: 'Tashkil etilgan yil' },
+        { number: '398', text: 'Ta\'lim dasturlari' },
+        { number: '30000+', text: 'Talabalar' },
+        { number: '6000+', text: 'O\'qituvchilar' }
+      ]
+    },
+    mission: {
+      title: 'Vazifa',
+      text: 'An\'analarni saqlash, innovatsiyalarni rivojlantirish va xalqaro akademik hamjamiyatga integratsiyalashish orqali Rossiyaning ta\'lim, ilmiy va madaniy salohiyatini oshirish.'
+    }
+  },
+  en: {
+    title: 'About SPbU',
+    description: [
+      'Saint Petersburg State University is one of the oldest, largest, and leading classical universities in Russia.',
+      'Founded in 1724 by decree of Peter I, the university today is a world-class scientific and educational center.',
+      'SPbU is Russia\'s first university, with over 30,000 students enrolled in various programs.'
+    ],
+    facts: {
+      title: 'SPbU in Numbers',
+      items: [
+        { number: '1724', text: 'Year founded' },
+        { number: '398', text: 'Educational programs' },
+        { number: '30000+', text: 'Students' },
+        { number: '6000+', text: 'Faculty members' }
+      ]
+    },
+    mission: {
+      title: 'Mission',
+      text: 'Enhancing Russia\'s educational, scientific, and cultural potential through preserving traditions, developing innovations, and integrating into the international academic community.'
+    }
+  }
+};
+
 const About: React.FC = () => {
+  const { theme } = useTheme();
+  const langContext = useContext(LanguageContext);
+  
+  if (!langContext) {
+    throw new Error('About must be used within Language Provider');
+  }
+  
+  const { language } = langContext;
+  const t = translations[language];
+
   return (
-    <div className="about-page">
-      <div className="about-container">
-        <h1 className="about-title">О Санкт-Петербургском государственном университете</h1>
-        
-        <section className="about-section">
-          <h2>Общая информация</h2>
-          <p>
-            Санкт-Петербургский государственный университет — один из крупнейших и старейших университетов России, 
-            основанный в 1724 году. За свою почти 300-летнюю историю СПбГУ подготовил множество выдающихся 
-            выпускников, среди которых нобелевские лауреаты, видные государственные и общественные деятели, 
-            известные деятели науки и культуры.
-          </p>
-        </section>
-
-        <section className="about-section">
-          <h2>Миссия университета</h2>
-          <p>
-            Миссия СПбГУ — создание, сохранение и передача следующим поколениям научных знаний и культурных 
-            ценностей, формирование высокообразованных, творчески мыслящих специалистов, способных решать 
-            задачи в интересах общества и государства.
-          </p>
-        </section>
-
-        <section className="about-section">
-          <div className="stats-grid">
-            <div className="stat-item">
-              <h3>30000+</h3>
-              <p>Студентов</p>
+    <div className={`about ${theme}`}>
+      <HomeButton />
+      <div className="content-container">
+        <h1>{t.title}</h1>
+        <div className="about-grid">
+          <div className="main-content">
+            <div className="description-card">
+              {t.description.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
             </div>
-            <div className="stat-item">
-              <h3>400+</h3>
-              <p>Образовательных программ</p>
-            </div>
-            <div className="stat-item">
-              <h3>6000+</h3>
-              <p>Преподавателей и научных сотрудников</p>
-            </div>
-            <div className="stat-item">
-              <h3>25</h3>
-              <p>Факультетов и институтов</p>
+            <div className="mission-card">
+              <h2>{t.mission.title}</h2>
+              <p>{t.mission.text}</p>
             </div>
           </div>
-        </section>
-
-        <section className="about-section">
-          <h2>Образование мирового уровня</h2>
-          <p>
-            СПбГУ предлагает широкий спектр образовательных программ, соответствующих международным 
-            стандартам качества. Университет активно развивает международное сотрудничество, участвует 
-            в программах академического обмена и реализует совместные научные проекты с ведущими 
-            университетами мира.
-          </p>
-        </section>
-
-        <section className="about-section">
-          <h2>Научная деятельность</h2>
-          <p>
-            Университет является одним из ведущих научных центров России. В СПбГУ работают десятки научных 
-            лабораторий и исследовательских центров, где проводятся фундаментальные и прикладные исследования 
-            по широкому спектру направлений.
-          </p>
-        </section>
-
-        <section className="about-section">
-          <h2>Инфраструктура</h2>
-          <div className="facilities-grid">
-            <div className="facility-item">
-              <h3>Научная библиотека</h3>
-              <p>Более 7 миллионов единиц хранения</p>
-            </div>
-            <div className="facility-item">
-              <h3>Научный парк</h3>
-              <p>Современное исследовательское оборудование</p>
-            </div>
-            <div className="facility-item">
-              <h3>Кампусы</h3>
-              <p>Комфортные условия для учебы и проживания</p>
+          <div className="facts-card">
+            <h2>{t.facts.title}</h2>
+            <div className="facts-grid">
+              {t.facts.items.map((fact, index) => (
+                <div key={index} className="fact-item">
+                  <div className="fact-number">{fact.number}</div>
+                  <div className="fact-text">{fact.text}</div>
+                </div>
+              ))}
             </div>
           </div>
-        </section>
+        </div>
       </div>
     </div>
   );

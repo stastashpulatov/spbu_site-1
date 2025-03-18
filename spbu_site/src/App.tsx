@@ -7,6 +7,10 @@ import History from "./components/pages/History";
 import UniversityInfo from "./components/pages/UniversityInfo";
 import BranchAbout from "./components/pages/BranchAbout";
 import Leadership from "./components/pages/Leadership";
+import InternationalBusiness from "./components/pages/InternationalBusiness";
+import Programming from "./components/pages/Programming";
+import DigitalEntrepreneurship from "./components/pages/DigitalEntrepreneurship";
+import InternationalPrivateLaw from "./components/pages/InternationalPrivateLaw";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
 
@@ -24,6 +28,10 @@ function App() {
               <Route path='/about/info' element={<UniversityInfo />} />
               <Route path='/branch-tashkent/about_filial' element={<BranchAbout />} />
               <Route path='/branch-tashkent/leadership' element={<Leadership />} />
+              <Route path='/education/bachelor/economy' element={<InternationalBusiness />} />
+              <Route path='/education/bachelor/programming' element={<Programming />} />
+              <Route path='/education/master/digital-entrepreneurship' element={<DigitalEntrepreneurship />} />
+              <Route path='/education/master/international-private-law' element={<InternationalPrivateLaw />} />
             </Routes>
           </Router>
         </div>
