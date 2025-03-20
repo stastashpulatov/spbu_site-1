@@ -11,7 +11,9 @@ import InternationalBusiness from "./components/pages/InternationalBusiness";
 import Programming from "./components/pages/Programming";
 import DigitalEntrepreneurship from "./components/pages/DigitalEntrepreneurship";
 import InternationalPrivateLaw from "./components/pages/InternationalPrivateLaw";
+
 import ModernChina from "./components/pages/ModernChina";
+
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
 
@@ -33,7 +35,9 @@ function App() {
               <Route path='/education/bachelor/programming' element={<Programming />} />
               <Route path='/education/master/digital-entrepreneurship' element={<DigitalEntrepreneurship />} />
               <Route path='/education/master/international-private-law' element={<InternationalPrivateLaw />} />
+
               <Route path='/education/master/modern-china' element={<ModernChina />} />
+
             </Routes>
           </Router>
         </div>

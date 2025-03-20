@@ -180,6 +180,7 @@ const InternationalPrivateLaw: React.FC = () => {
   return (
     <div className={`international-private-law ${theme}`}>
       <HomeButton />
+
       <section className="hero">
         <div className="content">
           <h1>{content.title}</h1>
@@ -221,6 +222,40 @@ const InternationalPrivateLaw: React.FC = () => {
       </section>
 
       <section className="description-section">
+
+      <section className="hero-section">
+        <div className="hero-content">
+          <h1>{content.title}</h1>
+          <div className="info-list">
+            <div className="info-item">
+              <span className="code">{content.code}</span>
+            </div>
+            <div className="info-item">
+              <span className="label">Уровень:</span>
+              <span className="value">{content.level}</span>
+            </div>
+            <div className="info-item">
+              <span className="label">Форма обучения:</span>
+              <span className="value">{content.form}</span>
+            </div>
+            <div className="info-item">
+              <span className="label">Продолжительность:</span>
+              <span className="value">{content.duration}</span>
+            </div>
+            <div className="info-item">
+              <span className="label">Факультет:</span>
+              <span className="value">{content.department}</span>
+            </div>
+            <div className="info-item">
+              <span className="label">Стоимость:</span>
+              <span className="value">{content.cost}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="admission-section">
+
         <h2>{content.admissionTitle}</h2>
         <ul>
           {content.admissionText.map((text, index) => (
@@ -228,6 +263,16 @@ const InternationalPrivateLaw: React.FC = () => {
           ))}
         </ul>
       </section>
+
+
+
+      <section className="program-section">
+        <h2>{content.mainProgramTitle}</h2>
+        {content.mainProgramPoints.map((point, index) => (
+          <p key={index}>{point}</p>
+        ))}
+      </section>
+
 
       <section className="courses-section">
         <h2>{content.mainCoursesTitle}</h2>
@@ -238,7 +283,11 @@ const InternationalPrivateLaw: React.FC = () => {
         </ul>
       </section>
 
+
       <section className="description-section">
+
+      <section className="teachers-section">
+
         <h2>{content.teachersTitle}</h2>
         <ul>
           {content.teachers.map((teacher, index) => (
