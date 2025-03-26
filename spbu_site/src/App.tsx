@@ -13,6 +13,7 @@ import DigitalEntrepreneurship from "./components/pages/DigitalEntrepreneurship"
 import InternationalPrivateLaw from "./components/pages/InternationalPrivateLaw";
 
 import ModernChina from "./components/pages/ModernChina";
+import Admission from "./components/pages/Admission";
 
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
@@ -37,7 +38,7 @@ function App() {
               <Route path='/education/master/international-private-law' element={<InternationalPrivateLaw />} />
 
               <Route path='/education/master/modern-china' element={<ModernChina />} />
-
+              <Route path='/admission' element={<Admission />} />
             </Routes>
           </Router>
         </div>

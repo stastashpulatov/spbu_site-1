@@ -22,6 +22,14 @@ type Translations = {
     mainProgramPoints: string[];
     teachersTitle: string;
     teachers: string[];
+    labels: {
+      code: string;
+      level: string;
+      form: string;
+      duration: string;
+      department: string;
+      cost: string;
+    };
   };
 };
 
@@ -34,6 +42,14 @@ const translations: Translations = {
     duration: '2 года',
     department: 'Юриспруденция',
     cost: '28 000 000 сум',
+    labels: {
+      code: 'Код специальности',
+      level: 'Уровень',
+      form: 'Форма обучения',
+      duration: 'Длительность',
+      department: 'Факультет',
+      cost: 'Стоимость'
+    },
     admissionTitle: 'Вступительные испытания',
     admissionText: [
       'Теория государства и права (письменно)',
@@ -82,6 +98,14 @@ const translations: Translations = {
     duration: '2 yil',
     department: 'Huquqshunoslik',
     cost: '28 000 000 so\'m',
+    labels: {
+      code: 'Mutaxassislik kodi',
+      level: 'Daraja',
+      form: 'Ta\'lim shakli',
+      duration: 'Davomiyligi',
+      department: 'Fakultet',
+      cost: 'Narxi'
+    },
     admissionTitle: 'Kirish imtihonlari',
     admissionText: [
       'Davlat va huquq nazariyasi (yozma)',
@@ -130,6 +154,14 @@ const translations: Translations = {
     duration: '2 years',
     department: 'Law',
     cost: '28,000,000 UZS',
+    labels: {
+      code: 'Program Code',
+      level: 'Level',
+      form: 'Study Form',
+      duration: 'Duration',
+      department: 'Department',
+      cost: 'Cost'
+    },
     admissionTitle: 'Entrance Examinations',
     admissionText: [
       'Theory of State and Law (written)',
@@ -173,9 +205,15 @@ const translations: Translations = {
 };
 
 const InternationalPrivateLaw: React.FC = () => {
-  const { language = 'ru' } = useContext(LanguageContext) || {};
-  const { theme = 'light' } = useTheme() || {};
-  const content = translations[language as keyof Translations];
+  const langContext = useContext(LanguageContext);
+  const { theme } = useTheme();
+  
+  if (!langContext) {
+    throw new Error('InternationalPrivateLaw must be used within Language Provider');
+  }
+  
+  const { language } = langContext;
+  const content = translations[language];
 
   return (
     <div className={`international-private-law ${theme}`}>
@@ -189,73 +227,41 @@ const InternationalPrivateLaw: React.FC = () => {
 
       <div className="info-grid">
         <div className="info-item">
-          <span className="label">Код специальности</span>
+          <span className="label">{content.labels.code}</span>
           <span className="value">{content.code}</span>
         </div>
         <div className="info-item">
-          <span className="label">Уровень</span>
+          <span className="label">{content.labels.level}</span>
           <span className="value">{content.level}</span>
         </div>
         <div className="info-item">
-          <span className="label">Форма обучения</span>
+          <span className="label">{content.labels.form}</span>
           <span className="value">{content.form}</span>
         </div>
         <div className="info-item">
-          <span className="label">Длительность</span>
+          <span className="label">{content.labels.duration}</span>
           <span className="value">{content.duration}</span>
         </div>
         <div className="info-item">
-          <span className="label">Факультет</span>
+          <span className="label">{content.labels.department}</span>
           <span className="value">{content.department}</span>
         </div>
         <div className="info-item">
-          <span className="label">Стоимость</span>
+          <span className="label">{content.labels.cost}</span>
           <span className="value">{content.cost}</span>
         </div>
       </div>
 
       <section className="description-section">
         <h2>{content.mainProgramTitle}</h2>
-        {content.mainProgramPoints.map((point, index) => (
-          <p key={index}>{point}</p>
-        ))}
-      </section>
-
-      <section className="description-section">
-
-      <section className="hero-section">
-        <div className="hero-content">
-          <h1>{content.title}</h1>
-          <div className="info-list">
-            <div className="info-item">
-              <span className="code">{content.code}</span>
-            </div>
-            <div className="info-item">
-              <span className="label">Уровень:</span>
-              <span className="value">{content.level}</span>
-            </div>
-            <div className="info-item">
-              <span className="label">Форма обучения:</span>
-              <span className="value">{content.form}</span>
-            </div>
-            <div className="info-item">
-              <span className="label">Продолжительность:</span>
-              <span className="value">{content.duration}</span>
-            </div>
-            <div className="info-item">
-              <span className="label">Факультет:</span>
-              <span className="value">{content.department}</span>
-            </div>
-            <div className="info-item">
-              <span className="label">Стоимость:</span>
-              <span className="value">{content.cost}</span>
-            </div>
-          </div>
+        <div className="description-content">
+          {content.mainProgramPoints.map((point, index) => (
+            <p key={index}>{point}</p>
+          ))}
         </div>
       </section>
 
       <section className="admission-section">
-
         <h2>{content.admissionTitle}</h2>
         <ul>
           {content.admissionText.map((text, index) => (
@@ -263,16 +269,6 @@ const InternationalPrivateLaw: React.FC = () => {
           ))}
         </ul>
       </section>
-
-
-
-      <section className="program-section">
-        <h2>{content.mainProgramTitle}</h2>
-        {content.mainProgramPoints.map((point, index) => (
-          <p key={index}>{point}</p>
-        ))}
-      </section>
-
 
       <section className="courses-section">
         <h2>{content.mainCoursesTitle}</h2>
@@ -283,11 +279,7 @@ const InternationalPrivateLaw: React.FC = () => {
         </ul>
       </section>
 
-
-      <section className="description-section">
-
       <section className="teachers-section">
-
         <h2>{content.teachersTitle}</h2>
         <ul>
           {content.teachers.map((teacher, index) => (

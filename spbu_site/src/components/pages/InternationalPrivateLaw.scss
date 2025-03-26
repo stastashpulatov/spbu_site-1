@@ -7,8 +7,9 @@
     background-color: #ffffff;
     color: #333333;
 
-
-    .description-section {
+    .description-section,
+    .admission-section,
+    .teachers-section {
       background: rgba(0, 0, 0, 0.02);
     }
 
@@ -16,15 +17,15 @@
       background: rgba(0, 0, 0, 0.03);
       border: 1px solid rgba(0, 0, 0, 0.1);
     }
-
   }
 
   &.dark {
     background-color: #1a1a1a;
     color: #ffffff;
 
-
-    .description-section {
+    .description-section,
+    .admission-section,
+    .teachers-section {
       background: rgba(255, 255, 255, 0.05);
     }
 
@@ -32,7 +33,6 @@
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
-
   }
 
   .hero {
@@ -40,8 +40,6 @@
 
     height: 80vh;
     min-height: 600px;
-
-    height: 100vh;
 
     display: flex;
     align-items: center;
@@ -70,8 +68,6 @@
         rgba(0, 0, 0, 0.7) 100%
       );
       backdrop-filter: blur(1px);
-
-      background: rgba(0, 0, 0, 0.5);
     }
 
     .content {
@@ -112,14 +108,6 @@
       to {
         transform: translateY(0);
         opacity: 1;
-
-
-      h1 {
-        font-size: 3rem;
-        margin-bottom: 2rem;
-        font-weight: 700;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-
       }
     }
   }
@@ -141,12 +129,6 @@
     margin-right: auto;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 
-    margin-top: 2rem;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 2rem;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-
     .info-item {
       display: flex;
       flex-direction: column;
@@ -164,25 +146,20 @@
         font-size: 1.2rem;
         font-weight: 600;
         color: #ffffff;
-
-      }
-
-      .value {
-        font-size: 1.1rem;
-        font-weight: 600;
-
       }
     }
   }
 
-  .description-section {
+  .description-section,
+  .admission-section,
+  .teachers-section {
     max-width: 1200px;
     width: 90%;
     margin: 4rem auto;
     padding: 2rem;
-
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-out;
 
     h2 {
       font-size: 2rem;
@@ -193,22 +170,12 @@
     p {
       margin-bottom: 1rem;
       line-height: 1.8;
-
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-    p {
-      margin-bottom: 1rem;
-      line-height: 1.6;
-
       font-size: 1.1rem;
 
       &:last-child {
         margin-bottom: 0;
       }
     }
-
 
     ul {
       list-style: none;
@@ -228,15 +195,11 @@
         }
       }
     }
-
   }
 
   .courses-section {
     max-width: 1200px;
     width: 90%;
-
-    margin: 4rem auto;
-    padding: 2rem;
 
     margin: 0 auto 4rem;
     padding: 2rem;
@@ -249,9 +212,7 @@
       font-size: 2rem;
       margin-bottom: 2rem;
       text-align: center;
-
       font-weight: 600;
-
     }
 
     ul {
@@ -265,23 +226,12 @@
       li {
         padding: 1.2rem;
         border-radius: 12px;
+        background: rgba(255, 255, 255, 0.05);
         transition: all 0.3s ease;
 
         &:hover {
           transform: translateY(-3px);
           box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-
-      gap: 1rem;
-
-      li {
-        padding: 1rem;
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 8px;
-        transition: transform 0.2s ease;
-
-        &:hover {
-          transform: translateY(-2px);
-
         }
       }
     }
@@ -294,19 +244,13 @@
       background-attachment: scroll;
 
       .content h1 {
-        font-size: 2.8rem;
+        font-size: 2rem;
       }
-
-    .hero .content h1 {
-      font-size: 2rem;
-
     }
 
     .info-grid {
       grid-template-columns: 1fr;
-
       margin-top: -2rem;
-
     }
 
     .courses-section ul {
