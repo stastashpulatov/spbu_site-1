@@ -64,18 +64,29 @@ const Admission: React.FC = () => {
       <section className="document-section">
         <h2>{content.documentTitle}</h2>
         <div className="document-container">
-          <div className="document-placeholder">
-            <p>Документы для поступления будут доступны в ближайшее время</p>
-          </div>
+          <embed src="/files/Прием_2024.pdf" type="application/pdf" />
+          <a 
+            href="/files/Прием_2024.pdf" 
+            download
+            className="download-button"
+          >
+            {content.downloadButton}
+          </a>
         </div>
       </section>
 
       <section className="video-section">
         <h2>{content.videoTitle}</h2>
         <div className="video-container">
-          <div className="video-placeholder">
-            <p>Видео будет добавлено позже</p>
-          </div>
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/5f5BRLgkgKM"
+            title={content.videoTitle}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
         </div>
       </section>
     </div>
