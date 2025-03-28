@@ -201,6 +201,9 @@
 
     .courses-section {
       ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
         columns: 2;
         column-gap: 2rem;
 
@@ -215,9 +218,24 @@
           background: var(--section-bg);
           border-radius: 6px;
           transition: transform 0.2s ease;
+          color: var(--text-primary);
+          position: relative;
+          padding-left: 2rem;
+
+          &::before {
+            content: '•';
+            position: absolute;
+            left: 0.75rem;
+            color: var(--accent-color);
+            font-weight: bold;
+          }
 
           &:hover {
             transform: translateX(5px);
+          }
+
+          &:last-child {
+            margin-bottom: 0;
           }
         }
       }

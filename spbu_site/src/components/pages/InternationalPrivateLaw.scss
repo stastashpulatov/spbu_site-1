@@ -6,6 +6,7 @@
   &.light {
     background-color: #ffffff;
     color: #333333;
+    --accent-color: #2c5282;
 
     .description-section,
     .admission-section,
@@ -22,6 +23,7 @@
   &.dark {
     background-color: #1a1a1a;
     color: #ffffff;
+    --accent-color: #63b3ed;
 
     .description-section,
     .admission-section,
@@ -191,7 +193,7 @@
           content: '•';
           position: absolute;
           left: 0;
-          color: #666;
+          color: var(--accent-color);
         }
       }
     }
