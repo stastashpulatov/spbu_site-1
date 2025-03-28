@@ -56,8 +56,8 @@ const menuItems: MenuItems = {
   ],
 
   "Поступающим": [
-    { title: 'Приём', link: '/admissions' },
-    { title: 'Личный кабинет поступающего', link: '/applicant-account' }
+    { title: 'Приём', link: '/admission' },
+    { title: 'Личный кабинет поступающего', link: 'https://cabinet.spbu.ru/' }
   ],
   "Студентам": [
     { title: 'Расписание занятий', link: '/class-schedule' },
@@ -65,8 +65,8 @@ const menuItems: MenuItems = {
     { title: 'Личный кабинет студента', link: '/student-account' }
   ],
   "ТРКИ": [
-    { title: 'Общая информация', link: '/general-info' },
-    { title: 'Подготовка к экзамену', link: '/exam-preparation' }
+    { title: 'Общая информация', link: '/trki/general-info' },
+    { title: 'Подготовка к экзамену', link: '/trki/exam-preparation' }
   ],
   "Новости": [
     { title: 'Основные новости', link: '/news' },
