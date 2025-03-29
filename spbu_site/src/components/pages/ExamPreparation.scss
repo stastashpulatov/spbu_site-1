@@ -1,0 +1,60 @@
+.exam-preparation {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  h1 {
+    color: #fff;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .main-video {
+    margin-bottom: 3rem;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #000;
+    
+    iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
+      display: block;
+    }
+  }
+
+  .exam-sections {
+    .exam-section {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-left: 3px solid #e74c3c;
+
+      h2 {
+        color: #fff;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+      }
+
+      p {
+        color: #999;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+      }
+
+      .more-link {
+        color: #e74c3c;
+        text-decoration: none;
+        font-size: 0.9rem;
+        display: inline-block;
+        
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
