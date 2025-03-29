@@ -6,6 +6,7 @@
   &.light {
     background-color: #ffffff;
     color: #333333;
+    --accent-color: #2c5282;
 
     .description-section {
       background: rgba(0, 0, 0, 0.02);
@@ -21,7 +22,7 @@
   &.dark {
     background-color: #1a1a1a;
     color: #ffffff;
-
+    --accent-color: #63b3ed;
     .description-section {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -31,6 +32,7 @@
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
+    
   }
 
   .hero {
@@ -158,7 +160,7 @@
           content: '•';
           position: absolute;
           left: 0;
-          color: #666;
+          color: var(--accent-color);
         }
 
         &:last-child {
