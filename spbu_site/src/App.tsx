@@ -16,6 +16,9 @@ import ModernChina from "./components/pages/ModernChina";
 import Admission from "./components/pages/Admission";
 import TRKIGeneralInfo from "./components/pages/TRKIGeneralInfo";
 
+import ExamPreparation from "./components/pages/ExamPreparation";
+
+
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { AdminLogin, AdminDashboard, ProtectedRoute } from "./components/admin";
@@ -42,6 +45,9 @@ function App() {
               <Route path='/education/master/modern-china' element={<ModernChina />} />
               <Route path='/admission' element={<Admission />} />
               <Route path='/trki/general-info' element={<TRKIGeneralInfo />} />
+
+              <Route path='/trki/exam-preparation' element={<ExamPreparation />} />
+
               
               {/* Admin Routes */}
               <Route path='/admin' element={<Navigate to="/admin/login" replace />} />
