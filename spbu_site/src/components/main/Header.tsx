@@ -110,75 +110,86 @@ function Header() {
       <div className="menu-section">
         {Object.keys(menuItems).map((key) => (
           <div key={key} className="relative">
-            <button
-              className={`header-item flex items-center space-x-1 text-sm ${openMenu === key ? 'menu-open' : ''}`}
-              onMouseEnter={() => handleMenuEnter(key)}
-              onMouseLeave={handleMenuLeave}
-            >
-              <span>{key}</span>
-              <ChevronDown size={16} />
-            </button>
-            {openMenu === key && (
-              <div className="dropdown-menu" onMouseEnter={() => handleMenuEnter(key)} onMouseLeave={handleMenuLeave}>
-                {menuItems[key].map((item, index) => (
-                  <div key={index} className="dropdown-item-container">
-                    {item.link ? (
-                      item.link.startsWith('http') ? (
-                        <a href={item.link} className="dropdown-item text-sm" target="_blank" rel="noopener noreferrer">
-                          {item.title}
-                        </a>
-                      ) : (
-                        <Link to={item.link} className="dropdown-item text-sm">
-                          {item.title}
-                        </Link>
-                      )
-                    ) : (
-                      <div 
-                        className={`dropdown-item text-sm submenu-trigger ${item.submenu ? 'has-submenu' : ''}`}
-                        onMouseEnter={() => handleSubmenuEnter(item.title)}
-                        onMouseLeave={handleSubmenuLeave}
-                      >
-                        {item.title}
-                        {item.submenu && (
-                          <ChevronDown 
-                            size={16} 
-                            className="submenu-icon" 
-                          />
-                        )}
-                      </div>
-                    )}
-                    {item.submenu && openSubmenu === item.title && (
-                      <div 
-                        className="submenu"
-                        onMouseEnter={() => handleSubmenuEnter(item.title)}
-                        onMouseLeave={handleSubmenuLeave}
-                      >
-                        {item.submenu.map((subItem, subIndex) => (
-                          subItem.link?.startsWith('http') ? (
-                            <a
-                              key={subIndex}
-                              href={subItem.link}
-                              className="dropdown-item text-sm"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              {subItem.title}
+            {menuItems[key].length > 0 ? (
+              <>
+                <button
+                  className={`header-item flex items-center space-x-1 text-sm ${openMenu === key ? 'menu-open' : ''}`}
+                  onMouseEnter={() => handleMenuEnter(key)}
+                  onMouseLeave={handleMenuLeave}
+                >
+                  <span>{key}</span>
+                  <ChevronDown size={16} />
+                </button>
+                {openMenu === key && (
+                  <div className="dropdown-menu" onMouseEnter={() => handleMenuEnter(key)} onMouseLeave={handleMenuLeave}>
+                    {menuItems[key].map((item, index) => (
+                      <div key={index} className="dropdown-item-container">
+                        {item.link ? (
+                          item.link.startsWith('http') ? (
+                            <a href={item.link} className="dropdown-item text-sm" target="_blank" rel="noopener noreferrer">
+                              {item.title}
                             </a>
                           ) : (
-                            <Link
-                              key={subIndex}
-                              to={subItem.link || ''}
-                              className="dropdown-item text-sm"
-                            >
-                              {subItem.title}
+                            <Link to={item.link} className="dropdown-item text-sm">
+                              {item.title}
                             </Link>
                           )
-                        ))}
+                        ) : (
+                          <div 
+                            className={`dropdown-item text-sm submenu-trigger ${item.submenu ? 'has-submenu' : ''}`}
+                            onMouseEnter={() => handleSubmenuEnter(item.title)}
+                            onMouseLeave={handleSubmenuLeave}
+                          >
+                            {item.title}
+                            {item.submenu && (
+                              <ChevronDown 
+                                size={16} 
+                                className="submenu-icon" 
+                              />
+                            )}
+                          </div>
+                        )}
+                        {item.submenu && openSubmenu === item.title && (
+                          <div 
+                            className="submenu"
+                            onMouseEnter={() => handleSubmenuEnter(item.title)}
+                            onMouseLeave={handleSubmenuLeave}
+                          >
+                            {item.submenu.map((subItem, subIndex) => (
+                              subItem.link?.startsWith('http') ? (
+                                <a
+                                  key={subIndex}
+                                  href={subItem.link}
+                                  className="dropdown-item text-sm"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  {subItem.title}
+                                </a>
+                              ) : (
+                                <Link
+                                  key={subIndex}
+                                  to={subItem.link || ''}
+                                  className="dropdown-item text-sm"
+                                >
+                                  {subItem.title}
+                                </Link>
+                              )
+                            ))}
+                          </div>
+                        )}
                       </div>
-                    )}
+                    ))}
                   </div>
-                ))}
-              </div>
+                )}
+              </>
+            ) : (
+              <Link
+                to={`/${key.toLowerCase()}`}
+                className="header-item flex items-center space-x-1 text-sm"
+              >
+                <span>{key}</span>
+              </Link>
             )}
           </div>
         ))}

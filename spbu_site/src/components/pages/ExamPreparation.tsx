@@ -10,7 +10,7 @@ const ExamPreparation: React.FC = () => {
         <iframe 
           width="100%" 
           height="400" 
-          src="about:blank"
+          src="https://www.youtube.com/embed/cH_CTi6LnWk"
           title="ТРКИ видео"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
