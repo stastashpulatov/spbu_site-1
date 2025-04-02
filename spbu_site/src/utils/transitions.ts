@@ -1,5 +1,5 @@
-export type TransitionType = 'fade' | 'slide' | 'zoom' | 'flip';
-export type LoaderType = 'spinner' | 'dots' | 'progress';
+export type TransitionType = 'fade' | 'slide' | 'zoom' | 'flip' | 'scale' | 'blur';
+export type LoaderType = 'spinner' | 'dots' | 'progress' | 'pulse';
 
 interface AnimationConfig {
   duration: number;
@@ -10,6 +10,8 @@ interface AnimationConfig {
 interface TransitionConfig extends AnimationConfig {
   type: TransitionType;
   direction?: 'left' | 'right' | 'up' | 'down';
+  scale?: number;
+  blur?: number;
 }
 
 interface LoaderConfig extends AnimationConfig {
@@ -40,10 +42,11 @@ export class TransitionManager {
 
   public createTransitionStyles(elementId: string, config?: Partial<TransitionConfig>): string {
     const finalConfig = { ...this.defaultConfig, ...config };
-    const { type, duration, easing, direction } = finalConfig;
+    const { type, duration, easing, direction, scale = 0.95, blur = 5 } = finalConfig;
 
     let transform = '';
     let opacity = '';
+    let filter = '';
 
     switch (type) {
       case 'fade':
@@ -61,75 +64,123 @@ export class TransitionManager {
       case 'flip':
         transform = 'transform: perspective(400px) rotateX(-90deg);';
         break;
+      case 'scale':
+        transform = `transform: scale(${scale});`;
+        opacity = 'opacity: 0;';
+        break;
+      case 'blur':
+        filter = `filter: blur(${blur}px);`;
+        opacity = 'opacity: 0;';
+        break;
     }
 
     return `
       .${elementId}-enter {
         ${transform}
         ${opacity}
+        ${filter}
         transition: all ${duration}ms ${easing};
+        will-change: transform, opacity, filter;
       }
       .${elementId}-enter-active {
         transform: none;
         opacity: 1;
+        filter: none;
       }
       .${elementId}-exit {
         transform: none;
         opacity: 1;
+        filter: none;
         transition: all ${duration}ms ${easing};
+        will-change: transform, opacity, filter;
       }
       .${elementId}-exit-active {
         ${transform}
         ${opacity}
+        ${filter}
       }
     `;
   }
 
   public createLoader(config: LoaderConfig): string {
-    const { type, color, size = 40 } = config;
+    const { type, color, size = 40, duration = 1000 } = config;
 
     switch (type) {
       case 'spinner':
         return `
-          <div class="spinner" style="
+          <div class="loader-spinner" style="
             width: ${size}px;
             height: ${size}px;
-            border: 4px solid ${color};
-            border-top-color: transparent;
+            border: 4px solid ${color}40;
+            border-top-color: ${color};
             border-radius: 50%;
-            animation: spin 1s linear infinite;
+            animation: spin ${duration}ms linear infinite;
           "></div>
+          <style>
+            @keyframes spin {
+              to { transform: rotate(360deg); }
+            }
+          </style>
         `;
       case 'dots':
         return `
-          <div class="dots" style="display: flex; gap: 8px;">
-            ${Array(3).fill(0).map((_, i) => `
+          <div class="loader-dots" style="display: flex; gap: 8px;">
+            ${[0, 1, 2].map(i => `
               <div style="
                 width: ${size / 3}px;
                 height: ${size / 3}px;
                 background-color: ${color};
                 border-radius: 50%;
-                animation: bounce 0.6s ease-in-out ${i * 0.1}s infinite;
+                animation: dots ${duration}ms ease-in-out ${i * (duration / 4)}ms infinite;
               "></div>
             `).join('')}
           </div>
+          <style>
+            @keyframes dots {
+              0%, 100% { transform: scale(1); opacity: 1; }
+              50% { transform: scale(0.5); opacity: 0.5; }
+            }
+          </style>
         `;
       case 'progress':
         return `
-          <div class="progress" style="
-            width: ${size * 3}px;
+          <div class="loader-progress" style="
+            width: ${size * 2}px;
             height: ${size / 4}px;
-            background-color: rgba(0,0,0,0.1);
+            background-color: ${color}40;
             border-radius: ${size / 8}px;
             overflow: hidden;
           ">
             <div style="
-              width: 30%;
+              width: 50%;
               height: 100%;
               background-color: ${color};
-              animation: progress 1s ease-in-out infinite;
+              animation: progress ${duration}ms ease-in-out infinite;
             "></div>
           </div>
+          <style>
+            @keyframes progress {
+              0% { transform: translateX(-100%); }
+              100% { transform: translateX(200%); }
+            }
+          </style>
+        `;
+      case 'pulse':
+        return `
+          <div class="loader-pulse" style="
+            width: ${size}px;
+            height: ${size}px;
+            background-color: ${color};
+            border-radius: 50%;
+            animation: pulse ${duration}ms ease-in-out infinite;
+          "></div>
+          <style>
+            @keyframes pulse {
+              0% { transform: scale(0.8); opacity: 0.5; }
+              50% { transform: scale(1); opacity: 1; }
+              100% { transform: scale(0.8); opacity: 0.5; }
+            }
+          </style>
         `;
       default:
         return '';
@@ -171,4 +222,3 @@ export class TransitionManager {
     container.innerHTML = '';
   }
 }
-
