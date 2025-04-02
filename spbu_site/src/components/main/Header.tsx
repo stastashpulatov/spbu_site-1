@@ -75,7 +75,7 @@ const menuItems: MenuItems = {
     { title: 'Галерея', link: '/gallery' }
   ],
   "Документы": [
-    { title: 'Основные документы', link: '/main-documents' },
+    { title: 'Основные документы', link: '/documents' },
     { title: 'Соглашения', link: '/agreements' },
     { title: 'Локальные документы', link: '/local-documents' }
   ],
