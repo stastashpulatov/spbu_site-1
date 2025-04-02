@@ -18,6 +18,8 @@ import Admission from "./components/pages/Admission";
 import TRKIGeneralInfo from "./components/pages/TRKIGeneralInfo";
 import ExamPreparation from "./components/pages/ExamPreparation";
 import Contacts from "./components/pages/Contacts";
+import Documents from "./components/pages/Documents";
+import Agreements from "./components/pages/Agreements";
 import TransitionWrapper from "./components/common/TransitionWrapper";
 
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -47,6 +49,8 @@ function App() {
               <Route path='/trki/general-info' element={<TransitionWrapper><TRKIGeneralInfo /></TransitionWrapper>} />
               <Route path='/trki/exam-preparation' element={<TransitionWrapper><ExamPreparation /></TransitionWrapper>} />
               <Route path='/contacts' element={<TransitionWrapper><Contacts /></TransitionWrapper>} />
+              <Route path='/documents' element={<TransitionWrapper><Documents /></TransitionWrapper>} />
+              <Route path='/agreements' element={<TransitionWrapper><Agreements /></TransitionWrapper>} />
 
               {/* Admin Routes */}
               <Route path='/admin' element={<Navigate to="/admin/login" replace />} />
