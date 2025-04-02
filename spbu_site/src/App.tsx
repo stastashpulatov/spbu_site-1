@@ -13,25 +13,16 @@ import InternationalBusiness from "./components/pages/InternationalBusiness";
 import Programming from "./components/pages/Programming";
 import DigitalEntrepreneurship from "./components/pages/DigitalEntrepreneurship";
 import InternationalPrivateLaw from "./components/pages/InternationalPrivateLaw";
-
 import ModernChina from "./components/pages/ModernChina";
 import Admission from "./components/pages/Admission";
 import TRKIGeneralInfo from "./components/pages/TRKIGeneralInfo";
-
 import ExamPreparation from "./components/pages/ExamPreparation";
 import Contacts from "./components/pages/Contacts";
+import TransitionWrapper from "./components/common/TransitionWrapper";
 
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { AdminLogin, AdminDashboard, ProtectedRoute } from "./components/admin";
-
-function PageTransition({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="page-transition">
-      {children}
-    </div>
-  );
-}
 
 function App() {
   return (
@@ -41,23 +32,21 @@ function App() {
           <Router>
             <Header />
             <Routes>
-              <Route path='/' element={<PageTransition><StartPage /></PageTransition>} />
-              <Route path='/about' element={<PageTransition><About /></PageTransition>} />
-              <Route path='/about/history' element={<PageTransition><History /></PageTransition>} />
-              <Route path='/about/info' element={<PageTransition><UniversityInfo /></PageTransition>} />
-              <Route path='/branch-tashkent/about_filial' element={<PageTransition><BranchAbout /></PageTransition>} />
-              <Route path='/branch-tashkent/leadership' element={<PageTransition><Leadership /></PageTransition>} />
-              <Route path='/education/bachelor/economy' element={<PageTransition><InternationalBusiness /></PageTransition>} />
-              <Route path='/education/bachelor/programming' element={<PageTransition><Programming /></PageTransition>} />
-              <Route path='/education/master/digital-entrepreneurship' element={<PageTransition><DigitalEntrepreneurship /></PageTransition>} />
-              <Route path='/education/master/international-private-law' element={<PageTransition><InternationalPrivateLaw /></PageTransition>} />
-
-              <Route path='/education/master/modern-china' element={<PageTransition><ModernChina /></PageTransition>} />
-              <Route path='/admission' element={<PageTransition><Admission /></PageTransition>} />
-              <Route path='/trki/general-info' element={<PageTransition><TRKIGeneralInfo /></PageTransition>} />
-
-              <Route path='/trki/exam-preparation' element={<PageTransition><ExamPreparation /></PageTransition>} />
-              <Route path='/contacts' element={<PageTransition><Contacts /></PageTransition>} />
+              <Route path='/' element={<TransitionWrapper><StartPage /></TransitionWrapper>} />
+              <Route path='/about' element={<TransitionWrapper><About /></TransitionWrapper>} />
+              <Route path='/about/history' element={<TransitionWrapper><History /></TransitionWrapper>} />
+              <Route path='/about/info' element={<TransitionWrapper><UniversityInfo /></TransitionWrapper>} />
+              <Route path='/branch-tashkent/about_filial' element={<TransitionWrapper><BranchAbout /></TransitionWrapper>} />
+              <Route path='/branch-tashkent/leadership' element={<TransitionWrapper><Leadership /></TransitionWrapper>} />
+              <Route path='/education/bachelor/economy' element={<TransitionWrapper><InternationalBusiness /></TransitionWrapper>} />
+              <Route path='/education/bachelor/programming' element={<TransitionWrapper><Programming /></TransitionWrapper>} />
+              <Route path='/education/master/digital-entrepreneurship' element={<TransitionWrapper><DigitalEntrepreneurship /></TransitionWrapper>} />
+              <Route path='/education/master/international-private-law' element={<TransitionWrapper><InternationalPrivateLaw /></TransitionWrapper>} />
+              <Route path='/education/master/modern-china' element={<TransitionWrapper><ModernChina /></TransitionWrapper>} />
+              <Route path='/admission' element={<TransitionWrapper><Admission /></TransitionWrapper>} />
+              <Route path='/trki/general-info' element={<TransitionWrapper><TRKIGeneralInfo /></TransitionWrapper>} />
+              <Route path='/trki/exam-preparation' element={<TransitionWrapper><ExamPreparation /></TransitionWrapper>} />
+              <Route path='/contacts' element={<TransitionWrapper><Contacts /></TransitionWrapper>} />
 
               {/* Admin Routes */}
               <Route path='/admin' element={<Navigate to="/admin/login" replace />} />
