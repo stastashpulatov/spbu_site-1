@@ -33,37 +33,39 @@ function App() {
         <div className="app-container">
           <Router>
             <Header />
-            <Routes>
-              <Route path='/' element={<TransitionWrapper><StartPage /></TransitionWrapper>} />
-              <Route path='/about' element={<TransitionWrapper><About /></TransitionWrapper>} />
-              <Route path='/about/history' element={<TransitionWrapper><History /></TransitionWrapper>} />
-              <Route path='/about/info' element={<TransitionWrapper><UniversityInfo /></TransitionWrapper>} />
-              <Route path='/branch-tashkent/about_filial' element={<TransitionWrapper><BranchAbout /></TransitionWrapper>} />
-              <Route path='/branch-tashkent/leadership' element={<TransitionWrapper><Leadership /></TransitionWrapper>} />
-              <Route path='/education/bachelor/economy' element={<TransitionWrapper><InternationalBusiness /></TransitionWrapper>} />
-              <Route path='/education/bachelor/programming' element={<TransitionWrapper><Programming /></TransitionWrapper>} />
-              <Route path='/education/master/digital-entrepreneurship' element={<TransitionWrapper><DigitalEntrepreneurship /></TransitionWrapper>} />
-              <Route path='/education/master/international-private-law' element={<TransitionWrapper><InternationalPrivateLaw /></TransitionWrapper>} />
-              <Route path='/education/master/modern-china' element={<TransitionWrapper><ModernChina /></TransitionWrapper>} />
-              <Route path='/admission' element={<TransitionWrapper><Admission /></TransitionWrapper>} />
-              <Route path='/trki/general-info' element={<TransitionWrapper><TRKIGeneralInfo /></TransitionWrapper>} />
-              <Route path='/trki/exam-preparation' element={<TransitionWrapper><ExamPreparation /></TransitionWrapper>} />
-              <Route path='/contacts' element={<TransitionWrapper><Contacts /></TransitionWrapper>} />
-              <Route path='/documents' element={<TransitionWrapper><Documents /></TransitionWrapper>} />
-              <Route path='/agreements' element={<TransitionWrapper><Agreements /></TransitionWrapper>} />
+            <TransitionWrapper>
+              <Routes>
+                <Route path='/' element={<StartPage />} />
+                <Route path='/about' element={<About />} />
+                <Route path='/about/history' element={<History />} />
+                <Route path='/about/info' element={<UniversityInfo />} />
+                <Route path='/branch-tashkent/about_filial' element={<BranchAbout />} />
+                <Route path='/branch-tashkent/leadership' element={<Leadership />} />
+                <Route path='/education/bachelor/economy' element={<InternationalBusiness />} />
+                <Route path='/education/bachelor/programming' element={<Programming />} />
+                <Route path='/education/master/digital-entrepreneurship' element={<DigitalEntrepreneurship />} />
+                <Route path='/education/master/international-private-law' element={<InternationalPrivateLaw />} />
+                <Route path='/education/master/modern-china' element={<ModernChina />} />
+                <Route path='/admission' element={<Admission />} />
+                <Route path='/trki/general-info' element={<TRKIGeneralInfo />} />
+                <Route path='/trki/exam-preparation' element={<ExamPreparation />} />
+                <Route path='/contacts' element={<Contacts />} />
+                <Route path='/documents' element={<Documents />} />
+                <Route path='/agreements' element={<Agreements />} />
 
-              {/* Admin Routes */}
-              <Route path='/admin' element={<Navigate to="/admin/login" replace />} />
-              <Route path='/admin/login' element={<AdminLogin />} />
-              <Route
-                path='/admin/dashboard'
-                element={
-                  <ProtectedRoute>
-                    <AdminDashboard />
-                  </ProtectedRoute>
-                }
-              />
-            </Routes>
+                {/* Admin Routes */}
+                <Route path='/admin' element={<Navigate to="/admin/login" replace />} />
+                <Route path='/admin/login' element={<AdminLogin />} />
+                <Route
+                  path='/admin/dashboard'
+                  element={
+                    <ProtectedRoute>
+                      <AdminDashboard />
+                    </ProtectedRoute>
+                  }
+                />
+              </Routes>
+            </TransitionWrapper>
           </Router>
         </div>
       </LanguageProvider>
