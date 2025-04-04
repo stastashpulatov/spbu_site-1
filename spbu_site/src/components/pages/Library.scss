@@ -1,0 +1,146 @@
+// Common mixins and variables
+@mixin section-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+@mixin card-base {
+  background: var(--bg-secondary);
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.library-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  .hero-section {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 4rem 2rem;
+    background: var(--bg-gradient);
+    border-radius: 1rem;
+    color: var(--text-color);
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      opacity: 0.9;
+    }
+  }
+
+  .content-section {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .info-card {
+    @include card-base;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    h2 {
+      @include section-title;
+    }
+
+    p {
+      line-height: 1.6;
+      color: var(--text-color);
+    }
+  }
+
+  .resources-section {
+    h2 {
+      @include section-title;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .resource-item {
+      @include card-base;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        margin-bottom: 0.75rem;
+        color: var(--text-color);
+      }
+
+      p {
+        color: var(--text-secondary);
+        line-height: 1.5;
+      }
+    }
+  }
+
+  .cta-section {
+    @include card-base;
+    text-align: center;
+    margin-top: 2rem;
+
+    h2 {
+      @include section-title;
+    }
+
+    p {
+      margin-bottom: 2rem;
+      color: var(--text-color);
+    }
+
+    .library-button {
+      background: var(--primary-color);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background: var(--primary-color-dark);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .library-page {
+    padding: 1rem;
+
+    .hero-section {
+      padding: 2rem 1rem;
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+
+    .resources-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
