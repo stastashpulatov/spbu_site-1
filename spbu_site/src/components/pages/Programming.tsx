@@ -1,12 +1,12 @@
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useContext } from 'react';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { Language } from '../../contexts/LanguageContextType';
-import { useTheme } from '../../contexts/ThemeContext';
-import HomeButton from '../shared/HomeButton';
-import './Programming.scss';
+import ProgramPage from '../shared/ProgramPage';
 
 type Translations = {
   [key in Language]: {
+    backgroundImage?: string;
+    backgroundPosition?: string;
     title: string;
     code: string;
     level: string;
@@ -24,6 +24,8 @@ type Translations = {
 
 const translations: Translations = {
   ru: {
+    backgroundImage: '/images/programming.png',
+    backgroundPosition: 'center 30%',
     title: 'Программирование и информационные технологии',
     code: '02.03.02',
     level: 'Бакалавриат',
@@ -73,6 +75,8 @@ const translations: Translations = {
     ]
   },
   uz: {
+    backgroundImage: '/images/programming-bg.jpg',
+    backgroundPosition: 'center 30%',
     title: 'Dasturlash va axborot texnologiyalari',
     code: '02.03.02',
     level: 'Bakalavr',
@@ -99,7 +103,7 @@ const translations: Translations = {
       'Kompyuter arxitekturasi',
       'Algoritmlar va ma\'lumotlar tuzilmasi',
       'Dasturiy ta\'minot ishlab chiqish',
-      'Mashinali o\'qitish',
+      'Mashinani o\'rganish',
       'Avtomatlar nazariyasi',
       'Parallel dasturlash',
       'Tizimli dasturlash',
@@ -116,22 +120,24 @@ const translations: Translations = {
       'Sun\'iy intellekt asoslari'
     ],
     mainProgramPoints: [
-      'Ta\'lim dasturi murakkab tizimlarni tahlil qilish va loyihalash, dasturiy ta\'minotni ishlab chiqish va dasturiy loyihalarni boshqarish bo\'yicha mutaxassislarni tayyorlashga yo\'naltirilgan.',
-      'Talabalar dasturlash, algoritmlar va ma\'lumotlar tuzilmasi sohasida chuqur bilim oladilar, bu ularga yetakchi IT-kompaniyalarda muvaffaqiyatli ishlash imkonini beradi.',
-      'Dastur zamonaviy dasturlash tillari, dasturiy ta\'minotni ishlab chiqish texnologiyalari va loyihalarni boshqarish usullarini o\'rganishni o\'z ichiga oladi.'
+      'Ta\'lim dasturi murakkab tizimlarni tahlil qilish va loyihalash, dasturiy ta\'minotni ishlab chiqish va dasturiy loyihalarni boshqarish sohasidagi mutaxassislarni tayyorlashga qaratilgan.',
+      'Talabalar dasturlash, algoritmlar va ma\'lumotlar tuzilmalari sohasida chuqur bilimga ega bo\'ladilar, bu ularga yetakchi IT-kompaniyalarda muvaffaqiyatli ishlash imkonini beradi.',
+      'Dastur zamonaviy dasturlash tillarini, dasturiy ta\'minotni ishlab chiqish texnologiyalarini va loyihalarni boshqarish usullarini o\'rganishni o\'z ichiga oladi.'
     ]
   },
   en: {
+    backgroundImage: '/images/programming-bg.jpg',
+    backgroundPosition: 'center 30%',
     title: 'Programming and Information Technologies',
     code: '02.03.02',
-    level: 'Bachelor\'s degree',
+    level: 'Bachelor\'s Degree',
     form: 'Full-time',
     duration: '4 years',
     department: 'Programming',
     cost: '27,195,000 UZS',
     admissionTitle: 'Entrance Examinations',
     admissionText: [
-      'Russian language (testing)',
+      'Russian Language (testing)',
       'Mathematics (25 to 100 points)',
       'Document submission until August 25, 2024'
     ],
@@ -151,7 +157,7 @@ const translations: Translations = {
       'Machine Learning',
       'Automata Theory',
       'Parallel Programming',
-      'Systems Programming',
+      'System Programming',
       'Computer Graphics',
       'Operating Systems',
       'Functional Programming',
@@ -165,7 +171,7 @@ const translations: Translations = {
       'Artificial Intelligence Fundamentals'
     ],
     mainProgramPoints: [
-      'The educational program is focused on training specialists in the analysis and design of complex systems, software development, and software project management.',
+      'The educational program is focused on training specialists in the field of analysis and design of complex systems, software development, and software project management.',
       'Students gain deep knowledge in programming, algorithms, and data structures, enabling them to work successfully in leading IT companies.',
       'The program includes the study of modern programming languages, software development technologies, and project management methods.'
     ]
@@ -173,9 +179,7 @@ const translations: Translations = {
 };
 
 const Programming: React.FC = () => {
-  const { theme } = useTheme();
   const langContext = useContext(LanguageContext);
-  const heroRef = useRef<HTMLDivElement>(null);
   
   if (!langContext) {
     throw new Error('Programming must be used within Language Provider');
@@ -184,84 +188,7 @@ const Programming: React.FC = () => {
   const { language } = langContext;
   const t = translations[language];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (heroRef.current) {
-        const rect = heroRef.current.getBoundingClientRect();
-        const scrolled = window.scrollY;
-        const rate = scrolled * 0.3;
-        
-        if (rect.top <= window.innerHeight && rect.bottom >= 0) {
-          heroRef.current.style.transform = `translate3d(0, ${rate}px, 0)`;
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  return (
-    <div className={`programming ${theme}`}>
-      <HomeButton />
-      <div ref={heroRef} className="hero-section">
-        <div className="hero-content">
-          <h1>{t.title}</h1>
-          <div className="info-list">
-            <div className="info-item">
-              <span className="code">{t.code}</span>
-            </div>
-            <div className="info-item">
-              <span className="label">Уровень обучения – </span>
-              <span className="value">{t.level}</span>
-            </div>
-            <div className="info-item">
-              <span className="label">Форма обучения – </span>
-              <span className="value">{t.form}</span>
-            </div>
-            <div className="info-item">
-              <span className="label">Продолжительность обучения – </span>
-              <span className="value">{t.duration}</span>
-            </div>
-            <div className="info-item">
-              <span className="label">Направление – </span>
-              <span className="value">{t.department}</span>
-            </div>
-            <div className="info-item">
-              <span className="label">Стоимость обучения в год – </span>
-              <span className="value">{t.cost}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="content-container">
-        <section className="program-points">
-          {t.mainProgramPoints.map((point, index) => (
-            <p key={index}>{point}</p>
-          ))}
-        </section>
-
-        <section className="admission-section">
-          <h2>{t.admissionTitle}</h2>
-          <ul>
-            {t.admissionText.map((text, index) => (
-              <li key={index}>{text}</li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="courses-section">
-          <h2>{t.mainCoursesTitle}</h2>
-          <ul>
-            {t.mainCourses.map((course, index) => (
-              <li key={index}>{course}</li>
-            ))}
-          </ul>
-        </section>
-      </div>
-    </div>
-  );
+  return <ProgramPage programInfo={t} />;
 };
 
 export default Programming;

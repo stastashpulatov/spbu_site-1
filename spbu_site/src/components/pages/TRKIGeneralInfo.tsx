@@ -1,9 +1,11 @@
 import React from 'react';
+import HomeButton from '../shared/HomeButton';
 import './TRKIGeneralInfo.scss';
 
 const TRKIGeneralInfo: React.FC = () => {
   return (
     <div className="trki-general-info">
+      <HomeButton />
       <div className="page-container">
         <h1>Общая информация</h1>
         

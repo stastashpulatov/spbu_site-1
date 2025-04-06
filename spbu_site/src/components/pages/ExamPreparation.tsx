@@ -1,9 +1,11 @@
 import React from 'react';
+import HomeButton from '../shared/HomeButton';
 import './ExamPreparation.scss';
 
 const ExamPreparation: React.FC = () => {
   return (
     <div className="exam-preparation">
+      <HomeButton />
       <h1>Подготовка к экзамену</h1>
       
       <div className="main-video">
