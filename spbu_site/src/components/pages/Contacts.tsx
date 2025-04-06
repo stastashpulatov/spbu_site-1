@@ -16,7 +16,7 @@ const Contacts: React.FC = () => {
             <div className="contacts__item">
               <h3>Адрес:</h3>
               <p>100060, Республика Узбекистан, г. Ташкент,<br />
-                Мирабадский район, ул. Шахрисабз, д. 34<br />
+                Мирабадский район, ул. Шахрисабз, д. 16<br />
                 (метро: Айбек)</p>
               <p>Филиал Санкт-Петербургского<br />
                 государственного университета<br />
@@ -34,7 +34,7 @@ const Contacts: React.FC = () => {
         </div>
         <div className="contacts__map">
           <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.086591346607!2d69.2862!3d41.2925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDE3JzMzLjAiTiA2OcKwMTcnMTAuMyJF!5e0!3m2!1sru!2s!4v1635000000000!5m2!1sru!2s"
+            src="https://yandex.uz/map-widget/v1/?from=mapframe&ll=69.274471%2C41.298603&mode=search&ol=geo%5Bpoint%5D=69.274449%2C41.298588&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D122210742797&source=mapframe&utm_source=mapframe&z=20.8"
             width="100%"
             height="400"
             style={{ border: 0 }}
