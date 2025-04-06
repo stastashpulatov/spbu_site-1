@@ -176,19 +176,15 @@
       margin-bottom: 1.5rem;
     }
 
-    .map-container {
-      border-radius: 12px;
-      overflow: hidden;
-      margin-top: 1rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-
-      &:hover {
-        transform: scale(1.02);
-      }
-
-      iframe {
-        display: block;
+    &.address-card {
+      .address-text {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--text-secondary);
+        padding: 0.75rem 1rem;
+        background: var(--background-secondary);
+        border-radius: 10px;
+        margin: 0;
       }
     }
 

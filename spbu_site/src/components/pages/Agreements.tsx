@@ -1,4 +1,5 @@
 import React from 'react';
+import HomeButton from '../shared/HomeButton';
 import '../pages/Documents.scss';
 import { useTheme } from '../../contexts/ThemeContext';
 
@@ -45,6 +46,7 @@ const Agreements: React.FC = () => {
 
   return (
     <div className={`documents-page ${theme}`}>
+      <HomeButton />
       <div className="container">
         <h1 className="page-title">Соглашения</h1>
         

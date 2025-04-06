@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './HomeButton.scss';
 
 const HomeButton: React.FC = () => {
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'h') {
+        e.preventDefault();
+        navigate('/');
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [navigate]);
+
   return (
     <button 
       className="home-button"
       onClick={() => navigate('/')}
-      aria-label="На главную"
+      aria-label="На главную (Ctrl + H)"
+      title="На главную (Ctrl + H)"
     >
       <div className="button-content">
         <div className="icon">

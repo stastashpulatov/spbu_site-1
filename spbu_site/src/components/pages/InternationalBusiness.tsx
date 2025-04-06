@@ -1,12 +1,12 @@
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useContext } from 'react';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { Language } from '../../contexts/LanguageContextType';
-import { useTheme } from '../../contexts/ThemeContext';
-import HomeButton from '../shared/HomeButton';
-import './InternationalBusiness.scss';
+import ProgramPage from '../shared/ProgramPage';
 
 type Translations = {
   [key in Language]: {
+    backgroundImage?: string;
+    backgroundPosition?: string;
     title: string;
     code: string;
     level: string;
@@ -27,6 +27,8 @@ type Translations = {
 
 const translations: Translations = {
   ru: {
+    backgroundImage: '/images/economy.png',
+    backgroundPosition: 'center 40%',
     title: 'Международный бизнес в цифровой экономике',
     code: '38.03.01',
     level: 'Бакалавриат',
@@ -80,6 +82,8 @@ const translations: Translations = {
     ]
   },
   uz: {
+    backgroundImage: '/images/business-bg.jpg',
+    backgroundPosition: 'center 40%',
     title: 'Raqamli iqtisodiyotda xalqaro biznes',
     code: '38.03.01',
     level: 'Bakalavr',
@@ -133,6 +137,8 @@ const translations: Translations = {
     ]
   },
   en: {
+    backgroundImage: '/images/business-bg.jpg',
+    backgroundPosition: 'center 40%',
     title: 'International Business in Digital Economy',
     code: '38.03.01',
     level: 'Bachelor\'s degree',
@@ -188,9 +194,7 @@ const translations: Translations = {
 };
 
 const InternationalBusiness: React.FC = () => {
-  const { theme } = useTheme();
   const langContext = useContext(LanguageContext);
-  const heroRef = useRef<HTMLDivElement>(null);
   
   if (!langContext) {
     throw new Error('InternationalBusiness must be used within Language Provider');
@@ -199,94 +203,7 @@ const InternationalBusiness: React.FC = () => {
   const { language } = langContext;
   const t = translations[language];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (heroRef.current) {
-        const rect = heroRef.current.getBoundingClientRect();
-        const scrolled = window.scrollY;
-        const rate = scrolled * 0.3;
-        
-        if (rect.top <= window.innerHeight && rect.bottom >= 0) {
-          heroRef.current.style.transform = `translate3d(0, ${rate}px, 0)`;
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  return (
-    <div className={`international-business ${theme}`}>
-      <HomeButton />
-      <div ref={heroRef} className="hero-section">
-        <div className="hero-content">
-          <h1>{t.title}</h1>
-          <div className="info-list">
-            <div className="info-item">
-              <span className="code">{t.code}</span>
-            </div>
-            <div className="info-item">
-              <span className="label">Уровень обучения – </span>
-              <span className="value">{t.level}</span>
-            </div>
-            <div className="info-item">
-              <span className="label">Форма обучения – </span>
-              <span className="value">{t.form}</span>
-            </div>
-            <div className="info-item">
-              <span className="label">Продолжительность обучения – </span>
-              <span className="value">{t.duration}</span>
-            </div>
-            <div className="info-item">
-              <span className="label">Направление – </span>
-              <span className="value">{t.department}</span>
-            </div>
-            <div className="info-item">
-              <span className="label">Стоимость обучения в год – </span>
-              <span className="value">{t.cost}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="content-container">
-        <section className="program-points">
-          <h2>{t.mainProgramTitle}</h2>
-          {t.mainProgramPoints.map((point, index) => (
-            <p key={index}>{point}</p>
-          ))}
-        </section>
-
-        <section className="admission-section">
-          <h2>{t.admissionTitle}</h2>
-          <ul>
-            {t.admissionText.map((text, index) => (
-              <li key={index}>{text}</li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="courses-section">
-          <h2>{t.mainCoursesTitle}</h2>
-          <ul>
-            {t.mainCourses.map((course, index) => (
-              <li key={index}>{course}</li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="teachers-section">
-          <h2>{t.teachersTitle}</h2>
-          <ul>
-            {t.teachers.map((teacher, index) => (
-              <li key={index}>{teacher}</li>
-            ))}
-          </ul>
-        </section>
-      </div>
-    </div>
-  );
+  return <ProgramPage programInfo={t} />;
 };
 
 export default InternationalBusiness;

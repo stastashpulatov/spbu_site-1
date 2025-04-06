@@ -108,24 +108,12 @@ const BranchAbout: React.FC = () => {
             ))}
           </div>
           <div className="info-cards">
-            <div className="info-card">
+            <div className="info-card address-card">
               <div className="card-header">
                 <span className="card-icon">📍</span>
                 <h2>{t.address.title}</h2>
               </div>
-              <p>{t.address.text}</p>
-              <div className="map-container">
-                <iframe
-                  src="https://www.google.com/maps/place/%D0%A2%D0%B0%D1%88%D0%BA%D0%B5%D0%BD%D1%82%D1%81%D0%BA%D0%B8%D0%B9+%D0%B3%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9+%D0%B8%D0%BD%D1%81%D1%82%D0%B8%D1%82%D1%83%D1%82+%D0%B2%D0%BE%D1%81%D1%82%D0%BE%D0%BA%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D1%8F,+%D1%83%D0%BB%D0%B8%D1%86%D0%B0+%D0%A8%D0%B0%D1%85%D1%80%D0%B8%D1%81%D0%B0%D0%B1%D0%B7+25,+100060,+%D0%A2%D0%B0%D1%88%D0%BA%D0%B5%D0%BD%D1%82,+Tashkent,+%D0%A3%D0%B7%D0%B1%D0%B5%D0%BA%D0%B8%D1%81%D1%82%D0%B0%D0%BD/@41.29869,69.2740714,19.92z/data=!4m9!1m2!2m1!1z0LzQtdGC0YDQviDQkNC50LHQtdC6!3m5!1s0x38ae8ada8b793859:0xa2f3efeb3e307c4!8m2!3d41.2984672!4d69.2745076!16s%2Fg%2F11w7pz6ths?entry=ttu&g_ep=EgoyMDI1MDMxMi4wIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D"
-                  width="100%"
-                  height="250"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Branch Location"
-                />
-              </div>
+              <p className="address-text">{t.address.text}</p>
             </div>
             <div className="info-card">
               <div className="card-header">
