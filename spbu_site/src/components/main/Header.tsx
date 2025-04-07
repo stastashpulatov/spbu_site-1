@@ -9,10 +9,11 @@ interface MenuItem {
   title: string;
   link?: string;
   submenu?: MenuItem[];
+  isDirectLink?: boolean;
 }
 
 interface MenuItems {
-  [key: string]: MenuItem[];
+  [key: string]: MenuItem[] | string;
 }
 
 const menuItems: MenuItems = {
@@ -43,11 +44,9 @@ const menuItems: MenuItems = {
         { title: 'Международное предпренимательство в цифровой экономике', link: 'economics-international-entrepreneurship-in-the-digital-economy'},
         {title: 'Международное частное право', link: 'jurisprudence-private-international-law'},
         {title: 'Современный Китай: экономика, политика, общество', link: 'oriental-studies-modern-china-economics-politics-society-with-learning-chinese'}
-
       ]
     }
   ],
-
   "Поступающим": [
     { title: 'Приём', link: '/admissions' },
     { title: 'Личный кабинет поступающего', link: '/applicant-account' }
@@ -72,17 +71,17 @@ const menuItems: MenuItems = {
     { title: 'Соглашения', link: '/agreements' },
     { title: 'Локальные документы', link: '/local-documents' }
   ],
-  "Контакты": [{ title: 'Контактная информация', link: '/contacts' }]
+  "Контакты": '/contacts'
 };
-
-
 
 function Header() {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
   
   const handleMenuEnter = (menu: string) => {
-    setOpenMenu(menu);
+    if (typeof menuItems[menu] !== 'string') {
+      setOpenMenu(menu);
+    }
   };
 
   const handleMenuLeave = () => {
@@ -101,77 +100,85 @@ function Header() {
   return (
     <div className="header">
       <div className="menu-section">
-        {Object.keys(menuItems).map((key) => (
+        {Object.entries(menuItems).map(([key, value]) => (
           <div key={key} className="relative">
-            <button
-              className={`header-item flex items-center space-x-1 text-sm ${openMenu === key ? 'menu-open' : ''}`}
-              onMouseEnter={() => handleMenuEnter(key)}
-              onMouseLeave={handleMenuLeave}
-            >
-              <span>{key}</span>
-              <ChevronDown size={16} />
-            </button>
-            {openMenu === key && (
-              <div className="dropdown-menu" onMouseEnter={() => handleMenuEnter(key)} onMouseLeave={handleMenuLeave}>
-                {menuItems[key].map((item, index) => (
-                  <div key={index} className="dropdown-item-container">
-                    {item.link ? (
-                      item.link.startsWith('http') ? (
-                        <a href={item.link} className="dropdown-item text-sm" target="_blank" rel="noopener noreferrer">
-                          {item.title}
-                        </a>
-                      ) : (
-                        <Link to={item.link} className="dropdown-item text-sm">
-                          {item.title}
-                        </Link>
-                      )
-                    ) : (
-                      <div 
-                        className={`dropdown-item text-sm submenu-trigger ${item.submenu ? 'has-submenu' : ''}`}
-                        onMouseEnter={() => handleSubmenuEnter(item.title)}
-                        onMouseLeave={handleSubmenuLeave}
-                      >
-                        {item.title}
-                        {item.submenu && (
-                          <ChevronDown 
-                            size={16} 
-                            className="submenu-icon" 
-                          />
-                        )}
-                      </div>
-                    )}
-                    {item.submenu && openSubmenu === item.title && (
-                      <div 
-                        className="submenu"
-                        onMouseEnter={() => handleSubmenuEnter(item.title)}
-                        onMouseLeave={handleSubmenuLeave}
-                      >
-                        {item.submenu.map((subItem, subIndex) => (
-                          subItem.link?.startsWith('http') ? (
-                            <a
-                              key={subIndex}
-                              href={subItem.link}
-                              className="dropdown-item text-sm"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              {subItem.title}
+            {typeof value === 'string' ? (
+              <Link to={value} className="header-item text-sm">
+                {key}
+              </Link>
+            ) : (
+              <>
+                <button
+                  className={`header-item flex items-center space-x-1 text-sm ${openMenu === key ? 'menu-open' : ''}`}
+                  onMouseEnter={() => handleMenuEnter(key)}
+                  onMouseLeave={handleMenuLeave}
+                >
+                  <span>{key}</span>
+                  <ChevronDown size={16} />
+                </button>
+                {openMenu === key && (
+                  <div className="dropdown-menu" onMouseEnter={() => handleMenuEnter(key)} onMouseLeave={handleMenuLeave}>
+                    {value.map((item, index) => (
+                      <div key={index} className="dropdown-item-container">
+                        {item.link ? (
+                          item.link.startsWith('http') ? (
+                            <a href={item.link} className="dropdown-item text-sm" target="_blank" rel="noopener noreferrer">
+                              {item.title}
                             </a>
                           ) : (
-                            <Link
-                              key={subIndex}
-                              to={subItem.link || ''}
-                              className="dropdown-item text-sm"
-                            >
-                              {subItem.title}
+                            <Link to={item.link} className="dropdown-item text-sm">
+                              {item.title}
                             </Link>
                           )
-                        ))}
+                        ) : (
+                          <div 
+                            className={`dropdown-item text-sm submenu-trigger ${item.submenu ? 'has-submenu' : ''}`}
+                            onMouseEnter={() => handleSubmenuEnter(item.title)}
+                            onMouseLeave={handleSubmenuLeave}
+                          >
+                            {item.title}
+                            {item.submenu && (
+                              <ChevronDown 
+                                size={16} 
+                                className="submenu-icon" 
+                              />
+                            )}
+                          </div>
+                        )}
+                        {item.submenu && openSubmenu === item.title && (
+                          <div 
+                            className="submenu"
+                            onMouseEnter={() => handleSubmenuEnter(item.title)}
+                            onMouseLeave={handleSubmenuLeave}
+                          >
+                            {item.submenu.map((subItem, subIndex) => (
+                              subItem.link?.startsWith('http') ? (
+                                <a
+                                  key={subIndex}
+                                  href={subItem.link}
+                                  className="dropdown-item text-sm"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  {subItem.title}
+                                </a>
+                              ) : (
+                                <Link
+                                  key={subIndex}
+                                  to={subItem.link || ''}
+                                  className="dropdown-item text-sm"
+                                >
+                                  {subItem.title}
+                                </Link>
+                              )
+                            ))}
+                          </div>
+                        )}
                       </div>
-                    )}
+                    ))}
                   </div>
-                ))}
-              </div>
+                )}
+              </>
             )}
           </div>
         ))}

@@ -7,6 +7,7 @@ import History from "./components/pages/History";
 import UniversityInfo from "./components/pages/UniversityInfo";
 import BranchAbout from "./components/pages/BranchAbout";
 import Leadership from "./components/pages/Leadership";
+import Contacts from "./components/pages/Contacts";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
 
@@ -24,6 +25,7 @@ function App() {
               <Route path='/about/info' element={<UniversityInfo />} />
               <Route path='/branch-tashkent/about_filial' element={<BranchAbout />} />
               <Route path='/branch-tashkent/leadership' element={<Leadership />} />
+              <Route path='/contacts' element={<Contacts />} />
             </Routes>
           </Router>
         </div>
