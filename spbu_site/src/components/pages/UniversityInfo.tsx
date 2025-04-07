@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { Language } from '../../contexts/LanguageContextType';
 import { useTheme } from '../../contexts/ThemeContext';
 import { ExternalLink } from 'lucide-react';
+import HomeButton from '../shared/HomeButton';
 import './UniversityInfo.scss';
 
 type Translations = {
@@ -33,7 +34,7 @@ const translations: Translations = {
 
 const UniversityInfo: React.FC = () => {
   const { theme } = useTheme();
-  const langContext = React.useContext(LanguageContext);
+  const langContext = useContext(LanguageContext);
   
   if (!langContext) {
     throw new Error('UniversityInfo must be used within Language Provider');
@@ -44,20 +45,21 @@ const UniversityInfo: React.FC = () => {
 
   return (
     <div className={`university-info ${theme}`}>
+      <HomeButton />
       <div className="content-container">
-        <div className="text-content">
-          <h1 className="title">{t.title}</h1>
-          <p className="description">{t.description}</p>
+        <div className="info-card">
+          <h1>{t.title}</h1>
+          <p>{t.description}</p>
+          <a 
+            href="https://spbu.ru/sveden/common"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="redirect-button"
+          >
+            {t.button}
+            <ExternalLink size={20} />
+          </a>
         </div>
-        <a
-          href="https://spbu.ru/sveden/common"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="info-button"
-        >
-          <span>{t.button}</span>
-          <ExternalLink size={20} />
-        </a>
       </div>
     </div>
   );

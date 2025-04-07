@@ -33,17 +33,30 @@ const menuItems: MenuItems = {
     }
   ],
   "Образование": [
-    { title: 'Бакалавриат',
+    { 
+      title: 'Бакалавриат',
       submenu: [
-        { title: 'Международный бизнес в цифровой экономике', link: 'economy' },
-        {title: 'Программирование и информационные технологии', link: 'fundamental-computer-science-and-information-technology'}
+        { 
+          title: 'Международный бизнес в цифровой экономике',
+          link: '/education/bachelor/economy'
+        },
+        { 
+          title: 'Программирование и информационные технологии',
+          link: '/education/bachelor/programming'
+        }
       ]
     },
     { title: 'Магистратура',
       submenu: [
+
         { title: 'Международное предпренимательство в цифровой экономике', link: 'economics-international-entrepreneurship-in-the-digital-economy'},
         {title: 'Международное частное право', link: 'jurisprudence-private-international-law'},
-        {title: 'Современный Китай: экономика, политика, общество', link: 'oriental-studies-modern-china-economics-politics-society-with-learning-chinese'}
+        {title: 'Современный Китай: экономика, политика, общество', link: 'oriental-studies-modern-china-economics-politics-society-with-learning-chinese'},
+
+        { title: 'Международное предпринимательство в цифровой экономике', link: '/education/master/digital-entrepreneurship'},
+        { title: 'Международное частное право', link: '/education/master/private-international-law'},
+        { title: 'Современный Китай: экономика, политика, общество', link: '/education/master/modern-china'}
+
       ]
     }
   ],

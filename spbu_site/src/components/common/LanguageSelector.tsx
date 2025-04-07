@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { useLanguage } from '../../hooks/useLanguage';
+import { Language } from '../../contexts/LanguageContextType';
 import './LanguageSelector.scss';
 
-const languages: Record<string, string> = {
+const languages: Record<Language, string> = {
     'ru': '🇷🇺',
     'en': '🇬🇧',
     'uz': '🇺🇿'
@@ -28,16 +29,16 @@ const LanguageSelector: React.FC = () => {
             </button>
             {isOpen && (
                 <div className="language-dropdown">
-                    {Object.entries(languages).map(([code]) => (
+                    {Object.entries(languages).map(([code, flag]) => (
                         <button
                             key={code}
                             className={`language-option ${code === language ? 'active' : ''}`}
                             onClick={() => {
-                                setLanguage(code as 'ru' | 'en' | 'uz');
+                                setLanguage(code as Language);
                                 setIsOpen(false);
                             }}
                         >
-                            <span className="flag">{languages[code]}</span>
+                            <span className="flag">{flag}</span>
                         </button>
                     ))}
                 </div>
