@@ -2,11 +2,12 @@ import React, { useContext } from 'react';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { Language } from '../../contexts/LanguageContextType';
 import { useTheme } from '../../contexts/ThemeContext';
-import HomeButton from '../shared/HomeButton';
-import './DigitalEntrepreneurship.scss';
+import ProgramPage from '../shared/ProgramPage';
 
 type Translations = {
   [key in Language]: {
+    backgroundImage?: string;
+    backgroundPosition?: string;
     title: string;
     code: string;
     level: string;
@@ -27,6 +28,8 @@ type Translations = {
 
 const translations: Translations = {
   ru: {
+    backgroundImage: '/images/image.png',
+    backgroundPosition: 'center 30%',
     title: 'Международное предпринимательство в цифровой экономике',
     code: '38.04.01',
     level: 'Магистратура',
@@ -73,6 +76,8 @@ const translations: Translations = {
     ]
   },
   uz: {
+    backgroundImage: '/images/image.png',
+    backgroundPosition: 'center 30%',
     title: 'Raqamli iqtisodiyotda xalqaro tadbirkorlik',
     code: '38.04.01',
     level: 'Magistratura',
@@ -119,6 +124,8 @@ const translations: Translations = {
     ]
   },
   en: {
+    backgroundImage: '/images/image.png',
+    backgroundPosition: 'center 30%',
     title: 'International Entrepreneurship in Digital Economy',
     code: '38.04.01',
     level: 'Master\'s degree',
@@ -167,83 +174,15 @@ const translations: Translations = {
 };
 
 const DigitalEntrepreneurship: React.FC = () => {
-  const { language = 'ru' } = useContext(LanguageContext) || {};
-  const { theme = 'light' } = useTheme() || {};
-  const content = translations[language as keyof Translations];
+  const langContext = useContext(LanguageContext);
+  
+  if (!langContext) {
+    throw new Error('')
+  }
+  
+  const {language} = langContext;
+  const t = translations[language];
 
-  return (
-    <div className={`digital-entrepreneurship ${theme}`}>
-      <HomeButton />
-      <section className="hero-section">
-        <div className="hero-content">
-          <h1>{content.title}</h1>
-          <div className="info-list">
-            <div className="info-item">
-              <span className="code">{content.code}</span>
-            </div>
-            <div className="info-item">
-              <span className="label">Уровень:</span>
-              <span className="value">{content.level}</span>
-            </div>
-            <div className="info-item">
-              <span className="label">Форма обучения:</span>
-              <span className="value">{content.form}</span>
-            </div>
-            <div className="info-item">
-              <span className="label">Продолжительность:</span>
-              <span className="value">{content.duration}</span>
-            </div>
-            <div className="info-item">
-              <span className="label">Факультет:</span>
-              <span className="value">{content.department}</span>
-            </div>
-            <div className="info-item">
-              <span className="label">Стоимость:</span>
-              <span className="value">{content.cost}</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="content-container">
-        <section className="admission-section">
-          <h2>{content.admissionTitle}</h2>
-          <ul>
-            {content.admissionText.map((text: string, index: number) => (
-              <li key={index}>{text}</li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="courses-section">
-          <h2>{content.mainCoursesTitle}</h2>
-          <ul>
-            {content.mainCourses.map((course: string, index: number) => (
-              <li key={index}>{course}</li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="program-section">
-          <h2>{content.mainProgramTitle}</h2>
-          <div className="program-points">
-            {content.mainProgramPoints.map((point: string, index: number) => (
-              <p key={index}>{point}</p>
-            ))}
-          </div>
-        </section>
-
-        <section className="teachers-section">
-          <h2>{content.teachersTitle}</h2>
-          <ul>
-            {content.teachers.map((teacher: string, index: number) => (
-              <li key={index}>{teacher}</li>
-            ))}
-          </ul>
-        </section>
-      </div>
-    </div>
-  );
+  return <ProgramPage programInfo={t} />;
 };
-
 export default DigitalEntrepreneurship;
