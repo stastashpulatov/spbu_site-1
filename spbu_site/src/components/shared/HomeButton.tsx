@@ -38,7 +38,7 @@ const HomeButton: React.FC = () => {
         <span className="text">На главную</span>
         <div className="particles">
           {[...Array(6)].map((_, i) => (
-            <div key={i} className="particle" />
+            <div key={i} className="particle" style={{ '--rotation': `${i * 60}deg` } as React.CSSProperties} />
           ))}
         </div>
       </div>
