@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { Language } from '../../contexts/LanguageContextType';
-import { useTheme } from '../../contexts/ThemeContext';
-import HomeButton from '../shared/HomeButton';
-import './InternationalPrivateLaw.scss';
+import ProgramPage from '../shared/ProgramPage';
 
 type Translations = {
   [key in Language]: {
+    backgroundImage?: string;
+    backgroundPosition?: string;
     title: string;
     code: string;
     level: string;
@@ -22,19 +22,13 @@ type Translations = {
     mainProgramPoints: string[];
     teachersTitle: string;
     teachers: string[];
-    labels: {
-      code: string;
-      level: string;
-      form: string;
-      duration: string;
-      department: string;
-      cost: string;
-    };
   };
 };
 
 const translations: Translations = {
   ru: {
+    backgroundImage: '/images/pravo.png',
+    backgroundPosition: 'center 25%',
     title: 'Международное частное право',
     code: '40.04.01',
     level: 'Магистратура',
@@ -42,14 +36,6 @@ const translations: Translations = {
     duration: '2 года',
     department: 'Юриспруденция',
     cost: '28 000 000 сум',
-    labels: {
-      code: 'Код специальности',
-      level: 'Уровень',
-      form: 'Форма обучения',
-      duration: 'Длительность',
-      department: 'Факультет',
-      cost: 'Стоимость'
-    },
     admissionTitle: 'Вступительные испытания',
     admissionText: [
       'Теория государства и права (письменно)',
@@ -91,6 +77,8 @@ const translations: Translations = {
     ]
   },
   uz: {
+    backgroundImage: '/images/pravo.png',
+    backgroundPosition: 'center 25%',
     title: 'Xalqaro xususiy huquq',
     code: '40.04.01',
     level: 'Magistratura',
@@ -98,14 +86,6 @@ const translations: Translations = {
     duration: '2 yil',
     department: 'Huquqshunoslik',
     cost: '28 000 000 so\'m',
-    labels: {
-      code: 'Mutaxassislik kodi',
-      level: 'Daraja',
-      form: 'Ta\'lim shakli',
-      duration: 'Davomiyligi',
-      department: 'Fakultet',
-      cost: 'Narxi'
-    },
     admissionTitle: 'Kirish imtihonlari',
     admissionText: [
       'Davlat va huquq nazariyasi (yozma)',
@@ -123,8 +103,8 @@ const translations: Translations = {
       'Xalqaro fuqarolik jarayoni',
       'Xalqaro mualliflik huquqi',
       'Xalqaro patent huquqi',
-      'Xalqaro shartnomaviy huquq',
-      'Transchegaraviy bankrotlik',
+      'Xalqaro shartnoma huquqi',
+      'Chegaralararo bankrotliklar',
       'Xalqaro soliq huquqi',
       'Xalqaro tashishlarni huquqiy tartibga solish',
       'Xalqaro mehnat huquqi'
@@ -132,10 +112,10 @@ const translations: Translations = {
     mainProgramTitle: 'Dastur haqida',
     mainProgramPoints: [
       'Dastur xalqaro xususiy huquq sohasida yuqori malakali mutaxassislarni tayyorlashga qaratilgan.',
-      'Talabalar xalqaro xususiy munosabatlarni huquqiy tartibga solish sohasida chuqur bilim oladilar.',
+      'Talabalar xalqaro xususiy munosabatlarni huquqiy tartibga solish sohasida chuqur bilimga ega bo\'ladilar.',
       'Xalqaro tijorat shartnomalari va xalqaro tijorat arbitrajini o\'rganishga alohida e\'tibor qaratiladi.',
-      'Dastur doirasida xalqaro oldi-sotdi, transchegaraviy tashish va xalqaro hisob-kitoblar masalalari o\'rganiladi.',
-      'Bitiruvchilar xalqaro yuridik firmalarda, transmilliy korporatsiyalarda va konsalting kompaniyalarida ishlaydilar.'
+      'Dastur doirasida xalqaro savdo-sotiq, chegaralararo tashish va xalqaro hisob-kitoblar masalalari o\'rganiladi.',
+      'Bitiruvchilar xalqaro huquq firmalarida, transmilliy korporatsiyalarda va konsalting kompaniyalarida ishlaydilar.'
     ],
     teachersTitle: 'Mashhur o\'qituvchilar',
     teachers: [
@@ -147,6 +127,8 @@ const translations: Translations = {
     ]
   },
   en: {
+    backgroundImage: '/images/pravo.png',
+    backgroundPosition: 'center 25%',
     title: 'International Private Law',
     code: '40.04.01',
     level: 'Master\'s degree',
@@ -154,14 +136,6 @@ const translations: Translations = {
     duration: '2 years',
     department: 'Law',
     cost: '28,000,000 UZS',
-    labels: {
-      code: 'Program Code',
-      level: 'Level',
-      form: 'Study Form',
-      duration: 'Duration',
-      department: 'Department',
-      cost: 'Cost'
-    },
     admissionTitle: 'Entrance Examinations',
     admissionText: [
       'Theory of State and Law (written)',
@@ -206,89 +180,15 @@ const translations: Translations = {
 
 const InternationalPrivateLaw: React.FC = () => {
   const langContext = useContext(LanguageContext);
-  const { theme } = useTheme();
   
   if (!langContext) {
     throw new Error('InternationalPrivateLaw must be used within Language Provider');
   }
   
   const { language } = langContext;
-  const content = translations[language];
+  const t = translations[language];
 
-  return (
-    <div className={`international-private-law ${theme}`}>
-      <HomeButton />
-
-      <section className="hero">
-        <div className="content">
-          <h1>{content.title}</h1>
-        </div>
-      </section>
-
-      <div className="info-grid">
-        <div className="info-item">
-          <span className="label">{content.labels.code}</span>
-          <span className="value">{content.code}</span>
-        </div>
-        <div className="info-item">
-          <span className="label">{content.labels.level}</span>
-          <span className="value">{content.level}</span>
-        </div>
-        <div className="info-item">
-          <span className="label">{content.labels.form}</span>
-          <span className="value">{content.form}</span>
-        </div>
-        <div className="info-item">
-          <span className="label">{content.labels.duration}</span>
-          <span className="value">{content.duration}</span>
-        </div>
-        <div className="info-item">
-          <span className="label">{content.labels.department}</span>
-          <span className="value">{content.department}</span>
-        </div>
-        <div className="info-item">
-          <span className="label">{content.labels.cost}</span>
-          <span className="value">{content.cost}</span>
-        </div>
-      </div>
-
-      <section className="description-section">
-        <h2>{content.mainProgramTitle}</h2>
-        <div className="description-content">
-          {content.mainProgramPoints.map((point, index) => (
-            <p key={index}>{point}</p>
-          ))}
-        </div>
-      </section>
-
-      <section className="admission-section">
-        <h2>{content.admissionTitle}</h2>
-        <ul>
-          {content.admissionText.map((text, index) => (
-            <li key={index}>{text}</li>
-          ))}
-        </ul>
-      </section>
-
-      <section className="courses-section">
-        <h2>{content.mainCoursesTitle}</h2>
-        <ul>
-          {content.mainCourses.map((course, index) => (
-            <li key={index}>{course}</li>
-          ))}
-        </ul>
-      </section>
-
-      <section className="teachers-section">
-        <h2>{content.teachersTitle}</h2>
-        <ul>
-          {content.teachers.map((teacher, index) => (
-            <li key={index}>{teacher}</li>
-          ))}
-        </ul>
-      </section>
-    </div>
-  );
+  return <ProgramPage programInfo={t} />;
 };
 
 export default InternationalPrivateLaw;
