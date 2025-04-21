@@ -3,8 +3,8 @@ from rest_framework import viewsets
 from rest_framework.pagination import PageNumberPagination
 from .permissions import IsAdminOrTeacher
 
-from .models import News, Event
-from .serializers import NewsSerializer, EventSerializer
+from .models import News, Event, Schedule
+from .serializers import NewsSerializer, EventSerializer, ScheduleSerializer
 
 
 
@@ -37,6 +37,34 @@ class EventViewSet(viewsets.ModelViewSet):
         queryset = Event.objects.all().order_by('-date')
         if not (self.request.user.is_staff or getattr(self.request.user, 'role', None) in ['admin', 'teacher']):
             queryset = queryset.filter(is_visible=True)
+        return queryset
+
+    def get(self, request):
+        paginator = self.pagination_class()
+        result_page = paginator.paginate_queryset(self.get_queryset(), request)
+        serializer = self.serializer_class(result_page, many=True, context={'request': request})
+        return paginator.get_paginated_response(serializer.data)
+
+
+class ScheduleViewSet(viewsets.ModelViewSet):
+    serializer_class = ScheduleSerializer
+    pagination_class = PageNumberPagination
+    permission_classes = [IsAdminOrTeacher]
+
+    def get_queryset(self):
+        queryset = Schedule.objects.all()
+        group = self.request.query_params.get('group', None)
+        day = self.request.query_params.get('day', None)
+        
+        if group:
+            queryset = queryset.filter(group=group)
+        
+        if day:
+            queryset = queryset.filter(day_of_week=day)
+            
+        if not (self.request.user.is_staff or getattr(self.request.user, 'role', None) in ['admin', 'teacher']):
+            queryset = queryset.filter(is_visible=True)
+            
         return queryset
 
     def get(self, request):

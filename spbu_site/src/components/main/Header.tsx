@@ -60,7 +60,7 @@ const menuItems: MenuItems = {
     { title: 'Личный кабинет поступающего', link: 'https://cabinet.spbu.ru/' }
   ],
   "Студентам": [
-    { title: 'Расписание занятий', link: '/class-schedule' },
+    { title: 'Расписание занятий', link: '/schedule' },
     { title: 'Научная библиотека имени М. Горького', link: '/library' },
     { title: 'Личный кабинет студента', link: '/student-account' }
   ],
