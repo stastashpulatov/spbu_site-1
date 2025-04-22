@@ -66,6 +66,15 @@ const AdminDashboard: React.FC = () => {
     saturday: 'Суббота',
     sunday: 'Воскресенье',
   };
+  
+  // Predefined groups
+  const groups = [
+    'Группа 1',
+    'Группа 2',
+    'Группа 3',
+    'Группа 4',
+    'Группа 5',
+  ];
 
   useEffect(() => {
     if (activeTab === 'news') {
@@ -179,32 +188,41 @@ const AdminDashboard: React.FC = () => {
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     
     try {
-      setLoading(true);
+      const dataToSubmit = { ...formData };
       
-      if (activeTab === 'news') {
-        if (editingItem) {
-          await updateNews(editingItem.id, formData);
-        } else {
-          await createNews(formData);
+      // Handle new group creation
+      if (activeTab === 'schedule' && formData.group === 'new' && formData.new_group) {
+        dataToSubmit.group = formData.new_group;
+        delete dataToSubmit.new_group;
+      }
+      
+      if (editingItem) {
+        if (activeTab === 'news') {
+          await updateNews(editingItem.id, dataToSubmit);
+          await fetchNews();
+        } else if (activeTab === 'schedule') {
+          await updateSchedule(editingItem.id, dataToSubmit);
+          await fetchSchedule();
         }
-        fetchNews();
-      } else if (activeTab === 'schedule') {
-        if (editingItem) {
-          await updateSchedule(editingItem.id, formData);
-        } else {
-          await createSchedule(formData);
+      } else {
+        if (activeTab === 'news') {
+          await createNews(dataToSubmit);
+          await fetchNews();
+        } else if (activeTab === 'schedule') {
+          await createSchedule(dataToSubmit);
+          await fetchSchedule();
         }
-        fetchSchedule();
       }
       
       setShowForm(false);
-      setEditingItem(null);
       setFormData({});
+      setEditingItem(null);
     } catch (err) {
       console.error('Error saving item:', err);
-      setError('Не удалось сохранить элемент');
+      setError('Не удалось сохранить данные');
     } finally {
       setLoading(false);
     }
@@ -425,15 +443,35 @@ const AdminDashboard: React.FC = () => {
       
       <div className="form-group">
         <label htmlFor="group">Группа</label>
-        <input
-          type="text"
+        <select
           id="group"
           name="group"
           value={formData.group || ''}
           onChange={handleFormChange}
           required
-        />
+        >
+          <option value="">Выберите группу</option>
+          {groups.map(group => (
+            <option key={group} value={group}>{group}</option>
+          ))}
+          <option value="new">+ Добавить новую группу</option>
+        </select>
       </div>
+      
+      {formData.group === 'new' && (
+        <div className="form-group">
+          <label htmlFor="new_group">Новая группа</label>
+          <input
+            type="text"
+            id="new_group"
+            name="new_group"
+            value={formData.new_group || ''}
+            onChange={handleFormChange}
+            required
+            placeholder="Введите название новой группы"
+          />
+        </div>
+      )}
       
       <div className="form-group checkbox">
         <label>

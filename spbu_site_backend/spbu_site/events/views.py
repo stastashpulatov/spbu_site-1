@@ -2,6 +2,8 @@ from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.pagination import PageNumberPagination
 from .permissions import IsAdminOrTeacher
+from rest_framework.decorators import action
+from rest_framework.response import Response
 
 from .models import News, Event, Schedule
 from .serializers import NewsSerializer, EventSerializer, ScheduleSerializer
@@ -72,3 +74,9 @@ class ScheduleViewSet(viewsets.ModelViewSet):
         result_page = paginator.paginate_queryset(self.get_queryset(), request)
         serializer = self.serializer_class(result_page, many=True, context={'request': request})
         return paginator.get_paginated_response(serializer.data)
+
+    @action(detail=False, methods=['get'])
+    def groups(self, request):
+        """Return a list of all unique groups from the schedule."""
+        groups = Schedule.objects.values_list('group', flat=True).distinct().order_by('group')
+        return Response(list(groups))

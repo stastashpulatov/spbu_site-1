@@ -69,4 +69,9 @@ export const deleteSchedule = async (id: number) => {
   return api.delete(`/events/schedule/${id}/`);
 };
 
+// Groups API
+export const getGroups = async () => {
+  return api.get('/events/schedule/groups/');
+};
+
 export default api;
