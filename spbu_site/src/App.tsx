@@ -22,6 +22,8 @@ import Library from "./components/pages/Library";
 import StudentAccount from "./components/pages/StudentAccount";
 import Documents from "./components/pages/Documents";
 import Agreements from "./components/pages/Agreements";
+import NewsPage from "./components/pages/NewsPage";
+import SchedulePage from "./components/pages/SchedulePage";
 
 import TransitionWrapper from "./components/common/TransitionWrapper";
 
@@ -58,6 +60,8 @@ function App() {
                 <Route path='/agreements' element={<Agreements />} />
                 <Route path='/library' element={<Library />} />
                 <Route path='/student-account' element={<StudentAccount />} />
+                <Route path='/news' element={<NewsPage />} />
+                <Route path='/schedule' element={<SchedulePage />} />
 
                 {/* Admin Routes */}
                 <Route path='/admin' element={<Navigate to="/admin/login" replace />} />
