@@ -4,13 +4,9 @@ class IsAdminOrTeacher(BasePermission):
     def has_permission(self, request, view):
         if request.method in SAFE_METHODS:
             return True
-            
+
         if not request.user or not request.user.is_authenticated:
             return False
 
-        user_role = getattr(request.user, 'role', None)
-        return bool(
-            user_role in ['admin', 'teacher'] or
-            request.user.is_staff or
-            request.user.is_superuser
-        )
+        role = getattr(request.user, 'role', None)
+        return role in ['admin', 'teacher'] or request.user.is_staff or request.user.is_superuser
