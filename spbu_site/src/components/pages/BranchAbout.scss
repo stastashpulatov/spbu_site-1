@@ -5,29 +5,31 @@
   &.light {
     --text-primary: #333333;
     --text-secondary: #666666;
-    --background-primary: #ffffff;
-    --background-secondary: #f5f5f5;
-    --border-color: #e0e0e0;
+    --background-primary: #fff5f5;
+    --background-secondary: #fed7d7;
+    --border-color: #fbd5d5;
     --card-bg: #ffffff;
-    --card-shadow: rgba(0, 0, 0, 0.08);
-    --link-color: #2c5282;
-    --link-hover: #2a4365;
-    --card-hover: rgba(0, 0, 0, 0.03);
-    --image-shadow: rgba(0, 0, 0, 0.1);
+    --card-shadow: rgba(229, 62, 62, 0.1);
+    --link-color: #c53030;
+    --link-hover: #9b2c2c;
+    --card-hover: rgba(229, 62, 62, 0.05);
+    --image-shadow: rgba(229, 62, 62, 0.2);
+    --primary-color: #333333;
   }
 
   &.dark {
     --text-primary: #ffffff;
-    --text-secondary: #cbd5e0;
-    --background-primary: #1a202c;
-    --background-secondary: #2d3748;
-    --border-color: #4a5568;
-    --card-bg: #2d3748;
-    --card-shadow: rgba(0, 0, 0, 0.2);
-    --link-color: #4299e1;
-    --link-hover: #63b3ed;
-    --card-hover: rgba(255, 255, 255, 0.05);
-    --image-shadow: rgba(0, 0, 0, 0.3);
+    --text-secondary: #fed7d7;
+    --background-primary: #1a0000;
+    --background-secondary: #450a0a;
+    --border-color: #742a2a;
+    --card-bg: #2d0000;
+    --card-shadow: rgba(0, 0, 0, 0.3);
+    --link-color: #fc8181;
+    --link-hover: #feb2b2;
+    --card-hover: rgba(229, 62, 62, 0.1);
+    --image-shadow: rgba(0, 0, 0, 0.4);
+    --primary-color: #ffffff;
   }
 
   .content-container {
@@ -48,10 +50,11 @@
 
     .header-icon {
       font-size: 2.25rem;
+      color: var(--primary-color);
     }
 
     h1 {
-      color: var(--text-primary);
+      color: var(--primary-color);
       font-size: 2.25rem;
       font-weight: 600;
       margin: 0;
