@@ -4,35 +4,49 @@
 }
 
 [data-theme='light'] {
-    --bg-color: #ffffff;
-    --text-color: #1a1a1a;
-    --text-color-secondary: #666666;
-    --primary-color: #e53e3e;
-    --primary-color-dark: #c53030;
-    --border-color: #fbd5d5;
+    --bg-color: #fff5f5;
+    --text-color: #2d3748;
+    --text-color-secondary: #4a5568;
+    --primary-color: #e31837;
+    --primary-color-rgb: 227, 24, 55;
+    --primary-color-dark: #c01531;
+    --primary-color-dark-rgb: 192, 21, 49;
+    --border-color: #fecdd3;
     --card-bg: #ffffff;
-    --hover-bg: #fff5f5;
-    --header-bg: #e53e3e;
+    --hover-bg: #ffe4e6;
+    --header-bg: linear-gradient(135deg, #e31837 0%, #b91c1c 100%);
     --dropdown-bg: #ffffff;
-    --dropdown-border: #fbd5d5;
-    --hover-color: #c53030;
-    --active-bg: #fed7d7;
+    --dropdown-border: #fecdd3;
+    --hover-color: #fda4af;
+    --active-bg: #fecaca;
+    --button-bg: #e31837;
+    --button-hover: #c01531;
+    --button-text: #ffffff;
+    --shadow-color: rgba(227, 24, 55, 0.15);
+    --accent-color: #f43f5e;
 }
 
 [data-theme='dark'] {
-    --bg-color: #1a0000;
-    --text-color: #f3f4f6;
-    --text-color-secondary: #9ca3af;
-    --primary-color: #fc8181;
-    --primary-color-dark: #feb2b2;
-    --border-color: #742a2a;
-    --card-bg: #2d0000;
-    --hover-bg: #450a0a;
-    --header-bg: #7f1d1d;
-    --dropdown-bg: #2d0000;
-    --dropdown-border: #742a2a;
-    --hover-color: #fc8181;
-    --active-bg: #9b2c2c;
+    --bg-color: #1f1720;
+    --text-color: #f8f9fa;
+    --text-color-secondary: #e2e8f0;
+    --primary-color: #f43f5e;
+    --primary-color-rgb: 244, 63, 94;
+    --primary-color-dark: #fb7185;
+    --primary-color-dark-rgb: 251, 113, 133;
+    --border-color: #581c25;
+    --card-bg: #2d232a;
+    --hover-bg: #4c1d28;
+    --header-bg: linear-gradient(135deg, #9f1239 0%, #be123c 100%);
+    --dropdown-bg: #2d232a;
+    --dropdown-border: #581c25;
+    --hover-color: #fb7185;
+    --active-bg: #9f1239;
+    --button-bg: #e11d48;
+    --button-hover: #f43f5e;
+    --button-text: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --accent-color: #fb7185;
 }
 
 .app-container {
@@ -41,3 +55,6 @@
     background-color: var(--bg-color);
     color: var(--text-color);
 }
+
+/* Импортируем стили кнопок */
+@import './styles/buttons.scss';
