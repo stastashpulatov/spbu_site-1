@@ -2,10 +2,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 1rem;
-    background-color: var(--header-bg);
+    padding: 0.75rem 2rem;
+    background: var(--header-bg);
     position: relative;
     z-index: 50;
+    color: white;
+    box-shadow: 0 4px 15px var(--shadow-color);
 }
 
 .menu-section {
@@ -22,8 +24,8 @@
             transform: translateY(0);
             pointer-events: auto;
             transition: 
-                opacity 0.5s ease,
-                transform 0.5s ease,
+                opacity 0.3s ease,
+                transform 0.3s ease,
                 visibility 0s;
         }
     }
@@ -37,14 +39,27 @@
   
 .header-item {
     margin: 0;
-    font-size: 1.5rem;
-    padding: 0.75rem;
-    color: var(--text-color);
+    font-size: 1.4rem;
+    padding: 0.75rem 1rem;
+    color: white;
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    transition: color 0.2s ease;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+    position: relative;
+    
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0.5rem;
+        left: 1rem;
+        width: 0;
+        height: 2px;
+        background-color: white;
+        transition: width 0.3s ease;
+    }
     
     svg {
         transition: transform 0.2s ease;
@@ -58,19 +73,22 @@
 
     &:hover {
         color: var(--hover-color);
+        background-color: rgba(255, 255, 255, 0.15);
+        
+        &::after {
+            width: calc(100% - 2rem);
+        }
     }
 }
-  
-
   
 .dropdown-menu {
     position: absolute;
     left: 0;
     top: 100%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    box-shadow: 0 8px 20px var(--shadow-color);
+    border-radius: 12px;
     margin-top: 0.5rem;
-    padding: 0.5rem;
+    padding: 0.75rem;
     min-width: 300px;
     z-index: 10;
     background-color: var(--dropdown-bg);
@@ -79,9 +97,9 @@
     visibility: hidden;
     transform: translateY(-5px);
     transition: 
-        opacity 0.5s ease,
-        transform 0.5s ease,
-        visibility 0s linear 1.5s;
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0s linear 0.3s;
     pointer-events: none;
 
     &:hover,
@@ -91,8 +109,8 @@
         transform: translateY(0);
         pointer-events: auto;
         transition: 
-            opacity 0.5s ease,
-            transform 0.5s ease,
+            opacity 0.3s ease,
+            transform 0.3s ease,
             visibility 0s;
     }
 
@@ -112,14 +130,14 @@
 
 .dropdown-item {
     display: block;
-    padding: 1rem;
-    border-radius: 2px;
-    font-size: 1.25rem;
+    padding: 0.9rem 1.2rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
     color: var(--text-color);
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition: all 0.2s ease;
     text-decoration: none;
     white-space: nowrap;
-    margin: 0;
+    margin: 0.2rem 0;
     
     &.submenu-trigger {
         display: flex;
@@ -144,8 +162,9 @@
 }
 
 .dropdown-item:hover {
-    color: var(--hover-color);
+    color: var(--primary-color);
     background-color: var(--hover-bg);
+    transform: translateX(3px);
 }
 
 .dropdown-item:active {
@@ -156,9 +175,9 @@
     position: absolute;
     left: 100%;
     top: 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    padding: 0.5rem;
+    box-shadow: 0 8px 20px var(--shadow-color);
+    border-radius: 12px;
+    padding: 0.75rem;
     z-index: 20;
     min-width: 300px;
     background-color: var(--dropdown-bg);
@@ -168,9 +187,9 @@
     visibility: hidden;
     transform: translateX(-5px);
     transition: 
-        opacity 0.5s ease,
-        transform 0.5s ease,
-        visibility 0s linear 1.5s;
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0s linear 0.3s;
     pointer-events: none;
 
     .dropdown-item-container:hover > &,
@@ -180,8 +199,8 @@
         transform: translateX(0);
         pointer-events: auto;
         transition: 
-            opacity 0.5s ease,
-            transform 0.5s ease,
+            opacity 0.3s ease,
+            transform 0.3s ease,
             visibility 0s;
     }
 
@@ -196,6 +215,6 @@
 }
 
 .dropdown-item-container:hover > .dropdown-item {
-    color: var(--hover-color);
+    color: var(--primary-color);
     background-color: var(--hover-bg);
 }

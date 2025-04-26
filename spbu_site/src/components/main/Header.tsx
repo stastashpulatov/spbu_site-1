@@ -27,7 +27,8 @@ const menuItems: MenuItems = {
     { title: 'Филиал в г.Ташкенте', 
       submenu: [
         { title: 'О филиале', link: '/branch-tashkent/about_filial' },
-        { title: 'Руководство', link: '/branch-tashkent/leadership' }
+        { title: 'Руководство', link: '/branch-tashkent/leadership' },
+        { title: 'Сведения об образовательной организации', link: '/branch-tashkent/sveden' }
       ]
     }
   ],

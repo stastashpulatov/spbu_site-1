@@ -82,7 +82,7 @@ const translations: Translations = {
     ]
   },
   uz: {
-    backgroundImage: '/images/business-bg.jpg',
+    backgroundImage: '/images/economy.png',
     backgroundPosition: 'center 40%',
     title: 'Raqamli iqtisodiyotda xalqaro biznes',
     code: '38.03.01',
@@ -137,7 +137,7 @@ const translations: Translations = {
     ]
   },
   en: {
-    backgroundImage: '/images/business-bg.jpg',
+    backgroundImage: '/images/economy.png',
     backgroundPosition: 'center 40%',
     title: 'International Business in Digital Economy',
     code: '38.03.01',
