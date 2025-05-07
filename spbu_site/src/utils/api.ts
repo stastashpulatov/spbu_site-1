@@ -9,7 +9,6 @@ const api = axios.create({
   },
 });
 
-// Add authorization header for admin requests
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('adminToken');
   if (token) {
@@ -41,7 +40,7 @@ export const deleteNews = async (id: number) => {
 
 // Schedule API
 export const getSchedule = async (params?: { group?: string; day?: string }) => {
-  let url = '/events/schedule/';
+  let url = '/schedule/';
   if (params) {
     const queryParams = new URLSearchParams();
     if (params.group) queryParams.append('group', params.group);
@@ -54,24 +53,24 @@ export const getSchedule = async (params?: { group?: string; day?: string }) => 
 };
 
 export const getScheduleById = async (id: number) => {
-  return api.get(`/events/schedule/${id}/`);
+  return api.get(`/schedule/${id}/`);
 };
 
 export const createSchedule = async (scheduleData: any) => {
-  return api.post('/events/schedule/', scheduleData);
+  return api.post('/schedule/', scheduleData);
 };
 
 export const updateSchedule = async (id: number, scheduleData: any) => {
-  return api.put(`/events/schedule/${id}/`, scheduleData);
+  return api.put(`/schedule/${id}/`, scheduleData);
 };
 
 export const deleteSchedule = async (id: number) => {
-  return api.delete(`/events/schedule/${id}/`);
+  return api.delete(`/schedule/${id}/`);
 };
 
 // Groups API
 export const getGroups = async () => {
-  return api.get('/events/schedule/groups/');
+  return api.get('/schedule/groups/');
 };
 
 export default api;
