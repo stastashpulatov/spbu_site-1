@@ -1,0 +1,118 @@
+.branch-common {
+  padding: 2rem;
+  min-height: calc(100vh - 80px);
+  
+  &.light {
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  
+  &.dark {
+    background-color: #1a1a1a;
+    color: #f5f5f5;
+  }
+  
+  .content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 8px;
+    
+    .light & {
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .dark & {
+      background-color: #2a2a2a;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    
+    .header-icon {
+      font-size: 2rem;
+      margin-right: 1rem;
+    }
+    
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+  }
+  
+  .info-table-container, .founders-section {
+    margin-bottom: 2rem;
+  }
+  
+  .info-table, .founders-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border: 1px solid;
+      
+      .light & {
+        border-color: #ddd;
+      }
+      
+      .dark & {
+        border-color: #444;
+      }
+    }
+    
+    th {
+      .light & {
+        background-color: #f0f0f0;
+      }
+      
+      .dark & {
+        background-color: #3a3a3a;
+      }
+    }
+    
+    .field-name {
+      font-weight: 600;
+      width: 30%;
+    }
+    
+    .field-value {
+      width: 70%;
+    }
+  }
+  
+  .founders-section {
+    h2 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    padding: 1rem;
+    
+    .content-container {
+      padding: 1rem;
+    }
+    
+    .info-table, .founders-table {
+      th, td {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+      }
+    }
+    
+    .founders-table {
+      display: block;
+      overflow-x: auto;
+    }
+  }
+}
