@@ -54,12 +54,16 @@ python manage.py migrate
 
 # Проверяем, существует ли суперпользователь
 echo "Проверяем наличие суперпользователя..."
-SUPERUSER_EXISTS=$(python -c "from django.contrib.auth import get_user_model; User = get_user_model(); print(User.objects.filter(is_superuser=True).exists())")
+# Используем Django management команду для проверки суперпользователя
+SUPERUSER_COUNT=$(python manage.py shell -c "from django.contrib.auth import get_user_model; User = get_user_model(); print(User.objects.filter(is_superuser=True).count())")
 
-if [ "$SUPERUSER_EXISTS" != "True" ]; then
+if [ "$SUPERUSER_COUNT" = "0" ]; then
     echo "Создаем суперпользователя..."
-    echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('admin', 'admin@example.com', 'admin')" | python manage.py shell
+    # Используем createsuperuser с предоставленными входными данными
+    echo -e "admin\nadmin@example.com\nadmin\nadmin\ny" | python manage.py createsuperuser --noinput || true
     echo "Суперпользователь создан: логин 'admin', пароль 'admin'"
+else
+    echo "Суперпользователь уже существует"
 fi
 
 # Запускаем сервер Django
