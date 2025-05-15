@@ -1,0 +1,16 @@
+[Unit]
+Description=SPBU Site Backend Service
+After=network.target
+
+[Service]
+User=progstas
+WorkingDirectory=/home/progstas/project/spbu_site-1
+ExecStart=/bin/bash /home/progstas/project/spbu_site-1/start_backend.sh
+Restart=always
+RestartSec=5
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=spbu-backend
+
+[Install]
+WantedBy=multi-user.target

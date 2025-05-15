@@ -1,6 +1,15 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8000/api';
+// Используем переменные окружения или значения по умолчанию для определения API URL
+const API_HOST = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+
+// Если API_HOST уже содержит /api, то не добавляем его снова
+const API_URL = API_HOST.includes('/api') ? API_HOST : `${API_HOST}/api`;
+
+// Логируем информацию о текущем URL и API URL
+console.log('Current URL:', window.location.href);
+console.log('API URL:', API_URL);
+console.log('Environment variables:', import.meta.env.VITE_API_URL || 'Не установлено');
 
 const api = axios.create({
   baseURL: API_URL,
@@ -9,13 +18,38 @@ const api = axios.create({
   },
 });
 
-api.interceptors.request.use((config) => {
-  const token = localStorage.getItem('adminToken');
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+// Добавляем интерцептор для добавления токена авторизации
+api.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('adminToken');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    console.error('API Request Error:', error);
+    return Promise.reject(error);
   }
-  return config;
-});
+);
+
+// Добавляем интерцептор для обработки ответов
+api.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    console.error('API Response Error:', error);
+    
+    // Если сервер недоступен, показываем сообщение
+    if (error.message === 'Network Error') {
+      console.error('Backend server is not available. Please check if it\'s running.');
+      // Можно добавить глобальное сообщение об ошибке здесь
+    }
+    
+    return Promise.reject(error);
+  }
+);
 
 // News API
 export const getNews = async (page = 1) => {
