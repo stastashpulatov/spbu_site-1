@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-(b_at3qb*)pog6_!kzqo24u%7d36ltqga5kybrqoz5%j-3zs@5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']  # Разрешаем доступ с любого хоста
 
 
 # Application definition
@@ -149,12 +149,21 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOW_CREDENTIALS = True
 
+# Разрешаем запросы с любых доменов и портов
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
+    "http://localhost:5174",
+    "http://127.0.0.1:5173",
+    "http://127.0.0.1:5174",
+    "http://127.0.0.1:8000",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",
+    "http://localhost:5174",
+    "http://127.0.0.1:5173",
+    "http://127.0.0.1:5174",
+    "http://127.0.0.1:8000",
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'

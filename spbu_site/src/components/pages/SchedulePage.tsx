@@ -1,18 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Schedule from '../shared/Schedule';
+import { getGroups } from '../../utils/api';
 import './SchedulePage.scss';
+
+interface Group {
+  id: number;
+  name: string;
+}
 
 const SchedulePage: React.FC = () => {
   const [selectedGroup, setSelectedGroup] = useState<string>('');
+  const [groups, setGroups] = useState<Group[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
   
-  // Sample groups - you can replace this with actual data from your API
-  const groups = [
-    'Группа 1',
-    'Группа 2',
-    'Группа 3',
-    'Группа 4',
-    'Группа 5',
-  ];
+  useEffect(() => {
+    const fetchGroups = async () => {
+      try {
+        setLoading(true);
+        const response = await getGroups();
+        setGroups(response.data);
+        setError(null);
+      } catch (err) {
+        console.error('Error fetching groups:', err);
+        setError('Не удалось загрузить группы. Пожалуйста, попробуйте позже.');
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchGroups();
+  }, []);
 
   return (
     <div className="schedule-page">
@@ -25,16 +43,22 @@ const SchedulePage: React.FC = () => {
       
       <div className="schedule-filter">
         <label htmlFor="group-select">Выберите группу:</label>
-        <select 
-          id="group-select"
-          value={selectedGroup}
-          onChange={(e) => setSelectedGroup(e.target.value)}
-        >
-          <option value="">Все группы</option>
-          {groups.map(group => (
-            <option key={group} value={group}>{group}</option>
-          ))}
-        </select>
+        {loading ? (
+          <div>Загрузка групп...</div>
+        ) : error ? (
+          <div className="error">{error}</div>
+        ) : (
+          <select 
+            id="group-select"
+            value={selectedGroup}
+            onChange={(e) => setSelectedGroup(e.target.value)}
+          >
+            <option value="">Все группы</option>
+            {groups.map(group => (
+              <option key={group.id} value={group.id.toString()}>{group.name}</option>
+            ))}
+          </select>
+        )}
       </div>
       
       <div className="schedule-container">

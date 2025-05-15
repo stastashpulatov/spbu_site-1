@@ -2,6 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { getSchedule } from '../../utils/api';
 import './Schedule.scss';
 
+interface Teacher {
+  id: number;
+  name: string;
+}
+
+interface Group {
+  id: number;
+  name: string;
+}
+
+interface Room {
+  id: number;
+  name: string;
+}
+
 interface ScheduleItem {
   id: number;
   title: string;
@@ -10,9 +25,9 @@ interface ScheduleItem {
   day_of_week: string;
   start_time: string;
   end_time: string;
-  location: string;
-  teacher: string;
-  group: string;
+  location: Room;
+  teacher: Teacher;
+  group: Group;
   is_visible: boolean;
 }
 
@@ -45,19 +60,47 @@ const Schedule: React.FC<ScheduleProps> = ({ group }) => {
         const params: { group?: string } = {};
         if (group) params.group = group;
         
+        console.log('Fetching schedule with params:', params);
+        console.log('API URL:', import.meta.env.VITE_API_URL || 'Not set');
+        
         const response = await getSchedule(params);
+        console.log('Schedule API response:', response.data);
         
         // Group schedule items by day
         const groupedByDay: Record<string, ScheduleItem[]> = {};
         
-        response.data.results.forEach((item: ScheduleItem) => {
+        // Проверяем разные форматы ответа API
+        let scheduleItems: ScheduleItem[] = [];
+        
+        if (response.data.results && Array.isArray(response.data.results)) {
+          // Формат с пагинацией
+          scheduleItems = response.data.results;
+        } else if (Array.isArray(response.data)) {
+          // Простой массив
+          scheduleItems = response.data;
+        } else {
+          console.error('Unexpected API response format:', response.data);
+          setError('Получен неверный формат данных от сервера.');
+          setLoading(false);
+          return;
+        }
+        
+        if (scheduleItems.length === 0) {
+          console.log('No schedule items found');
+          setError('Расписание не найдено. Возможно, оно еще не добавлено в систему.');
+          setLoading(false);
+          return;
+        }
+        
+        // Группируем по дням недели
+        scheduleItems.forEach((item: ScheduleItem) => {
           if (!groupedByDay[item.day_of_week]) {
             groupedByDay[item.day_of_week] = [];
           }
           groupedByDay[item.day_of_week].push(item);
         });
         
-        // Sort each day's schedule by start time
+        // Сортируем по времени начала
         Object.keys(groupedByDay).forEach(day => {
           groupedByDay[day].sort((a, b) => 
             a.start_time.localeCompare(b.start_time)
@@ -66,7 +109,7 @@ const Schedule: React.FC<ScheduleProps> = ({ group }) => {
         
         setScheduleData(groupedByDay);
         
-        // Set active day to the first day that has classes
+        // Устанавливаем активный день
         if (Object.keys(groupedByDay).length > 0) {
           const firstDay = dayOrder.find(day => groupedByDay[day]?.length > 0) || 'monday';
           setActiveDay(firstDay);
@@ -75,7 +118,7 @@ const Schedule: React.FC<ScheduleProps> = ({ group }) => {
         setError(null);
       } catch (err) {
         console.error('Error fetching schedule:', err);
-        setError('Не удалось загрузить расписание. Пожалуйста, попробуйте позже.');
+        setError('Не удалось загрузить расписание. Проверьте подключение к серверу.');
       } finally {
         setLoading(false);
       }
@@ -130,10 +173,10 @@ const Schedule: React.FC<ScheduleProps> = ({ group }) => {
                   <h3 className="schedule-item-title">{item.title}</h3>
                   <div className="schedule-item-info">
                     <span className="schedule-item-location">
-                      <i className="location-icon">📍</i> {item.location}
+                      <i className="location-icon">📍</i> {item.location?.name || 'Не указано'}
                     </span>
                     <span className="schedule-item-teacher">
-                      <i className="teacher-icon">👨‍🏫</i> {item.teacher}
+                      <i className="teacher-icon">👨‍🏫</i> {item.teacher?.name || 'Не указано'}
                     </span>
                   </div>
                 </div>
