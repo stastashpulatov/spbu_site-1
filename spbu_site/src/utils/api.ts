@@ -108,4 +108,8 @@ export const getGroups = async () => {
   return api.get('/schedule/groups/');
 };
 
+// Auth API
+export const login = async (username: string, password: string) => {
+  return api.post('/user/auth/jwt/create', { username, password });
+}
 export default api;

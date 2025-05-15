@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { login } from '../../utils/api';
 import './AdminLogin.scss';
 
 const AdminLogin: React.FC = () => {
@@ -17,23 +18,29 @@ const AdminLogin: React.FC = () => {
     }
   }, [navigate]);
 
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-    setError('');
+const handleLogin = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setError('');
 
-    // В реальном приложении здесь должна быть проверка через API
-    if (username === 'admin' && password === 'admin') {
-      localStorage.setItem('adminToken', 'temp-token');
-      navigate('/admin/dashboard');
-    } else {
-      setAttempts(prev => prev + 1);
-      setError(
-        attempts >= 2
-          ? 'Слишком много попыток. Логин: admin, Пароль: admin'
-          : 'Неверный логин или пароль. Попробуйте еще раз.'
-      );
+  if (username && password) {
+    try {
+      const response = await login(username, password);
+      if (response) {
+        localStorage.setItem('adminToken', response.data.access);
+        navigate('/admin/dashboard');
+      }
+    } catch (err) {
+      setError('Ошибка при входе. Проверьте логин и пароль.');
     }
-  };
+  } else {
+    setAttempts(prev => prev + 1);
+    setError(
+      attempts >= 2
+        ? 'Слишком много попыток. Логин: admin, Пароль: admin'
+        : 'Неверный логин или пароль. Попробуйте еще раз.'
+    );
+  }
+};
 
   return (
     <div className="admin-login">
