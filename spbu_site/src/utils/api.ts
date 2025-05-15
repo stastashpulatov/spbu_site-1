@@ -22,7 +22,8 @@ const api = axios.create({
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('adminToken');
-    if (token) {
+    // Проверяем, что токен не является временным токеном
+    if (token && token !== 'temp-token') {
       config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
