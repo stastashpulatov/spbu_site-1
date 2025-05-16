@@ -10,10 +10,26 @@
     box-shadow: 0 4px 15px var(--shadow-color);
 }
 
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    
+    .header-logo {
+        height: 60px;
+        width: auto;
+        transition: transform 0.2s ease;
+        
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+}
+
 .menu-section {
     display: flex;
     flex: 1;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
     padding: 0.25rem;
 

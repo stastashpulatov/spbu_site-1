@@ -9,6 +9,9 @@ import History from "./components/pages/History";
 import UniversityInfo from "./components/pages/UniversityInfo";
 import BranchAbout from "./components/pages/BranchAbout";
 import BranchSveden from "./components/pages/BranchSveden";
+import BranchCommon from "./components/pages/BranchCommon";
+import BranchStruct from "./components/pages/BranchStruct";
+import BranchDocument from "./components/pages/BranchDocument";
 import Leadership from "./components/pages/Leadership";
 import InternationalBusiness from "./components/pages/InternationalBusiness";
 import Programming from "./components/pages/Programming";
@@ -48,6 +51,9 @@ function App() {
                 <Route path='/about/info' element={<UniversityInfo />} />
                 <Route path='/branch-tashkent/about_filial' element={<BranchAbout />} />
                 <Route path='/branch-tashkent/sveden' element={<BranchSveden />} />
+                <Route path='/branch-tashkent/sveden/common' element={<BranchCommon />} />
+                <Route path='/branch-tashkent/sveden/struct' element={<BranchStruct />} />
+                <Route path='/branch-tashkent/sveden/document' element={<BranchDocument />} />
                 <Route path='/branch-tashkent/leadership' element={<Leadership />} />
                 <Route path='/education/bachelor/economy' element={<InternationalBusiness />} />
                 <Route path='/education/bachelor/programming' element={<Programming />} />

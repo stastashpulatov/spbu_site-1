@@ -2,10 +2,12 @@
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 
   h1 {
     margin-bottom: 2rem;
-    color: #333;
+    color: var(--text-color);
   }
 
   &__content {
@@ -25,7 +27,7 @@
       width: 100%;
       height: auto;
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 8px var(--shadow-color);
     }
   }
 
@@ -37,21 +39,22 @@
 
   &__item {
     h3 {
-      color: #444;
+      color: var(--text-color);
       margin-bottom: 0.5rem;
     }
 
     p {
-      color: #666;
+      color: var(--text-color-secondary);
       line-height: 1.6;
       margin: 0;
     }
 
     a {
-      color: #007bff;
+      color: var(--primary-color);
       text-decoration: none;
 
       &:hover {
+        color: var(--primary-color-dark);
         text-decoration: underline;
       }
     }
@@ -62,7 +65,7 @@
     height: 400px;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px var(--shadow-color);
 
     iframe {
       width: 100%;

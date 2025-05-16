@@ -4,49 +4,51 @@
 }
 
 [data-theme='light'] {
-    --bg-color: #fff5f5;
+    --bg-color: #fff8f8;
     --text-color: #2d3748;
     --text-color-secondary: #4a5568;
-    --primary-color: #e31837;
-    --primary-color-rgb: 227, 24, 55;
-    --primary-color-dark: #c01531;
-    --primary-color-dark-rgb: 192, 21, 49;
-    --border-color: #fecdd3;
+    --primary-color: #d85a68;
+    --primary-color-rgb: 216, 90, 104;
+    --primary-color-dark: #c04b59;
+    --primary-color-dark-rgb: 192, 75, 89;
+    --border-color: #f5c4c8;
     --card-bg: #ffffff;
-    --hover-bg: #ffe4e6;
-    --header-bg: linear-gradient(135deg, #e31837 0%, #b91c1c 100%);
+    --hover-bg: #ffeaec;
+    --header-bg: linear-gradient(135deg, #d85a68 0%, #c04b59 100%);
     --dropdown-bg: #ffffff;
-    --dropdown-border: #fecdd3;
-    --hover-color: #fda4af;
-    --active-bg: #fecaca;
-    --button-bg: #e31837;
-    --button-hover: #c01531;
+    --dropdown-border: #f5c4c8;
+    --hover-color: #e87681;
+    --active-bg: #f5d0d3;
+    --button-bg: #d85a68;
+    --button-hover: #c04b59;
     --button-text: #ffffff;
-    --shadow-color: rgba(227, 24, 55, 0.15);
-    --accent-color: #f43f5e;
+    --shadow-color: rgba(216, 90, 104, 0.15);
+    --accent-color: #e87681;
+    --content-bg: #ffffff;
 }
 
 [data-theme='dark'] {
     --bg-color: #1f1720;
     --text-color: #f8f9fa;
     --text-color-secondary: #e2e8f0;
-    --primary-color: #f43f5e;
-    --primary-color-rgb: 244, 63, 94;
-    --primary-color-dark: #fb7185;
-    --primary-color-dark-rgb: 251, 113, 133;
-    --border-color: #581c25;
+    --primary-color: #e87681;
+    --primary-color-rgb: 232, 118, 129;
+    --primary-color-dark: #f0939c;
+    --primary-color-dark-rgb: 240, 147, 156;
+    --border-color: #6a2832;
     --card-bg: #2d232a;
-    --hover-bg: #4c1d28;
-    --header-bg: linear-gradient(135deg, #9f1239 0%, #be123c 100%);
+    --hover-bg: #4c2830;
+    --header-bg: linear-gradient(135deg, #b05a66 0%, #c06a76 100%);
     --dropdown-bg: #2d232a;
-    --dropdown-border: #581c25;
-    --hover-color: #fb7185;
-    --active-bg: #9f1239;
-    --button-bg: #e11d48;
-    --button-hover: #f43f5e;
+    --dropdown-border: #6a2832;
+    --hover-color: #f0939c;
+    --active-bg: #b05a66;
+    --button-bg: #d85a68;
+    --button-hover: #e87681;
     --button-text: #ffffff;
     --shadow-color: rgba(0, 0, 0, 0.3);
-    --accent-color: #fb7185;
+    --accent-color: #f0939c;
+    --content-bg: #2d232a;
 }
 
 .app-container {
