@@ -108,6 +108,11 @@ function Header() {
 
   return (
     <div className="header">
+      <div className="logo-container">
+        <Link to="/">
+          <img src="/images/logo.png" alt="СПбГУ логотип" className="header-logo" />
+        </Link>
+      </div>
       <div className="menu-section">
         {Object.keys(menuItems).map((key) => (
           <div key={key} className="relative">

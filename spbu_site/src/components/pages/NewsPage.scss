@@ -2,6 +2,8 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 24px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   
   .news-page-header {
     text-align: center;
@@ -10,13 +12,13 @@
     h1 {
       font-size: 32px;
       font-weight: 700;
-      color: #1f2937;
+      color: var(--text-color);
       margin-bottom: 12px;
     }
     
     .news-page-description {
       font-size: 16px;
-      color: #6b7280;
+      color: var(--text-color-secondary);
       max-width: 600px;
       margin: 0 auto;
     }
@@ -28,11 +30,11 @@
     padding: 60px;
     text-align: center;
     font-size: 18px;
-    color: #6b7280;
+    color: var(--text-color-secondary);
   }
   
   .news-error {
-    color: #b91c1c;
+    color: var(--primary-color-dark);
   }
   
   .news-list {
@@ -43,15 +45,15 @@
   
   .news-item {
     display: flex;
-    background-color: #ffffff;
+    background-color: var(--card-bg);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px var(--shadow-color), 0 1px 3px var(--shadow-color);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     
     &:hover {
       transform: translateY(-4px);
-      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05), 0 4px 6px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 15px var(--shadow-color), 0 4px 6px var(--shadow-color);
     }
     
     .news-item-image {
@@ -73,21 +75,21 @@
       
       .news-item-date {
         font-size: 14px;
-        color: #6b7280;
+        color: var(--text-color-secondary);
         margin-bottom: 12px;
       }
       
       .news-item-title {
         font-size: 24px;
         font-weight: 600;
-        color: #111827;
+        color: var(--text-color);
         margin: 0 0 16px 0;
         line-height: 1.3;
       }
       
       .news-item-description {
         font-size: 16px;
-        color: #4b5563;
+        color: var(--text-color-secondary);
         line-height: 1.6;
         margin: 0;
         overflow: hidden;
@@ -107,8 +109,8 @@
     
     .pagination-button {
       padding: 8px 16px;
-      background-color: #f3f4f6;
-      color: #4b5563;
+      background-color: var(--hover-bg);
+      color: var(--text-color-secondary);
       border: none;
       border-radius: 6px;
       font-size: 14px;
@@ -117,7 +119,7 @@
       transition: all 0.2s ease;
       
       &:hover:not(:disabled) {
-        background-color: #e5e7eb;
+        background-color: var(--active-bg);
       }
       
       &:disabled {
@@ -136,8 +138,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #f9fafb;
-        color: #4b5563;
+        background-color: var(--hover-bg);
+        color: var(--text-color-secondary);
         border: none;
         border-radius: 6px;
         font-size: 14px;
@@ -146,12 +148,12 @@
         transition: all 0.2s ease;
         
         &:hover {
-          background-color: #e5e7eb;
+          background-color: var(--active-bg);
         }
         
         &.active {
-          background-color: #3b82f6;
-          color: white;
+          background-color: var(--primary-color);
+          color: var(--button-text);
         }
       }
     }

@@ -3,13 +3,13 @@
   min-height: calc(100vh - 80px);
   
   &.light {
-    background-color: #f5f5f5;
-    color: #333;
+    background-color: var(--bg-color);
+    color: var(--text-color);
   }
   
   &.dark {
-    background-color: #1a1a1a;
-    color: #f5f5f5;
+    background-color: var(--bg-color);
+    color: var(--text-color);
   }
   
   .content-container {
@@ -19,13 +19,13 @@
     border-radius: 8px;
     
     .light & {
-      background-color: #fff;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      background-color: var(--content-bg);
+      box-shadow: 0 2px 10px var(--shadow-color);
     }
     
     .dark & {
-      background-color: #2a2a2a;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      background-color: var(--content-bg);
+      box-shadow: 0 2px 10px var(--shadow-color);
     }
   }
   
@@ -37,11 +37,13 @@
     .header-icon {
       font-size: 2rem;
       margin-right: 1rem;
+      color: var(--primary-color);
     }
     
     h1 {
       margin: 0;
       font-size: 2rem;
+      color: var(--text-color);
     }
   }
   
@@ -60,21 +62,21 @@
       border: 1px solid;
       
       .light & {
-        border-color: #ddd;
+        border-color: var(--border-color);
       }
       
       .dark & {
-        border-color: #444;
+        border-color: var(--border-color);
       }
     }
     
     th {
       .light & {
-        background-color: #f0f0f0;
+        background-color: var(--hover-bg);
       }
       
       .dark & {
-        background-color: #3a3a3a;
+        background-color: var(--card-bg);
       }
     }
     
