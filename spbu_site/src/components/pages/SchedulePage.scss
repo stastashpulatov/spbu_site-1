@@ -24,41 +24,95 @@
   
   .schedule-filter {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 16px;
     margin-bottom: 32px;
     background-color: #f9fafb;
-    padding: 16px 24px;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     
-    label {
-      font-size: 16px;
-      font-weight: 500;
-      color: #4b5563;
-    }
-    
-    select {
-      flex: 1;
-      max-width: 300px;
-      padding: 10px 12px;
-      border: 1px solid #d1d5db;
-      border-radius: 6px;
-      font-size: 14px;
-      color: #111827;
-      background-color: white;
-      cursor: pointer;
+    .group-selector {
+      width: 100%;
+      max-width: 500px;
+      text-align: center;
       
-      &:focus {
-        outline: none;
-        border-color: #3b82f6;
-        box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+      h2 {
+        font-size: 20px;
+        font-weight: 600;
+        color: #1f2937;
+        margin-bottom: 16px;
+      }
+      
+      .loading-message,
+      .error-message {
+        padding: 12px;
+        border-radius: 6px;
+        font-size: 15px;
+        margin-top: 12px;
+      }
+      
+      .loading-message {
+        background-color: #f3f4f6;
+        color: #4b5563;
+      }
+      
+      .error-message {
+        background-color: #fee2e2;
+        color: #b91c1c;
+      }
+      
+      .group-select-container {
+        width: 100%;
+      }
+      
+      .group-select {
+        width: 100%;
+        padding: 12px 16px;
+        border: 2px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 16px;
+        color: #111827;
+        background-color: white;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        
+        &:focus {
+          outline: none;
+          border-color: #3b82f6;
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        
+        &:hover {
+          border-color: #9ca3af;
+        }
+        
+        option {
+          padding: 8px;
+        }
       }
     }
   }
   
   .schedule-container {
-    margin-top: 20px;
+    margin-top: 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+  }
+  
+  .no-group-selected {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f9fafb;
+    border-radius: 12px;
+    margin-top: 30px;
+    
+    p {
+      font-size: 18px;
+      color: #6b7280;
+    }
   }
   
   // Responsive adjustments
@@ -74,13 +128,25 @@
     }
     
     .schedule-filter {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 8px;
+      padding: 16px;
       
-      select {
-        max-width: 100%;
-        width: 100%;
+      .group-selector {
+        h2 {
+          font-size: 18px;
+        }
+        
+        .group-select {
+          padding: 10px 12px;
+          font-size: 14px;
+        }
+      }
+    }
+    
+    .no-group-selected {
+      padding: 30px 16px;
+      
+      p {
+        font-size: 16px;
       }
     }
   }

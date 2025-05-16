@@ -41,8 +41,7 @@ type Translations = {
       address: string;
       website: string;
       email: string;
-      documents: string;
-      info: string;
+      regulation: string;
       phone: string;
     };
     departmentTableData: {
@@ -53,8 +52,7 @@ type Translations = {
       address: string;
       website: string;
       email: string;
-      documents: string;
-      info: string;
+      regulation: string;
       phone: string;
     }[];
   };
@@ -103,53 +101,71 @@ const translations: Translations = {
       }
     ],
     departmentTableHeaders: {
-      number: '№',
+      number: '#',
       name: 'Наименование структурного подразделения',
       head: 'ФИО руководителя структурного подразделения',
       position: 'Должность руководителя структурного подразделения',
       address: 'Адрес местонахождения структурного подразделения',
-      website: 'Адрес официального сайта в сети "Интернет" структурного подразделения (при наличии)',
-      email: 'Адреса электронной почты структурного подразделения (при наличии)',
-      documents: 'Сведения о наличии положений о подразделениях с приложением электронных копий указанных документов, подписанных электронной подписью',
-      info: 'Информация о подразделении',
-      phone: 'Контактный телефон структурного подразделения (при наличии)'
+      website: 'Адрес официального сайта в сети "Интернет"',
+      email: 'Адреса электронной почты структурного подразделения',
+      regulation: 'Положение о структурном подразделении',
+      phone: 'Контактный телефон'
     },
     departmentTableData: [
       {
         id: 1,
-        name: 'Учебно-методический отдел(УМО)',
-        head: 'Кутфуллоев Гафур Субхонович',
-        position: 'Начальник Учебно-методического отдела (УМО)',
+        name: 'Кафедра «Горное дело»',
+        head: 'Кадыров Сергей Фармонович',
+        position: 'зав.кафедрой',
         address: 'Республика Узбекистан,Ташкентская область, г. Алмалык, ул. Амира Темура, дом 56',
-        website: 'Misis.uz',
+        website: 'https://misis.uz/кафедра-горное-дело',
         email: 'info@misis.uz',
-        documents: '',
-        info: '',
-        phone: '+998 70 614-22-64'
+        regulation: '',
+        phone: '+998 91 331 77 88'
+      },
+      {
+        id: 2,
+        name: 'Кафедра «Математика и естественно-научные дисциплины»',
+        head: 'Ережепова Арзайым Кадрединовна',
+        position: 'зав.кафедрой',
+        address: 'Республика Узбекистан,Ташкентская область, г. Алмалык, ул. Амира Темура, дом 56',
+        website: 'Гиперссылка',
+        email: 'info@misis.uz',
+        regulation: '',
+        phone: '+998 90 902 65 14'
       },
       {
         id: 3,
-        name: 'Бухгалтерия',
-        head: 'Нафиуллина Юлия Римовна',
-        position: 'Главный бухгалтер',
+        name: 'Кафедра «Металлургия»',
+        head: 'Юсубов Эльман Сардович',
+        position: 'зав.кафедрой',
         address: 'Республика Узбекистан,Ташкентская область, г. Алмалык, ул. Амира Темура, дом 56',
-        website: 'misis.uz',
+        website: 'misis.uz/кафедра-металлургия',
         email: 'info@misis.uz',
-        documents: '',
-        info: '',
-        phone: '+998 70 614-22-64'
+        regulation: '',
+        phone: '+998 94 625 33 54'
+      },
+      {
+        id: 4,
+        name: 'Кафедра «Социально-гуманитарных дисциплин»',
+        head: 'Джалилов Бахадир Раззакович',
+        position: 'зав.кафедрой',
+        address: 'Республика Узбекистан,Ташкентская область, г. Алмалык, ул. Амира Темура, дом 56',
+        website: 'Гиперссылка',
+        email: 'info@misis.uz',
+        regulation: '',
+        phone: '+998 94 614 27 74'
       },
       {
         id: 5,
-        name: 'Отдел кадров',
-        head: 'Эргашева Мухаббат Абдурахмовна',
-        position: 'Начальник отдела кадров',
+        name: 'Кафедра «Автоматизация технологических процессов и производств»',
+        head: 'Тимофеенова Барно Мардовна',
+        position: 'зав.кафедрой',
         address: 'Республика Узбекистан,Ташкентская область, г. Алмалык, ул. Амира Темура, дом 56',
-        website: 'Misis.uz',
+        website: 'Гиперссылка',
         email: 'info@misis.uz',
-        documents: '',
-        info: '',
-        phone: '+998 70 614-22-64'
+        regulation: '',
+        phone: '+998 91 770 22 96'
       }
     ]
   },
@@ -195,53 +211,71 @@ const translations: Translations = {
       }
     ],
     departmentTableHeaders: {
-      number: '№',
+      number: '#',
       name: 'Tarkibiy bo\'linma nomi',
       head: 'Tarkibiy bo\'linma rahbarining F.I.SH.',
       position: 'Tarkibiy bo\'linma rahbarining lavozimi',
       address: 'Tarkibiy bo\'linmaning joylashuv manzili',
-      website: '"Internet" tarmog\'idagi rasmiy veb-sayt manzili (mavjud bo\'lsa)',
-      email: 'Tarkibiy bo\'linmaning elektron pochta manzili (mavjud bo\'lsa)',
-      documents: 'Bo\'linmalar to\'g\'risidagi nizomlar mavjudligi to\'g\'risida ma\'lumot, elektron imzo bilan imzolangan ko\'rsatilgan hujjatlarning elektron nusxalari ilova qilingan',
-      info: 'Bo\'linma haqida ma\'lumot',
-      phone: 'Tarkibiy bo\'linmaning aloqa telefoni (mavjud bo\'lsa)'
+      website: '"Internet" tarmog\'idagi rasmiy veb-sayt manzili',
+      email: 'Tarkibiy bo\'linmaning elektron pochta manzili',
+      regulation: 'Tarkibiy bo\'linma to\'g\'risidagi nizom',
+      phone: 'Aloqa telefoni'
     },
     departmentTableData: [
       {
         id: 1,
-        name: 'O\'quv-uslubiy bo\'lim (O\'UB)',
-        head: 'Kutfulloev Gafur Subhonovich',
-        position: 'O\'quv-uslubiy bo\'lim (O\'UB) boshlig\'i',
+        name: '«Kon ishi» kafedrasi',
+        head: 'Kadirov Sergey Farmonovich',
+        position: 'kafedra mudiri',
         address: 'O\'zbekiston Respublikasi, Toshkent viloyati, Olmaliq shahri, Amir Temur ko\'chasi, 56-uy',
-        website: 'Misis.uz',
+        website: 'https://misis.uz/кафедра-горное-дело',
         email: 'info@misis.uz',
-        documents: '',
-        info: '',
-        phone: '+998 70 614-22-64'
+        regulation: '',
+        phone: '+998 91 331 77 88'
+      },
+      {
+        id: 2,
+        name: '«Matematika va tabiiy-ilmiy fanlar» kafedrasi',
+        head: 'Erejepova Arzayim Kadredinovna',
+        position: 'kafedra mudiri',
+        address: 'O\'zbekiston Respublikasi, Toshkent viloyati, Olmaliq shahri, Amir Temur ko\'chasi, 56-uy',
+        website: 'Giperhavola',
+        email: 'info@misis.uz',
+        regulation: '',
+        phone: '+998 90 902 65 14'
       },
       {
         id: 3,
-        name: 'Buxgalteriya',
-        head: 'Nafiullina Yuliya Rimovna',
-        position: 'Bosh buxgalter',
+        name: '«Metallurgiya» kafedrasi',
+        head: 'Yusubov Elman Sardovich',
+        position: 'kafedra mudiri',
         address: 'O\'zbekiston Respublikasi, Toshkent viloyati, Olmaliq shahri, Amir Temur ko\'chasi, 56-uy',
-        website: 'misis.uz',
+        website: 'misis.uz/кафедра-металлургия',
         email: 'info@misis.uz',
-        documents: '',
-        info: '',
-        phone: '+998 70 614-22-64'
+        regulation: '',
+        phone: '+998 94 625 33 54'
+      },
+      {
+        id: 4,
+        name: '«Ijtimoiy-gumanitar fanlar» kafedrasi',
+        head: 'Jalilov Bahodir Razzakovich',
+        position: 'kafedra mudiri',
+        address: 'O\'zbekiston Respublikasi, Toshkent viloyati, Olmaliq shahri, Amir Temur ko\'chasi, 56-uy',
+        website: 'Giperhavola',
+        email: 'info@misis.uz',
+        regulation: '',
+        phone: '+998 94 614 27 74'
       },
       {
         id: 5,
-        name: 'Kadrlar bo\'limi',
-        head: 'Ergasheva Muhabbat Abduraxmovna',
-        position: 'Kadrlar bo\'limi boshlig\'i',
+        name: '«Texnologik jarayonlar va ishlab chiqarishni avtomatlashtirish» kafedrasi',
+        head: 'Timofeyenova Barno Mardovna',
+        position: 'kafedra mudiri',
         address: 'O\'zbekiston Respublikasi, Toshkent viloyati, Olmaliq shahri, Amir Temur ko\'chasi, 56-uy',
-        website: 'Misis.uz',
+        website: 'Giperhavola',
         email: 'info@misis.uz',
-        documents: '',
-        info: '',
-        phone: '+998 70 614-22-64'
+        regulation: '',
+        phone: '+998 91 770 22 96'
       }
     ]
   },
@@ -292,48 +326,66 @@ const translations: Translations = {
       head: 'Full name of the head of the structural unit',
       position: 'Position of the head of the structural unit',
       address: 'Location address of the structural unit',
-      website: 'Address of the official website on the Internet (if available)',
-      email: 'Email address of the structural unit (if available)',
-      documents: 'Information on the availability of regulations on units with attached electronic copies of these documents signed with an electronic signature',
-      info: 'Information about the unit',
-      phone: 'Contact phone of the structural unit (if available)'
+      website: 'Address of the official website on the Internet',
+      email: 'Email address of the structural unit',
+      regulation: 'Regulation on the structural unit',
+      phone: 'Contact phone'
     },
     departmentTableData: [
       {
         id: 1,
-        name: 'Educational and Methodological Department',
-        head: 'Kutfulloev Gafur Subkhonovich',
-        position: 'Head of Educational and Methodological Department',
+        name: 'Department of Mining',
+        head: 'Kadyrov Sergey Farmonovich',
+        position: 'Head of Department',
         address: 'Republic of Uzbekistan, Tashkent region, Almalyk city, Amir Temur street, 56',
-        website: 'Misis.uz',
+        website: 'https://misis.uz/кафедра-горное-дело',
         email: 'info@misis.uz',
-        documents: '',
-        info: '',
-        phone: '+998 70 614-22-64'
+        regulation: '',
+        phone: '+998 91 331 77 88'
+      },
+      {
+        id: 2,
+        name: 'Department of Mathematics and Natural Sciences',
+        head: 'Erezhepova Arzayim Kadredinovna',
+        position: 'Head of Department',
+        address: 'Republic of Uzbekistan, Tashkent region, Almalyk city, Amir Temur street, 56',
+        website: 'Hyperlink',
+        email: 'info@misis.uz',
+        regulation: '',
+        phone: '+998 90 902 65 14'
       },
       {
         id: 3,
-        name: 'Accounting Department',
-        head: 'Nafiullina Yulia Rimovna',
-        position: 'Chief Accountant',
+        name: 'Department of Metallurgy',
+        head: 'Yusubov Elman Sardovich',
+        position: 'Head of Department',
         address: 'Republic of Uzbekistan, Tashkent region, Almalyk city, Amir Temur street, 56',
-        website: 'misis.uz',
+        website: 'misis.uz/кафедра-металлургия',
         email: 'info@misis.uz',
-        documents: '',
-        info: '',
-        phone: '+998 70 614-22-64'
+        regulation: '',
+        phone: '+998 94 625 33 54'
+      },
+      {
+        id: 4,
+        name: 'Department of Social Sciences and Humanities',
+        head: 'Jalilov Bakhadir Razzakovich',
+        position: 'Head of Department',
+        address: 'Republic of Uzbekistan, Tashkent region, Almalyk city, Amir Temur street, 56',
+        website: 'Hyperlink',
+        email: 'info@misis.uz',
+        regulation: '',
+        phone: '+998 94 614 27 74'
       },
       {
         id: 5,
-        name: 'Human Resources Department',
-        head: 'Ergasheva Mukhabbat Abdurakhimovna',
-        position: 'Head of HR Department',
+        name: 'Department of Automation of Technological Processes and Production',
+        head: 'Timofeyenova Barno Mardovna',
+        position: 'Head of Department',
         address: 'Republic of Uzbekistan, Tashkent region, Almalyk city, Amir Temur street, 56',
-        website: 'Misis.uz',
+        website: 'Hyperlink',
         email: 'info@misis.uz',
-        documents: '',
-        info: '',
-        phone: '+998 70 614-22-64'
+        regulation: '',
+        phone: '+998 91 770 22 96'
       }
     ]
   }
@@ -413,8 +465,7 @@ const BranchStruct: React.FC = () => {
                 <th>{t.departmentTableHeaders.address}</th>
                 <th>{t.departmentTableHeaders.website}</th>
                 <th>{t.departmentTableHeaders.email}</th>
-                <th>{t.departmentTableHeaders.documents}</th>
-                <th>{t.departmentTableHeaders.info}</th>
+                <th>{t.departmentTableHeaders.regulation}</th>
                 <th>{t.departmentTableHeaders.phone}</th>
               </tr>
             </thead>
@@ -436,8 +487,7 @@ const BranchStruct: React.FC = () => {
                     )}
                   </td>
                   <td>{row.email}</td>
-                  <td>{row.documents}</td>
-                  <td>{row.info}</td>
+                  <td>{row.regulation}</td>
                   <td>{row.phone}</td>
                 </tr>
               ))}
