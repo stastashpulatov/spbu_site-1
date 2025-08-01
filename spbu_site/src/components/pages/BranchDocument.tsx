@@ -27,21 +27,44 @@ const translations: Translations = {
       {
         type: 'Постановление',
         date: '30.09.2021',
-        title: 'Постановление Правительства Республики Узбекистан от 30.09.2021 №ПП-4942 «Об организации деятельности филиала федерального государственного бюджетного образовательного учреждения высшего образования "Санкт-Петербургский государственный университет" в г. Ташкенте»',
+        title: 'Постановление Президента Республики Узбекистан от 30.09.2021 №ПП-4942 «Об организации деятельности филиала федерального государственного бюджетного образовательного учреждения высшего образования "Санкт-Петербургский государственный университет" в г. Ташкенте»',
         downloadText: 'Скачать PDF',
-        url: '/documents/postanovlenie-4942.pdf' // Add your document URL here
+        url: '/files/Поставновление_Президента_Республики_Узбекистан_Об_организации_деятельности.pdf'
       },
       {
         type: 'Соглашение',
         date: '19.01.2021',
         title: 'Соглашение между Правительством Российской Федерации и Правительством Республики Узбекистан от 19.01.2021 «О создании и функционировании филиала образовательной организации высшего образования Санкт-Петербургского государственного университета в Республике Узбекистан»',
-        downloadText: 'Скачать PDF'
+        downloadText: 'Скачать PDF',
+        url: '/files/Межправительственное_соглашение.pdf' // РЕКОМЕНДАЦИЯ: Переименуйте файл 'Межправительственное_соглашение_филиалы_Узбекистан copy.pdf' в 'Межправительственное_соглашение.pdf'
       },
       {
         type: 'Лицензия',
         date: '15.03.2022',
-        title: 'Лицензия на осуществление образовательной деятельности и ведение филиалом образовательной деятельности на русском языке Российской Федерации (№ СТ-18-78)',
-        downloadText: 'Скачать PDF'
+        title: 'Лицензия на осуществление образовательной деятельности (№ СТ-18-78)',
+        downloadText: 'Скачать PDF',
+        url: '/files/Лицензия.pdf'
+      },
+      {
+        type: 'Положение',
+        date: '', // Дата не указана
+        title: 'Положение о филиале федерального государственного бюджетного образовательного учреждения высшего образования «Санкт-Петербургский государственный университет» в г. Ташкенте',
+        downloadText: 'Скачать PDF',
+        url: '/files/ПОЛОЖЕНИЕ_о_филиале_СПбГУ_в_г_Ташкенте.pdf'
+      },
+      {
+        type: 'Свидетельство',
+        date: '', // Дата не указана
+        title: 'Свидетельство о государственной регистрации некоммерческой организации',
+        downloadText: 'Скачать PDF',
+        url: '/files/Свидетельство_о_регистрации.pdf' // РЕКОМЕНДАЦИЯ: Переименуйте файл 'Свидетельство о регистрации.pdf' в 'Свидетельство_о_регистрации.pdf'
+      },
+      {
+        type: 'Приемная кампания',
+        date: '2024',
+        title: 'Правила приема на обучение по программам бакалавриата в филиал СПбГУ в г. Ташкенте в 2024 году',
+        downloadText: 'Скачать PDF',
+        url: '/files/Прием_2024.pdf'
       }
     ]
   },
@@ -51,20 +74,44 @@ const translations: Translations = {
       {
         type: 'Qaror',
         date: '30.09.2021',
-        title: 'O\'zbekiston Respublikasi Vazirlar Mahkamasining 30.09.2021 yildagi №PP-4942 "Toshkent shahrida "Sankt-Peterburg davlat universiteti" federal davlat byudjet oliy ta\'lim muassasasi filialining faoliyatini tashkil etish to\'g\'risida" qarori',
-        downloadText: 'PDF yuklab olish'
+        title: 'O‘zbekiston Respublikasi Prezidentining 30.09.2021 yildagi PQ-4942-sonli «Toshkent shahrida "Sankt-Peterburg davlat universiteti" federal davlat byudjet oliy ta’lim muassasasi filialining faoliyatini tashkil etish to‘g‘risida»gi qarori',
+        downloadText: 'PDF yuklab olish',
+        url: '/files/Поставновление_Президента_Республики_Узбекистан_Об_организации_деятельности.pdf'
       },
       {
         type: 'Kelishuv',
         date: '19.01.2021',
-        title: 'Rossiya Federatsiyasi Hukumati va O\'zbekiston Respublikasi Hukumati o\'rtasida 19.01.2021 yildagi "O\'zbekiston Respublikasida Sankt-Peterburg davlat universiteti oliy ta\'lim tashkiloti filialini tashkil etish va faoliyat yuritish to\'g\'risida" kelishuvi',
-        downloadText: 'PDF yuklab olish'
+        title: 'Rossiya Federatsiyasi Hukumati va O‘zbekiston Respublikasi Hukumati o‘rtasida 19.01.2021 yildagi «O‘zbekiston Respublikasida Sankt-Peterburg davlat universiteti oliy ta’lim tashkiloti filialini tashkil etish va faoliyat yuritish to‘g‘risida»gi kelishuvi',
+        downloadText: 'PDF yuklab olish',
+        url: '/files/Межправительственное_соглашение.pdf'
       },
       {
         type: 'Litsenziya',
         date: '15.03.2022',
-        title: 'Ta\'lim faoliyatini amalga oshirish va filial tomonidan Rossiya Federatsiyasining rus tilida ta\'lim faoliyatini olib borish uchun litsenziya (№ СТ-18-78)',
-        downloadText: 'PDF yuklab olish'
+        title: 'Ta’lim faoliyatini amalga oshirish uchun litsenziya (№ СТ-18-78)',
+        downloadText: 'PDF yuklab olish',
+        url: '/files/Лицензия.pdf'
+      },
+      {
+        type: 'Nizom',
+        date: '', // Sana ko'rsatilmagan
+        title: '"Sankt-Peterburg davlat universiteti" federal davlat byudjet oliy ta\'lim muassasasining Toshkent shahridagi filiali toʻgʻrisidagi nizom',
+        downloadText: 'PDF yuklab olish',
+        url: '/files/ПОЛОЖЕНИЕ_о_филиале_СПбГУ_в_г_Ташкенте.pdf'
+      },
+      {
+        type: 'Guvohnoma',
+        date: '', // Sana ko'rsatilmagan
+        title: 'Notijorat tashkilotni davlat roʻyxatidan oʻtkazish toʻgʻrisidagi guvohnoma',
+        downloadText: 'PDF yuklab olish',
+        url: '/files/Свидетельство_о_регистрации.pdf'
+      },
+      {
+        type: 'Qabul kampaniyasi',
+        date: '2024',
+        title: '2024 yilda SPbDUning Toshkent shahridagi filialiga bakalavriat dasturlari bo‘yicha o‘qishga qabul qilish qoidalari',
+        downloadText: 'PDF yuklab olish',
+        url: '/files/Прием_2024.pdf'
       }
     ]
   },
@@ -74,20 +121,44 @@ const translations: Translations = {
       {
         type: 'Decree',
         date: '30.09.2021',
-        title: 'Decree of the Government of the Republic of Uzbekistan dated 30.09.2021 No. PP-4942 "On the organization of activities of the branch of the federal state budgetary educational institution of higher education "St. Petersburg State University" in Tashkent"',
-        downloadText: 'Download PDF'
+        title: 'Decree of the President of the Republic of Uzbekistan dated 30.09.2021 No. PP-4942 "On the organization of activities of the branch of the federal state budgetary educational institution of higher education "St. Petersburg State University" in Tashkent"',
+        downloadText: 'Download PDF',
+        url: '/files/Поставновление_Президента_Республики_Узбекистан_Об_организации_деятельности.pdf'
       },
       {
         type: 'Agreement',
         date: '19.01.2021',
         title: 'Agreement between the Government of the Russian Federation and the Government of the Republic of Uzbekistan dated 19.01.2021 "On the establishment and functioning of a branch of the educational organization of higher education of St. Petersburg State University in the Republic of Uzbekistan"',
-        downloadText: 'Download PDF'
+        downloadText: 'Download PDF',
+        url: '/files/Межправительственное_соглашение.pdf'
       },
       {
         type: 'License',
         date: '15.03.2022',
-        title: 'License for educational activities and conducting educational activities by the branch in the Russian language of the Russian Federation (No. СТ-18-78)',
-        downloadText: 'Download PDF'
+        title: 'License for educational activities (No. СТ-18-78)',
+        downloadText: 'Download PDF',
+        url: '/files/Лицензия.pdf'
+      },
+      {
+        type: 'Regulation',
+        date: '', // Date not specified
+        title: 'Regulations on the branch of the "St. Petersburg State University" federal state budgetary educational institution of higher education in Tashkent',
+        downloadText: 'Download PDF',
+        url: '/files/ПОЛОЖЕНИЕ_о_филиале_СПбГУ_в_г_Ташкенте.pdf'
+      },
+      {
+        type: 'Certificate',
+        date: '', // Date not specified
+        title: 'Certificate of state registration of a non-profit organization',
+        downloadText: 'Download PDF',
+        url: '/files/Свидетельство_о_регистрации.pdf'
+      },
+      {
+        type: 'Admission Campaign',
+        date: '2024',
+        title: 'Rules of admission for bachelor\'s degree programs at the SPbU branch in Tashkent in 2024',
+        downloadText: 'Download PDF',
+        url: '/files/Прием_2024.pdf'
       }
     ]
   }
