@@ -112,6 +112,7 @@ function Header() {
         <Link to="/">
           <img src="/images/logo.png" alt="СПбГУ логотип" className="header-logo" />
         </Link>
+        <div className="header-title">СПБГУ в городе Ташкенте</div>
       </div>
       <div className="menu-section">
         {Object.keys(menuItems).map((key) => (

@@ -1,0 +1,105 @@
+.news-bar {
+  width: 100%;
+  background: #f5e9db;
+  border-radius: 0.7rem;
+  margin: 1.5rem auto 0 auto;
+  padding: 0.7rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  font-size: 1.08rem;
+  min-height: 2.5rem;
+  max-width: 1100px;
+}
+
+.news-bar-title {
+  font-weight: 600;
+  color: #a94442;
+  margin-right: 1.2rem;
+  white-space: nowrap;
+}
+
+.news-bar-list {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.news-bar-item {
+  color: #333;
+  text-decoration: none;
+  background: #fff6f6;
+  border-radius: 0.5rem;
+  padding: 0.3rem 1rem;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+  font-weight: 500;
+}
+.news-bar-item:hover {
+  background: #a94442;
+  color: #fff;
+}
+
+// Адаптивность для планшетов
+@media (max-width: 1024px) {
+  .news-bar {
+    margin: 1.2rem 1rem 0 1rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+  }
+
+  .news-bar-list {
+    gap: 1.2rem;
+  }
+}
+
+// Адаптивность для мобильных устройств
+@media (max-width: 768px) {
+  .news-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.7rem 1rem;
+    margin: 1rem 1rem 0 1rem;
+  }
+
+  .news-bar-title {
+    margin-right: 0;
+    margin-bottom: 0.3rem;
+  }
+
+  .news-bar-list {
+    gap: 0.7rem;
+    width: 100%;
+  }
+
+  .news-bar-item {
+    font-size: 0.9rem;
+    padding: 0.2rem 0.8rem;
+  }
+}
+
+// Очень маленькие экраны
+@media (max-width: 480px) {
+  .news-bar {
+    padding: 0.5rem 0.8rem;
+    margin: 0.8rem 0.8rem 0 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .news-bar-title {
+    font-size: 0.9rem;
+  }
+
+  .news-bar-list {
+    gap: 0.5rem;
+  }
+
+  .news-bar-item {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.6rem;
+  }
+}
