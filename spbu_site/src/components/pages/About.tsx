@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { Language } from '../../contexts/LanguageContextType';
 import { useTheme } from '../../contexts/ThemeContext';
-import HomeButton from '../shared/HomeButton';
 import './About.scss';
 
 type Translations = {
@@ -102,7 +101,6 @@ const About: React.FC = () => {
 
   return (
     <div className={`about ${theme}`}>
-      <HomeButton />
       <div className="content-container">
         <h1>{t.title}</h1>
         <div className="about-grid">

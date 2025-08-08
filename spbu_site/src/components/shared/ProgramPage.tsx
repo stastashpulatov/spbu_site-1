@@ -66,9 +66,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({ programInfo }) => {
         <HomeButton />
         <div className="program-container">
           <div className="program-header" style={heroStyle}>
-            <div className="parallax-bg" style={heroStyle} />
             <h1>{programInfo.title}</h1>
-            <div className="program-code">{programInfo.code}</div>
           </div>
 
           <div className="program-info-grid">

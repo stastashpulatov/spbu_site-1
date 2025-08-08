@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { Language } from '../../contexts/LanguageContextType';
 import { useTheme } from '../../contexts/ThemeContext';
-import HomeButton from '../shared/HomeButton';
 import './Admission.scss';
 
 type Translations = {
@@ -52,8 +51,7 @@ const Admission: React.FC = () => {
 
   return (
     <div className={`admission-page ${theme}`}>
-      <HomeButton />
-
+      
       <section className="hero">
         <div className="content">
           <h1>{content.title}</h1>

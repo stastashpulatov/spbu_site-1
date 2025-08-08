@@ -1,5 +1,4 @@
 import React from 'react';
-import HomeButton from '../shared/HomeButton';
 import './Documents.scss';
 import { useTheme } from '../../contexts/ThemeContext';
 
@@ -32,7 +31,6 @@ const Documents: React.FC = () => {
 
   return (
     <div className={`documents-page ${theme}`}>
-      <HomeButton />
       <div className="container">
         <h1 className="page-title">Основные документы</h1>
         

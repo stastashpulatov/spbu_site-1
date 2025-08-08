@@ -1,177 +1,202 @@
 .about {
   min-height: 100vh;
-  background: var(--bg-color);
-
-  &.light {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-  }
-
-  &.dark {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-  }
+  background: var(--bg-color, #fff8f8);
+  padding: 2rem 0;
+  color: var(--text-color, #333);
 
   .content-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 0 2rem;
+  }
 
-    h1 {
-      color: var(--text-color);
-      font-size: 2.5rem;
-      text-align: center;
-      margin-bottom: 3rem;
-      font-weight: 600;
+  h1 {
+    font-size: 2.5rem;
+    color: var(--text-color, #333);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 700;
+  }
+
+  .description-card {
+    background: #fff;
+    border: 1px solid #a94442;
+    border-radius: 1.5rem;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(169,68,66,0.05) 0%, transparent 100%);
+      pointer-events: none;
     }
-  }
 
-  .about-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
-    align-items: start;
-  }
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(169,68,66,0.15);
+    }
 
-  .main-content {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
+    p {
+      color: var(--text-color, #333);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      text-align: justify;
+      position: relative;
+      z-index: 1;
 
-  .description-card,
-  .mission-card,
-  .facts-card {
-    background: var(--card-bg);
-    border-radius: 16px;
-    padding: 2rem;
-    box-shadow: 0 8px 30px var(--shadow-color);
-  }
-
-  .description-card p {
-    color: var(--text-color);
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    text-align: justify;
-
-    &:last-child {
-      margin-bottom: 0;
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 
   .mission-card {
+    background: #fff;
+    border: 1px solid #a94442;
+    border-radius: 1.5rem;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(169,68,66,0.15);
+    }
+
     h2 {
-      color: var(--text-color);
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
+      color: #a94442;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      text-align: center;
     }
 
     p {
-      color: var(--text-color-secondary);
+      color: var(--text-color, #333);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
       font-size: 1.1rem;
-      line-height: 1.6;
       text-align: justify;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 
   .facts-card {
-    h2 {
-      color: var(--text-color);
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-      font-weight: 600;
-      text-align: center;
+    background: #fff;
+    border: 1px solid #a94442;
+    border-radius: 1.5rem;
+    padding: 3rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(169,68,66,0.15);
     }
 
-    .facts-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
+    h2 {
+      color: #a94442;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      font-weight: 700;
+      text-align: center;
     }
 
     .fact-item {
-      text-align: center;
-
-      .fact-number {
-        color: var(--primary-color);
-        font-size: 2rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-      }
-
-      .fact-text {
-        color: var(--text-color-secondary);
-        font-size: 0.9rem;
-        line-height: 1.4;
-      }
-    }
-  }
-
-  @media (max-width: 968px) {
-    .content-container {
+      background: #f5e9db;
+      border: 1px solid #a94442;
+      border-radius: 1rem;
       padding: 1.5rem;
-    }
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
 
-    .about-grid {
-      grid-template-columns: 1fr;
-    }
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: #a94442;
+        transition: width 0.3s ease;
+      }
 
-    .facts-card .facts-grid {
-      grid-template-columns: repeat(2, 1fr);
+      &:hover {
+        transform: translateX(8px);
+        box-shadow: 0 6px 20px rgba(169,68,66,0.15);
+
+        &::before {
+          width: 8px;
+        }
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      h3 {
+        color: #a94442;
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+
+      p {
+        color: var(--text-color, #333);
+        line-height: 1.6;
+        margin: 0;
+        font-size: 1rem;
+      }
     }
   }
 
   @media (max-width: 768px) {
-    .content-container {
-      padding: 1rem;
+    padding: 1rem 0;
 
-      h1 {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-      }
+    .content-container {
+      padding: 0 1rem;
+    }
+
+    h1 {
+      font-size: 2rem;
     }
 
     .description-card,
     .mission-card,
     .facts-card {
-      padding: 1.5rem;
+      padding: 2rem;
+
+      h2 {
+        font-size: 1.5rem;
+      }
 
       p {
         font-size: 1rem;
       }
     }
 
-    .mission-card h2,
-    .facts-card h2 {
-      font-size: 1.25rem;
-    }
-
-    .facts-card {
-      .fact-number {
-        font-size: 1.75rem;
-      }
-
-      .fact-text {
-        font-size: 0.85rem;
-      }
-    }
-  }
-
-  @media (max-width: 480px) {
-    .content-container h1 {
-      font-size: 1.75rem;
-    }
-
-    .description-card,
-    .mission-card,
-    .facts-card {
+    .fact-item {
       padding: 1.25rem;
-    }
 
-    .facts-card .facts-grid {
-      gap: 1.5rem;
+      h3 {
+        font-size: 1.1rem;
+      }
     }
   }
 }

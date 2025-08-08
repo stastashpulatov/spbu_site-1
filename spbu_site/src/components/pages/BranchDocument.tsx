@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { Language } from '../../contexts/LanguageContextType';
 import { useTheme } from '../../contexts/ThemeContext';
-import HomeButton from '../shared/HomeButton';
 import './BranchDocument.scss';
 
 type DocumentItem = {
@@ -177,7 +176,6 @@ const BranchDocument: React.FC = () => {
 
   return (
     <div className={`branch-document ${theme}`}>
-      <HomeButton />
       <div className="content-container">
         <h1 className="page-title">{t.title}</h1>
         

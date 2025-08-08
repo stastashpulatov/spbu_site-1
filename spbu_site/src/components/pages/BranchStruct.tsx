@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { Language } from '../../contexts/LanguageContextType';
 import { useTheme } from '../../contexts/ThemeContext';
-import HomeButton from '../shared/HomeButton';
 import './BranchStruct.scss';
 
 type Translations = {
@@ -352,7 +351,6 @@ const BranchStruct: React.FC = () => {
 
   return (
     <div className={`branch-struct ${theme}`}>
-      <HomeButton />
       <div className="content-container">
         <div className="header">
           <h1>{t.title}</h1>

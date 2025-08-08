@@ -1,60 +1,219 @@
 .exam-preparation {
+  min-height: 100vh;
+  background: var(--bg-color, #fff8f8);
+  padding: 2rem 0;
+  color: var(--text-color, #333);
+}
+
+.container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0 2rem;
+}
 
-  h1 {
-    color: #fff;
-    margin-bottom: 2rem;
-    text-align: center;
-    font-size: 2rem;
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--text-color, #333);
+}
+
+.exam-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.exam-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.info-card {
+  background: #fff;
+  border: 1px solid #a94442;
+  border-radius: 1.2rem;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(169,68,66,0.13);
   }
 
-  .main-video {
-    margin-bottom: 3rem;
-    border-radius: 8px;
-    overflow: hidden;
-    background: #000;
-    
-    iframe {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border: none;
-      display: block;
+  h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #a94442;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-color, #333);
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 
-  .exam-sections {
-    .exam-section {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      border-left: 3px solid #e74c3c;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 
-      h2 {
-        color: #fff;
-        margin-bottom: 1rem;
+    li {
+      padding: 0.5rem 0;
+      color: var(--text-color, #333);
+      position: relative;
+      padding-left: 1.5rem;
+
+      &:before {
+        content: '•';
+        color: #a94442;
+        font-weight: bold;
+        position: absolute;
+        left: 0;
         font-size: 1.2rem;
       }
-
-      p {
-        color: #999;
-        line-height: 1.6;
-        margin-bottom: 1rem;
-        font-size: 0.95rem;
-      }
-
-      .more-link {
-        color: #e74c3c;
-        text-decoration: none;
-        font-size: 0.9rem;
-        display: inline-block;
-        
-        &:hover {
-          text-decoration: underline;
-        }
-      }
     }
+  }
+}
+
+.exam-schedule {
+  background: #fff;
+  border: 1px solid #a94442;
+  border-radius: 1.2rem;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(169,68,66,0.13);
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #a94442;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .schedule-item {
+    background: #f5e9db;
+    border: 1px solid #a94442;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.2s;
+
+    &:hover {
+      background: #e8d5c0;
+      transform: translateY(-2px);
+    }
+
+    .date {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #a94442;
+      margin-bottom: 0.5rem;
+    }
+
+    .subject {
+      font-size: 1rem;
+      color: var(--text-color, #333);
+      margin-bottom: 0.3rem;
+    }
+
+    .time {
+      font-size: 0.9rem;
+      color: var(--text-color-secondary, #666);
+    }
+  }
+}
+
+.contact-section {
+  background: #f5e9db;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-top: 1rem;
+
+  h4 {
+    color: #a94442;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: var(--text-color, #333);
+    margin: 0.3rem 0;
+  }
+
+  a {
+    color: #a94442;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #922d2b;
+      text-decoration: underline;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .exam-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .page-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .info-card, .exam-schedule {
+    padding: 1.5rem;
+  }
+  
+  .info-card h3, .exam-schedule h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .exam-preparation {
+    padding: 1rem 0;
+  }
+  
+  .page-title {
+    font-size: 1.8rem;
+  }
+  
+  .info-card, .exam-schedule {
+    padding: 1rem;
+  }
+  
+  .info-card p {
+    font-size: 0.9rem;
+  }
+  
+  .schedule-item {
+    padding: 1.2rem;
   }
 }
