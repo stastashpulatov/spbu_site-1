@@ -1,281 +1,179 @@
-.start-page {
-    min-height: calc(100vh - 4rem);
-    display: flex;
-    flex-direction: column;
-    justify-content: stretch;
-    align-items: stretch;
-    background-color: var(--bg-color);
-}
+@layer components {
+  .start-page {
+    @apply min-h-[calc(100vh-4rem)] flex flex-col justify-stretch items-stretch bg-[#fff8f8] dark:bg-[#1f1720];
+  }
 
-.banner {
-    background: linear-gradient(90deg, #f5e9db 60%, rgba(245, 233, 219, 0.8) 100%), 
-                url('/images/image.png') right center no-repeat;
-    background-size: cover;
-    padding: 3rem 2rem 2.5rem 2rem;
-    border-radius: 0 0 1.5rem 1.5rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    margin-bottom: 0;
-    position: relative;
-}
+  .banner {
+    @apply bg-gradient-to-r from-[#f5e9db] via-[#f5e9db]/80 to-transparent bg-[url('/images/image.png')] bg-right-center bg-cover py-12 px-8 pb-10 rounded-b-6xl shadow-lg mb-0 relative;
 
-.banner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg, #f5e9db 0%, rgba(245, 233, 219, 0.9) 70%, rgba(245, 233, 219, 0.7) 100%);
-    border-radius: 0 0 1.5rem 1.5rem;
-    z-index: 1;
-}
-
-.flex-spacer {
-    flex: 1 1 auto;
-}
-
-.banner-content {
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
-    position: relative;
-    z-index: 2;
-}
-
-.banner-content h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    color: #333;
-    line-height: 1.2;
-}
-
-.banner-content p {
-    font-size: 1.4rem;
-    margin-bottom: 2.5rem;
-    color: #555;
-    line-height: 1.4;
-}
-
-.main-btn {
-    display: inline-block;
-    background: linear-gradient(135deg, #a94442 0%, #922d2b 100%);
-    color: #fff;
-    font-size: 1.3rem;
-    padding: 0.8rem 3rem;
-    border-radius: 2.5rem;
-    box-shadow: 0 4px 12px rgba(169, 68, 66, 0.3);
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-}
-.main-btn:hover {
-    background: linear-gradient(135deg, #922d2b 0%, #8b2d2b 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(169, 68, 66, 0.4);
-}
-
-.info-cards {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin: 0 auto 2.5rem auto;
-    max-width: 1200px;
-    flex-wrap: wrap;
-}
-
-.info-card {
-    background: #fff;
-    border: 1px solid #a94442;
-    border-radius: 1.2rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
-    padding: 1.5rem 2rem;
-    display: flex;
-    align-items: flex-start;
-    gap: 1.2rem;
-    min-width: 260px;
-    max-width: 340px;
-    flex: 1 1 260px;
-    text-decoration: none;
-    color: #333;
-    transition: box-shadow 0.2s, transform 0.2s;
-}
-.info-card:hover {
-    box-shadow: 0 8px 24px rgba(169,68,66,0.13);
-    transform: translateY(-4px) scale(1.03);
-}
-
-.icon {
-    width: 2.5rem;
-    height: 2.5rem;
-    margin-top: 0.2rem;
-    flex-shrink: 0;
-}
-.icon.license {
-    background: url('/images/pravo.png') center/contain no-repeat;
-}
-.icon.university {
-    background: url('/images/economy.png') center/contain no-repeat;
-}
-.icon.staff {
-    background: url('/images/director.png') center/contain no-repeat;
-}
-
-.card-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 0.3rem;
-    color: #333;
-}
-.card-desc {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.4;
-}
-
-@media (max-width: 900px) {
-    .info-cards {
-        flex-direction: column;
-        align-items: center;
-        gap: 1.2rem;
+    &::before {
+      content: '';
+      @apply absolute inset-0 bg-gradient-to-r from-[#f5e9db] via-[#f5e9db]/90 to-[#f5e9db]/70 rounded-b-6xl z-10;
     }
-    .banner-content h1 {
-        font-size: 1.5rem;
+  }
+
+  .flex-spacer {
+    @apply flex-1;
+  }
+
+  .banner-content {
+    @apply max-w-[900px] mx-auto text-center relative z-20;
+
+    h1 {
+      @apply text-4xl font-bold mb-6 text-[#333] leading-tight;
     }
+
+    p {
+      @apply text-2xl mb-10 text-[#555] leading-relaxed;
+    }
+  }
+
+  .main-btn {
+    @apply inline-block bg-gradient-to-br from-[#a94442] to-[#922d2b] text-white text-xl py-3 px-12 rounded-full shadow-lg no-underline font-semibold transition-all duration-300 ease-in-out border-none cursor-pointer hover:bg-gradient-to-br hover:from-[#922d2b] hover:to-[#8b2d2b] hover:-translate-y-0.5 hover:shadow-xl;
+  }
+
+  .info-cards {
+    @apply flex justify-center gap-8 mx-auto mb-10 max-w-[1200px] flex-wrap;
+  }
+
+  .info-card {
+    @apply bg-white border border-[#a94442] rounded-2xl shadow-lg py-6 px-8 flex items-start gap-5 min-w-[260px] max-w-[340px] flex-1 flex-basis-[260px] no-underline text-[#333] transition-all duration-200 ease-in-out hover:shadow-xl hover:-translate-y-1 hover:scale-105;
+  }
+
+  .icon {
+    @apply w-10 h-10 mt-1 flex-shrink-0;
+
+    &.license {
+      @apply bg-[url('/images/pravo.png')] bg-center bg-contain bg-no-repeat;
+    }
+
+    &.university {
+      @apply bg-[url('/images/economy.png')] bg-center bg-contain bg-no-repeat;
+    }
+
+    &.staff {
+      @apply bg-[url('/images/director.png')] bg-center bg-contain bg-no-repeat;
+    }
+  }
+
+  .card-title {
+    @apply text-xl font-bold mb-1 text-[#333];
+  }
+
+  .card-desc {
+    @apply text-base text-[#555] leading-relaxed;
+  }
 }
 
-// Адаптивность для планшетов
+/* Адаптивность для планшетов */
 @media (max-width: 1024px) {
-    .banner {
-        padding: 2.5rem 1.5rem 2rem 1.5rem;
-    }
-    
-    .banner-content h1 {
-        font-size: 2.2rem;
-    }
-    
-    .banner-content p {
-        font-size: 1.3rem;
-    }
-    
-    .info-cards {
-        gap: 1.5rem;
-        padding: 0 1rem;
-    }
-    
-    .info-card {
-        min-width: 240px;
-        padding: 1.3rem 1.5rem;
-    }
+  .banner {
+    @apply py-10 px-6 pb-8;
+  }
+  
+  .banner-content h1 {
+    @apply text-3xl;
+  }
+  
+  .banner-content p {
+    @apply text-xl;
+  }
+  
+  .info-cards {
+    @apply gap-6 px-4;
+  }
+  
+  .info-card {
+    @apply min-w-[240px] py-5 px-6;
+  }
 }
 
-// Адаптивность для мобильных устройств
+/* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
-    .banner {
-        padding: 2rem 1rem 1.5rem 1rem;
-        background: linear-gradient(180deg, #f5e9db 0%, rgba(245, 233, 219, 0.9) 100%);
-    }
-    
-    .banner-content h1 {
-        font-size: 1.8rem;
-        margin-bottom: 1rem;
-    }
-    
-    .banner-content p {
-        font-size: 1.1rem;
-        margin-bottom: 2rem;
-    }
-    
-    .main-btn {
-        font-size: 1.1rem;
-        padding: 0.7rem 2.5rem;
-    }
-    
-    .info-cards {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        padding: 0 1rem;
-    }
-    
-    .info-card {
-        min-width: 280px;
-        max-width: 100%;
-        padding: 1.2rem 1.5rem;
-    }
-    
-    .news-bar {
-        margin: 1rem 1rem 0 1rem;
-        padding: 0.5rem 1rem;
-        font-size: 1rem;
-    }
-    
-    .news-bar-title {
-        font-size: 0.9rem;
-    }
-    
-    .news-bar-item {
-        font-size: 0.9rem;
-        padding: 0.2rem 0.8rem;
-    }
+  .banner {
+    @apply py-8 px-4 pb-6 bg-gradient-to-b from-[#f5e9db] to-[#f5e9db]/90;
+  }
+  
+  .banner-content h1 {
+    @apply text-2xl mb-4;
+  }
+  
+  .banner-content p {
+    @apply text-lg mb-8;
+  }
+  
+  .main-btn {
+    @apply text-lg py-3 px-10;
+  }
+  
+  .info-cards {
+    @apply flex-col items-center gap-4 px-4;
+  }
+  
+  .info-card {
+    @apply min-w-[280px] max-w-full py-5 px-6;
+  }
+  
+  .news-bar {
+    @apply mx-4 mt-4 p-2 text-base;
+  }
+  
+  .news-bar-title {
+    @apply text-sm;
+  }
+  
+  .news-bar-item {
+    @apply text-sm py-1 px-3;
+  }
 }
 
-// Очень маленькие экраны
+/* Очень маленькие экраны */
 @media (max-width: 480px) {
-    .banner {
-        padding: 1.5rem 0.8rem 1rem 0.8rem;
-    }
-    
-    .banner-content h1 {
-        font-size: 1.5rem;
-    }
-    
-    .banner-content p {
-        font-size: 1rem;
-    }
-    
-    .main-btn {
-        font-size: 1rem;
-        padding: 0.6rem 2rem;
-    }
-    
-    .info-cards {
-        padding: 0 0.8rem;
-    }
-    
-    .info-card {
-        min-width: 260px;
-        padding: 1rem 1.2rem;
-        gap: 1rem;
-    }
-    
-    .card-title {
-        font-size: 1.1rem;
-    }
-    
-    .card-desc {
-        font-size: 0.9rem;
-    }
-    
-    .icon {
-        width: 2rem;
-        height: 2rem;
-    }
-    
-    .news-bar {
-        margin: 0.8rem 0.8rem 0 0.8rem;
-        padding: 0.4rem 0.8rem;
-        font-size: 0.9rem;
-    }
-    
-    .news-bar-list {
-        gap: 0.5rem;
-    }
-    
-    .news-bar-item {
-        font-size: 0.8rem;
-        padding: 0.2rem 0.6rem;
-    }
+  .banner {
+    @apply py-6 px-3 pb-4;
+  }
+  
+  .banner-content h1 {
+    @apply text-xl;
+  }
+  
+  .banner-content p {
+    @apply text-base;
+  }
+  
+  .main-btn {
+    @apply text-base py-2 px-8;
+  }
+  
+  .info-cards {
+    @apply px-3;
+  }
+  
+  .info-card {
+    @apply min-w-[260px] py-4 px-5 gap-4;
+  }
+  
+  .card-title {
+    @apply text-lg;
+  }
+  
+  .card-desc {
+    @apply text-sm;
+  }
+  
+  .icon {
+    @apply w-8 h-8;
+  }
+  
+  .news-bar {
+    @apply mx-3 mt-3 p-2 text-sm;
+  }
+  
+  .news-bar-list {
+    @apply gap-2;
+  }
+  
+  .news-bar-item {
+    @apply text-sm py-1 px-2;
+  }
 }

@@ -1,111 +1,48 @@
-.admin-login {
-  min-height: calc(100vh - 60px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--bg-color);
-  padding: 20px;
+@layer components {
+  .admin-login {
+    @apply min-h-[calc(100vh-60px)] flex items-center justify-center bg-[var(--bg-color)] p-5;
 
-  .login-container {
-    background-color: var(--card-bg);
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    border: 1px solid var(--border-color);
+    .login-container {
+      @apply bg-[var(--card-bg)] p-10 rounded-lg shadow-lg w-full max-w-[400px] border border-[var(--border-color)];
 
-    h1 {
-      color: var(--text-color);
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 1.8rem;
-    }
+      h1 {
+        @apply text-[var(--text-color)] text-center mb-5 text-2xl;
+      }
 
-    .login-info {
-      text-align: center;
-      margin-bottom: 25px;
-      padding: 15px;
-      background-color: var(--bg-color);
-      border-radius: 6px;
-      border: 1px solid var(--border-color);
+      .login-info {
+        @apply text-center mb-6 p-4 bg-[var(--bg-color)] rounded-lg border border-[var(--border-color)];
 
-      p {
-        color: var(--text-color-secondary);
-        margin-bottom: 8px;
-        font-size: 0.95rem;
-        line-height: 1.5;
-
-        &:last-child {
-          margin-bottom: 0;
+        p {
+          @apply text-[var(--text-color-secondary)] mb-2 text-sm leading-relaxed last:mb-0;
         }
       }
-    }
 
-    .error-message {
-      background-color: #fee2e2;
-      color: #dc2626;
-      padding: 12px;
-      border-radius: 6px;
-      margin-bottom: 20px;
-      text-align: center;
-      font-size: 0.95rem;
-      border: 1px solid #fecaca;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-
-      label {
-        display: block;
-        margin-bottom: 8px;
-        color: var(--text-color);
-        font-weight: 500;
-        font-size: 0.95rem;
+      .error-message {
+        @apply bg-[#fee2e2] text-[#dc2626] p-3 rounded-lg mb-5 text-center text-sm border border-[#fecaca];
       }
 
-      input {
-        width: 100%;
-        padding: 12px;
-        border: 1px solid var(--border-color);
-        border-radius: 6px;
-        background-color: var(--bg-color);
-        color: var(--text-color);
-        font-size: 1rem;
-        transition: border-color 0.2s, box-shadow 0.2s;
+      .form-group {
+        @apply mb-5;
 
-        &::placeholder {
-          color: var(--text-color-secondary);
-          opacity: 0.7;
+        label {
+          @apply block mb-2 text-[var(--text-color)] font-medium text-sm;
         }
 
-        &:focus {
-          outline: none;
-          border-color: var(--primary-color);
-          box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        input {
+          @apply w-full p-3 border border-[var(--border-color)] rounded-lg bg-[var(--bg-color)] text-[var(--text-color)] text-base transition-all duration-200 ease-in-out;
+
+          &::placeholder {
+            @apply text-[var(--text-color-secondary)] opacity-70;
+          }
+
+          &:focus {
+            @apply outline-none border-[var(--primary-color)] shadow-[0_0_0_3px_rgba(37,99,235,0.1)];
+          }
         }
       }
-    }
 
-    .login-button {
-      width: 100%;
-      padding: 14px;
-      background-color: var(--primary-color);
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s;
-
-      &:hover {
-        background-color: var(--primary-color-dark);
-        transform: translateY(-1px);
-      }
-
-      &:active {
-        transform: translateY(0);
+      .login-button {
+        @apply w-full p-4 bg-[var(--primary-color)] text-white border-none rounded-lg text-base font-medium cursor-pointer transition-all duration-200 ease-in-out hover:bg-[var(--button-hover)] hover:shadow-lg;
       }
     }
   }

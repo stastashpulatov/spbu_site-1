@@ -1,202 +1,70 @@
-.about {
-  min-height: 100vh;
-  background: var(--bg-color, #fff8f8);
-  padding: 2rem 0;
-  color: var(--text-color, #333);
-
-  .content-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-    color: var(--text-color, #333);
-    margin-bottom: 2rem;
-    text-align: center;
-    font-weight: 700;
-  }
-
-  .description-card {
-    background: #fff;
-    border: 1px solid #a94442;
-    border-radius: 1.5rem;
-    padding: 3rem;
-    margin-bottom: 3rem;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-    transition: all 0.4s ease;
-    position: relative;
-    overflow: hidden;
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, rgba(169,68,66,0.05) 0%, transparent 100%);
-      pointer-events: none;
-    }
-
-    &:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(169,68,66,0.15);
-    }
-
-    p {
-      color: var(--text-color, #333);
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-      text-align: justify;
-      position: relative;
-      z-index: 1;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-  }
-
-  .mission-card {
-    background: #fff;
-    border: 1px solid #a94442;
-    border-radius: 1.5rem;
-    padding: 3rem;
-    margin-bottom: 3rem;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-    transition: all 0.4s ease;
-
-    &:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(169,68,66,0.15);
-    }
-
-    h2 {
-      color: #a94442;
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      font-weight: 700;
-      text-align: center;
-    }
-
-    p {
-      color: var(--text-color, #333);
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-      text-align: justify;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-  }
-
-  .facts-card {
-    background: #fff;
-    border: 1px solid #a94442;
-    border-radius: 1.5rem;
-    padding: 3rem;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-    transition: all 0.4s ease;
-
-    &:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(169,68,66,0.15);
-    }
-
-    h2 {
-      color: #a94442;
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      font-weight: 700;
-      text-align: center;
-    }
-
-    .fact-item {
-      background: #f5e9db;
-      border: 1px solid #a94442;
-      border-radius: 1rem;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-
-      &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 4px;
-        height: 100%;
-        background: #a94442;
-        transition: width 0.3s ease;
-      }
-
-      &:hover {
-        transform: translateX(8px);
-        box-shadow: 0 6px 20px rgba(169,68,66,0.15);
-
-        &::before {
-          width: 8px;
-        }
-      }
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-
-      h3 {
-        color: #a94442;
-        font-size: 1.3rem;
-        margin-bottom: 0.5rem;
-        font-weight: 600;
-      }
-
-      p {
-        color: var(--text-color, #333);
-        line-height: 1.6;
-        margin: 0;
-        font-size: 1rem;
-      }
-    }
-  }
-
-  @media (max-width: 768px) {
-    padding: 1rem 0;
+@layer components {
+  .about {
+    @apply min-h-screen bg-[#fff8f8] dark:bg-[#1f1720] py-8 text-[#333] dark:text-[#f8f9fa];
 
     .content-container {
-      padding: 0 1rem;
+      @apply max-w-[1200px] mx-auto px-8;
     }
 
     h1 {
-      font-size: 2rem;
+      @apply text-4xl text-[#333] dark:text-[#f8f9fa] mb-8 text-center font-bold;
     }
 
-    .description-card,
-    .mission-card,
-    .facts-card {
-      padding: 2rem;
+    .description-card {
+      @apply bg-white dark:bg-[#2d232a] border border-[#a94442] rounded-3xl p-12 mb-12 shadow-lg transition-all duration-400 ease-in-out relative overflow-hidden hover:-translate-y-1 hover:shadow-xl;
 
-      h2 {
-        font-size: 1.5rem;
+      &::before {
+        content: '';
+        @apply absolute inset-0 bg-gradient-to-br from-[#a94442]/5 to-transparent pointer-events-none;
       }
 
       p {
-        font-size: 1rem;
+        @apply text-[#333] dark:text-[#f8f9fa] leading-relaxed mb-6 text-lg text-justify relative z-10 last:mb-0;
       }
     }
 
-    .fact-item {
-      padding: 1.25rem;
+    .mission-card {
+      @apply bg-white dark:bg-[#2d232a] border border-[#a94442] rounded-3xl p-12 mb-12 shadow-lg transition-all duration-400 ease-in-out hover:-translate-y-1 hover:shadow-xl;
 
-      h3 {
-        font-size: 1.1rem;
+      h2 {
+        @apply text-[#a94442] text-3xl mb-6 font-bold text-center;
       }
+
+      p {
+        @apply text-[#333] dark:text-[#f8f9fa] leading-relaxed mb-6 text-lg text-justify last:mb-0;
+      }
+    }
+
+    .facts-card {
+      @apply bg-white dark:bg-[#2d232a] border border-[#a94442] rounded-3xl p-8 shadow-lg;
+
+      h2 {
+        @apply text-[#a94442] text-2xl mb-6 font-bold text-center;
+      }
+
+      .facts-grid {
+        @apply grid grid-cols-2 gap-4;
+      }
+
+      .fact-item {
+        @apply text-center;
+
+        .fact-number {
+          @apply text-3xl font-bold text-[#a94442] mb-2;
+        }
+
+        .fact-text {
+          @apply text-sm text-[#333] dark:text-[#f8f9fa];
+        }
+      }
+    }
+
+    .about-grid {
+      @apply grid grid-cols-1 lg:grid-cols-3 gap-8;
+    }
+
+    .main-content {
+      @apply lg:col-span-2;
     }
   }
 }
