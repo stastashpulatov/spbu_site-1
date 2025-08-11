@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { Language } from '../../contexts/LanguageContextType';
 import { useTheme } from '../../contexts/ThemeContext';
-import HomeButton from '../shared/HomeButton';
 import './BranchAbout.scss';
 
 type Translations = {
@@ -88,7 +87,6 @@ const BranchAbout: React.FC = () => {
 
   return (
     <div className={`branch-about ${theme}`}>
-      <HomeButton />
       <div className="content-container">
         <div className="header">
           <span className="header-icon">🏛️</span>

@@ -1,236 +1,144 @@
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.75rem 2rem;
-    background: var(--header-bg);
-    position: relative;
-    z-index: 50;
-    color: white;
-    box-shadow: 0 4px 15px var(--shadow-color);
-}
+@layer components {
+  .header {
+    @apply flex justify-between items-center px-8 py-3 bg-[#A94442] relative z-50 text-white shadow-lg min-h-20;
+  }
 
-.logo-container {
-    display: flex;
-    align-items: center;
-    margin-right: 1rem;
+  .logo-container {
+    @apply flex items-center gap-4 flex-shrink-0;
     
     .header-logo {
-        height: 60px;
-        width: auto;
-        transition: transform 0.2s ease;
-        
-        &:hover {
-            transform: scale(1.05);
-        }
+      @apply h-15 w-auto transition-transform duration-200 ease-in-out hover:scale-105;
     }
-}
-
-.menu-section {
-    display: flex;
-    flex: 1;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    padding: 0.25rem;
-
-    &:hover {
-        .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-            pointer-events: auto;
-            transition: 
-                opacity 0.3s ease,
-                transform 0.3s ease,
-                visibility 0s;
-        }
-    }
-}
-
-.theme-toggle-container {
-    display: flex;
-    align-items: center;
-    margin-left: 1rem;
-}
-  
-.header-item {
-    margin: 0;
-    font-size: 1.4rem;
-    padding: 0.75rem 1rem;
-    color: white;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    transition: all 0.2s ease;
-    border-radius: 6px;
-    position: relative;
     
-    &::after {
-        content: '';
-        position: absolute;
-        bottom: 0.5rem;
-        left: 1rem;
-        width: 0;
-        height: 2px;
-        background-color: white;
-        transition: width 0.3s ease;
+    .header-title {
+      @apply text-2xl font-bold text-white whitespace-nowrap;
     }
+  }
+
+  .menu-section {
+    @apply flex justify-center items-center flex-1 gap-2 mx-8 flex-wrap;
+  }
+
+  .theme-toggle-container {
+    @apply flex items-center gap-4 flex-shrink-0;
+  }
+
+  .header-item {
+    @apply m-0 text-lg px-3 py-3 text-white cursor-pointer flex items-center gap-2 transition-all duration-200 ease-in-out rounded-md relative whitespace-nowrap hover:bg-white/15;
     
     svg {
-        transition: transform 0.2s ease;
-        width: 1.25rem;
-        height: 1.25rem;
+      @apply transition-transform duration-200 ease-in-out w-4 h-4;
     }
     
     &.menu-open svg {
-        transform: rotate(180deg);
+      @apply rotate-180;
     }
+  }
 
-    &:hover {
-        color: var(--hover-color);
-        background-color: rgba(255, 255, 255, 0.15);
-        
-        &::after {
-            width: calc(100% - 2rem);
-        }
-    }
-}
-  
-.dropdown-menu {
-    position: absolute;
-    left: 0;
-    top: 100%;
-    box-shadow: 0 8px 20px var(--shadow-color);
-    border-radius: 12px;
-    margin-top: 0.5rem;
-    padding: 0.75rem;
-    min-width: 300px;
-    z-index: 10;
-    background-color: var(--dropdown-bg);
-    border: 1px solid var(--dropdown-border);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-5px);
-    transition: 
-        opacity 0.3s ease,
-        transform 0.3s ease,
-        visibility 0s linear 0.3s;
-    pointer-events: none;
-
-    &:hover,
-    .header-item:hover + & {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-        pointer-events: auto;
-        transition: 
-            opacity 0.3s ease,
-            transform 0.3s ease,
-            visibility 0s;
-    }
+  .dropdown-menu {
+    @apply absolute left-0 top-full shadow-xl rounded-xl mt-2 p-3 min-w-[300px] z-10 bg-white text-[#222] border border-[#f5e9db] opacity-100 visible transform translate-y-0 transition-all duration-300 ease-in-out pointer-events-auto;
 
     &::before {
-        content: '';
-        position: absolute;
-        top: -20px;
-        left: 0;
-        width: 100%;
-        height: 20px;
+      content: '';
+      @apply absolute -top-5 left-0 w-full h-5;
     }
-}
+  }
   
-.dropdown-item-container {
-    position: relative;
-}
+  .dropdown-item-container {
+    @apply relative;
+  }
 
-.dropdown-item {
-    display: block;
-    padding: 0.9rem 1.2rem;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    color: var(--text-color);
-    transition: all 0.2s ease;
-    text-decoration: none;
-    white-space: nowrap;
-    margin: 0.2rem 0;
+  .dropdown-item {
+    @apply block py-3 px-5 rounded-lg text-lg text-[#222] transition-all duration-200 ease-in-out no-underline whitespace-nowrap my-1 hover:text-[#A94442] hover:bg-[#f5e9db] hover:translate-x-1;
     
     &.submenu-trigger {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        cursor: pointer;
-        padding-right: 2.5rem;
-        
-        .submenu-icon {
-            margin-left: 0.5rem;
-            transition: transform 0.2s ease;
-            position: absolute;
-            right: 1rem;
-            width: 1.25rem;
-            height: 1.25rem;
-        }
-        
-        &:hover .submenu-icon {
-            transform: rotate(-90deg);
-        }
+      @apply flex items-center justify-between cursor-pointer pr-10;
+      
+      .submenu-icon {
+        @apply ml-2 transition-transform duration-200 ease-in-out absolute right-4 w-5 h-5 hover:-rotate-90;
+      }
     }
-}
+  }
 
-.dropdown-item:hover {
-    color: var(--primary-color);
-    background-color: var(--hover-bg);
-    transform: translateX(3px);
-}
-
-.dropdown-item:active {
-    background-color: var(--active-bg);
-}
-
-.submenu {
-    position: absolute;
-    left: 100%;
-    top: 0;
-    box-shadow: 0 8px 20px var(--shadow-color);
-    border-radius: 12px;
-    padding: 0.75rem;
-    z-index: 20;
-    min-width: 300px;
-    background-color: var(--dropdown-bg);
-    border: 1px solid var(--dropdown-border);
-    margin-left: 0.5rem;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(-5px);
-    transition: 
-        opacity 0.3s ease,
-        transform 0.3s ease,
-        visibility 0s linear 0.3s;
-    pointer-events: none;
-
-    .dropdown-item-container:hover > &,
-    &:hover {
-        opacity: 1;
-        visibility: visible;
-        transform: translateX(0);
-        pointer-events: auto;
-        transition: 
-            opacity 0.3s ease,
-            transform 0.3s ease,
-            visibility 0s;
-    }
+  .submenu {
+    @apply absolute left-full top-0 shadow-xl rounded-xl p-3 z-20 min-w-[300px] bg-white border border-[#f5e9db] ml-2 opacity-100 visible transform translate-x-0 transition-all duration-300 ease-in-out pointer-events-auto;
 
     &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -20px;
-        width: 20px;
-        height: 100%;
+      content: '';
+      @apply absolute top-0 -left-5 w-5 h-full;
     }
+  }
+
+  .dropdown-item-container:hover > .dropdown-item {
+    @apply text-[#A94442] bg-[#f5e9db];
+  }
 }
 
-.dropdown-item-container:hover > .dropdown-item {
-    color: var(--primary-color);
-    background-color: var(--hover-bg);
+/* Адаптивность для планшетов */
+@media (max-width: 1024px) {
+  .header {
+    @apply px-4;
+  }
+  
+  .menu-section {
+    @apply mx-4 gap-1;
+  }
+  
+  .header-item {
+    @apply text-base px-2 py-2;
+  }
+  
+  .header-title {
+    @apply text-xl;
+  }
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .header {
+    @apply flex-col p-4 gap-4 min-h-auto;
+  }
+  
+  .logo-container {
+    @apply justify-center w-full;
+  }
+  
+  .menu-section {
+    @apply w-full justify-center mx-0 gap-1;
+  }
+  
+  .header-item {
+    @apply text-sm px-2 py-2;
+  }
+  
+  .theme-toggle-container {
+    @apply justify-center w-full;
+  }
+  
+  .header-title {
+    @apply text-lg;
+  }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 480px) {
+  .header {
+    @apply p-2;
+  }
+  
+  .menu-section {
+    @apply flex-col gap-2;
+  }
+  
+  .header-item {
+    @apply w-full justify-center text-sm;
+  }
+  
+  .header-title {
+    @apply text-base;
+  }
+  
+  .header-logo {
+    @apply h-12;
+  }
 }

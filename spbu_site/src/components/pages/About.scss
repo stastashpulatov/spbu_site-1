@@ -1,177 +1,70 @@
-.about {
-  min-height: 100vh;
-  background: var(--bg-color);
+@layer components {
+  .about {
+    @apply min-h-screen bg-[#fff8f8] dark:bg-[#1f1720] py-8 text-[#333] dark:text-[#f8f9fa];
 
-  &.light {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-  }
-
-  &.dark {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-  }
-
-  .content-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
+    .content-container {
+      @apply max-w-[1200px] mx-auto px-8;
+    }
 
     h1 {
-      color: var(--text-color);
-      font-size: 2.5rem;
-      text-align: center;
-      margin-bottom: 3rem;
-      font-weight: 600;
-    }
-  }
-
-  .about-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
-    align-items: start;
-  }
-
-  .main-content {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .description-card,
-  .mission-card,
-  .facts-card {
-    background: var(--card-bg);
-    border-radius: 16px;
-    padding: 2rem;
-    box-shadow: 0 8px 30px var(--shadow-color);
-  }
-
-  .description-card p {
-    color: var(--text-color);
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    text-align: justify;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  .mission-card {
-    h2 {
-      color: var(--text-color);
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
+      @apply text-4xl text-[#333] dark:text-[#f8f9fa] mb-8 text-center font-bold;
     }
 
-    p {
-      color: var(--text-color-secondary);
-      font-size: 1.1rem;
-      line-height: 1.6;
-      text-align: justify;
-    }
-  }
+    .description-card {
+      @apply bg-white dark:bg-[#2d232a] border border-[#a94442] rounded-3xl p-12 mb-12 shadow-lg transition-all duration-400 ease-in-out relative overflow-hidden hover:-translate-y-1 hover:shadow-xl;
 
-  .facts-card {
-    h2 {
-      color: var(--text-color);
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-      font-weight: 600;
-      text-align: center;
-    }
-
-    .facts-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-    }
-
-    .fact-item {
-      text-align: center;
-
-      .fact-number {
-        color: var(--primary-color);
-        font-size: 2rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
+      &::before {
+        content: '';
+        @apply absolute inset-0 bg-gradient-to-br from-[#a94442]/5 to-transparent pointer-events-none;
       }
 
-      .fact-text {
-        color: var(--text-color-secondary);
-        font-size: 0.9rem;
-        line-height: 1.4;
+      p {
+        @apply text-[#333] dark:text-[#f8f9fa] leading-relaxed mb-6 text-lg text-justify relative z-10 last:mb-0;
       }
     }
-  }
 
-  @media (max-width: 968px) {
-    .content-container {
-      padding: 1.5rem;
+    .mission-card {
+      @apply bg-white dark:bg-[#2d232a] border border-[#a94442] rounded-3xl p-12 mb-12 shadow-lg transition-all duration-400 ease-in-out hover:-translate-y-1 hover:shadow-xl;
+
+      h2 {
+        @apply text-[#a94442] text-3xl mb-6 font-bold text-center;
+      }
+
+      p {
+        @apply text-[#333] dark:text-[#f8f9fa] leading-relaxed mb-6 text-lg text-justify last:mb-0;
+      }
+    }
+
+    .facts-card {
+      @apply bg-white dark:bg-[#2d232a] border border-[#a94442] rounded-3xl p-8 shadow-lg;
+
+      h2 {
+        @apply text-[#a94442] text-2xl mb-6 font-bold text-center;
+      }
+
+      .facts-grid {
+        @apply grid grid-cols-2 gap-4;
+      }
+
+      .fact-item {
+        @apply text-center;
+
+        .fact-number {
+          @apply text-3xl font-bold text-[#a94442] mb-2;
+        }
+
+        .fact-text {
+          @apply text-sm text-[#333] dark:text-[#f8f9fa];
+        }
+      }
     }
 
     .about-grid {
-      grid-template-columns: 1fr;
+      @apply grid grid-cols-1 lg:grid-cols-3 gap-8;
     }
 
-    .facts-card .facts-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 768px) {
-    .content-container {
-      padding: 1rem;
-
-      h1 {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-      }
-    }
-
-    .description-card,
-    .mission-card,
-    .facts-card {
-      padding: 1.5rem;
-
-      p {
-        font-size: 1rem;
-      }
-    }
-
-    .mission-card h2,
-    .facts-card h2 {
-      font-size: 1.25rem;
-    }
-
-    .facts-card {
-      .fact-number {
-        font-size: 1.75rem;
-      }
-
-      .fact-text {
-        font-size: 0.85rem;
-      }
-    }
-  }
-
-  @media (max-width: 480px) {
-    .content-container h1 {
-      font-size: 1.75rem;
-    }
-
-    .description-card,
-    .mission-card,
-    .facts-card {
-      padding: 1.25rem;
-    }
-
-    .facts-card .facts-grid {
-      gap: 1.5rem;
+    .main-content {
+      @apply lg:col-span-2;
     }
   }
 }

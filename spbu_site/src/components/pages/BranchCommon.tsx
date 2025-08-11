@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { Language } from '../../contexts/LanguageContextType';
 import { useTheme } from '../../contexts/ThemeContext';
-import HomeButton from '../shared/HomeButton';
 import './BranchCommon.scss';
 
 type Translations = {
@@ -271,7 +270,6 @@ const BranchCommon: React.FC = () => {
 
   return (
     <div className={`branch-common ${theme}`}>
-      <HomeButton />
       <div className="content-container">
         <div className="header">
           <span className="header-icon">📋</span>

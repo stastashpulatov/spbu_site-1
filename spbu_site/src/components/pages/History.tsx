@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { Language } from '../../contexts/LanguageContextType';
 import { useTheme } from '../../contexts/ThemeContext';
-import HomeButton from '../shared/HomeButton';
 import './History.scss';
 
 type HistoryTranslations = {
@@ -56,7 +55,6 @@ const History: React.FC = () => {
 
   return (
     <div className={`history-page ${theme}`}>
-      <HomeButton />
       <h1>{t.title}</h1>
       <div className="history-content">
         <div className="history-image-container">

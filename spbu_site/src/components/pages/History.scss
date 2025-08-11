@@ -1,162 +1,50 @@
-.history-page {
-  padding: 2rem;
-  min-height: 100vh;
-  background: var(--background-primary);
+@layer components {
+  .history-page {
+    @apply min-h-screen bg-[var(--bg-color,#fff8f8)] text-[var(--text-color,#333)] py-8;
 
-  &.light {
-    --text-primary: #333333;
-    --text-secondary: #666666;
-    --background-primary: #ffffff;
-    --background-secondary: #f5f5f5;
-    --border-color: #e0e0e0;
-    --button-bg: #2c5282;
-    --button-text: #ffffff;
-    --button-hover-bg: #2a4365;
-  }
+    .container {
+      @apply max-w-[1200px] mx-auto px-8;
+    }
 
-  &.dark {
-    --text-primary: #ffffff;
-    --text-secondary: #cbd5e0;
-    --background-primary: #1a202c;
-    --background-secondary: #2d3748;
-    --border-color: #4a5568;
-    --button-bg: #4299e1;
-    --button-text: #1a202c;
-    --button-hover-bg: #63b3ed;
-  }
+    .page-title {
+      @apply text-4xl font-bold text-center mb-12 text-[var(--text-color,#333)];
+    }
 
-  h1 {
-    font-size: 2.5rem;
-    color: var(--text-primary);
-    margin-bottom: 2rem;
-    text-align: center;
-  }
+    .timeline {
+      @apply relative max-w-4xl mx-auto;
 
-  .history-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    padding: 3rem;
-    background: var(--background-secondary);
-    border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-
-    .history-image-container {
-      position: sticky;
-      top: 2rem;
-
-      .history-image {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-
-        &:hover {
-          transform: scale(1.02);
-        }
+      &::before {
+        content: '';
+        @apply absolute left-8 top-0 bottom-0 w-1 bg-[#a94442] md:left-1/2 md:-translate-x-1/2;
       }
     }
 
-    .history-text {
-      display: flex;
-      flex-direction: column;
+    .timeline-item {
+      @apply relative mb-12 pl-16 md:pl-0 md:flex md:justify-between md:items-center;
 
-      p {
-        color: var(--text-primary);
-        line-height: 1.8;
-        margin-bottom: 1.5rem;
-        font-size: 1.1rem;
-        text-align: justify;
-
-        &:last-child {
-          margin-bottom: 2rem;
-        }
+      &:nth-child(odd) {
+        @apply md:flex-row-reverse;
       }
 
-      .details-button {
-        display: inline-block;
-        padding: 0.75rem 2rem;
-        background: var(--button-bg);
-        color: var(--button-text);
-        text-decoration: none;
-        border-radius: 8px;
-        font-weight: 500;
-        text-align: center;
-        transition: all 0.3s ease;
-        align-self: flex-start;
-        margin-top: auto;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-        &:hover {
-          background: var(--button-hover-bg);
-          transform: translateY(-2px);
-          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        &:active {
-          transform: translateY(0);
-        }
-      }
-    }
-  }
-
-  @media (max-width: 968px) {
-    padding: 1.5rem;
-
-    .history-content {
-      grid-template-columns: 1fr;
-      padding: 2rem;
-      gap: 2rem;
-
-      .history-image-container {
-        position: static;
+      .timeline-content {
+        @apply bg-white border border-[#a94442] rounded-2xl p-8 shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-xl md:w-5/12;
       }
 
-      .history-text {
-        .details-button {
-          align-self: center;
-          width: 100%;
-          max-width: 300px;
-        }
+      .timeline-date {
+        @apply text-[#a94442] font-bold text-lg mb-2;
       }
-    }
-  }
 
-  @media (max-width: 768px) {
-    padding: 1rem;
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .history-content {
-      padding: 1.5rem;
-
-      .history-text {
-        p {
-          font-size: 1rem;
-          text-align: left;
-        }
-
-        .details-button {
-          padding: 0.75rem 1.5rem;
-          font-size: 0.95rem;
-        }
+      .timeline-title {
+        @apply text-2xl font-bold text-[var(--text-color,#333)] mb-4;
       }
-    }
-  }
 
-  @media (max-width: 480px) {
-    h1 {
-      font-size: 1.75rem;
-    }
+      .timeline-description {
+        @apply text-[var(--text-color,#333)] leading-relaxed;
+      }
 
-    .history-content {
-      padding: 1rem;
+      .timeline-marker {
+        @apply absolute left-0 top-4 w-4 h-4 bg-[#a94442] rounded-full border-4 border-white shadow-lg md:left-1/2 md:-translate-x-1/2;
+      }
     }
   }
 }

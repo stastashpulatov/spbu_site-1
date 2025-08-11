@@ -1,11 +1,9 @@
 import React from 'react';
-import HomeButton from '../shared/HomeButton';
 import './Contacts.scss';
 
 const Contacts: React.FC = () => {
   return (
     <div className="contacts">
-      <HomeButton />
       <h1>Контакты</h1>
       <div className="contacts__content">
         <div className="contacts__info">

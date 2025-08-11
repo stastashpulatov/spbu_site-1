@@ -1,6 +1,8 @@
 import './StartPage.scss';
 import { useLanguage } from '../../hooks/useLanguage';
 import { translations } from '../../translations';
+import { Link } from 'react-router-dom';
+import NewsBar from '../shared/NewsBar';
 
 function StartPage() {
     const { language } = useLanguage();
@@ -8,9 +10,37 @@ function StartPage() {
 
     return (
         <div className="start-page">
-            <div className="welcome-section">
-                <h1>{content.welcome}</h1>
-                <p>{content.description}</p>
+            <div className="banner">
+                <div className="banner-content">
+                    <h1>{content.welcome}</h1>
+                    <p>{content.description}</p>
+                    <Link to="/about" className="main-btn">Подробнее</Link>
+                </div>
+            </div>
+            <NewsBar />
+            <div className="flex-spacer" />
+            <div className="info-cards">
+                <Link to="/documents" className="info-card">
+                    <div className="icon license" />
+                    <div>
+                        <div className="card-title">Лицензия</div>
+                        <div className="card-desc">Лицензия на осуществление образовательной деятельности</div>
+                    </div>
+                </Link>
+                <Link to="/branch-tashkent/sveden" className="info-card">
+                    <div className="icon university" />
+                    <div>
+                        <div className="card-title">Об университете</div>
+                        <div className="card-desc">История и структура филиала в городе Ташкенте</div>
+                    </div>
+                </Link>
+                <Link to="/branch-tashkent/leadership" className="info-card">
+                    <div className="icon staff" />
+                    <div>
+                        <div className="card-title">Сотрудники</div>
+                        <div className="card-desc">Профессорско-преподавательский состав</div>
+                    </div>
+                </Link>
             </div>
         </div>
     );

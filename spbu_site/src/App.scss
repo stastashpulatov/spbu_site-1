@@ -1,9 +1,13 @@
-:root {
-    font-family: system-ui, -apple-system, sans-serif;
-    font-weight: bold;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-[data-theme='light'] {
+@layer base {
+  :root {
+    @apply font-system font-bold;
+  }
+
+  [data-theme='light'] {
     --bg-color: #fff8f8;
     --text-color: #2d3748;
     --text-color-secondary: #4a5568;
@@ -25,9 +29,9 @@
     --shadow-color: rgba(216, 90, 104, 0.15);
     --accent-color: #e87681;
     --content-bg: #ffffff;
-}
+  }
 
-[data-theme='dark'] {
+  [data-theme='dark'] {
     --bg-color: #1f1720;
     --text-color: #f8f9fa;
     --text-color-secondary: #e2e8f0;
@@ -49,13 +53,15 @@
     --shadow-color: rgba(0, 0, 0, 0.3);
     --accent-color: #f0939c;
     --content-bg: #2d232a;
+  }
 }
 
-.app-container {
-    min-height: 100vh;
-    transition: background-color 0.3s ease, color 0.3s ease;
+@layer components {
+  .app-container {
+    @apply min-h-screen transition-all duration-300 ease-in-out;
     background-color: var(--bg-color);
     color: var(--text-color);
+  }
 }
 
 /* Импортируем стили кнопок */

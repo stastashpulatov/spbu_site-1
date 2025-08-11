@@ -3,7 +3,6 @@ import { LanguageContext } from '../../contexts/LanguageContext';
 import { Language } from '../../contexts/LanguageContextType';
 import { useTheme } from '../../contexts/ThemeContext';
 import { ExternalLink } from 'lucide-react';
-import HomeButton from '../shared/HomeButton';
 import './UniversityInfo.scss';
 
 type Translations = {
@@ -45,7 +44,6 @@ const UniversityInfo: React.FC = () => {
 
   return (
     <div className={`university-info ${theme}`}>
-      <HomeButton />
       <div className="content-container">
         <div className="info-card">
           <h1>{t.title}</h1>

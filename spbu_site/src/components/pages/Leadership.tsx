@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { Language } from '../../contexts/LanguageContextType';
 import { useTheme } from '../../contexts/ThemeContext';
-import HomeButton from '../shared/HomeButton';
 import './Leadership.scss';
 
 type LeadershipInfo = {
@@ -96,7 +95,6 @@ const Leadership: React.FC = () => {
 
   return (
     <div className={`leadership ${theme}`}>
-      <HomeButton />
       <div className="content-container">
         <h1>{t.title}</h1>
         <div className="leadership-grid">

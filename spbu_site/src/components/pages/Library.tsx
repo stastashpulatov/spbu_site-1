@@ -1,5 +1,4 @@
 import React from 'react';
-import HomeButton from '../shared/HomeButton';
 import './Library.scss';
 
 const Library: React.FC = () => {
@@ -9,7 +8,6 @@ const Library: React.FC = () => {
 
   return (
     <div className="library-page">
-      <HomeButton />
       <div className="hero-section">
         <h1>Научная библиотека имени М. Горького</h1>
         <p className="subtitle">Одна из крупнейших университетских библиотек России</p>

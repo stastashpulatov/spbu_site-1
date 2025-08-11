@@ -1,36 +1,179 @@
-.start-page {
-    min-height: calc(100vh - 4rem);
-    display: flex;
-    align-items: end;
-    justify-content: center;
-    padding: 2rem;
-    background-color: var(--bg-color);
-}
+@layer components {
+  .start-page {
+    @apply min-h-[calc(100vh-4rem)] flex flex-col justify-stretch items-stretch bg-[#fff8f8] dark:bg-[#1f1720];
+  }
 
-.welcome-section {
-    text-align: center;
-    padding: 3rem;
-    border-radius: 1rem;
-    background-color: var(--content-bg);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    width: 100%;
+  .banner {
+    @apply bg-gradient-to-r from-[#f5e9db] via-[#f5e9db]/80 to-transparent bg-[url('/images/image.png')] bg-right-center bg-cover py-12 px-8 pb-10 rounded-b-6xl shadow-lg mb-0 relative;
+
+    &::before {
+      content: '';
+      @apply absolute inset-0 bg-gradient-to-r from-[#f5e9db] via-[#f5e9db]/90 to-[#f5e9db]/70 rounded-b-6xl z-10;
+    }
+  }
+
+  .flex-spacer {
+    @apply flex-1;
+  }
+
+  .banner-content {
+    @apply max-w-[900px] mx-auto text-center relative z-20;
 
     h1 {
-        font-size: 3rem;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-        color: var(--text-color);
+      @apply text-4xl font-bold mb-6 text-[#333] leading-tight;
     }
 
     p {
-        font-size: 1.5rem;
-        color: var(--text-color);
-        line-height: 1.6;
+      @apply text-2xl mb-10 text-[#555] leading-relaxed;
     }
+  }
+
+  .main-btn {
+    @apply inline-block bg-gradient-to-br from-[#a94442] to-[#922d2b] text-white text-xl py-3 px-12 rounded-full shadow-lg no-underline font-semibold transition-all duration-300 ease-in-out border-none cursor-pointer hover:bg-gradient-to-br hover:from-[#922d2b] hover:to-[#8b2d2b] hover:-translate-y-0.5 hover:shadow-xl;
+  }
+
+  .info-cards {
+    @apply flex justify-center gap-8 mx-auto mb-10 max-w-[1200px] flex-wrap;
+  }
+
+  .info-card {
+    @apply bg-white border border-[#a94442] rounded-2xl shadow-lg py-6 px-8 flex items-start gap-5 min-w-[260px] max-w-[340px] flex-1 flex-basis-[260px] no-underline text-[#333] transition-all duration-200 ease-in-out hover:shadow-xl hover:-translate-y-1 hover:scale-105;
+  }
+
+  .icon {
+    @apply w-10 h-10 mt-1 flex-shrink-0;
+
+    &.license {
+      @apply bg-[url('/images/pravo.png')] bg-center bg-contain bg-no-repeat;
+    }
+
+    &.university {
+      @apply bg-[url('/images/economy.png')] bg-center bg-contain bg-no-repeat;
+    }
+
+    &.staff {
+      @apply bg-[url('/images/director.png')] bg-center bg-contain bg-no-repeat;
+    }
+  }
+
+  .card-title {
+    @apply text-xl font-bold mb-1 text-[#333];
+  }
+
+  .card-desc {
+    @apply text-base text-[#555] leading-relaxed;
+  }
 }
 
-.image {
-    display: flex;
-    padding: 1rem 0;
+/* Адаптивность для планшетов */
+@media (max-width: 1024px) {
+  .banner {
+    @apply py-10 px-6 pb-8;
+  }
+  
+  .banner-content h1 {
+    @apply text-3xl;
+  }
+  
+  .banner-content p {
+    @apply text-xl;
+  }
+  
+  .info-cards {
+    @apply gap-6 px-4;
+  }
+  
+  .info-card {
+    @apply min-w-[240px] py-5 px-6;
+  }
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .banner {
+    @apply py-8 px-4 pb-6 bg-gradient-to-b from-[#f5e9db] to-[#f5e9db]/90;
+  }
+  
+  .banner-content h1 {
+    @apply text-2xl mb-4;
+  }
+  
+  .banner-content p {
+    @apply text-lg mb-8;
+  }
+  
+  .main-btn {
+    @apply text-lg py-3 px-10;
+  }
+  
+  .info-cards {
+    @apply flex-col items-center gap-4 px-4;
+  }
+  
+  .info-card {
+    @apply min-w-[280px] max-w-full py-5 px-6;
+  }
+  
+  .news-bar {
+    @apply mx-4 mt-4 p-2 text-base;
+  }
+  
+  .news-bar-title {
+    @apply text-sm;
+  }
+  
+  .news-bar-item {
+    @apply text-sm py-1 px-3;
+  }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 480px) {
+  .banner {
+    @apply py-6 px-3 pb-4;
+  }
+  
+  .banner-content h1 {
+    @apply text-xl;
+  }
+  
+  .banner-content p {
+    @apply text-base;
+  }
+  
+  .main-btn {
+    @apply text-base py-2 px-8;
+  }
+  
+  .info-cards {
+    @apply px-3;
+  }
+  
+  .info-card {
+    @apply min-w-[260px] py-4 px-5 gap-4;
+  }
+  
+  .card-title {
+    @apply text-lg;
+  }
+  
+  .card-desc {
+    @apply text-sm;
+  }
+  
+  .icon {
+    @apply w-8 h-8;
+  }
+  
+  .news-bar {
+    @apply mx-3 mt-3 p-2 text-sm;
+  }
+  
+  .news-bar-list {
+    @apply gap-2;
+  }
+  
+  .news-bar-item {
+    @apply text-sm py-1 px-2;
+  }
 }

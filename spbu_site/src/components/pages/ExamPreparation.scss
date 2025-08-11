@@ -1,59 +1,53 @@
-.exam-preparation {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
+@layer components {
+  .exam-preparation {
+    @apply min-h-screen bg-[var(--bg-color,#fff8f8)] py-8 text-[var(--text-color,#333)];
 
-  h1 {
-    color: #fff;
-    margin-bottom: 2rem;
-    text-align: center;
-    font-size: 2rem;
-  }
-
-  .main-video {
-    margin-bottom: 3rem;
-    border-radius: 8px;
-    overflow: hidden;
-    background: #000;
-    
-    iframe {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border: none;
-      display: block;
+    .container {
+      @apply max-w-[1200px] mx-auto px-8;
     }
-  }
 
-  .exam-sections {
-    .exam-section {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      border-left: 3px solid #e74c3c;
+    .page-title {
+      @apply text-4xl font-bold text-center mb-12 text-[var(--text-color,#333)];
+    }
 
-      h2 {
-        color: #fff;
-        margin-bottom: 1rem;
-        font-size: 1.2rem;
+    .exam-content {
+      @apply grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8;
+    }
+
+    .exam-info {
+      @apply flex flex-col gap-8;
+    }
+
+    .info-card {
+      @apply bg-white border border-[#a94442] rounded-2xl p-8 shadow-lg transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-xl;
+
+      h3 {
+        @apply text-xl font-bold text-[#a94442] mb-4;
       }
 
       p {
-        color: #999;
-        line-height: 1.6;
-        margin-bottom: 1rem;
-        font-size: 0.95rem;
+        @apply text-[var(--text-color,#333)] leading-relaxed mb-4 text-base last:mb-0;
       }
 
-      .more-link {
-        color: #e74c3c;
-        text-decoration: none;
-        font-size: 0.9rem;
-        display: inline-block;
-        
-        &:hover {
-          text-decoration: underline;
+      ul {
+        @apply list-none p-0 m-0;
+
+        li {
+          @apply py-2 text-[var(--text-color,#333)] relative pl-6;
+
+          &:before {
+            content: '•';
+            @apply text-[#a94442] font-bold absolute left-0 text-xl;
+          }
         }
+      }
+    }
+
+    .exam-schedule {
+      @apply bg-white border border-[#a94442] rounded-2xl p-8 shadow-lg transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-xl;
+
+      h3 {
+        @apply text-xl font-bold text-[#a94442] mb-6 text-center;
       }
     }
   }

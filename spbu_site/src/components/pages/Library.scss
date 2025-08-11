@@ -1,146 +1,46 @@
-// Common mixins and variables
-@mixin section-title {
-  font-size: 1.75rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  color: var(--text-color);
-}
+@layer components {
+  @mixin section-title {
+    @apply text-2xl font-bold mb-4 text-[var(--text-color)];
+  }
 
-@mixin card-base {
-  background: var(--bg-secondary);
-  border-radius: 1rem;
-  padding: 2rem;
-}
+  @mixin card-base {
+    @apply bg-[var(--bg-secondary)] rounded-2xl p-8;
+  }
 
-.library-page {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  .hero-section {
-    text-align: center;
-    margin-bottom: 3rem;
-    padding: 4rem 2rem;
-    background: var(--bg-gradient);
-    border-radius: 1rem;
-    color: var(--text-color);
+  .library-page {
+    @apply min-h-screen bg-[var(--bg-color,#fff8f8)] text-[var(--text-color,#333)] p-8;
 
     h1 {
-      font-size: 2.5rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
+      @apply text-4xl text-[var(--text-color,#333)] mb-4 text-center font-bold;
     }
 
     .subtitle {
-      font-size: 1.25rem;
-      opacity: 0.9;
+      @apply text-xl text-[var(--text-color,#333)] text-center mb-12 opacity-80;
     }
-  }
-
-  .content-section {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-  }
-
-  .info-card {
-    @include card-base;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-    h2 {
-      @include section-title;
-    }
-
-    p {
-      line-height: 1.6;
-      color: var(--text-color);
-    }
-  }
-
-  .resources-section {
-    h2 {
-      @include section-title;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .resources-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-
-    .resource-item {
-      @include card-base;
-      padding: 1.5rem;
-      border-radius: 0.5rem;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-      transition: transform 0.2s ease;
-
-      &:hover {
-        transform: translateY(-4px);
-      }
-
-      h3 {
-        font-size: 1.25rem;
-        font-weight: bold;
-        margin-bottom: 0.75rem;
-        color: var(--text-color);
-      }
-
-      p {
-        color: var(--text-secondary);
-        line-height: 1.5;
-      }
-    }
-  }
-
-  .cta-section {
-    @include card-base;
-    text-align: center;
-    margin-top: 2rem;
-
-    h2 {
-      @include section-title;
-    }
-
-    p {
-      margin-bottom: 2rem;
-      color: var(--text-color);
-    }
-
-    .library-button {
-      background: var(--primary-color);
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 0.5rem;
-      font-size: 1.1rem;
-      font-weight: 500;
-      border: none;
-      cursor: pointer;
-      transition: background-color 0.2s ease;
-
-      &:hover {
-        background: var(--primary-color-dark);
-      }
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .library-page {
-    padding: 1rem;
 
     .hero-section {
-      padding: 2rem 1rem;
+      @apply bg-white border border-[#a94442] rounded-3xl p-12 mb-12 shadow-lg text-center relative overflow-hidden;
+
+      &::before {
+        content: '';
+        @apply absolute inset-0 bg-gradient-to-br from-[rgba(169,68,66,0.05)] to-transparent pointer-events-none;
+      }
 
       h1 {
-        font-size: 2rem;
+        @apply text-[#a94442] text-4xl mb-4 relative z-10;
+      }
+
+      .subtitle {
+        @apply text-[var(--text-color,#333)] text-xl mb-8 relative z-10;
       }
     }
 
-    .resources-grid {
-      grid-template-columns: 1fr;
+    .content-section {
+      @apply flex flex-col gap-12;
+    }
+
+    .info-card {
+      @apply bg-white border border-[#a94442] rounded-3xl p-10 mb-8 shadow-lg transition-all duration-400 ease-in-out hover:-translate-y-1 hover:shadow-xl;
     }
   }
 }
