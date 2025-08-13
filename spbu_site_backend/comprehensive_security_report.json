@@ -1,0 +1,29 @@
+{
+  "timestamp": "2025-08-09T16:05:38.295438",
+  "tests": {
+    "basic_security_check": {
+      "success": false,
+      "output": "",
+      "error": "Traceback (most recent call last):\n  File \"D:\\spbu\\spbu_site-1\\spbu_site_backend\\security_check.py\", line 18, in <module>\n    from spbu_site.security import SecurityConfig, security_check\n  File \"D:\\spbu\\spbu_site-1\\spbu_site_backend\\spbu_site\\spbu_site\\security.py\", line 17, in <module>\n    from django.contrib.auth.models import AnonymousUser\n  File \"D:\\spbu\\spbu_site-1\\spbu_site_backend\\venv\\Lib\\site-packages\\django\\contrib\\auth\\models.py\", line 5, in <module>\n    from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager\n  File \"D:\\spbu\\spbu_site-1\\spbu_site_backend\\venv\\Lib\\site-packages\\django\\contrib\\auth\\base_user.py\", line 43, in <module>\n    class AbstractBaseUser(models.Model):\n  File \"D:\\spbu\\spbu_site-1\\spbu_site_backend\\venv\\Lib\\site-packages\\django\\db\\models\\base.py\", line 131, in __new__\n    app_config = apps.get_containing_app_config(module)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\spbu\\spbu_site-1\\spbu_site_backend\\venv\\Lib\\site-packages\\django\\apps\\registry.py\", line 260, in get_containing_app_config\n    self.check_apps_ready()\n  File \"D:\\spbu\\spbu_site-1\\spbu_site_backend\\venv\\Lib\\site-packages\\django\\apps\\registry.py\", line 137, in check_apps_ready\n    settings.INSTALLED_APPS\n  File \"D:\\spbu\\spbu_site-1\\spbu_site_backend\\venv\\Lib\\site-packages\\django\\conf\\__init__.py\", line 81, in __getattr__\n    self._setup(name)\n  File \"D:\\spbu\\spbu_site-1\\spbu_site_backend\\venv\\Lib\\site-packages\\django\\conf\\__init__.py\", line 61, in _setup\n    raise ImproperlyConfigured(\ndjango.core.exceptions.ImproperlyConfigured: Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\n"
+    },
+    "cyber_attack_tests": {
+      "success": false,
+      "output": "",
+      "error": "Traceback (most recent call last):\n  File \"D:\\spbu\\spbu_site-1\\spbu_site_backend\\cyber_attack_test.py\", line 700, in <module>\n    main() \n    ^^^^^^\n  File \"D:\\spbu\\spbu_site-1\\spbu_site_backend\\cyber_attack_test.py\", line 689, in main\n    tester.run_all_tests()\n  File \"D:\\spbu\\spbu_site-1\\spbu_site_backend\\cyber_attack_test.py\", line 601, in run_all_tests\n    print(\"\\U0001f680 Запуск комплексного тестирования защиты от кибератак...\")\n  File \"C:\\Users\\Станислав\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\encodings\\cp1251.py\", line 19, in encode\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nUnicodeEncodeError: 'charmap' codec can't encode character '\\U0001f680' in position 0: character maps to <undefined>\n"
+    },
+    "advanced_security_tests": {
+      "success": false,
+      "output": "",
+      "error": "Traceback (most recent call last):\n  File \"D:\\spbu\\spbu_site-1\\spbu_site_backend\\advanced_security_test.py\", line 442, in <module>\n    main() \n    ^^^^^^\n  File \"D:\\spbu\\spbu_site-1\\spbu_site_backend\\advanced_security_test.py\", line 431, in main\n    tester.run_all_tests()\n  File \"D:\\spbu\\spbu_site-1\\spbu_site_backend\\advanced_security_test.py\", line 373, in run_all_tests\n    print(\"\\U0001f680 Запуск дополнительных тестов безопасности...\")\n  File \"C:\\Users\\Станислав\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\encodings\\cp1251.py\", line 19, in encode\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nUnicodeEncodeError: 'charmap' codec can't encode character '\\U0001f680' in position 0: character maps to <undefined>\n"
+    },
+    "dependency_check": {
+      "success": false,
+      "error": "Safety check failed"
+    },
+    "code_quality_check": {
+      "success": true,
+      "issues": []
+    }
+  },
+  "overall_status": "VULNERABLE"
+}

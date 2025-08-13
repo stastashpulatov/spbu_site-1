@@ -22,7 +22,6 @@ interface LoaderConfig extends AnimationConfig {
 
 export class TransitionManager {
   private static instance: TransitionManager;
-  private activeTransitions: Map<string, boolean>;
   private defaultConfig: TransitionConfig = {
     type: 'fade',
     duration: 300,
@@ -30,7 +29,6 @@ export class TransitionManager {
   };
 
   private constructor() {
-    this.activeTransitions = new Map();
   }
 
   public static getInstance(): TransitionManager {
