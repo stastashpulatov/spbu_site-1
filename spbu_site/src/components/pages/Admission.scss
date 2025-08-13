@@ -1,54 +1,193 @@
 @layer components {
   .admission-page {
-    @apply min-h-screen bg-[var(--bg-color,#fff8f8)] py-8 text-[var(--text-color,#333)];
+    min-height: calc(100vh - 4rem) !important;
+    background-color: #fff8f8 !important;
+    padding: 2rem 0 !important;
+    color: #333 !important;
+    margin-top: 5rem !important; /* Отступ для фиксированного хедера */
+    
+    [data-theme='dark'] & {
+      background-color: #1f1720 !important;
+      color: #f8f9fa !important;
+    }
+  }
 
-    .container {
-      @apply max-w-[1200px] mx-auto px-8;
+  .container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 2rem !important;
+  }
+
+  .page-title {
+    font-size: 2.25rem !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    margin-bottom: 3rem !important;
+    color: #333 !important;
+    
+    [data-theme='dark'] & {
+      color: #f8f9fa !important;
+    }
+  }
+
+  .admission-content {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+    margin-top: 2rem !important;
+  }
+
+  .admission-info {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+
+  .info-card {
+    background: white !important;
+    border: 1px solid #a94442 !important;
+    border-radius: 1rem !important;
+    padding: 2rem !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.2s ease-in-out !important;
+    
+    &:hover {
+      transform: translateY(-4px) !important;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important;
+    }
+    
+    [data-theme='dark'] & {
+      background: #2d232a !important;
+      border-color: #6a2832 !important;
     }
 
-    .page-title {
-      @apply text-4xl font-bold text-center mb-12 text-[var(--text-color,#333)];
+    h3 {
+      font-size: 1.25rem !important;
+      font-weight: bold !important;
+      color: #a94442 !important;
+      margin-bottom: 1rem !important;
     }
 
-    .admission-content {
-      @apply grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8;
-    }
-
-    .admission-info {
-      @apply flex flex-col gap-8;
-    }
-
-    .info-card {
-      @apply bg-white border border-[#a94442] rounded-2xl p-8 shadow-lg transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-xl;
-
-      h3 {
-        @apply text-xl font-bold text-[#a94442] mb-4;
+    p {
+      color: #333 !important;
+      line-height: 1.6 !important;
+      margin-bottom: 1rem !important;
+      font-size: 1rem !important;
+      
+      &:last-child {
+        margin-bottom: 0 !important;
       }
-
-      p {
-        @apply text-[var(--text-color,#333)] leading-relaxed mb-4 text-base last:mb-0;
+      
+      [data-theme='dark'] & {
+        color: #f8f9fa !important;
       }
+    }
 
-      ul {
-        @apply list-none p-0 m-0;
+    ul {
+      list-style: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
 
-        li {
-          @apply py-2 text-[var(--text-color,#333)] relative pl-6;
+      li {
+        padding: 0.5rem 0 !important;
+        color: #333 !important;
+        position: relative !important;
+        padding-left: 1.5rem !important;
+        
+        [data-theme='dark'] & {
+          color: #f8f9fa !important;
+        }
 
-          &:before {
-            content: '•';
-            @apply text-[#a94442] font-bold absolute left-0 text-xl;
-          }
+        &:before {
+          content: '•' !important;
+          color: #a94442 !important;
+          font-weight: bold !important;
+          position: absolute !important;
+          left: 0 !important;
+          font-size: 1.25rem !important;
         }
       }
     }
+  }
 
-    .admission-form {
-      @apply bg-white border border-[#a94442] rounded-2xl p-8 shadow-lg transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-xl;
-
-      h3 {
-        @apply text-xl font-bold text-[#a94442] mb-6 text-center;
-      }
+  .admission-form {
+    background: white !important;
+    border: 1px solid #a94442 !important;
+    border-radius: 1rem !important;
+    padding: 2rem !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.2s ease-in-out !important;
+    
+    &:hover {
+      transform: translateY(-4px) !important;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important;
     }
+    
+    [data-theme='dark'] & {
+      background: #2d232a !important;
+      border-color: #6a2832 !important;
+    }
+
+    h3 {
+      font-size: 1.25rem !important;
+      font-weight: bold !important;
+      color: #a94442 !important;
+      margin-bottom: 1.5rem !important;
+      text-align: center !important;
+    }
+  }
+}
+
+/* Адаптивность для планшетов */
+@media (min-width: 1024px) {
+  .admission-content {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .admission-page {
+    margin-top: 4rem !important;
+    padding: 1rem 0 !important;
+  }
+  
+  .container {
+    padding: 0 1rem !important;
+  }
+  
+  .page-title {
+    font-size: 2rem !important;
+    margin-bottom: 2rem !important;
+  }
+  
+  .admission-content {
+    gap: 2rem !important;
+    margin-top: 1.5rem !important;
+  }
+  
+  .info-card,
+  .admission-form {
+    padding: 1.5rem !important;
+  }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 480px) {
+  .admission-page {
+    margin-top: 3.5rem !important;
+  }
+  
+  .container {
+    padding: 0 0.75rem !important;
+  }
+  
+  .page-title {
+    font-size: 1.75rem !important;
+  }
+  
+  .info-card,
+  .admission-form {
+    padding: 1rem !important;
   }
 }
