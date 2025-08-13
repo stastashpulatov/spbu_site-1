@@ -8,39 +8,181 @@
   }
 
   .library-page {
-    @apply min-h-screen bg-[var(--bg-color,#fff8f8)] text-[var(--text-color,#333)] p-8;
+    min-height: calc(100vh - 4rem) !important;
+    background-color: #fff8f8 !important;
+    color: #333 !important;
+    padding: 2rem !important;
+    margin-top: 5rem !important; /* Отступ для фиксированного хедера */
+    
+    [data-theme='dark'] & {
+      background-color: #1f1720 !important;
+      color: #f8f9fa !important;
+    }
 
     h1 {
-      @apply text-4xl text-[var(--text-color,#333)] mb-4 text-center font-bold;
+      font-size: 2.25rem !important;
+      color: #333 !important;
+      margin-bottom: 1rem !important;
+      text-align: center !important;
+      font-weight: bold !important;
+      
+      [data-theme='dark'] & {
+        color: #f8f9fa !important;
+      }
     }
 
     .subtitle {
-      @apply text-xl text-[var(--text-color,#333)] text-center mb-12 opacity-80;
+      font-size: 1.25rem !important;
+      color: #333 !important;
+      text-align: center !important;
+      margin-bottom: 3rem !important;
+      opacity: 0.8 !important;
+      
+      [data-theme='dark'] & {
+        color: #f8f9fa !important;
+      }
     }
 
     .hero-section {
-      @apply bg-white border border-[#a94442] rounded-3xl p-12 mb-12 shadow-lg text-center relative overflow-hidden;
+      background-color: white !important;
+      border: 1px solid #a94442 !important;
+      border-radius: 1.5rem !important;
+      padding: 3rem !important;
+      margin-bottom: 3rem !important;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+      text-align: center !important;
+      position: relative !important;
+      overflow: hidden !important;
 
       &::before {
-        content: '';
-        @apply absolute inset-0 bg-gradient-to-br from-[rgba(169,68,66,0.05)] to-transparent pointer-events-none;
+        content: '' !important;
+        position: absolute !important;
+        inset: 0 !important;
+        background: linear-gradient(135deg, rgba(169, 68, 66, 0.05), transparent) !important;
+        pointer-events: none !important;
       }
 
       h1 {
-        @apply text-[#a94442] text-4xl mb-4 relative z-10;
+        color: #a94442 !important;
+        font-size: 2.25rem !important;
+        margin-bottom: 1rem !important;
+        position: relative !important;
+        z-index: 10 !important;
       }
 
       .subtitle {
-        @apply text-[var(--text-color,#333)] text-xl mb-8 relative z-10;
+        color: #333 !important;
+        font-size: 1.25rem !important;
+        margin-bottom: 2rem !important;
+        position: relative !important;
+        z-index: 10 !important;
+        
+        [data-theme='dark'] & {
+          color: #f8f9fa !important;
+        }
       }
     }
 
     .content-section {
-      @apply flex flex-col gap-12;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 3rem !important;
     }
 
     .info-card {
-      @apply bg-white border border-[#a94442] rounded-3xl p-10 mb-8 shadow-lg transition-all duration-400 ease-in-out hover:-translate-y-1 hover:shadow-xl;
+      background-color: white !important;
+      border: 1px solid #a94442 !important;
+      border-radius: 1.5rem !important;
+      padding: 2.5rem !important;
+      margin-bottom: 2rem !important;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+      transition: all 0.4s ease-in-out !important;
+      
+      [data-theme='dark'] & {
+        background-color: #2d232a !important;
+      }
+      
+      &:hover {
+        transform: translateY(-4px) !important;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+      }
+    }
+  }
+}
+
+/* Адаптивность для планшетов */
+@media (max-width: 1024px) {
+  .library-page {
+    padding: 1.5rem !important;
+    
+    h1 {
+      font-size: 2rem !important;
+    }
+    
+    .hero-section {
+      padding: 2rem !important;
+    }
+    
+    .info-card {
+      padding: 2rem !important;
+    }
+  }
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .library-page {
+    margin-top: 4rem !important;
+    padding: 1rem !important;
+    
+    h1 {
+      font-size: 1.75rem !important;
+    }
+    
+    .subtitle {
+      font-size: 1.125rem !important;
+      margin-bottom: 2rem !important;
+    }
+    
+    .hero-section {
+      padding: 1.5rem !important;
+      margin-bottom: 2rem !important;
+      
+      h1 {
+        font-size: 1.75rem !important;
+      }
+      
+      .subtitle {
+        font-size: 1.125rem !important;
+      }
+    }
+    
+    .info-card {
+      padding: 1.5rem !important;
+    }
+  }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 480px) {
+  .library-page {
+    margin-top: 3.5rem !important;
+    padding: 0.75rem !important;
+    
+    h1 {
+      font-size: 1.5rem !important;
+    }
+    
+    .hero-section {
+      padding: 1rem !important;
+      
+      h1 {
+        font-size: 1.5rem !important;
+      }
+    }
+    
+    .info-card {
+      padding: 1rem !important;
     }
   }
 }

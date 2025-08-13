@@ -1,92 +1,190 @@
 .trki-general-info {
-  position: relative;
-  min-height: calc(100vh - 60px);
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  position: relative !important;
+  min-height: calc(100vh - 4rem) !important;
+  background-color: #fff8f8 !important;
+  color: #333 !important;
+  margin-top: 5rem !important; /* Отступ для фиксированного хедера */
+  
+  [data-theme='dark'] & {
+    background-color: #1f1720 !important;
+    color: #f8f9fa !important;
+  }
 
   .page-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 2rem 1.25rem !important;
   }
 
   h1 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2.2rem;
-    font-weight: 500;
-    color: var(--text-color);
+    text-align: center !important;
+    margin-bottom: 2.5rem !important;
+    font-size: 2.2rem !important;
+    font-weight: 500 !important;
+    color: #333 !important;
+    
+    [data-theme='dark'] & {
+      color: #f8f9fa !important;
+    }
   }
 
   .content {
     .text-block {
-      margin-bottom: 30px;
+      margin-bottom: 1.875rem !important;
 
       p {
-        line-height: 1.8;
-        text-align: justify;
-        margin-bottom: 20px;
-        font-size: 1rem;
-        color: var(--text-color-secondary);
+        line-height: 1.8 !important;
+        text-align: justify !important;
+        margin-bottom: 1.25rem !important;
+        font-size: 1rem !important;
+        color: #666 !important;
+        
+        [data-theme='dark'] & {
+          color: #cbd5e0 !important;
+        }
       }
     }
 
     .info-box {
-      background-color: var(--card-bg);
-      padding: 25px;
-      border-radius: 8px;
-      margin: 30px 0;
-      border: 1px solid var(--border-color);
+      background-color: white !important;
+      padding: 1.5625rem !important;
+      border-radius: 0.5rem !important;
+      margin: 1.875rem 0 !important;
+      border: 1px solid #e0e0e0 !important;
+      
+      [data-theme='dark'] & {
+        background-color: #2d232a !important;
+        border-color: #4a5568 !important;
+      }
 
       p {
-        margin-bottom: 15px;
-        font-size: 1.1rem;
-        color: var(--text-color);
+        margin-bottom: 0.9375rem !important;
+        font-size: 1.1rem !important;
+        color: #333 !important;
+        
+        [data-theme='dark'] & {
+          color: #f8f9fa !important;
+        }
 
         &:last-child {
-          margin-bottom: 0;
+          margin-bottom: 0 !important;
         }
       }
 
       .price {
-        color: var(--primary-color);
-        font-weight: bold;
-        margin-left: 10px;
+        color: #a94442 !important;
+        font-weight: bold !important;
+        margin-left: 0.625rem !important;
       }
 
       .note {
-        font-size: 0.9rem;
-        color: var(--text-color-secondary);
+        font-size: 0.9rem !important;
+        color: #666 !important;
+        
+        [data-theme='dark'] & {
+          color: #cbd5e0 !important;
+        }
       }
     }
 
     .contact-box {
-      margin-top: 40px;
-      padding: 25px;
-      background-color: var(--card-bg);
-      border-radius: 8px;
-      border: 1px solid var(--border-color);
+      margin-top: 2.5rem !important;
+      padding: 1.5625rem !important;
+      background-color: white !important;
+      border-radius: 0.5rem !important;
+      border: 1px solid #e0e0e0 !important;
+      
+      [data-theme='dark'] & {
+        background-color: #2d232a !important;
+        border-color: #4a5568 !important;
+      }
 
       h3 {
-        font-size: 1.3rem;
-        margin-bottom: 15px;
-        color: var(--text-color);
+        font-size: 1.3rem !important;
+        margin-bottom: 0.9375rem !important;
+        color: #333 !important;
+        
+        [data-theme='dark'] & {
+          color: #f8f9fa !important;
+        }
       }
 
       p {
-        font-size: 1rem;
-        color: var(--text-color-secondary);
+        font-size: 1rem !important;
+        color: #666 !important;
+        
+        [data-theme='dark'] & {
+          color: #cbd5e0 !important;
+        }
       }
 
       .phone-link {
-        color: var(--primary-color);
-        text-decoration: none;
-        font-weight: 500;
+        color: #a94442 !important;
+        text-decoration: none !important;
+        font-weight: 500 !important;
 
         &:hover {
-          color: var(--primary-color-dark);
-          text-decoration: underline;
+          color: #922d2b !important;
+          text-decoration: underline !important;
         }
+      }
+    }
+  }
+}
+
+/* Адаптивность для планшетов */
+@media (max-width: 1024px) {
+  .trki-general-info {
+    .page-container {
+      padding: 1.5rem 1rem !important;
+    }
+    
+    h1 {
+      font-size: 2rem !important;
+    }
+  }
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .trki-general-info {
+    margin-top: 4rem !important;
+    
+    .page-container {
+      padding: 1rem 0.75rem !important;
+    }
+    
+    h1 {
+      font-size: 1.75rem !important;
+      margin-bottom: 2rem !important;
+    }
+    
+    .content {
+      .info-box,
+      .contact-box {
+        padding: 1.25rem !important;
+      }
+    }
+  }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 480px) {
+  .trki-general-info {
+    margin-top: 3.5rem !important;
+    
+    .page-container {
+      padding: 0.75rem 0.5rem !important;
+    }
+    
+    h1 {
+      font-size: 1.5rem !important;
+    }
+    
+    .content {
+      .info-box,
+      .contact-box {
+        padding: 1rem !important;
       }
     }
   }
