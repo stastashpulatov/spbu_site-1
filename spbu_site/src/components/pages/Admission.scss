@@ -1,5 +1,6 @@
 @layer components {
   .admission-page {
+
     min-height: calc(100vh - 4rem) !important;
     background-color: #fff8f8 !important;
     padding: 2rem 0 !important;
@@ -200,6 +201,57 @@
     .info-card,
     .admission-form {
       padding: 1rem !important;
+
+    @apply min-h-screen bg-[var(--bg-color,#fff8f8)] py-8 text-[var(--text-color,#333)];
+
+    .container {
+      @apply max-w-[1200px] mx-auto px-8;
+    }
+
+    .page-title {
+      @apply text-4xl font-bold text-center mb-12 text-[var(--text-color,#333)];
+    }
+
+    .admission-content {
+      @apply grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8;
+    }
+
+    .admission-info {
+      @apply flex flex-col gap-8;
+    }
+
+    .info-card {
+      @apply bg-white border border-[#a94442] rounded-2xl p-8 shadow-lg transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-xl;
+
+      h3 {
+        @apply text-xl font-bold text-[#a94442] mb-4;
+      }
+
+      p {
+        @apply text-[var(--text-color,#333)] leading-relaxed mb-4 text-base last:mb-0;
+      }
+
+      ul {
+        @apply list-none p-0 m-0;
+
+        li {
+          @apply py-2 text-[var(--text-color,#333)] relative pl-6;
+
+          &:before {
+            content: '•';
+            @apply text-[#a94442] font-bold absolute left-0 text-xl;
+          }
+        }
+      }
+    }
+
+    .admission-form {
+      @apply bg-white border border-[#a94442] rounded-2xl p-8 shadow-lg transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-xl;
+
+      h3 {
+        @apply text-xl font-bold text-[#a94442] mb-6 text-center;
+      }
+
     }
   }
 }

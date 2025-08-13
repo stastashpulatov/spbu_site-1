@@ -1,5 +1,6 @@
 @layer components {
   .contacts-page {
+
     min-height: calc(100vh - 4rem) !important;
     background-color: #fff8f8 !important;
     color: #333 !important;
@@ -102,9 +103,38 @@
     
     .page-title {
       font-size: 2rem !important;
+
+    @apply min-h-screen bg-[var(--bg-color,#fff8f8)] text-[var(--text-color,#333)] py-8;
+
+    .container {
+      @apply max-w-[1200px] mx-auto px-8;
     }
-  }
-}
+
+    .page-title {
+      @apply text-4xl font-bold text-center mb-12 text-[var(--text-color,#333)];
+    }
+
+    .contacts-grid {
+      @apply grid grid-cols-1 md:grid-cols-2 gap-8;
+    }
+
+    .contact-card {
+      @apply bg-white border border-[#a94442] rounded-2xl p-8 shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-xl;
+    }
+
+    .contact-title {
+      @apply text-2xl font-bold text-[#a94442] mb-4;
+    }
+
+    .contact-info {
+      @apply space-y-4;
+    }
+
+    .contact-item {
+      @apply flex items-center gap-3;
+
+    }
+
 
 /* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
@@ -150,6 +180,14 @@
     
     .contact-card {
       padding: 1rem !important;
+
+    .contact-icon {
+      @apply w-6 h-6 text-[#a94442];
+    }
+
+    .contact-text {
+      @apply text-[var(--text-color,#333)] text-lg;
+
     }
   }
 }

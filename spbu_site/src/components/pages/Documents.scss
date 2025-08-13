@@ -1,5 +1,6 @@
 @layer components {
   .documents-page {
+
     min-height: calc(100vh - 4rem) !important;
     background-color: white !important;
     padding: 2rem 0 !important;
@@ -210,6 +211,48 @@
     
     .page-title {
       font-size: 2rem !important;
+
+    @apply min-h-screen bg-white dark:bg-[#1a202c] py-8;
+
+    &.light {
+      --text-primary: #333333;
+      --text-secondary: #666666;
+      --background-primary: #ffffff;
+      --background-secondary: #f5f5f5;
+      --border-color: #e0e0e0;
+      --card-bg: #ffffff;
+      --card-shadow: rgba(0, 0, 0, 0.1);
+      --accent-color: #2c5282;
+      --accent-light: #ebf8ff;
+    }
+
+    &.dark {
+      --text-primary: #ffffff;
+      --text-secondary: #cbd5e0;
+      --background-primary: #1a202c;
+      --background-secondary: #2d3748;
+      --border-color: #4a5568;
+      --card-bg: #2d3748;
+      --card-shadow: rgba(0, 0, 0, 0.2);
+      --accent-color: #4299e1;
+      --accent-light: rgba(66, 153, 225, 0.15);
+    }
+
+    .container {
+      @apply max-w-[1200px] mx-auto px-8;
+    }
+
+    .page-title {
+      @apply text-[#333333] dark:text-white text-4xl text-center mb-12 font-semibold;
+    }
+
+    .documents-list {
+      @apply flex flex-col gap-6;
+    }
+
+    .document-item {
+      @apply bg-white dark:bg-[#2d3748] rounded-xl overflow-hidden transition-all duration-300 ease-in-out shadow-md border border-[#e0e0e0] dark:border-[#4a5568] hover:-translate-y-1 hover:shadow-lg;
+
     }
   }
 }
@@ -230,11 +273,16 @@
     }
     
     .document-content {
+
       padding: 1rem !important;
       gap: 1rem !important;
+
+      @apply flex items-start gap-6 p-6 relative;
+
     }
     
     .document-icon {
+
       width: 2rem !important;
       height: 2rem !important;
     }
@@ -243,9 +291,33 @@
       flex-direction: column !important;
       align-items: flex-start !important;
       gap: 0.5rem !important;
+
+      @apply flex-shrink-0 w-10 h-10 text-[#666666] dark:text-[#cbd5e0] transition-all duration-300 ease-in-out bg-[#ebf8ff] dark:bg-[rgba(66,153,225,0.15)] p-2 rounded-lg hover:text-[#2c5282] dark:hover:text-[#4299e1] hover:scale-110;
+
+      svg {
+        @apply w-full h-full;
+      }
+    }
+
+    .document-info {
+      @apply flex-1;
+    }
+
+    .document-meta {
+      @apply flex justify-between items-center mb-2;
+    }
+
+    .document-type {
+      @apply bg-[#ebf8ff] dark:bg-[rgba(66,153,225,0.15)] text-[#2c5282] dark:text-[#4299e1] px-3 py-1 rounded text-sm font-medium hover:bg-[#2c5282] hover:text-white dark:hover:bg-[#4299e1] dark:hover:text-white transition-colors duration-300;
+    }
+
+    .document-date {
+      @apply text-[#666666] dark:text-[#cbd5e0] text-sm;
+
     }
   }
 }
+
 
 /* Очень маленькие экраны */
 @media (max-width: 480px) {
@@ -266,6 +338,18 @@
     
     .document-title {
       font-size: 1rem !important;
+
+    .document-title {
+      @apply text-[#333333] dark:text-white text-lg font-medium;
+    }
+
+    .download-button {
+      @apply flex items-center gap-2 bg-[#2c5282] dark:bg-[#4299e1] text-white px-4 py-2 rounded-lg transition-all duration-300 ease-in-out hover:bg-[#2c5282] dark:hover:bg-[#4299e1] border border-[#2c5282] dark:border-[#4299e1];
+
+      svg {
+        @apply w-4 h-4;
+      }
+
     }
   }
 }

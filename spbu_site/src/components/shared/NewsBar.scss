@@ -1,5 +1,6 @@
 @layer components {
   .news-bar {
+
     width: 100% !important;
     background-color: #f5e9db !important;
     border-radius: 0.75rem !important;
@@ -49,12 +50,28 @@
       transform: translateY(-1px) !important;
       box-shadow: 0 2px 8px rgba(169, 68, 66, 0.3) !important;
     }
+
+    @apply w-full bg-[#f5e9db] rounded-xl mx-auto mt-6 mb-0 py-3 px-6 flex items-center gap-5 shadow-sm text-lg min-h-10 max-w-[1100px];
+  }
+
+  .news-bar-title {
+    @apply font-semibold text-[#a94442] mr-5 whitespace-nowrap;
+  }
+
+  .news-bar-list {
+    @apply flex gap-6 flex-wrap overflow-x-auto w-full;
+  }
+
+  .news-bar-item {
+    @apply text-[#333] no-underline bg-[#fff6f6] rounded-lg py-1 px-4 transition-all duration-200 ease-in-out whitespace-nowrap font-medium hover:bg-[#a94442] hover:text-white;
+
   }
 }
 
 /* Адаптивность для планшетов */
 @media (max-width: 1024px) {
   .news-bar {
+
     margin: 1.25rem 1rem 0 !important;
     padding: 0.5rem 1.25rem !important;
     font-size: 1rem !important;
@@ -62,12 +79,20 @@
 
   .news-bar-list {
     gap: 1.25rem !important;
+
+    @apply mx-4 mt-5 py-2 px-5 text-base;
+  }
+
+  .news-bar-list {
+    @apply gap-5;
+
   }
 }
 
 /* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
   .news-bar {
+
     flex-direction: column !important;
     align-items: flex-start !important;
     gap: 0.5rem !important;
@@ -88,12 +113,28 @@
   .news-bar-item {
     font-size: 0.875rem !important;
     padding: 0.25rem 0.75rem !important;
+
+    @apply flex-col items-start gap-2 py-3 px-4 mx-4 mt-4;
+  }
+
+  .news-bar-title {
+    @apply mr-0 mb-1;
+  }
+
+  .news-bar-list {
+    @apply gap-3 w-full;
+  }
+
+  .news-bar-item {
+    @apply text-sm py-1 px-3;
+
   }
 }
 
 /* Очень маленькие экраны */
 @media (max-width: 480px) {
   .news-bar {
+
     padding: 0.5rem 0.75rem !important;
     margin: 0.75rem 0.75rem 0 !important;
     font-size: 0.875rem !important;
@@ -110,5 +151,20 @@
   .news-bar-item {
     font-size: 0.875rem !important;
     padding: 0.25rem 0.5rem !important;
+
+    @apply py-2 px-3 mx-3 mt-3 text-sm;
+  }
+
+  .news-bar-title {
+    @apply text-sm;
+  }
+
+  .news-bar-list {
+    @apply gap-2;
+  }
+
+  .news-bar-item {
+    @apply text-sm py-1 px-2;
+
   }
 }

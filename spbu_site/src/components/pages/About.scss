@@ -1,5 +1,6 @@
 @layer components {
   .about {
+
     min-height: calc(100vh - 4rem) !important;
     background-color: #fff8f8 !important;
     padding: 2rem 0 !important;
@@ -197,9 +198,45 @@
     .description-card,
     .mission-card {
       padding: 2rem !important;
+
+    @apply min-h-screen bg-[#fff8f8] dark:bg-[#1f1720] py-8 text-[#333] dark:text-[#f8f9fa];
+
+    .content-container {
+      @apply max-w-[1200px] mx-auto px-8;
+    }
+
+    h1 {
+      @apply text-4xl text-[#333] dark:text-[#f8f9fa] mb-8 text-center font-bold;
+    }
+
+    .description-card {
+      @apply bg-white dark:bg-[#2d232a] border border-[#a94442] rounded-3xl p-12 mb-12 shadow-lg transition-all duration-400 ease-in-out relative overflow-hidden hover:-translate-y-1 hover:shadow-xl;
+
+      &::before {
+        content: '';
+        @apply absolute inset-0 bg-gradient-to-br from-[#a94442]/5 to-transparent pointer-events-none;
+      }
+
+      p {
+        @apply text-[#333] dark:text-[#f8f9fa] leading-relaxed mb-6 text-lg text-justify relative z-10 last:mb-0;
+      }
+    }
+
+    .mission-card {
+      @apply bg-white dark:bg-[#2d232a] border border-[#a94442] rounded-3xl p-12 mb-12 shadow-lg transition-all duration-400 ease-in-out hover:-translate-y-1 hover:shadow-xl;
+
+      h2 {
+        @apply text-[#a94442] text-3xl mb-6 font-bold text-center;
+      }
+
+      p {
+        @apply text-[#333] dark:text-[#f8f9fa] leading-relaxed mb-6 text-lg text-justify last:mb-0;
+      }
+
     }
   }
 }
+
 
 /* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
@@ -253,6 +290,38 @@
     
     .facts-card {
       padding: 1rem !important;
+
+    .facts-card {
+      @apply bg-white dark:bg-[#2d232a] border border-[#a94442] rounded-3xl p-8 shadow-lg;
+
+      h2 {
+        @apply text-[#a94442] text-2xl mb-6 font-bold text-center;
+      }
+
+      .facts-grid {
+        @apply grid grid-cols-2 gap-4;
+      }
+
+      .fact-item {
+        @apply text-center;
+
+        .fact-number {
+          @apply text-3xl font-bold text-[#a94442] mb-2;
+        }
+
+        .fact-text {
+          @apply text-sm text-[#333] dark:text-[#f8f9fa];
+        }
+      }
+    }
+
+    .about-grid {
+      @apply grid grid-cols-1 lg:grid-cols-3 gap-8;
+    }
+
+    .main-content {
+      @apply lg:col-span-2;
+
     }
   }
 }

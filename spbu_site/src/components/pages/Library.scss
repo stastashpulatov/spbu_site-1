@@ -3,6 +3,7 @@
     @apply text-2xl font-bold mb-4 text-[var(--text-color)];
   }
 
+
   @mixin card-base {
     @apply bg-[var(--bg-secondary)] rounded-2xl p-8;
   }
@@ -159,9 +160,47 @@
     
     .info-card {
       padding: 1.5rem !important;
+
+
+  @mixin card-base {
+    @apply bg-[var(--bg-secondary)] rounded-2xl p-8;
+  }
+
+  .library-page {
+    @apply min-h-screen bg-[var(--bg-color,#fff8f8)] text-[var(--text-color,#333)] p-8;
+
+    h1 {
+      @apply text-4xl text-[var(--text-color,#333)] mb-4 text-center font-bold;
+    }
+
+    .subtitle {
+      @apply text-xl text-[var(--text-color,#333)] text-center mb-12 opacity-80;
+    }
+
+    .hero-section {
+      @apply bg-white border border-[#a94442] rounded-3xl p-12 mb-12 shadow-lg text-center relative overflow-hidden;
+
+      &::before {
+        content: '';
+        @apply absolute inset-0 bg-gradient-to-br from-[rgba(169,68,66,0.05)] to-transparent pointer-events-none;
+      }
+
+      h1 {
+        @apply text-[#a94442] text-4xl mb-4 relative z-10;
+      }
+
+      .subtitle {
+        @apply text-[var(--text-color,#333)] text-xl mb-8 relative z-10;
+      }
+    }
+
+    .content-section {
+      @apply flex flex-col gap-12;
+
     }
   }
 }
+
 
 /* Очень маленькие экраны */
 @media (max-width: 480px) {
@@ -183,6 +222,10 @@
     
     .info-card {
       padding: 1rem !important;
+
+    .info-card {
+      @apply bg-white border border-[#a94442] rounded-3xl p-10 mb-8 shadow-lg transition-all duration-400 ease-in-out hover:-translate-y-1 hover:shadow-xl;
+
     }
   }
 }
