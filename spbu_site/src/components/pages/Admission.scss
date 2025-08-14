@@ -1,12 +1,12 @@
 @layer components {
   .admission-page {
     min-height: 100vh !important;
-    background-color: var(--bg-color, #fff8f8) !important;
+    background: linear-gradient(135deg, #fff8f8 0%, #ffeef0 50%, #fff8f8 100%) !important;
     color: var(--text-color, #333) !important;
     padding-top: 5rem !important;
     
     [data-theme='dark'] & {
-      background-color: var(--bg-color, #1f1720) !important;
+      background: linear-gradient(135deg, #1f1720 0%, #2a1f26 50%, #1f1720 100%) !important;
       color: var(--text-color, #f8f9fa) !important;
     }
   }
@@ -91,51 +91,91 @@
     margin-bottom: 4rem !important;
 
     .info-card {
-      background: var(--card-bg, #ffffff) !important;
-      border: 1px solid var(--border-color, #a94442) !important;
-      border-radius: 1.5rem !important;
+      background: #ffffff !important;
+      border: 2px solid #a94442 !important;
+      border-radius: 20px !important;
       padding: 3rem !important;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
-      transition: all 0.3s ease-in-out !important;
+      box-shadow: 0 10px 30px rgba(169, 68, 66, 0.15) !important;
+      transition: all 0.3s ease !important;
       text-align: center !important;
+      position: relative !important;
+      overflow: hidden !important;
+      
+      &::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 5px !important;
+        background: linear-gradient(90deg, #a94442, #e87681, #a94442) !important;
+      }
       
       &:hover {
-        transform: translateY(-5px) !important;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+        transform: translateY(-8px) !important;
+        box-shadow: 0 20px 40px rgba(169, 68, 66, 0.25) !important;
+        border-color: #e87681 !important;
       }
 
       [data-theme='dark'] & {
-        background: var(--card-bg, #2d232a) !important;
-        border-color: var(--border-color, #6a2832) !important;
-        color: var(--text-color, #f8f9fa) !important;
+        background: #2d232a !important;
+        border-color: #6a2832 !important;
+        color: #f8f9fa !important;
+        
+        &:hover {
+          border-color: #e87681 !important;
+          box-shadow: 0 20px 40px rgba(232, 118, 129, 0.25) !important;
+        }
       }
 
       .card-icon {
-        font-size: 3rem !important;
-        margin-bottom: 1.5rem !important;
+        font-size: 4rem !important;
+        margin-bottom: 2rem !important;
         display: block !important;
+        background: linear-gradient(135deg, #a94442, #e87681) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+        filter: drop-shadow(0 4px 8px rgba(169, 68, 66, 0.2)) !important;
       }
 
       h2 {
-        color: var(--primary-color, #a94442) !important;
-        font-size: 2rem !important;
-        font-weight: bold !important;
+        color: #a94442 !important;
+        font-size: 2.5rem !important;
+        font-weight: 800 !important;
         margin-bottom: 1.5rem !important;
+        position: relative !important;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1) !important;
+
+        &::after {
+          content: '' !important;
+          position: absolute !important;
+          bottom: -10px !important;
+          left: 50% !important;
+          transform: translateX(-50%) !important;
+          width: 80px !important;
+          height: 3px !important;
+          background: linear-gradient(90deg, #a94442, #e87681) !important;
+          border-radius: 2px !important;
+        }
 
         [data-theme='dark'] & {
-          color: var(--primary-color, #e87681) !important;
+          color: #e87681 !important;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3) !important;
         }
       }
 
       p {
-        color: var(--text-color-secondary, #4a5568) !important;
-        line-height: 1.7 !important;
-        font-size: 1.1rem !important;
+        color: #4a5568 !important;
+        line-height: 1.8 !important;
+        font-size: 1.2rem !important;
         max-width: 800px !important;
         margin: 0 auto !important;
+        font-weight: 400 !important;
+        text-align: center !important;
         
         [data-theme='dark'] & {
-          color: var(--text-color-secondary, #e2e8f0) !important;
+          color: #e2e8f0 !important;
         }
       }
     }
@@ -459,3 +499,5 @@
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.8) !important;
   }
 }
+
+
