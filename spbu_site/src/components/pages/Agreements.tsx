@@ -1,10 +1,7 @@
 import React from 'react';
 import './Agreements.scss';
-import { useTheme } from '../../contexts/ThemeContext';
 
 const Agreements: React.FC = () => {
-  const { theme } = useTheme();
-
   const agreements = [
     {
       id: 1,
@@ -44,8 +41,8 @@ const Agreements: React.FC = () => {
   ];
 
   return (
-    <div className={`agreements-page ${theme}`}>
-      <div className="container">
+    <div className="agreements-page">
+      <div className="content-container">
         <h1 className="page-title">Соглашения</h1>
         
         <div className="documents-list">

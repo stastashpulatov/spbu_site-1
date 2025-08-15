@@ -1,8 +1,6 @@
 import React, { useContext } from 'react';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { Language } from '../../contexts/LanguageContextType';
-import { useTheme } from '../../contexts/ThemeContext';
-import { ExternalLink } from 'lucide-react';
 import './UniversityInfo.scss';
 
 type Translations = {
@@ -32,7 +30,6 @@ const translations: Translations = {
 };
 
 const UniversityInfo: React.FC = () => {
-  const { theme } = useTheme();
   const langContext = useContext(LanguageContext);
   
   if (!langContext) {
@@ -43,7 +40,7 @@ const UniversityInfo: React.FC = () => {
   const t = translations[language];
 
   return (
-    <div className={`university-info ${theme}`}>
+    <div className="university-info">
       <div className="content-container">
         <div className="info-card">
           <h1>{t.title}</h1>
@@ -55,7 +52,7 @@ const UniversityInfo: React.FC = () => {
             className="redirect-button"
           >
             {t.button}
-            <ExternalLink size={20} />
+            {/* ExternalLink size={20} */}
           </a>
         </div>
       </div>

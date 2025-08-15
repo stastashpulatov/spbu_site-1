@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { Language } from '../../contexts/LanguageContextType';
-import { useTheme } from '../../contexts/ThemeContext';
 import './Leadership.scss';
 
 type LeadershipInfo = {
@@ -83,7 +82,6 @@ const translations: Translations = {
 };
 
 const Leadership: React.FC = () => {
-  const { theme } = useTheme();
   const langContext = useContext(LanguageContext);
   
   if (!langContext) {
@@ -94,7 +92,7 @@ const Leadership: React.FC = () => {
   const t = translations[language];
 
   return (
-    <div className={`leadership ${theme}`}>
+    <div className="leadership">
       <div className="content-container">
         <h1>{t.title}</h1>
         <div className="leadership-grid">

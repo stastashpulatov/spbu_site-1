@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { Language } from '../../contexts/LanguageContextType';
-import { useTheme } from '../../contexts/ThemeContext';
 import './History.scss';
 
 type HistoryTranslations = {
@@ -43,7 +42,6 @@ const translations: HistoryTranslations = {
 };
 
 const History: React.FC = () => {
-  const { theme } = useTheme();
   const langContext = useContext(LanguageContext);
   
   if (!langContext) {
@@ -54,28 +52,30 @@ const History: React.FC = () => {
   const t = translations[language];
 
   return (
-    <div className={`history-page ${theme}`}>
-      <h1>{t.title}</h1>
-      <div className="history-content">
-        <div className="history-image-container">
-          <img 
-            src="/images/image.png" 
-            alt="Saint Petersburg State University" 
-            className="history-image"
-          />
-        </div>
-        <div className="history-text">
-          {t.text.map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
-          ))}
-          <a 
-            href="https://spbu.ru/history" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="details-button"
-          >
-            {t.detailsButton}
-          </a>
+    <div className="history-page">
+      <div className="content-container">
+        <h1>{t.title}</h1>
+        <div className="history-content">
+          <div className="history-image-container">
+            <img 
+              src="/images/image.png" 
+              alt="Saint Petersburg State University" 
+              className="history-image"
+            />
+          </div>
+          <div className="history-text">
+            {t.text.map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
+            <a 
+              href="https://spbu.ru/history" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="details-button"
+            >
+              {t.detailsButton}
+            </a>
+          </div>
         </div>
       </div>
     </div>

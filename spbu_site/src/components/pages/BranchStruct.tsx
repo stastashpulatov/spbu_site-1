@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { Language } from '../../contexts/LanguageContextType';
-import { useTheme } from '../../contexts/ThemeContext';
 import './BranchStruct.scss';
 
 type Translations = {
@@ -339,7 +338,6 @@ const translations: Translations = {
 };
 
 const BranchStruct: React.FC = () => {
-  const { theme } = useTheme();
   const langContext = useContext(LanguageContext);
   
   if (!langContext) {
@@ -350,7 +348,7 @@ const BranchStruct: React.FC = () => {
   const t = translations[language];
 
   return (
-    <div className={`branch-struct ${theme}`}>
+    <div className="branch-struct">
       <div className="content-container">
         <div className="header">
           <h1>{t.title}</h1>
