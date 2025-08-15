@@ -54,19 +54,79 @@ api.interceptors.response.use(
 
 // News API
 export const getNews = async (page = 1) => {
-  return api.get(`/events/news/?page=${page}`);
+  try {
+    const response = await api.get(`/events/news/?page=${page}`);
+    console.log('News API response:', response.data);
+    return response;
+  } catch (error) {
+    console.error('Error fetching news:', error);
+    throw error;
+  }
 };
 
 export const getNewsById = async (id: number) => {
-  return api.get(`/events/news/${id}/`);
+  try {
+    const response = await api.get(`/events/news/${id}/`);
+    console.log('News by ID API response:', response.data);
+    return response;
+  } catch (error) {
+    console.error('Error fetching news by ID:', error);
+    throw error;
+  }
 };
 
 export const createNews = async (newsData: any) => {
-  return api.post('/events/news/', newsData);
+  try {
+    // Создаем FormData для загрузки изображений
+    const formData = new FormData();
+    
+    // Добавляем текстовые поля
+    Object.keys(newsData).forEach(key => {
+      if (key === 'image' && newsData[key] instanceof File) {
+        formData.append(key, newsData[key]);
+      } else if (key !== 'image') {
+        formData.append(key, newsData[key]);
+      }
+    });
+    
+    const response = await api.post('/events/news/', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    console.log('Create news API response:', response.data);
+    return response;
+  } catch (error) {
+    console.error('Error creating news:', error);
+    throw error;
+  }
 };
 
 export const updateNews = async (id: number, newsData: any) => {
-  return api.put(`/events/news/${id}/`, newsData);
+  try {
+    // Создаем FormData для загрузки изображений
+    const formData = new FormData();
+    
+    // Добавляем текстовые поля
+    Object.keys(newsData).forEach(key => {
+      if (key === 'image' && newsData[key] instanceof File) {
+        formData.append(key, newsData[key]);
+      } else if (key !== 'image') {
+        formData.append(key, newsData[key]);
+      }
+    });
+    
+    const response = await api.put(`/events/news/${id}/`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    console.log('Update news API response:', response.data);
+    return response;
+  } catch (error) {
+    console.error('Error updating news:', error);
+    throw error;
+  }
 };
 
 export const deleteNews = async (id: number) => {

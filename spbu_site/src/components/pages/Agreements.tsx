@@ -1,5 +1,5 @@
 import React from 'react';
-import '../pages/Documents.scss';
+import './Agreements.scss';
 import { useTheme } from '../../contexts/ThemeContext';
 
 const Agreements: React.FC = () => {
@@ -44,7 +44,7 @@ const Agreements: React.FC = () => {
   ];
 
   return (
-    <div className={`documents-page ${theme}`}>
+    <div className={`agreements-page ${theme}`}>
       <div className="container">
         <h1 className="page-title">Соглашения</h1>
         

@@ -38,6 +38,16 @@
     flex: 1 !important;
   }
 
+  .news-section {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 2rem !important;
+    
+    @media (max-width: 768px) {
+      padding: 0 1rem !important;
+    }
+  }
+
   .banner-content {
     max-width: 900px !important;
     margin: 0 auto !important;
