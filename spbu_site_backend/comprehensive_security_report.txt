@@ -1,7 +1,7 @@
 ================================================================================
 КОМПЛЕКСНЫЙ ОТЧЕТ О ТЕСТИРОВАНИИ БЕЗОПАСНОСТИ SPBU SITE
 ================================================================================
-Дата: 2025-08-09 16:05:44
+Дата: 2025-08-15 17:10:56
 URL тестирования: http://localhost:8000
 Общий статус: VULNERABLE
 
@@ -13,20 +13,20 @@ basic_security_check: ❌ ПРОВАЛЕН
     from spbu_site.security import SecurityConfig, security_check
   File "D:\spbu\spbu_site-1\spbu_site_backend\spbu_site\spbu_site\security.py", line 17, in <module>
     from django.contrib.auth.models import AnonymousUser
-  File "D:\spbu\spbu_site-1\spbu_site_backend\venv\Lib\site-packages\django\contrib\auth\models.py", line 5, in <module>
+  File "C:\Users\Станислав\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\models.py", line 5, in <module>
     from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
-  File "D:\spbu\spbu_site-1\spbu_site_backend\venv\Lib\site-packages\django\contrib\auth\base_user.py", line 43, in <module>
+  File "C:\Users\Станислав\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\base_user.py", line 43, in <module>
     class AbstractBaseUser(models.Model):
-  File "D:\spbu\spbu_site-1\spbu_site_backend\venv\Lib\site-packages\django\db\models\base.py", line 131, in __new__
+  File "C:\Users\Станислав\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 131, in __new__
     app_config = apps.get_containing_app_config(module)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\spbu\spbu_site-1\spbu_site_backend\venv\Lib\site-packages\django\apps\registry.py", line 260, in get_containing_app_config
+  File "C:\Users\Станислав\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\apps\registry.py", line 260, in get_containing_app_config
     self.check_apps_ready()
-  File "D:\spbu\spbu_site-1\spbu_site_backend\venv\Lib\site-packages\django\apps\registry.py", line 137, in check_apps_ready
+  File "C:\Users\Станислав\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\apps\registry.py", line 137, in check_apps_ready
     settings.INSTALLED_APPS
-  File "D:\spbu\spbu_site-1\spbu_site_backend\venv\Lib\site-packages\django\conf\__init__.py", line 81, in __getattr__
+  File "C:\Users\Станислав\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\conf\__init__.py", line 81, in __getattr__
     self._setup(name)
-  File "D:\spbu\spbu_site-1\spbu_site_backend\venv\Lib\site-packages\django\conf\__init__.py", line 61, in _setup
+  File "C:\Users\Станислав\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\conf\__init__.py", line 61, in _setup
     raise ImproperlyConfigured(
 django.core.exceptions.ImproperlyConfigured: Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.
 
