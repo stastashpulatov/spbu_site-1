@@ -314,3 +314,16 @@ LOGGING = {
 # Создание директории для логов
 LOGS_DIR = BASE_DIR / 'logs'
 LOGS_DIR.mkdir(exist_ok=True)
+
+# Media files configuration
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# Static files configuration
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Дополнительные директории для статических файлов
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]

@@ -1,179 +1,299 @@
 @layer components {
   .start-page {
-    @apply min-h-[calc(100vh-4rem)] flex flex-col justify-stretch items-stretch bg-[#fff8f8] dark:bg-[#1f1720];
+    min-height: calc(100vh - 4rem) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: stretch !important;
+    align-items: stretch !important;
+    background-color: #fff8f8 !important;
+    margin-top: 5rem !important; /* Отступ для фиксированного хедера */
+    
+    [data-theme='dark'] & {
+      background-color: #1f1720 !important;
+    }
   }
 
   .banner {
-    @apply bg-gradient-to-r from-[#f5e9db] via-[#f5e9db]/80 to-transparent bg-[url('/images/image.png')] bg-right-center bg-cover py-12 px-8 pb-10 rounded-b-6xl shadow-lg mb-0 relative;
+    background: linear-gradient(to right, #f5e9db, rgba(245, 233, 219, 0.8), transparent) !important;
+    background-image: url('/images/image.png') !important;
+    background-position: right center !important;
+    background-size: cover !important;
+    padding: 3rem 2rem 2.5rem !important;
+    border-radius: 0 0 6rem 6rem !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+    margin-bottom: 0 !important;
+    position: relative !important;
 
     &::before {
       content: '';
-      @apply absolute inset-0 bg-gradient-to-r from-[#f5e9db] via-[#f5e9db]/90 to-[#f5e9db]/70 rounded-b-6xl z-10;
+      position: absolute !important;
+      inset: 0 !important;
+      background: linear-gradient(to right, #f5e9db, rgba(245, 233, 219, 0.9), rgba(245, 233, 219, 0.7)) !important;
+      border-radius: 0 0 6rem 6rem !important;
+      z-index: 10 !important;
     }
   }
 
   .flex-spacer {
-    @apply flex-1;
+    flex: 1 !important;
+  }
+
+  .news-section {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 2rem !important;
+    
+    @media (max-width: 768px) {
+      padding: 0 1rem !important;
+    }
   }
 
   .banner-content {
-    @apply max-w-[900px] mx-auto text-center relative z-20;
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    position: relative !important;
+    z-index: 20 !important;
 
     h1 {
-      @apply text-4xl font-bold mb-6 text-[#333] leading-tight;
+      font-size: 2.25rem !important;
+      font-weight: bold !important;
+      margin-bottom: 1.5rem !important;
+      color: #333 !important;
+      line-height: 1.2 !important;
+      
+      [data-theme='dark'] & {
+        color: #f8f9fa !important;
+      }
     }
 
     p {
-      @apply text-2xl mb-10 text-[#555] leading-relaxed;
+      font-size: 1.5rem !important;
+      margin-bottom: 2.5rem !important;
+      color: #555 !important;
+      line-height: 1.6 !important;
+      
+      [data-theme='dark'] & {
+        color: #e2e8f0 !important;
+      }
     }
   }
 
   .main-btn {
-    @apply inline-block bg-gradient-to-br from-[#a94442] to-[#922d2b] text-white text-xl py-3 px-12 rounded-full shadow-lg no-underline font-semibold transition-all duration-300 ease-in-out border-none cursor-pointer hover:bg-gradient-to-br hover:from-[#922d2b] hover:to-[#8b2d2b] hover:-translate-y-0.5 hover:shadow-xl;
+    display: inline-block !important;
+    background: linear-gradient(135deg, #a94442, #922d2b) !important;
+    color: white !important;
+    font-size: 1.25rem !important;
+    padding: 0.75rem 3rem !important;
+    border-radius: 9999px !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2) !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease-in-out !important;
+    border: none !important;
+    cursor: pointer !important;
+
+    &:hover {
+      background: linear-gradient(135deg, #922d2b, #8b2d2b) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3) !important;
+    }
   }
 
   .info-cards {
-    @apply flex justify-center gap-8 mx-auto mb-10 max-w-[1200px] flex-wrap;
+    display: flex !important;
+    justify-content: center !important;
+    gap: 2rem !important;
+    margin: 0 auto 2.5rem !important;
+    max-width: 1200px !important;
+    flex-wrap: wrap !important;
   }
 
   .info-card {
-    @apply bg-white border border-[#a94442] rounded-2xl shadow-lg py-6 px-8 flex items-start gap-5 min-w-[260px] max-w-[340px] flex-1 flex-basis-[260px] no-underline text-[#333] transition-all duration-200 ease-in-out hover:shadow-xl hover:-translate-y-1 hover:scale-105;
+    background: white !important;
+    border: 1px solid #a94442 !important;
+    border-radius: 1rem !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+    padding: 1.5rem 2rem !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 1.25rem !important;
+    min-width: 260px !important;
+    max-width: 340px !important;
+    flex: 1 !important;
+    flex-basis: 260px !important;
+    text-decoration: none !important;
+    color: #333 !important;
+    transition: all 0.2s ease-in-out !important;
+
+    &:hover {
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important;
+      transform: translateY(-4px) scale(1.05) !important;
+    }
+    
+    [data-theme='dark'] & {
+      background: #2d232a !important;
+      border-color: #6a2832 !important;
+      color: #f8f9fa !important;
+    }
   }
 
   .icon {
-    @apply w-10 h-10 mt-1 flex-shrink-0;
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    margin-top: 0.25rem !important;
+    flex-shrink: 0 !important;
 
     &.license {
-      @apply bg-[url('/images/pravo.png')] bg-center bg-contain bg-no-repeat;
+      background: url('/images/pravo.png') center center no-repeat !important;
+      background-size: contain !important;
     }
 
     &.university {
-      @apply bg-[url('/images/economy.png')] bg-center bg-contain bg-no-repeat;
+      background: url('/images/economy.png') center center no-repeat !important;
+      background-size: contain !important;
     }
 
     &.staff {
-      @apply bg-[url('/images/director.png')] bg-center bg-contain bg-no-repeat;
+      background: url('/images/director.png') center center no-repeat !important;
+      background-size: contain !important;
     }
   }
 
   .card-title {
-    @apply text-xl font-bold mb-1 text-[#333];
+    font-size: 1.25rem !important;
+    font-weight: bold !important;
+    margin-bottom: 0.25rem !important;
+    color: #333 !important;
+    
+    [data-theme='dark'] & {
+      color: #f8f9fa !important;
+    }
   }
 
   .card-desc {
-    @apply text-base text-[#555] leading-relaxed;
+    font-size: 1rem !important;
+    color: #555 !important;
+    line-height: 1.6 !important;
+    
+    [data-theme='dark'] & {
+      color: #e2e8f0 !important;
+    }
   }
 }
 
 /* Адаптивность для планшетов */
 @media (max-width: 1024px) {
+  .start-page {
+    margin-top: 4.5rem !important;
+  }
+  
   .banner {
-    @apply py-10 px-6 pb-8;
+    padding: 2.5rem 1.5rem 2rem !important;
   }
   
   .banner-content h1 {
-    @apply text-3xl;
+    font-size: 1.875rem !important;
   }
   
   .banner-content p {
-    @apply text-xl;
+    font-size: 1.25rem !important;
   }
   
   .info-cards {
-    @apply gap-6 px-4;
+    gap: 1.5rem !important;
+    padding: 0 1rem !important;
   }
   
   .info-card {
-    @apply min-w-[240px] py-5 px-6;
+    min-width: 240px !important;
+    padding: 1.25rem 1.5rem !important;
   }
 }
 
 /* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
+  .start-page {
+    margin-top: 4rem !important;
+  }
+  
   .banner {
-    @apply py-8 px-4 pb-6 bg-gradient-to-b from-[#f5e9db] to-[#f5e9db]/90;
+    padding: 2rem 1rem 1.5rem !important;
+    background: linear-gradient(to bottom, #f5e9db, rgba(245, 233, 219, 0.9)) !important;
   }
   
   .banner-content h1 {
-    @apply text-2xl mb-4;
+    font-size: 1.5rem !important;
+    margin-bottom: 1rem !important;
   }
   
   .banner-content p {
-    @apply text-lg mb-8;
+    font-size: 1.125rem !important;
+    margin-bottom: 2rem !important;
   }
   
   .main-btn {
-    @apply text-lg py-3 px-10;
+    font-size: 1.125rem !important;
+    padding: 0.75rem 2.5rem !important;
   }
   
   .info-cards {
-    @apply flex-col items-center gap-4 px-4;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    padding: 0 1rem !important;
   }
   
   .info-card {
-    @apply min-w-[280px] max-w-full py-5 px-6;
-  }
-  
-  .news-bar {
-    @apply mx-4 mt-4 p-2 text-base;
-  }
-  
-  .news-bar-title {
-    @apply text-sm;
-  }
-  
-  .news-bar-item {
-    @apply text-sm py-1 px-3;
+    min-width: 280px !important;
+    max-width: 100% !important;
+    padding: 1.25rem 1.5rem !important;
   }
 }
 
 /* Очень маленькие экраны */
 @media (max-width: 480px) {
+  .start-page {
+    margin-top: 3.5rem !important;
+  }
+  
   .banner {
-    @apply py-6 px-3 pb-4;
+    padding: 1.5rem 0.75rem 1rem !important;
   }
   
   .banner-content h1 {
-    @apply text-xl;
+    font-size: 1.25rem !important;
   }
   
   .banner-content p {
-    @apply text-base;
+    font-size: 1rem !important;
   }
   
   .main-btn {
-    @apply text-base py-2 px-8;
+    font-size: 1rem !important;
+    padding: 0.5rem 2rem !important;
   }
   
   .info-cards {
-    @apply px-3;
+    padding: 0 0.75rem !important;
   }
   
   .info-card {
-    @apply min-w-[260px] py-4 px-5 gap-4;
+    min-width: 260px !important;
+    padding: 1rem 1.25rem !important;
+    gap: 1rem !important;
   }
   
   .card-title {
-    @apply text-lg;
+    font-size: 1.125rem !important;
   }
   
   .card-desc {
-    @apply text-sm;
+    font-size: 0.875rem !important;
   }
   
   .icon {
-    @apply w-8 h-8;
-  }
-  
-  .news-bar {
-    @apply mx-3 mt-3 p-2 text-sm;
-  }
-  
-  .news-bar-list {
-    @apply gap-2;
-  }
-  
-  .news-bar-item {
-    @apply text-sm py-1 px-2;
+    width: 2rem !important;
+    height: 2rem !important;
   }
 }

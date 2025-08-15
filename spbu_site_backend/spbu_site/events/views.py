@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.pagination import PageNumberPagination
+from rest_framework.response import Response
 from .permissions import IsAdminOrTeacher
 
 from .models import News, Event
 from .serializers import NewsSerializer, EventSerializer
-
 
 
 # Create your views here.
@@ -21,11 +21,19 @@ class NewsViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(is_visible=True)
         return queryset
 
-    def get(self, request):
-        paginator = self.pagination_class()
-        result_page = paginator.paginate_queryset(self.get_queryset(), request)
-        serializer = self.serializer_class(result_page, many=True, context={'request': request})
-        return paginator.get_paginated_response(serializer.data)
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context['request'] = self.request
+        return context
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
 
 
 class EventViewSet(viewsets.ModelViewSet):
@@ -39,8 +47,16 @@ class EventViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(is_visible=True)
         return queryset
 
-    def get(self, request):
-        paginator = self.pagination_class()
-        result_page = paginator.paginate_queryset(self.get_queryset(), request)
-        serializer = self.serializer_class(result_page, many=True, context={'request': request})
-        return paginator.get_paginated_response(serializer.data)
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context['request'] = self.request
+        return context
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)

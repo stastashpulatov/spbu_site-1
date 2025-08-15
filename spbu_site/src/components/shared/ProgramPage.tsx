@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
 import { useTheme } from '../../contexts/ThemeContext';
-import HomeButton from './HomeButton';
 import './ProgramPage.scss';
 
 interface ProgramInfo {
@@ -63,7 +62,6 @@ const ProgramPage: React.FC<ProgramPageProps> = ({ programInfo }) => {
   return (
     <div className={`program-page ${theme}`}>
       <div className="parallax-wrapper" ref={parallaxRef}>
-        <HomeButton />
         <div className="program-container">
           <div className="program-header" style={heroStyle}>
             <h1>{programInfo.title}</h1>
