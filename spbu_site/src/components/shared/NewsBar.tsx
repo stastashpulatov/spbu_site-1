@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { getNews } from '../../utils/api';
 import { useLanguage } from '../../hooks/useLanguage';
 import { Link } from 'react-router-dom';
@@ -20,7 +20,9 @@ const NewsBar: React.FC = () => {
   const [news, setNews] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const { language } = useLanguage();
+  const intervalRef = useRef<number | null>(null);
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -39,27 +41,51 @@ const NewsBar: React.FC = () => {
     fetchNews();
   }, []);
 
-  useEffect(() => {
-    if (news.length > 1) {
-      const interval = setInterval(() => {
-        setCurrentSlide((prev) => (prev + 1) % news.length);
-      }, 5000); // Смена слайда каждые 5 секунд
-
-      return () => clearInterval(interval);
-    }
-  }, [news.length]);
-
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-  };
-
+  // Функция для перехода к следующему слайду
   const goToNextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % news.length);
   };
 
+  // Функция для перехода к предыдущему слайду
   const goToPrevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + news.length) % news.length);
   };
+
+  // Функция для перехода к конкретному слайду
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
+
+  // Автоматическое переключение слайдов
+  useEffect(() => {
+    if (news.length > 1 && !isPaused) {
+      // Очищаем предыдущий интервал
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+      
+      // Создаем новый интервал
+      intervalRef.current = setInterval(() => {
+        goToNextSlide();
+      }, 5000); // Смена слайда каждые 5 секунд
+    }
+
+    // Очистка при размонтировании
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [news.length, isPaused]);
+
+  // Очистка интервала при размонтировании компонента
+  useEffect(() => {
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, []);
 
   if (loading) {
     return (
@@ -85,7 +111,11 @@ const NewsBar: React.FC = () => {
                      currentNews.description_en;
 
   return (
-    <div className="news-slider">
+    <div 
+      className="news-slider"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
       <div className="news-slider-header">
         <h2 className="news-slider-title">Новости</h2>
         <div className="news-slider-controls">
@@ -161,6 +191,23 @@ const NewsBar: React.FC = () => {
               aria-label={`Перейти к новости ${index + 1}`}
             />
           ))}
+        </div>
+      )}
+      
+      {/* Индикатор автоматического переключения */}
+      {news.length > 1 && (
+        <div className="news-slider-auto-indicator">
+          <div className="auto-indicator-text">
+            {isPaused ? 'Автопереключение приостановлено' : 'Автопереключение каждые 5 секунд'}
+          </div>
+          <div className="auto-indicator-dots">
+            {news.map((_, index) => (
+              <div 
+                key={index}
+                className={`auto-indicator-dot ${index === currentSlide ? 'active' : ''}`}
+              />
+            ))}
+          </div>
         </div>
       )}
     </div>
