@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 const StudentAccount: React.FC = () => {
   useEffect(() => {
-    window.location.href = 'https://my.spbu.ru/Login.aspx?ReturnUrl=/';
+    window.location.href = 'https://application.spbu.ru/rus-sign-in';
   }, []);
 
   return null;

@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { Language } from '../../contexts/LanguageContextType';
-import { useTheme } from '../../contexts/ThemeContext';
 import './BranchEmployees.scss';
 
 type EmployeeData = {
@@ -127,7 +126,6 @@ const translations: Translations = {
 };
 
 const BranchEmployees: React.FC = () => {
-  const { theme } = useTheme();
   const langContext = useContext(LanguageContext);
 
   if (!langContext) {
@@ -142,7 +140,7 @@ const BranchEmployees: React.FC = () => {
   const selectedProgramData = t.programSelector.programs[selectedProgram];
 
   return (
-    <div className={`branch-employees ${theme}`}>
+    <div className="branch-employees">
       <div className="content-container">
         <div className="program-selector-container">
           <label htmlFor="program-select">{t.programSelector.label}</label>

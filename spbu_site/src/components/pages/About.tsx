@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { Language } from '../../contexts/LanguageContextType';
-import { useTheme } from '../../contexts/ThemeContext';
 import './About.scss';
 
 type Translations = {
@@ -89,7 +88,6 @@ const translations: Translations = {
 };
 
 const About: React.FC = () => {
-  const { theme } = useTheme();
   const langContext = useContext(LanguageContext);
   
   if (!langContext) {
@@ -100,7 +98,7 @@ const About: React.FC = () => {
   const t = translations[language];
 
   return (
-    <div className={`about ${theme}`}>
+    <div className="about">
       <div className="content-container">
         <h1>{t.title}</h1>
         <div className="about-grid">

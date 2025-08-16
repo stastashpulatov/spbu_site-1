@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { Language } from '../../contexts/LanguageContextType';
-import { useTheme } from '../../contexts/ThemeContext';
 import './BranchSveden.scss';
 import { Link } from 'react-router-dom';
 
@@ -86,7 +85,6 @@ const translations: Translations = {
 };
 
 const BranchSveden: React.FC = () => {
-  const { theme } = useTheme();
   const langContext = useContext(LanguageContext);
   
   if (!langContext) {
@@ -97,7 +95,7 @@ const BranchSveden: React.FC = () => {
   const t = translations[language];
 
   return (
-    <div className={`branch-sveden ${theme}`}>
+    <div className="branch-sveden">
       <div className="content-container">
         <div className="header">
           <span className="header-icon">📋</span>

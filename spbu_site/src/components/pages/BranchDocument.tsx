@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { Language } from '../../contexts/LanguageContextType';
-import { useTheme } from '../../contexts/ThemeContext';
 import './BranchDocument.scss';
 
 type DocumentItem = {
@@ -164,7 +163,6 @@ const translations: Translations = {
 };
 
 const BranchDocument: React.FC = () => {
-  const { theme } = useTheme();
   const langContext = useContext(LanguageContext);
   
   if (!langContext) {
@@ -175,7 +173,7 @@ const BranchDocument: React.FC = () => {
   const t = translations[language];
 
   return (
-    <div className={`branch-document ${theme}`}>
+    <div className="branch-document">
       <div className="content-container">
         <h1 className="page-title">{t.title}</h1>
         

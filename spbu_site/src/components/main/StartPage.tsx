@@ -30,8 +30,8 @@ function StartPage() {
                 <Link to="/branch-tashkent/sveden" className="info-card">
                     <div className="icon university" />
                     <div>
-                        <div className="card-title">Об университете</div>
-                        <div className="card-desc">История и структура филиала в городе Ташкенте</div>
+                        <div className="card-title">Сведения об образовательной организации</div>
+                        <div className="card-desc">Информация о филиале Санкт-Петербургского государственного университета в городе Ташкенте</div>
                     </div>
                 </Link>
                 <Link to="/branch-tashkent/leadership" className="info-card">

@@ -1,10 +1,7 @@
 import React from 'react';
 import './Documents.scss';
-import { useTheme } from '../../contexts/ThemeContext';
 
 const Documents: React.FC = () => {
-  const { theme } = useTheme();
-  
   const documents = [
     {
       id: 1,
@@ -30,8 +27,8 @@ const Documents: React.FC = () => {
   ];
 
   return (
-    <div className={`documents-page ${theme}`}>
-      <div className="container">
+    <div className="documents-page">
+      <div className="content-container">
         <h1 className="page-title">Основные документы</h1>
         
         <div className="documents-list">
