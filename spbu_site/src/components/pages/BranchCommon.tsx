@@ -662,6 +662,8 @@ const BranchCommon: React.FC = () => {
           <span className="main-header-icon">📋</span>
           <h1 className="main-title">{t.mainTitle}</h1>
         </div>
+        
+        {/* Основная таблица с информацией - без заголовка сверху */}
         <div className="info-table-container">
           <table className="info-table">
             <thead>
@@ -683,7 +685,8 @@ const BranchCommon: React.FC = () => {
 
         {/* Раздел с лицензией */}
         <div className="info-section license-section">
-          <h2 className="section-title">Лицензия на осуществление образовательной деятельности (выписка из реестра лицензий на осуществление образовательной деятельности)</h2>
+          <h2 className="section-title centered-title">{t.licenseSection.title}</h2>
+          <p className="section-subtitle">{t.licenseSection.subtitle}</p>
           <div className="table-container">
             <table className="info-table license-table">
               <tbody>
@@ -700,7 +703,7 @@ const BranchCommon: React.FC = () => {
 
         {/* Раздел с аккредитацией */}
         <div className="info-section accreditation-section">
-          <h2 className="section-title">Государственная аккредитация образовательной деятельности по реализуемым образовательным программам</h2>
+          <h2 className="section-title centered-title">Государственная аккредитация образовательной деятельности по реализуемым образовательным программам</h2>
           <div className="table-container">
             <table className="info-table accreditation-table">
               <tbody>
@@ -715,7 +718,7 @@ const BranchCommon: React.FC = () => {
 
         {/* Раздел с учредителем */}
         <div className="info-section founder-section">
-          <h2 className="section-title">{t.founderSection.title}</h2>
+          <h2 className="section-title centered-title">{t.founderSection.title}</h2>
           <div className="table-container">
             <table className="info-table">
               <thead>
@@ -744,7 +747,7 @@ const BranchCommon: React.FC = () => {
 
         {/* Раздел с местами осуществления образовательной деятельности */}
         <div className="info-section places-section">
-          <h2 className="section-title">{t.placesSection.title}</h2>
+          <h2 className="section-title centered-title">{t.placesSection.title}</h2>
           <div className="table-container">
             <table className="info-table">
               <thead>
@@ -766,8 +769,8 @@ const BranchCommon: React.FC = () => {
         </div>
 
         {/* Раздел с сетевыми местами осуществления образовательной деятельности */}
-        <div className="info-section">
-          <h2 className="section-title">{t.networkPlacesSection.title}</h2>
+        <div className="info-section network-places-section">
+          <h2 className="section-title centered-title">{t.networkPlacesSection.title}</h2>
           <div className="table-container">
             <table className="info-table">
               <thead>
@@ -790,7 +793,7 @@ const BranchCommon: React.FC = () => {
 
         {/* Раздел с местами проведения практики */}
         <div className="info-section practice-places-section">
-          <h2 className="section-title">{t.practicePlacesSection.title}</h2>
+          <h2 className="section-title centered-title">{t.practicePlacesSection.title}</h2>
           <div className="table-container">
             <table className="info-table">
               <thead>
@@ -813,7 +816,7 @@ const BranchCommon: React.FC = () => {
 
         {/* Раздел с местами проведения практической подготовки */}
         <div className="info-section practical-training-places-section">
-          <h2 className="section-title">{t.practicalTrainingPlacesSection.title}</h2>
+          <h2 className="section-title centered-title">{t.practicalTrainingPlacesSection.title}</h2>
           <div className="table-container">
             <table className="info-table">
               <thead>
@@ -836,7 +839,7 @@ const BranchCommon: React.FC = () => {
 
         {/* Раздел с местами проведения государственной итоговой аттестации */}
         <div className="info-section state-certification-places-section">
-          <h2 className="section-title">{t.stateCertificationPlacesSection.title}</h2>
+          <h2 className="section-title centered-title">{t.stateCertificationPlacesSection.title}</h2>
           <div className="table-container">
             <table className="info-table">
               <thead>
@@ -859,7 +862,7 @@ const BranchCommon: React.FC = () => {
 
         {/* Раздел с местами осуществления образовательной деятельности по дополнительным образовательным программам */}
         <div className="info-section additional-education-places-section">
-          <h2 className="section-title">{t.additionalEducationPlacesSection.title}</h2>
+          <h2 className="section-title centered-title">{t.additionalEducationPlacesSection.title}</h2>
           <div className="table-container">
             <table className="info-table">
               <thead>
@@ -882,7 +885,7 @@ const BranchCommon: React.FC = () => {
 
         {/* Раздел с профессиональной подготовкой */}
         <div className="info-section professional-training-places-section">
-          <h2 className="section-title">{t.professionalTrainingPlacesSection.title}</h2>
+          <h2 className="section-title centered-title">{t.professionalTrainingPlacesSection.title}</h2>
           <div className="table-container">
             <table className="info-table">
               <thead>
@@ -905,7 +908,7 @@ const BranchCommon: React.FC = () => {
 
         {/* Раздел с контактной информацией */}
         <div className="info-section contact-info-section">
-          <h2 className="section-title">{t.contactInfoSection.title}</h2>
+          <h2 className="section-title centered-title">{t.contactInfoSection.title}</h2>
           <div className="table-container">
             <table className="info-table">
               <tbody>
