@@ -25,4 +25,4 @@ pytest-django==4.5.2
 factory-boy==3.3.0
 
 # Monitoring
-sentry-sdk==1.28.1
+sentry-sdk==1.45.1
