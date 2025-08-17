@@ -60,7 +60,15 @@ const ProgramPage: React.FC<ProgramPageProps> = ({ programInfo }) => {
     <div className="program-page">
       <div className="content-container">
         <div className="program-header" style={heroStyle}>
-          <h1>{programInfo.title}</h1>
+          <div className="hero-content">
+            <div className="page-title-container">
+              <div className="page-title-icon">🎓</div>
+              <div className="page-title-content">
+                <h1 className="page-main-title">{programInfo.title}</h1>
+                <div className="page-subtitle">Программа обучения</div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="program-info-grid">
