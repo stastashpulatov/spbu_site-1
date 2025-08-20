@@ -56,6 +56,39 @@
     }
   }
 
+  /* Subsection headers (with emoji and underline) */
+  .sub-header {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    margin: 2rem 0 1rem 0 !important;
+  }
+
+  .sub-header-icon {
+    font-size: 1.4rem !important;
+  }
+
+  .section-title {
+    position: relative !important;
+    margin: 0 !important;
+    padding-bottom: 0.25rem !important;
+  }
+
+  .section-title:after {
+    content: '' !important;
+    position: absolute !important;
+    left: 0 !important;
+    bottom: -6px !important;
+    width: 200px !important;
+    height: 3px !important;
+    background-color: #a94442 !important;
+    border-radius: 2px !important;
+
+    [data-theme='dark'] & {
+      background-color: #e87681 !important;
+    }
+  }
+
   /* Card/table container exactly like BranchCommon */
   .info-table-container {
     background-color: white !important;
@@ -72,6 +105,10 @@
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
     }
   }
+
+  /* removed table-scroll wrapper */
+
+  /* removed scrollable modifier */
 
   .info-table {
     width: 100% !important;
@@ -149,6 +186,91 @@
   }
   /* Removed legacy table/header styles to match BranchCommon exactly */
 
+  /* Cards layout for responsive replacement of tables */
+  .cards-section {
+    margin-bottom: 2rem !important;
+  }
+
+  .section-title {
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+    color: #a94442 !important;
+    margin: 0 0 1rem 0 !important;
+
+    [data-theme='dark'] & {
+      color: #e87681 !important;
+    }
+  }
+
+  .cards-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 1rem !important;
+  }
+
+  .card {
+    background-color: #ffffff !important;
+    border-radius: 12px !important;
+    border: 1px solid #e0e0e0 !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08) !important;
+    padding: 1rem 1.2rem !important;
+
+    [data-theme='dark'] & {
+      background-color: #2d232a !important;
+      border-color: #4a5568 !important;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    a {
+      color: #a94442 !important;
+      text-decoration: none !important;
+      transition: color 0.2s ease !important;
+
+      [data-theme='dark'] & {
+        color: #e87681 !important;
+      }
+
+      &:hover {
+        color: #8b3a3a !important;
+        text-decoration: underline !important;
+
+        [data-theme='dark'] & {
+          color: #d15a6a !important;
+        }
+      }
+    }
+  }
+
+  .card-row {
+    display: grid !important;
+    grid-template-columns: 1fr 2fr !important;
+    gap: 0.75rem !important;
+    padding: 0.6rem 0 !important;
+    border-bottom: 1px solid #e0e0e0 !important;
+
+    [data-theme='dark'] & {
+      border-bottom-color: #4a5568 !important;
+    }
+
+    &:last-child {
+      border-bottom: none !important;
+    }
+  }
+
+  .label {
+    font-weight: 600 !important;
+    color: #a94442 !important;
+
+    [data-theme='dark'] & {
+      color: #e87681 !important;
+    }
+  }
+
+  .value {
+    color: inherit !important;
+    word-break: break-word !important;
+  }
+
   @media (max-width: 768px) {
     margin-top: 4rem !important;
     padding: 1rem !important;
@@ -163,6 +285,14 @@
 
     table {
       font-size: 0.85rem !important;
+    }
+
+    .cards-grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    .card-row {
+      grid-template-columns: 1fr !important;
     }
   }
 

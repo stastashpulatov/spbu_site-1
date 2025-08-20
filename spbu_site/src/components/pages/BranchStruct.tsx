@@ -347,6 +347,57 @@ const BranchStruct: React.FC = () => {
   const { language } = langContext;
   const t = translations[language];
 
+  const sectionTitles: Record<Language, { management: string; departments: string }> = {
+    ru: { management: 'Руководство филиала', departments: 'Структурные подразделения' },
+    uz: { management: 'Filial rahbariyati', departments: "Tarkibiy bo'linmalar" },
+    en: { management: 'Branch management', departments: 'Structural units' }
+  };
+
+  const extraSectionTitles: Record<Language, {
+    admin: string;
+    educational: string;
+    info: string;
+    branchesTable: string;
+    repsTable: string;
+  }> = {
+    ru: {
+      admin: 'Административные подразделения',
+      educational: 'Образовательные и специализированные подразделения',
+      info: 'Информация о филиалах и представительствах',
+      branchesTable: 'Информация о филиалах образовательной организации',
+      repsTable: 'Информация о представительствах образовательной организации'
+    },
+    uz: {
+      admin: "Ma'muriy bo'limlar",
+      educational: "Ta'lim va ixtisoslashgan bo'limlar",
+      info: "Filial va vakolatxonalar haqidagi ma'lumot",
+      branchesTable: "Ta'lim tashkilotining filiallari haqida ma'lumot",
+      repsTable: "Ta'lim tashkilotining vakolatxonalari haqida ma'lumot"
+    },
+    en: {
+      admin: 'Administrative departments',
+      educational: 'Educational and specialized departments',
+      info: 'Information about branches and representations',
+      branchesTable: 'Information about branches of the educational organization',
+      repsTable: 'Information about representations of the educational organization'
+    }
+  };
+
+  const extraHeaders = {
+    branches: {
+      ru: ['№ п/п', 'Наименование филиала', 'ФИО руководителя филиала', 'Должность руководителя филиала', 'Адрес места нахождения', 'Электронная почта', 'Адрес официального сайта или страницы филиала в сети "Интернет"', 'Положение о филиале'],
+      uz: ['№', 'Filial nomi', 'Filial rahbarining F.I.SH.', 'Filial rahbarining lavozimi', 'Manzil', 'Elektron pochta', 'Filialning rasmiy sayti yoki sahifasi manzili', "Filial to'g'risidagi nizom"],
+      en: ['#', 'Branch name', 'Head of branch (Full name)', 'Position of branch head', 'Address', 'Email', 'Official website or page address', 'Regulation about branch']
+    },
+    reps: {
+      ru: ['№ п/п', 'Наименование представительства', 'ФИО руководителя представительства', 'Должность руководителя представительства', 'Адрес места нахождения', 'Электронная почта', 'Адрес официального сайта или страницы представительства в сети "Интернет"', 'Положение о представительстве'],
+      uz: ['№', 'Vakolatxona nomi', 'Vakolatxona rahbarining F.I.SH.', 'Vakolatxona rahbarining lavozimi', 'Manzil', 'Elektron pochta', 'Vakolatxonaning rasmiy sayti yoki sahifasi manzili', 'Vakolatxona nizomi'],
+      en: ['#', 'Representation name', 'Head of representation (Full name)', 'Position of representation head', 'Address', 'Email', 'Official website or page address', 'Regulation about representation']
+    }
+  } as const;
+
+  const emptyRow = ['1', 'Отсутствует', 'Отсутствует', 'Отсутствует', 'Отсутствует', 'Отсутствует', 'Отсутствует', 'Отсутствует'];
+
   return (
     <div className="branch-struct">
       <div className="content-container">
@@ -354,42 +405,181 @@ const BranchStruct: React.FC = () => {
           <span className="main-header-icon">📋</span>
           <h1 className="main-title">{t.title}</h1>
         </div>
-
-        <div className="info-table-container">
-          <table className="info-table">
-            <thead>
-              <tr>
-                <th>Наименование органа управления / структурного подразделения</th>
-                <th>ФИО руководителя структурного подразделения</th>
-                <th>Должность руководителя структурного подразделения</th>
-                <th>Адрес местонахождения структурного подразделения</th>
-                <th>Адрес официального сайта структурного подразделения</th>
-                <th>Адрес электронной почты структурного подразделения</th>
-                <th>Положение об органе управления / о структурном подразделении</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Дирекция</td>
-                <td>Зиядуллаев Махмуджон Джуракулович</td>
-                <td>Руководитель</td>
-                <td>Республика Узбекистан, г. Ташкент, Мирободский район, ул. Шахрисабз, д. 16</td>
-                <td><a href="https://spbu.uz" target="_blank" rel="noopener noreferrer">https://spbu.uz</a></td>
-                <td><a href="mailto:m.ziyadullaev@spbu.ru">m.ziyadullaev@spbu.ru</a></td>
-                <td><a href="/files/ПОЛОЖЕНИЕ_о_филиале_СПбГУ_в_г_Ташкенте.pdf" target="_blank" rel="noopener noreferrer">Положение о филиале</a></td>
-              </tr>
-              <tr>
-                <td>Дирекция</td>
-                <td>Усмонов Дилшод Лапасович</td>
-                <td>Начальник Управления делами</td>
-                <td>Республика Узбекистан, г. Ташкент, Мирободский район, ул. Шахрисабз, д. 16</td>
-                <td><a href="https://spbu.uz" target="_blank" rel="noopener noreferrer">https://spbu.uz</a></td>
-                <td>нет</td>
-                <td>нет</td>
-              </tr>
-            </tbody>
-          </table>
+        <div className="section-block">
+          <div className="sub-header">
+            <span className="sub-header-icon">👥</span>
+            <h2 className="section-title">{sectionTitles[language].management}</h2>
+          </div>
+          <div className="info-table-container">
+            <table className="info-table">
+              <thead>
+                <tr>
+                  <th>{t.tableHeaders.name}</th>
+                  <th>{t.tableHeaders.head}</th>
+                  <th>{t.tableHeaders.position}</th>
+                  <th>{t.tableHeaders.address}</th>
+                  <th>{t.tableHeaders.website}</th>
+                  <th>{t.tableHeaders.email}</th>
+                  <th>{t.tableHeaders.regulation}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {t.tableData.map((item) => (
+                  <tr key={item.id}>
+                    <td>{item.name}</td>
+                    <td>{item.head}</td>
+                    <td>{item.position}</td>
+                    <td>{item.address}</td>
+                    <td>
+                      {item.website ? (
+                        <a href={(item.website.startsWith('http') ? '' : 'https://') + item.website.replace(/^https?:\/\//, '')} target="_blank" rel="noopener noreferrer">{item.website}</a>
+                      ) : (
+                        '—'
+                      )}
+                    </td>
+                    <td>
+                      {item.email && item.email.includes('@') ? (
+                        <a href={`mailto:${item.email}`}>{item.email}</a>
+                      ) : (
+                        item.email || '—'
+                      )}
+                    </td>
+                    <td>{item.regulation || '—'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
+
+        
+        <div className="section-block">
+          <div className="sub-header">
+            <span className="sub-header-icon">🧩</span>
+            <h2 className="section-title">{extraSectionTitles[language].admin}</h2>
+          </div>
+          <div className="info-table-container">
+            <table className="info-table">
+              <thead>
+                <tr>
+                  <th>{t.departmentTableHeaders.name}</th>
+                  <th>{t.departmentTableHeaders.head}</th>
+                  <th>{t.departmentTableHeaders.position}</th>
+                  <th>{t.departmentTableHeaders.address}</th>
+                  <th>{t.departmentTableHeaders.website}</th>
+                  <th>{t.departmentTableHeaders.email}</th>
+                  <th>{t.departmentTableHeaders.documents}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {t.departmentTableData.map((item) => (
+                  <tr key={`admin-${item.id}`}>
+                    <td>{item.name}</td>
+                    <td>{item.head}</td>
+                    <td>{item.position}</td>
+                    <td>{item.address}</td>
+                    <td>
+                      {item.website ? (
+                        <a href={(item.website.startsWith('http') ? '' : 'https://') + item.website.replace(/^https?:\/\//, '')} target="_blank" rel="noopener noreferrer">{item.website}</a>
+                      ) : (
+                        'нет'
+                      )}
+                    </td>
+                    <td>{item.email || 'нет'}</td>
+                    <td>{item.documents || 'нет'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div className="section-block">
+          <div className="sub-header">
+            <span className="sub-header-icon">🎓</span>
+            <h2 className="section-title">{extraSectionTitles[language].educational}</h2>
+          </div>
+          <div className="info-table-container">
+            <table className="info-table">
+              <thead>
+                <tr>
+                  <th>{t.departmentTableHeaders.name}</th>
+                  <th>{t.departmentTableHeaders.head}</th>
+                  <th>{t.departmentTableHeaders.position}</th>
+                  <th>{t.departmentTableHeaders.address}</th>
+                  <th>{t.departmentTableHeaders.website}</th>
+                  <th>{t.departmentTableHeaders.email}</th>
+                  <th>{t.departmentTableHeaders.documents}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {t.departmentTableData.map((item) => (
+                  <tr key={`edu-${item.id}`}>
+                    <td>{item.name}</td>
+                    <td>{item.head}</td>
+                    <td>{item.position}</td>
+                    <td>{item.address}</td>
+                    <td>
+                      {item.website ? (
+                        <a href={(item.website.startsWith('http') ? '' : 'https://') + item.website.replace(/^https?:\/\//, '')} target="_blank" rel="noopener noreferrer">{item.website}</a>
+                      ) : (
+                        'нет'
+                      )}
+                    </td>
+                    <td>{item.email || 'нет'}</td>
+                    <td>{item.documents || 'нет'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div className="section-block">
+          <div className="sub-header">
+            <span className="sub-header-icon">🌍</span>
+            <h2 className="section-title">{extraSectionTitles[language].info}</h2>
+          </div>
+
+          <div className="info-table-container">
+            <table className="info-table">
+              <thead>
+                <tr>
+                  {extraHeaders.branches[language].map((h) => (
+                    <th key={`bh-${h}`}>{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  {emptyRow.map((cell, idx) => (
+                    <td key={`br-${idx}`}>{cell}</td>
+                  ))}
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="info-table-container">
+            <table className="info-table">
+              <thead>
+                <tr>
+                  {extraHeaders.reps[language].map((h) => (
+                    <th key={`rh-${h}`}>{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  {emptyRow.map((cell, idx) => (
+                    <td key={`rp-${idx}`}>{cell}</td>
+                  ))}
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </div>
     </div>
   );
