@@ -350,93 +350,43 @@ const BranchStruct: React.FC = () => {
   return (
     <div className="branch-struct">
       <div className="content-container">
-        <div className="header">
-          <h1>{t.title}</h1>
-          <div className="subtitle">{t.subtitle}</div>
+        <div className="main-header">
+          <span className="main-header-icon">📋</span>
+          <h1 className="main-title">{t.title}</h1>
         </div>
 
-        <div className="table-section">
-          <table className="management-table">
+        <div className="info-table-container">
+          <table className="info-table">
             <thead>
               <tr>
-                <th>{t.tableHeaders.number}</th>
-                <th>{t.tableHeaders.name}</th>
-                <th>{t.tableHeaders.head}</th>
-                <th>{t.tableHeaders.position}</th>
-                <th>{t.tableHeaders.address}</th>
-                <th>{t.tableHeaders.website}</th>
-                <th>{t.tableHeaders.email}</th>
-                <th>{t.tableHeaders.regulation}</th>
-                <th>{t.tableHeaders.formation}</th>
-                <th>{t.tableHeaders.phone}</th>
+                <th>Наименование органа управления / структурного подразделения</th>
+                <th>ФИО руководителя структурного подразделения</th>
+                <th>Должность руководителя структурного подразделения</th>
+                <th>Адрес местонахождения структурного подразделения</th>
+                <th>Адрес официального сайта структурного подразделения</th>
+                <th>Адрес электронной почты структурного подразделения</th>
+                <th>Положение об органе управления / о структурном подразделении</th>
               </tr>
             </thead>
             <tbody>
-              {t.tableData.map((row) => (
-                <tr key={row.id}>
-                  <td>{row.id}</td>
-                  <td>{row.name}</td>
-                  <td>{row.head}</td>
-                  <td>{row.position}</td>
-                  <td>{row.address}</td>
-                  <td>
-                    {row.website.startsWith('http') ? (
-                      <a href={row.website} target="_blank" rel="noopener noreferrer">
-                        {row.website}
-                      </a>
-                    ) : (
-                      row.website
-                    )}
-                  </td>
-                  <td>{row.email}</td>
-                  <td>{row.regulation}</td>
-                  <td>{row.formation}</td>
-                  <td>{row.phone}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
-        <div className="table-section">
-          <table className="department-table">
-            <thead>
               <tr>
-                <th>{t.departmentTableHeaders.number}</th>
-                <th>{t.departmentTableHeaders.name}</th>
-                <th>{t.departmentTableHeaders.head}</th>
-                <th>{t.departmentTableHeaders.position}</th>
-                <th>{t.departmentTableHeaders.address}</th>
-                <th>{t.departmentTableHeaders.website}</th>
-                <th>{t.departmentTableHeaders.email}</th>
-                <th>{t.departmentTableHeaders.documents}</th>
-                <th>{t.departmentTableHeaders.info}</th>
-                <th>{t.departmentTableHeaders.phone}</th>
+                <td>Дирекция</td>
+                <td>Зиядуллаев Махмуджон Джуракулович</td>
+                <td>Руководитель</td>
+                <td>Республика Узбекистан, г. Ташкент, Мирободский район, ул. Шахрисабз, д. 16</td>
+                <td><a href="https://spbu.uz" target="_blank" rel="noopener noreferrer">https://spbu.uz</a></td>
+                <td><a href="mailto:m.ziyadullaev@spbu.ru">m.ziyadullaev@spbu.ru</a></td>
+                <td><a href="/files/ПОЛОЖЕНИЕ_о_филиале_СПбГУ_в_г_Ташкенте.pdf" target="_blank" rel="noopener noreferrer">Положение о филиале</a></td>
               </tr>
-            </thead>
-            <tbody>
-              {t.departmentTableData.map((row) => (
-                <tr key={row.id}>
-                  <td>{row.id}</td>
-                  <td>{row.name}</td>
-                  <td>{row.head}</td>
-                  <td>{row.position}</td>
-                  <td>{row.address}</td>
-                  <td>
-                    {row.website.startsWith('http') ? (
-                      <a href={row.website} target="_blank" rel="noopener noreferrer">
-                        {row.website}
-                      </a>
-                    ) : (
-                      row.website
-                    )}
-                  </td>
-                  <td>{row.email}</td>
-                  <td>{row.documents}</td>
-                  <td>{row.info}</td>
-                  <td>{row.phone}</td>
-                </tr>
-              ))}
+              <tr>
+                <td>Дирекция</td>
+                <td>Усмонов Дилшод Лапасович</td>
+                <td>Начальник Управления делами</td>
+                <td>Республика Узбекистан, г. Ташкент, Мирободский район, ул. Шахрисабз, д. 16</td>
+                <td><a href="https://spbu.uz" target="_blank" rel="noopener noreferrer">https://spbu.uz</a></td>
+                <td>нет</td>
+                <td>нет</td>
+              </tr>
             </tbody>
           </table>
         </div>

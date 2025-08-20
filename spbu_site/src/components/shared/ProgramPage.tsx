@@ -60,6 +60,40 @@ const ProgramPage: React.FC<ProgramPageProps> = ({ programInfo }) => {
     <div className="program-page">
       <div className="content-container">
         <div className="program-header" style={heroStyle}>
+
+          <div className="hero-content">
+            <div className="page-title-container">
+              <div className="page-title-icon">🎓</div>
+              <div className="page-title-content">
+                <h1 className="page-main-title">{programInfo.title}</h1>
+                <div className="page-subtitle">Программа обучения</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="program-info-grid">
+          <div className="info-card">
+            <div className="label">Уровень образования</div>
+            <div className="value">{programInfo.level}</div>
+          </div>
+          <div className="info-card">
+            <div className="label">Форма обучения</div>
+            <div className="value">{programInfo.form}</div>
+          </div>
+          <div className="info-card">
+            <div className="label">Срок обучения</div>
+            <div className="value">{programInfo.duration}</div>
+          </div>
+          <div className="info-card">
+            <div className="label">Кафедра</div>
+            <div className="value">{programInfo.department}</div>
+          </div>
+          <div className="info-card">
+            <div className="label">Стоимость обучения в год</div>
+            <div className="value">{programInfo.cost}</div>
+          </div>
+
           <h1>{programInfo.title}</h1>
         </div>
 
@@ -98,10 +132,36 @@ const ProgramPage: React.FC<ProgramPageProps> = ({ programInfo }) => {
               ))}
             </ul>
           </div>
+
         </div>
 
         <div className="program-section">
           <h2>
+
+            <span className="section-icon">📝</span>
+            {programInfo.admissionTitle}
+          </h2>
+          <div className="section-content">
+            <ul>
+              {programInfo.admissionText.map((text, index) => (
+                <li key={index}>{text}</li>
+
+            <span className="section-icon">📚</span>
+            {programInfo.mainCoursesTitle}
+          </h2>
+          <div className="section-content">
+            <ul>
+              {programInfo.mainCourses.map((course, index) => (
+                <li key={index}>{course}</li>
+
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="program-section">
+          <h2>
+
             <span className="section-icon">📚</span>
             {programInfo.mainCoursesTitle}
           </h2>
@@ -125,6 +185,18 @@ const ProgramPage: React.FC<ProgramPageProps> = ({ programInfo }) => {
             ))}
           </div>
         </div>
+
+
+            <span className="section-icon">🎯</span>
+            {programInfo.mainProgramTitle || 'О программе'}
+          </h2>
+          <div className="section-content">
+            {programInfo.mainProgramPoints.map((point, index) => (
+              <p key={index}>{point}</p>
+            ))}
+          </div>
+        </div>
+
 
         {programInfo.teachersTitle && (
           <div className="program-section">
