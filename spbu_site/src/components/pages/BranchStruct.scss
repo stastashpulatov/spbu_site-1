@@ -56,6 +56,88 @@
     }
   }
 
+
+  /* Subsection headers (with emoji and underline) */
+  .sub-header {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    margin: 2rem 0 1rem 0 !important;
+  }
+
+  .sub-header-icon {
+    font-size: 1.4rem !important;
+  }
+
+  .section-title {
+    position: relative !important;
+    margin: 0 !important;
+    padding-bottom: 0.25rem !important;
+  }
+
+  .section-title:after {
+    content: '' !important;
+    position: absolute !important;
+    left: 0 !important;
+    bottom: -6px !important;
+    width: 200px !important;
+    height: 3px !important;
+    background-color: #a94442 !important;
+    border-radius: 2px !important;
+
+    [data-theme='dark'] & {
+      background-color: #e87681 !important;
+    }
+  }
+
+  /* Card/table container exactly like BranchCommon */
+  .info-table-container {
+    background-color: white !important;
+    border-radius: 12px !important;
+    padding: 0 !important;
+    margin-bottom: 2rem !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid #e0e0e0 !important;
+    overflow: hidden !important;
+
+    [data-theme='dark'] & {
+      background-color: #2d232a !important;
+      border-color: #4a5568 !important;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
+    }
+  }
+
+  /* removed table-scroll wrapper */
+
+  /* removed scrollable modifier */
+
+  .info-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    table-layout: fixed !important;
+    margin-top: 0 !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 15px rgba(169, 68, 66, 0.1) !important;
+
+    [data-theme='dark'] & {
+      box-shadow: 0 4px 15px rgba(232, 118, 129, 0.1) !important;
+    }
+
+    th, td {
+      padding: 0.9rem 1.1rem !important;
+      text-align: left !important;
+      border-bottom: 1px solid #e0e0e0 !important;
+      white-space: normal !important;
+      word-break: break-word !important;
+      overflow-wrap: anywhere !important;
+
+      [data-theme='dark'] & {
+        border-bottom-color: #4a5568 !important;
+      }
+    }
+
+
   /* Card/table container exactly like BranchCommon */
   .info-table-container {
     background-color: white !important;
@@ -95,19 +177,32 @@
       }
     }
 
+
     th {
       background: linear-gradient(135deg, #a94442 0%, #c55a5a 100%) !important;
       color: white !important;
       font-weight: 600 !important;
+
+      font-size: 0.9rem !important;
+      line-height: 1.25 !important;
+      text-transform: none !important;
+      letter-spacing: 0 !important;
+      text-shadow: none !important;
+      vertical-align: top !important;
+      padding: 0.75rem 1rem !important;
+      hyphens: auto !important;
+
       font-size: 1rem !important;
       text-transform: uppercase !important;
       letter-spacing: 0.5px !important;
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
 
+
       [data-theme='dark'] & {
         background: linear-gradient(135deg, #e87681 0%, #d15a6a 100%) !important;
       }
     }
+
 
     thead th:first-child {
       border-top-left-radius: 12px !important;
@@ -149,6 +244,127 @@
   }
   /* Removed legacy table/header styles to match BranchCommon exactly */
 
+  /* Cards layout for responsive replacement of tables */
+  .cards-section {
+    margin-bottom: 2rem !important;
+  }
+
+  .section-title {
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+    color: #a94442 !important;
+    margin: 0 0 1rem 0 !important;
+
+    [data-theme='dark'] & {
+      color: #e87681 !important;
+    }
+  }
+
+  .cards-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 1rem !important;
+  }
+
+  .card {
+    background-color: #ffffff !important;
+    border-radius: 12px !important;
+    border: 1px solid #e0e0e0 !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08) !important;
+    padding: 1rem 1.2rem !important;
+
+    [data-theme='dark'] & {
+      background-color: #2d232a !important;
+      border-color: #4a5568 !important;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
+    }
+
+
+    thead th:first-child {
+      border-top-left-radius: 12px !important;
+    }
+
+    thead th:last-child {
+      border-top-right-radius: 12px !important;
+    }
+
+    tr {
+      transition: background-color 0.2s ease !important;
+
+      &:hover {
+        background-color: rgba(169, 68, 66, 0.03) !important;
+      }
+
+      &:last-child td {
+        border-bottom: none !important;
+      }
+    }
+
+    a {
+      color: #a94442 !important;
+      text-decoration: none !important;
+      transition: color 0.2s ease !important;
+
+      [data-theme='dark'] & {
+        color: #e87681 !important;
+      }
+
+      &:hover {
+        color: #8b3a3a !important;
+        text-decoration: underline !important;
+
+        [data-theme='dark'] & {
+          color: #d15a6a !important;
+        }
+      }
+    }
+  }
+  /* Removed legacy table/header styles to match BranchCommon exactly */
+
+  @media (max-width: 768px) {
+    margin-top: 4rem !important;
+    padding: 1rem !important;
+
+
+  .card-row {
+    display: grid !important;
+    grid-template-columns: 1fr 2fr !important;
+    gap: 0.75rem !important;
+    padding: 0.6rem 0 !important;
+    border-bottom: 1px solid #e0e0e0 !important;
+
+    [data-theme='dark'] & {
+      border-bottom-color: #4a5568 !important;
+    }
+
+    &:last-child {
+      border-bottom: none !important;
+
+    .content-container {
+      padding: 1rem !important;
+    }
+
+    .header h1 {
+      font-size: 1.75rem !important;
+
+    }
+  }
+
+
+  .label {
+    font-weight: 600 !important;
+    color: #a94442 !important;
+
+    [data-theme='dark'] & {
+      color: #e87681 !important;
+    }
+  }
+
+  .value {
+    color: inherit !important;
+    word-break: break-word !important;
+  }
+
   @media (max-width: 768px) {
     margin-top: 4rem !important;
     padding: 1rem !important;
@@ -160,6 +376,32 @@
     .header h1 {
       font-size: 1.75rem !important;
     }
+
+    table {
+      font-size: 0.85rem !important;
+    }
+
+    .cards-grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    .card-row {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 3.5rem !important;
+    padding: 0.75rem !important;
+
+    .content-container {
+      padding: 0.75rem !important;
+    }
+
+    .header {
+      flex-direction: column !important;
+      text-align: center !important;
+      gap: 1rem !important;
 
     table {
       font-size: 0.85rem !important;
@@ -178,6 +420,7 @@
       flex-direction: column !important;
       text-align: center !important;
       gap: 1rem !important;
+
 
       .header-icon {
         margin-right: 0 !important;

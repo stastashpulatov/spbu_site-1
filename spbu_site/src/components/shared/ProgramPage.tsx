@@ -138,6 +138,8 @@ const ProgramPage: React.FC<ProgramPageProps> = ({ programInfo }) => {
         <div className="program-section">
           <h2>
 
+
+
             <span className="section-icon">📝</span>
             {programInfo.admissionTitle}
           </h2>
@@ -162,6 +164,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({ programInfo }) => {
         <div className="program-section">
           <h2>
 
+
             <span className="section-icon">📚</span>
             {programInfo.mainCoursesTitle}
           </h2>
@@ -187,6 +190,8 @@ const ProgramPage: React.FC<ProgramPageProps> = ({ programInfo }) => {
         </div>
 
 
+
+
             <span className="section-icon">🎯</span>
             {programInfo.mainProgramTitle || 'О программе'}
           </h2>
@@ -196,6 +201,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({ programInfo }) => {
             ))}
           </div>
         </div>
+
 
 
         {programInfo.teachersTitle && (

@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { LanguageContext } from '../../contexts/LanguageContext';
+import { Language } from '../../contexts/LanguageContextType';
 import Schedule from '../shared/Schedule';
 import { getGroups } from '../../utils/api';
 import './SchedulePage.scss';
@@ -8,7 +10,58 @@ interface Group {
   name: string;
 }
 
+type Translations = {
+  [key in Language]: {
+    title: string;
+    description: string;
+    selectGroupTitle: string;
+    loadingMessage: string;
+    errorMessage: string;
+    selectPlaceholder: string;
+    noGroupSelected: string;
+  };
+};
+
+const translations: Translations = {
+  ru: {
+    title: 'Расписание занятий',
+    description: 'Выберите группу, чтобы увидеть расписание занятий',
+    selectGroupTitle: 'Выберите группу',
+    loadingMessage: 'Загрузка групп...',
+    errorMessage: 'Не удалось загрузить группы. Пожалуйста, попробуйте позже.',
+    selectPlaceholder: '-- Выберите группу --',
+    noGroupSelected: 'Пожалуйста, выберите группу для просмотра расписания'
+  },
+  uz: {
+    title: 'Darslar jadvali',
+    description: 'Darslar jadvalini ko\'rish uchun guruhni tanlang',
+    selectGroupTitle: 'Guruhni tanlang',
+    loadingMessage: 'Guruhlar yuklanmoqda...',
+    errorMessage: 'Guruhlarni yuklashda xatolik yuz berdi. Iltimos, keyinroq urinib ko\'ring.',
+    selectPlaceholder: '-- Guruhni tanlang --',
+    noGroupSelected: 'Jadvalni ko\'rish uchun guruhni tanlang'
+  },
+  en: {
+    title: 'Class Schedule',
+    description: 'Select a group to view the class schedule',
+    selectGroupTitle: 'Select Group',
+    loadingMessage: 'Loading groups...',
+    errorMessage: 'Failed to load groups. Please try again later.',
+    selectPlaceholder: '-- Select Group --',
+    noGroupSelected: 'Please select a group to view the schedule'
+  }
+};
+
 const SchedulePage: React.FC = () => {
+  const langContext = useContext(LanguageContext);
+  
+  if (!langContext) {
+    throw new Error('SchedulePage must be used within Language Provider');
+  }
+  
+  const { language } = langContext;
+  const t = translations[language];
+
   const [selectedGroup, setSelectedGroup] = useState<string>('');
   const [groups, setGroups] = useState<Group[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -23,29 +76,29 @@ const SchedulePage: React.FC = () => {
         setError(null);
       } catch (err) {
         console.error('Error fetching groups:', err);
-        setError('Не удалось загрузить группы. Пожалуйста, попробуйте позже.');
+        setError(t.errorMessage);
       } finally {
         setLoading(false);
       }
     };
     
     fetchGroups();
-  }, []);
+  }, [t.errorMessage]);
 
   return (
     <div className="schedule-page">
       <div className="schedule-page-header">
-        <h1>Расписание занятий</h1>
+        <h1>{t.title}</h1>
         <p className="schedule-page-description">
-          Выберите группу, чтобы увидеть расписание занятий
+          {t.description}
         </p>
       </div>
       
       <div className="schedule-filter">
         <div className="group-selector">
-          <h2>Выберите группу</h2>
+          <h2>{t.selectGroupTitle}</h2>
           {loading ? (
-            <div className="loading-message">Загрузка групп...</div>
+            <div className="loading-message">{t.loadingMessage}</div>
           ) : error ? (
             <div className="error-message">{error}</div>
           ) : (
@@ -56,7 +109,7 @@ const SchedulePage: React.FC = () => {
                 onChange={(e) => setSelectedGroup(e.target.value)}
                 className="group-select"
               >
-                <option value="">-- Выберите группу --</option>
+                <option value="">{t.selectPlaceholder}</option>
                 {groups.map(group => (
                   <option key={group.id} value={group.id.toString()}>{group.name}</option>
                 ))}
@@ -72,7 +125,7 @@ const SchedulePage: React.FC = () => {
         </div>
       ) : (
         <div className="no-group-selected">
-          <p>Пожалуйста, выберите группу для просмотра расписания</p>
+          <p>{t.noGroupSelected}</p>
         </div>
       )}
     </div>
