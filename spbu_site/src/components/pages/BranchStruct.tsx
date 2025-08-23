@@ -55,6 +55,18 @@ type Translations = {
       info: string;
       phone: string;
     }[];
+    educationalTableData: {
+      id: number;
+      name: string;
+      head: string;
+      position: string;
+      address: string;
+      website: string;
+      email: string;
+      documents: string;
+      info: string;
+      phone: string;
+    }[];
   };
 };
 
@@ -77,27 +89,27 @@ const translations: Translations = {
     tableData: [
       {
         id: 1,
-        name: 'Ученый совет',
-        head: 'Умаров Фарходбек Якубович',
-        position: 'Председатель Ученого совета',
-        address: 'Республика Узбекистан,Ташкентская область, г. Алмалык, ул. Амира Темура, дом 56',
-        website: 'https://misis.uz',
-        email: 'info@misis.uz',
-        regulation: 'Положение об ученом совете',
+        name: 'Дирекция',
+        head: 'Зиядуллаев Махмуджон Джуракулович',
+        position: 'Руководитель',
+        address: 'Республика Узбекистан, г. Ташкент, Мирободский район, ул. Шахрисабз, д 16',
+        website: 'https://spbu.uz',
+        email: 'm.ziyadullaev@spbu.ru',
+        regulation: 'Положение о филиале (прикрепить файл, который я отправил)',
         formation: '',
-        phone: '+998 70 614-22-64; +998 70 614-22-64'
+        phone: ''
       },
       {
         id: 2,
-        name: 'Директор филиала',
-        head: 'Умаров Фарходбек Якубович',
-        position: 'Директор',
-        address: 'Республика Узбекистан,Ташкентская область, г. Алмалык, ул. Амира Темура, дом 56',
-        website: 'https://misis.uz',
-        email: 'info@misis.uz',
+        name: 'Дирекция',
+        head: 'Усмонов Дилшод Лапасович',
+        position: 'Начальник Управления делами',
+        address: 'Республика Узбекистан, г. Ташкент, Мирободский район, ул. Шахрисабз, д 16',
+        website: 'https://spbu.uz',
+        email: 'нет',
         regulation: 'нет',
         formation: '',
-        phone: '+998 70 614-22-64; +998 70 614-22-64'
+        phone: ''
       }
     ],
     departmentTableHeaders: {
@@ -115,39 +127,77 @@ const translations: Translations = {
     departmentTableData: [
       {
         id: 1,
-        name: 'Учебно-методический отдел(УМО)',
-        head: 'Кутфуллоев Гафур Субхонович',
-        position: 'Начальник Учебно-методического отдела (УМО)',
-        address: 'Республика Узбекистан,Ташкентская область, г. Алмалык, ул. Амира Темура, дом 56',
-        website: 'Misis.uz',
-        email: 'info@misis.uz',
-        documents: '',
+        name: 'Бухгалтерия',
+        head: 'Кедиров Носиржон Садуллаевич',
+        position: 'Главный бухгалтер',
+        address: 'Республика Узбекистан, г. Ташкент, Мирабадский район, ул. Шахрисабз, д 16',
+        website: 'https://spbu.uz',
+        email: 'нет',
+        documents: 'нет',
         info: '',
-        phone: '+998 70 614-22-64'
+        phone: ''
+      },
+      {
+        id: 2,
+        name: 'Отдел по работе с молодежью, духовности и просветительства',
+        head: 'Пайзиев Махмуджон Азаматович',
+        position: 'Начальник отдела',
+        address: 'Республика Узбекистан, г. Ташкент, Мирабадский район, ул. Шахрисабз, д 16',
+        website: 'https://spbu.uz',
+        email: 'нет',
+        documents: 'нет',
+        info: '',
+        phone: ''
       },
       {
         id: 3,
-        name: 'Бухгалтерия',
-        head: 'Нафиуллина Юлия Римовна',
-        position: 'Главный бухгалтер',
-        address: 'Республика Узбекистан,Ташкентская область, г. Алмалык, ул. Амира Темура, дом 56',
-        website: 'misis.uz',
-        email: 'info@misis.uz',
-        documents: '',
+        name: 'Сектор по работе с обращениями физических и юридических лиц, контролю и мониторингу',
+        head: 'Эшматова Дилноза Анваровна',
+        position: 'Главный специалист',
+        address: 'Республика Узбекистан, г. Ташкент, Мирабадский район, ул. Шахрисабз, д 16',
+        website: 'https://spbu.uz',
+        email: 'нет',
+        documents: 'нет',
         info: '',
-        phone: '+998 70 614-22-64'
+        phone: ''
+      }
+    ],
+    educationalTableData: [
+      {
+        id: 1,
+        name: 'Отдел контроля качества образования',
+        head: 'Миразеева Файзиннисо Абдуллахатовна',
+        position: 'Главный специалист',
+        address: 'Республика Узбекистан, г. Ташкент, Мирабадский район, ул. Шахрисабз, д 16',
+        website: 'https://spbu.uz',
+        email: 'нет',
+        documents: 'нет',
+        info: '',
+        phone: ''
       },
       {
-        id: 5,
+        id: 2,
         name: 'Отдел кадров',
-        head: 'Эргашева Мухаббат Абдурахмовна',
-        position: 'Начальник отдела кадров',
-        address: 'Республика Узбекистан,Ташкентская область, г. Алмалык, ул. Амира Темура, дом 56',
-        website: 'Misis.uz',
-        email: 'info@misis.uz',
-        documents: '',
+        head: 'Екубхуҷаев Шахриёржон Эркин угли',
+        position: 'Инспектор',
+        address: 'Республика Узбекистан, г. Ташкент, Мирабадский район, ул. Шахрисабз, д 16',
+        website: 'https://spbu.uz',
+        email: 'нет',
+        documents: 'нет',
         info: '',
-        phone: '+998 70 614-22-64'
+        phone: ''
+      },
+      {
+        id: 3,
+        name: 'Центр цифровых образовательных технологий',
+        head: 'Хаитбоев Мавлонбек Шухрат угли',
+        position: 'Начальник центра',
+        address: 'Республика Узбекистан, г. Ташкент, Мирабадский район, ул. Шахрисабз, д 16',
+        website: 'https://spbu.uz',
+        email: 'нет',
+        documents: 'нет',
+        info: '',
+        phone: ''
       }
     ]
   },
@@ -169,27 +219,27 @@ const translations: Translations = {
     tableData: [
       {
         id: 1,
-        name: 'Ilmiy kengash',
-        head: 'Umarov Farhodbek Yakubovich',
-        position: 'Ilmiy kengash raisi',
-        address: 'O\'zbekiston Respublikasi, Toshkent viloyati, Olmaliq shahri, Amir Temur ko\'chasi, 56-uy',
-        website: 'https://misis.uz',
-        email: 'info@misis.uz',
-        regulation: 'Ilmiy kengash to\'g\'risidagi nizom',
+        name: 'Direksiya',
+        head: 'Ziyadullaev Mahmujon Djurakulovich',
+        position: 'Rahbar',
+        address: 'O\'zbekiston Respublikasi, Toshkent shahri, Mirobod tumani, Shahrisabz ko\'chasi, 16-uy',
+        website: 'https://spbu.uz',
+        email: 'm.ziyadullaev@spbu.ru',
+        regulation: 'Filial to\'g\'risidagi nizom (yuborgan faylni biriktirish)',
         formation: '',
-        phone: '+998 70 614-22-64; +998 70 614-22-64'
+        phone: ''
       },
       {
         id: 2,
-        name: 'Filial direktori',
-        head: 'Umarov Farhodbek Yakubovich',
-        position: 'Direktor',
-        address: 'O\'zbekiston Respublikasi, Toshkent viloyati, Olmaliq shahri, Amir Temur ko\'chasi, 56-uy',
-        website: 'https://misis.uz',
-        email: 'info@misis.uz',
+        name: 'Direksiya',
+        head: 'Usmonov Dilshod Lapasovich',
+        position: 'Ishlar boshqarmasi boshlig\'i',
+        address: 'O\'zbekiston Respublikasi, Toshkent shahri, Mirobod tumani, Shahrisabz ko\'chasi, 16-uy',
+        website: 'https://spbu.uz',
+        email: 'yo\'q',
         regulation: 'yo\'q',
         formation: '',
-        phone: '+998 70 614-22-64; +998 70 614-22-64'
+        phone: ''
       }
     ],
     departmentTableHeaders: {
@@ -207,39 +257,77 @@ const translations: Translations = {
     departmentTableData: [
       {
         id: 1,
-        name: 'O\'quv-uslubiy bo\'lim (O\'UB)',
-        head: 'Kutfulloev Gafur Subhonovich',
-        position: 'O\'quv-uslubiy bo\'lim (O\'UB) boshlig\'i',
-        address: 'O\'zbekiston Respublikasi, Toshkent viloyati, Olmaliq shahri, Amir Temur ko\'chasi, 56-uy',
-        website: 'Misis.uz',
-        email: 'info@misis.uz',
-        documents: '',
+        name: 'Buxgalteriya',
+        head: 'Kedirov Nosirjon Sadullayevich',
+        position: 'Bosh buxgalter',
+        address: 'O\'zbekiston Respublikasi, Toshkent shahri, Mirobod tumani, Shahrisabz ko\'chasi, 16-uy',
+        website: 'https://spbu.uz',
+        email: 'yo\'q',
+        documents: 'yo\'q',
         info: '',
-        phone: '+998 70 614-22-64'
+        phone: ''
+      },
+      {
+        id: 2,
+        name: 'Yoshlar bilan ishlash, ma\'naviyat va ma\'rifat bo\'limi',
+        head: 'Payziyev Mahmudjon Azamatovich',
+        position: 'Bo\'lim boshlig\'i',
+        address: 'O\'zbekiston Respublikasi, Toshkent shahri, Mirobod tumani, Shahrisabz ko\'chasi, 16-uy',
+        website: 'https://spbu.uz',
+        email: 'yo\'q',
+        documents: 'yo\'q',
+        info: '',
+        phone: ''
       },
       {
         id: 3,
-        name: 'Buxgalteriya',
-        head: 'Nafiullina Yuliya Rimovna',
-        position: 'Bosh buxgalter',
-        address: 'O\'zbekiston Respublikasi, Toshkent viloyati, Olmaliq shahri, Amir Temur ko\'chasi, 56-uy',
-        website: 'misis.uz',
-        email: 'info@misis.uz',
-        documents: '',
+        name: 'Jismoniy va yuridik shaxslar murojaatlari bilan ishlash, nazorat va monitoring sektori',
+        head: 'Eshmatova Dilnoza Anvarovna',
+        position: 'Bosh mutaxassis',
+        address: 'O\'zbekiston Respublikasi, Toshkent shahri, Mirobod tumani, Shahrisabz ko\'chasi, 16-uy',
+        website: 'https://spbu.uz',
+        email: 'yo\'q',
+        documents: 'yo\'q',
         info: '',
-        phone: '+998 70 614-22-64'
+        phone: ''
+      }
+    ],
+    educationalTableData: [
+      {
+        id: 1,
+        name: 'Ta\'lim sifatini nazorat qilish bo\'limi',
+        head: 'Mirzaeva Fayzinniso Abdullakhonovna',
+        position: 'Bosh mutaxassis',
+        address: 'O\'zbekiston Respublikasi, Toshkent shahri, Mirobod tumani, Shahrisabz ko\'chasi, 16-uy',
+        website: 'https://spbu.uz',
+        email: 'yo\'q',
+        documents: 'yo\'q',
+        info: '',
+        phone: ''
       },
       {
-        id: 5,
+        id: 2,
         name: 'Kadrlar bo\'limi',
-        head: 'Ergasheva Muhabbat Abduraxmovna',
-        position: 'Kadrlar bo\'limi boshlig\'i',
-        address: 'O\'zbekiston Respublikasi, Toshkent viloyati, Olmaliq shahri, Amir Temur ko\'chasi, 56-uy',
-        website: 'Misis.uz',
-        email: 'info@misis.uz',
-        documents: '',
+        head: 'Ekyubkhujayev Shakhriyorjon Erkin o\'g\'li',
+        position: 'Inspektor',
+        address: 'O\'zbekiston Respublikasi, Toshkent shahri, Mirobod tumani, Shahrisabz ko\'chasi, 16-uy',
+        website: 'https://spbu.uz',
+        email: 'yo\'q',
+        documents: 'yo\'q',
         info: '',
-        phone: '+998 70 614-22-64'
+        phone: ''
+      },
+      {
+        id: 3,
+        name: 'Raqamli ta\'lim texnologiyalari markazi',
+        head: 'Xayitboev Mavlonbek Shuhrat o\'g\'li',
+        position: 'Markaz boshlig\'i',
+        address: 'O\'zbekiston Respublikasi, Toshkent shahri, Mirobod tumani, Shahrisabz ko\'chasi, 16-uy',
+        website: 'https://spbu.uz',
+        email: 'yo\'q',
+        documents: 'yo\'q',
+        info: '',
+        phone: ''
       }
     ]
   },
@@ -261,27 +349,27 @@ const translations: Translations = {
     tableData: [
       {
         id: 1,
-        name: 'Academic Council',
-        head: 'Umarov Farhodbek Yakubovich',
-        position: 'Chairman of the Academic Council',
-        address: 'Republic of Uzbekistan, Tashkent region, Almalyk city, Amir Temur street, 56',
-        website: 'https://misis.uz',
-        email: 'info@misis.uz',
-        regulation: 'Regulation on the Academic Council',
+        name: 'Directorate',
+        head: 'Ziyadullaev Makhmudjon Djurakulovich',
+        position: 'Head',
+        address: 'Republic of Uzbekistan, Tashkent, Mirobod district, Shahrisabz street, 16',
+        website: 'https://spbu.uz',
+        email: 'm.ziyadullaev@spbu.ru',
+        regulation: 'Regulation on the branch (attach the file I sent)',
         formation: '',
-        phone: '+998 70 614-22-64; +998 70 614-22-64'
+        phone: ''
       },
       {
         id: 2,
-        name: 'Branch Director',
-        head: 'Umarov Farhodbek Yakubovich',
-        position: 'Director',
-        address: 'Republic of Uzbekistan, Tashkent region, Almalyk city, Amir Temur street, 56',
-        website: 'https://misis.uz',
-        email: 'info@misis.uz',
+        name: 'Directorate',
+        head: 'Usmanov Dilshod Lapasovich',
+        position: 'Head of Administrative Affairs',
+        address: 'Republic of Uzbekistan, Tashkent, Mirobod district, Shahrisabz street, 16',
+        website: 'https://spbu.uz',
+        email: 'none',
         regulation: 'none',
         formation: '',
-        phone: '+998 70 614-22-64; +998 70 614-22-64'
+        phone: ''
       }
     ],
     departmentTableHeaders: {
@@ -299,39 +387,77 @@ const translations: Translations = {
     departmentTableData: [
       {
         id: 1,
-        name: 'Educational and Methodological Department',
-        head: 'Kutfulloev Gafur Subkhonovich',
-        position: 'Head of Educational and Methodological Department',
-        address: 'Republic of Uzbekistan, Tashkent region, Almalyk city, Amir Temur street, 56',
-        website: 'Misis.uz',
-        email: 'info@misis.uz',
-        documents: '',
+        name: 'Accounting Department',
+        head: 'Kedirov Nosirjon Sadullaevich',
+        position: 'Chief Accountant',
+        address: 'Republic of Uzbekistan, Tashkent, Mirobod district, Shahrisabz street, 16',
+        website: 'https://spbu.uz',
+        email: 'none',
+        documents: 'none',
         info: '',
-        phone: '+998 70 614-22-64'
+        phone: ''
+      },
+      {
+        id: 2,
+        name: 'Department for Youth Affairs, Spirituality and Education',
+        head: 'Paiziyev Makhmudjon Azamatovich',
+        position: 'Head of Department',
+        address: 'Republic of Uzbekistan, Tashkent, Mirobod district, Shahrisabz street, 16',
+        website: 'https://spbu.uz',
+        email: 'none',
+        documents: 'none',
+        info: '',
+        phone: ''
       },
       {
         id: 3,
-        name: 'Accounting Department',
-        head: 'Nafiullina Yulia Rimovna',
-        position: 'Chief Accountant',
-        address: 'Republic of Uzbekistan, Tashkent region, Almalyk city, Amir Temur street, 56',
-        website: 'misis.uz',
-        email: 'info@misis.uz',
-        documents: '',
+        name: 'Sector for Work with Appeals of Individuals and Legal Entities, Control and Monitoring',
+        head: 'Eshmatova Dilnoza Anvarovna',
+        position: 'Chief Specialist',
+        address: 'Republic of Uzbekistan, Tashkent, Mirobod district, Shahrisabz street, 16',
+        website: 'https://spbu.uz',
+        email: 'none',
+        documents: 'none',
         info: '',
-        phone: '+998 70 614-22-64'
+        phone: ''
+      }
+    ],
+    educationalTableData: [
+      {
+        id: 1,
+        name: 'Department of Education Quality Control',
+        head: 'Mirzaeva Fayzinniso Abdullakhonovna',
+        position: 'Chief Specialist',
+        address: 'Republic of Uzbekistan, Tashkent, Mirobod district, Shahrisabz street, 16',
+        website: 'https://spbu.uz',
+        email: 'none',
+        documents: 'none',
+        info: '',
+        phone: ''
       },
       {
-        id: 5,
+        id: 2,
         name: 'Human Resources Department',
-        head: 'Ergasheva Mukhabbat Abdurakhimovna',
-        position: 'Head of HR Department',
-        address: 'Republic of Uzbekistan, Tashkent region, Almalyk city, Amir Temur street, 56',
-        website: 'Misis.uz',
-        email: 'info@misis.uz',
-        documents: '',
+        head: 'Ekyubkhuzhaev Shakhriyorjon Erkin ogli',
+        position: 'Inspector',
+        address: 'Republic of Uzbekistan, Tashkent, Mirobod district, Shahrisabz street, 16',
+        website: 'https://spbu.uz',
+        email: 'none',
+        documents: 'none',
         info: '',
-        phone: '+998 70 614-22-64'
+        phone: ''
+      },
+      {
+        id: 3,
+        name: 'Center for Digital Educational Technologies',
+        head: 'Khaitboev Mavlonbek Shuhrat ogli',
+        position: 'Head of Center',
+        address: 'Republic of Uzbekistan, Tashkent, Mirobod district, Shahrisabz street, 16',
+        website: 'https://spbu.uz',
+        email: 'none',
+        documents: 'none',
+        info: '',
+        phone: ''
       }
     ]
   }
@@ -411,7 +537,7 @@ const BranchStruct: React.FC = () => {
             <h2 className="section-title">{sectionTitles[language].management}</h2>
           </div>
           <div className="info-table-container">
-            <table className="info-table">
+             <table className="info-table">
               <thead>
                 <tr>
                   <th>{t.tableHeaders.name}</th>
@@ -513,7 +639,7 @@ const BranchStruct: React.FC = () => {
                 </tr>
               </thead>
               <tbody>
-                {t.departmentTableData.map((item) => (
+                {t.educationalTableData.map((item) => (
                   <tr key={`edu-${item.id}`}>
                     <td>{item.name}</td>
                     <td>{item.head}</td>
