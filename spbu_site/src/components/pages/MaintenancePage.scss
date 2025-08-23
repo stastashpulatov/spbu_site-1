@@ -1,0 +1,303 @@
+.maintenance-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  .maintenance-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 3rem;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    
+    .maintenance-header {
+      margin-bottom: 2rem;
+      
+      .maintenance-icon {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        animation: wrench 2s ease-in-out infinite;
+      }
+      
+      h1 {
+        color: #333;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin: 0;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    }
+    
+    .maintenance-message {
+      margin-bottom: 2rem;
+      
+      p {
+        color: #666;
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin: 0;
+      }
+    }
+    
+    .maintenance-timer {
+      margin-bottom: 2rem;
+      
+      h3 {
+        color: #333;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+      
+      .timer-display {
+        .time-left {
+          font-size: 3rem;
+          font-weight: 700;
+          color: #667eea;
+          font-family: 'Courier New', monospace;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+          animation: pulse 1s ease-in-out infinite;
+        }
+        
+        .time-expired {
+          font-size: 2rem;
+          font-weight: 600;
+          color: #e74c3c;
+        }
+      }
+    }
+    
+    .maintenance-info {
+      margin-bottom: 2rem;
+      
+      .info-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        margin-bottom: 0.5rem;
+        background: rgba(102, 126, 234, 0.1);
+        border-radius: 10px;
+        border-left: 4px solid #667eea;
+        
+        strong {
+          color: #333;
+          font-weight: 600;
+        }
+        
+        span {
+          color: #666;
+          font-size: 0.9rem;
+        }
+      }
+    }
+    
+    .maintenance-actions {
+      .refresh-button, .retry-button {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        &:active {
+          transform: translateY(0);
+        }
+      }
+    }
+    
+    .loading-spinner {
+      .spinner {
+        width: 60px;
+        height: 60px;
+        border: 4px solid rgba(102, 126, 234, 0.3);
+        border-top: 4px solid #667eea;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 1rem;
+      }
+      
+      p {
+        color: #666;
+        font-size: 1.1rem;
+        margin: 0;
+      }
+    }
+    
+    .error-message, .no-maintenance {
+      h2 {
+        color: #e74c3c;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+      
+      p {
+        color: #666;
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.5;
+      }
+      
+      .retry-button {
+        background: linear-gradient(135deg, #e74c3c, #c0392b);
+        box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        
+        &:hover {
+          box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+        }
+      }
+    }
+    
+    .no-maintenance {
+      h2 {
+        color: #27ae60;
+      }
+    }
+  }
+}
+
+.fallback-message {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+}
+
+.error-message {
+  text-align: center;
+  
+  h2 {
+    color: #e74c3c;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    color: #e74c3c;
+    margin-bottom: 1.5rem;
+  }
+  
+  .retry-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    
+    &:hover {
+      background-color: #c0392b;
+    }
+  }
+}
+
+@keyframes wrench {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(15deg); }
+  75% { transform: rotate(-15deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .maintenance-page {
+    padding: 1rem;
+    
+    .maintenance-container {
+      padding: 2rem;
+      
+      .maintenance-header h1 {
+        font-size: 2rem;
+      }
+      
+      .maintenance-timer .timer-display .time-left {
+        font-size: 2.5rem;
+      }
+      
+      .maintenance-info .info-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .maintenance-page .maintenance-container {
+    padding: 1.5rem;
+    
+    .maintenance-header {
+      h1 { font-size: 1.8rem; }
+      .maintenance-icon { font-size: 3rem; }
+    }
+    
+    .maintenance-timer .timer-display .time-left {
+      font-size: 2rem;
+    }
+  }
+}
+
+// Стили для кнопок
+.refresh-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  margin-right: 1rem;
+  
+  &:hover {
+    background-color: #2980b9;
+  }
+}
+
+.return-button {
+  background-color: #95a5a6;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  
+  &:hover {
+    background-color: #7f8c8d;
+  }
+}
+

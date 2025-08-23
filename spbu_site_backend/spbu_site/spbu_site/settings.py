@@ -69,12 +69,14 @@ INSTALLED_APPS = [
     'events',
     'schedule',
     'corsheaders',
+    'site_maintenance',
 ]
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'spbu_site.security.SecurityMiddleware',  # Наш security middleware
+    'site_maintenance.middleware.MaintenanceMiddleware',  # Middleware для тех. работ
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -308,6 +310,11 @@ LOGGING = {
             'level': 'WARNING',
             'propagate': True,
         },
+        'site_maintenance': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
     },
 }
 
@@ -326,4 +333,35 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # Дополнительные директории для статических файлов
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
+]
+
+# CORS settings для фронтенда
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
+
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
 ]

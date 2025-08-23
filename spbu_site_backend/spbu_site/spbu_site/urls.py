@@ -24,6 +24,7 @@ urlpatterns = [
     path('api/user/', include('users.urls')),
     path('api/events/', include('events.urls')),
     path('api/schedule/', include('schedule.urls')),
+    path('api/maintenance/', include('site_maintenance.urls')),
 ]
 
 # Добавляем обработку медиа файлов в режиме разработки
