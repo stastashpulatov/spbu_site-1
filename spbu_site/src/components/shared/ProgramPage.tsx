@@ -138,6 +138,33 @@ const ProgramPage: React.FC<ProgramPageProps> = ({ programInfo }) => {
         <div className="program-section">
           <h2>
 
+
+
+            <span className="section-icon">📝</span>
+            {programInfo.admissionTitle}
+          </h2>
+          <div className="section-content">
+            <ul>
+              {programInfo.admissionText.map((text, index) => (
+                <li key={index}>{text}</li>
+
+            <span className="section-icon">📚</span>
+            {programInfo.mainCoursesTitle}
+          </h2>
+          <div className="section-content">
+            <ul>
+              {programInfo.mainCourses.map((course, index) => (
+                <li key={index}>{course}</li>
+
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="program-section">
+          <h2>
+
+
             <span className="section-icon">📚</span>
             {programInfo.mainCoursesTitle}
           </h2>
@@ -161,6 +188,20 @@ const ProgramPage: React.FC<ProgramPageProps> = ({ programInfo }) => {
             ))}
           </div>
         </div>
+
+
+
+
+            <span className="section-icon">🎯</span>
+            {programInfo.mainProgramTitle || 'О программе'}
+          </h2>
+          <div className="section-content">
+            {programInfo.mainProgramPoints.map((point, index) => (
+              <p key={index}>{point}</p>
+            ))}
+          </div>
+        </div>
+
 
 
         {programInfo.teachersTitle && (
