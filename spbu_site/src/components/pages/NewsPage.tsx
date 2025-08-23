@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { LanguageContext } from '../../contexts/LanguageContext';
+import { Language } from '../../contexts/LanguageContextType';
 import { getNews } from '../../utils/api';
 import './NewsPage.scss';
 
@@ -15,7 +17,50 @@ interface NewsItem {
   is_visible: boolean;
 }
 
+type Translations = {
+  [key in Language]: {
+    title: string;
+    description: string;
+    loadingMessage: string;
+    errorMessage: string;
+    noNewsMessage: string;
+  };
+};
+
+const translations: Translations = {
+  ru: {
+    title: 'Новости',
+    description: 'Последние новости и события университета',
+    loadingMessage: 'Загрузка новостей...',
+    errorMessage: 'Не удалось загрузить новости. Пожалуйста, попробуйте позже.',
+    noNewsMessage: 'Новости отсутствуют'
+  },
+  uz: {
+    title: 'Yangiliklar',
+    description: 'Universitetning so\'nggi yangiliklari va voqealari',
+    loadingMessage: 'Yangiliklar yuklanmoqda...',
+    errorMessage: 'Yangiliklarni yuklashda xatolik yuz berdi. Iltimos, keyinroq urinib ko\'ring.',
+    noNewsMessage: 'Yangiliklar mavjud emas'
+  },
+  en: {
+    title: 'News',
+    description: 'Latest news and events of the university',
+    loadingMessage: 'Loading news...',
+    errorMessage: 'Failed to load news. Please try again later.',
+    noNewsMessage: 'No news available'
+  }
+};
+
 const NewsPage: React.FC = () => {
+  const langContext = useContext(LanguageContext);
+  
+  if (!langContext) {
+    throw new Error('NewsPage must be used within Language Provider');
+  }
+  
+  const { language } = langContext;
+  const t = translations[language];
+
   const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -40,7 +85,7 @@ const NewsPage: React.FC = () => {
       setError(null);
     } catch (err) {
       console.error('Error fetching news:', err);
-      setError('Не удалось загрузить новости. Пожалуйста, попробуйте позже.');
+      setError(t.errorMessage);
     } finally {
       setLoading(false);
     }
@@ -62,8 +107,31 @@ const NewsPage: React.FC = () => {
     }
   };
 
+  // Get title and description based on language
+  const getLocalizedTitle = (item: NewsItem) => {
+    switch (language) {
+      case 'uz':
+        return item.title_uz || item.title;
+      case 'en':
+        return item.title_en || item.title;
+      default:
+        return item.title;
+    }
+  };
+
+  const getLocalizedDescription = (item: NewsItem) => {
+    switch (language) {
+      case 'uz':
+        return item.description_uz || item.description;
+      case 'en':
+        return item.description_en || item.description;
+      default:
+        return item.description;
+    }
+  };
+
   if (loading && newsItems.length === 0) {
-    return <div className="news-loading">Загрузка новостей...</div>;
+    return <div className="news-loading">{t.loadingMessage}</div>;
   }
 
   if (error && newsItems.length === 0) {
@@ -73,14 +141,14 @@ const NewsPage: React.FC = () => {
   return (
     <div className="news-page">
       <div className="news-page-header">
-        <h1>Новости</h1>
+        <h1>{t.title}</h1>
         <p className="news-page-description">
-          Последние новости и события университета
+          {t.description}
         </p>
       </div>
 
       {newsItems.length === 0 ? (
-        <div className="news-empty">Новости отсутствуют</div>
+        <div className="news-empty">{t.noNewsMessage}</div>
       ) : (
         <>
           <div className="news-list">
@@ -88,13 +156,13 @@ const NewsPage: React.FC = () => {
               <div key={item.id} className="news-item">
                 {item.image && (
                   <div className="news-item-image">
-                    <img src={item.image} alt={item.title} />
+                    <img src={item.image} alt={getLocalizedTitle(item)} />
                   </div>
                 )}
                 <div className="news-item-content">
                   <div className="news-item-date">{formatDate(item.publication_date)}</div>
-                  <h2 className="news-item-title">{item.title}</h2>
-                  <p className="news-item-description">{item.description}</p>
+                  <h2 className="news-item-title">{getLocalizedTitle(item)}</h2>
+                  <p className="news-item-description">{getLocalizedDescription(item)}</p>
                 </div>
               </div>
             ))}
@@ -103,31 +171,23 @@ const NewsPage: React.FC = () => {
           {totalPages > 1 && (
             <div className="news-pagination">
               <button 
-                className="pagination-button prev"
-                disabled={currentPage === 1}
                 onClick={() => handlePageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+                className="pagination-button"
               >
-                Предыдущая
+                {language === 'ru' ? 'Предыдущая' : language === 'uz' ? 'Oldingi' : 'Previous'}
               </button>
               
-              <div className="pagination-pages">
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
-                  <button
-                    key={page}
-                    className={`pagination-page ${currentPage === page ? 'active' : ''}`}
-                    onClick={() => handlePageChange(page)}
-                  >
-                    {page}
-                  </button>
-                ))}
-              </div>
+              <span className="pagination-info">
+                {language === 'ru' ? 'Страница' : language === 'uz' ? 'Sahifa' : 'Page'} {currentPage} {language === 'ru' ? 'из' : language === 'uz' ? 'dan' : 'of'} {totalPages}
+              </span>
               
               <button 
-                className="pagination-button next"
-                disabled={currentPage === totalPages}
                 onClick={() => handlePageChange(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                className="pagination-button"
               >
-                Следующая
+                {language === 'ru' ? 'Следующая' : language === 'uz' ? 'Keyingi' : 'Next'}
               </button>
             </div>
           )}

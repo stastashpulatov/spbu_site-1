@@ -1,12 +1,73 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { LanguageContext } from '../../contexts/LanguageContext';
+import { Language } from '../../contexts/LanguageContextType';
 import './Contacts.scss';
 
+type Translations = {
+  [key in Language]: {
+    title: string;
+    subtitle: string;
+    address: string;
+    addressText: string;
+    institutionName: string;
+    email: string;
+    phones: string;
+    howToFind: string;
+    mapTitle: string;
+  };
+};
+
+const translations: Translations = {
+  ru: {
+    title: 'Контакты',
+    subtitle: 'Свяжитесь с нами для получения дополнительной информации',
+    address: 'Адрес',
+    addressText: '100060, Республика Узбекистан, г. Ташкент, Мирабадский район, ул. Шахрисабз, д. 16 (метро: Айбек)',
+    institutionName: 'Филиал Санкт-Петербургского государственного университета в городе Ташкенте',
+    email: 'E-mail',
+    phones: 'Телефоны',
+    howToFind: 'Как нас найти',
+    mapTitle: 'Карта расположения филиала СПбГУ в Ташкенте'
+  },
+  uz: {
+    title: 'Aloqa',
+    subtitle: 'Qo\'shimcha ma\'lumot olish uchun biz bilan bog\'laning',
+    address: 'Manzil',
+    addressText: '100060, O\'zbekiston Respublikasi, Toshkent shahri, Mirabad tumani, Shahrisabz ko\'chasi, 16-uy (metro: Oybek)',
+    institutionName: 'Toshkent shahridagi Sankt-Peterburg davlat universiteti filiali',
+    email: 'E-mail',
+    phones: 'Telefonlar',
+    howToFind: 'Bizni qanday topish mumkin',
+    mapTitle: 'Toshkentdagi SPbDU filiali joylashuv xaritasi'
+  },
+  en: {
+    title: 'Contacts',
+    subtitle: 'Contact us for additional information',
+    address: 'Address',
+    addressText: '100060, Republic of Uzbekistan, Tashkent, Mirabad district, Shahrisabz street, 16 (metro: Oybek)',
+    institutionName: 'Branch of Saint Petersburg State University in Tashkent',
+    email: 'E-mail',
+    phones: 'Phones',
+    howToFind: 'How to find us',
+    mapTitle: 'Map of SPbU branch location in Tashkent'
+  }
+};
+
 const Contacts: React.FC = () => {
+  const langContext = useContext(LanguageContext);
+  
+  if (!langContext) {
+    throw new Error('Contacts must be used within Language Provider');
+  }
+  
+  const { language } = langContext;
+  const t = translations[language];
+
   return (
     <div className="contacts-page">
       <div className="hero-section">
-        <h1 className="page-title">Контакты</h1>
-        <p className="subtitle">Свяжитесь с нами для получения дополнительной информации</p>
+        <h1 className="page-title">{t.title}</h1>
+        <p className="subtitle">{t.subtitle}</p>
       </div>
       
       <div className="container">
@@ -15,7 +76,7 @@ const Contacts: React.FC = () => {
             <div className="contact-image-container">
               <img 
                 src="/images/building.png" 
-                alt="Здание филиала СПбГУ в Ташкенте" 
+                alt={t.mapTitle}
                 className="contact-image"
               />
             </div>
@@ -29,13 +90,9 @@ const Contacts: React.FC = () => {
                   </svg>
                 </div>
                 <div className="contact-info">
-                  <h3>Адрес</h3>
-                  <p>100060, Республика Узбекистан, г. Ташкент,<br />
-                    Мирабадский район, ул. Шахрисабз, д. 16<br />
-                    (метро: Айбек)</p>
-                  <p className="institution-name">Филиал Санкт-Петербургского<br />
-                    государственного университета<br />
-                    в городе Ташкенте</p>
+                  <h3>{t.address}</h3>
+                  <p>{t.addressText}</p>
+                  <p className="institution-name">{t.institutionName}</p>
                 </div>
               </div>
               
@@ -47,7 +104,7 @@ const Contacts: React.FC = () => {
                   </svg>
                 </div>
                 <div className="contact-info">
-                  <h3>E-mail</h3>
+                  <h3>{t.email}</h3>
                   <p><a href="mailto:info@spbu.uz" className="contact-link">info@spbu.uz</a></p>
                 </div>
               </div>
@@ -59,7 +116,7 @@ const Contacts: React.FC = () => {
                   </svg>
                 </div>
                 <div className="contact-info">
-                  <h3>Телефоны</h3>
+                  <h3>{t.phones}</h3>
                   <p><a href="tel:+998977214404" className="contact-link">+998 97 721 44 04</a></p>
                   <p><a href="tel:+998903744083" className="contact-link">+998 90 374 40 83</a></p>
                 </div>
@@ -68,7 +125,7 @@ const Contacts: React.FC = () => {
           </div>
           
           <div className="map-section">
-            <h3 className="map-title">Как нас найти</h3>
+            <h3 className="map-title">{t.howToFind}</h3>
             <div className="map-container">
               <iframe 
                 src="https://yandex.uz/map-widget/v1/?from=mapframe&ll=69.274471%2C41.298603&mode=search&ol=geo%5Bpoint%5D=69.274449%2C41.298588&poi%5Buri%5D=ymapsbm1%3A%2Forg%3Foid%3D122210742797&source=mapframe&utm_source=mapframe&z=20.8"
@@ -78,7 +135,7 @@ const Contacts: React.FC = () => {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Карта расположения филиала СПбГУ в Ташкенте"
+                title={t.mapTitle}
               />
             </div>
           </div>
