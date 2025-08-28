@@ -9,7 +9,7 @@
 > Официальный веб-сайт филиала Санкт-Петербургского государственного университета в городе Ташкенте
 
 <div align="center">
-  <img src="https://img.shields.io/badge/Status-Production%20Ready-brightgreen" alt="Production Ready">
+  <img src="https://img.shields.io/badge/Status-Production%20Ready-brightgreen" alt="Production in development">
   <img src="https://img.shields.io/badge/Version-2.0.0-blue" alt="Version">
   <img src="https://img.shields.io/badge/Last%20Update-August%202024-orange" alt="Last Update">
 </div>
