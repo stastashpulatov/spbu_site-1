@@ -1,5 +1,6 @@
 # 🎓 СПбГУ в городе Ташкенте - Официальный сайт
 
+[![human CODED](https://img.shields.io/badge/human-CODED-brightgreen)](https://github.com/features/copilot)
 [![React](https://img.shields.io/badge/React-18.0.0-blue.svg)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-5.0-purple.svg)](https://vitejs.dev/)
