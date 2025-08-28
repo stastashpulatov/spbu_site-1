@@ -1,18 +1,40 @@
 # 🎓 СПбГУ в городе Ташкенте - Официальный сайт
 
-[![human CODED](https://img.shields.io/badge/human-CODED-brightgreen)](https://github.com/features/copilot)
-[![React](https://img.shields.io/badge/React-18.0.0-blue.svg)](https://reactjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
-[![Vite](https://img.shields.io/badge/Vite-5.0-purple.svg)](https://vitejs.dev/)
-[![Django](https://img.shields.io/badge/Django-4.2-green.svg)](https://www.djangoproject.com/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
 > Официальный веб-сайт филиала Санкт-Петербургского государственного университета в городе Ташкенте
 
 <div align="center">
-  <img src="https://img.shields.io/badge/Status-Production%20Ready-brightgreen" alt="Production in development">
-  <img src="https://img.shields.io/badge/Version-2.0.0-blue" alt="Version">
-  <img src="https://img.shields.io/badge/Last%20Update-August%202024-orange" alt="Last Update">
+
+## 🏷️ Статус проекта
+
+[![human CODED](https://img.shields.io/badge/human-CODED-brightgreen?style=for-the-badge&logo=github)](https://github.com/features/copilot)
+[![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen?style=for-the-badge&logo=check-circle)](https://github.com/stastashpulatov/spbu_site-1)
+[![Version](https://img.shields.io/badge/Version-2.0.0-blue?style=for-the-badge&logo=semantic-release)](https://github.com/stastashpulatov/spbu_site-1/releases)
+[![Last Update](https://img.shields.io/badge/Last%20Update-August%202024-orange?style=for-the-badge&logo=calendar)](https://github.com/stastashpulatov/spbu_site-1/commits/main)
+
+## 🛠️ Технологии
+
+### Frontend
+
+[![React](https://img.shields.io/badge/React-18.0.0-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-5.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+
+### Backend
+
+[![Django](https://img.shields.io/badge/Django-4.2-092E20?style=for-the-badge&logo=django&logoColor=white)](https://www.djangoproject.com/)
+[![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-13-336791?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+
+### DevOps & Tools
+
+[![Docker](https://img.shields.io/badge/Docker-20.10-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![Nginx](https://img.shields.io/badge/Nginx-1.24-009639?style=for-the-badge&logo=nginx&logoColor=white)](https://nginx.org/)
+[![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)](https://github.com/features/actions)
+
+### Лицензия
+
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge&logo=open-source-initiative&logoColor=black)](LICENSE)
+
 </div>
 
 ## 📋 Содержание
