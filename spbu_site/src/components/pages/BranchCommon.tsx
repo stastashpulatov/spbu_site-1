@@ -367,7 +367,7 @@ const translations: Translations = {
         },
         {
           field: 'Reestr litsenziyalarini holati 17:33 17.08.2023 yil',
-          value: <a href="/files/licenziya.pdf" target="_blank" rel="noopener noreferrer">Hujjat manzili</a>
+          value: <a href="/files/Выписка.pdf" target="_blank" rel="noopener noreferrer">Hujjat manzili</a>
         }
       ]
     },
@@ -536,7 +536,7 @@ const translations: Translations = {
         },
         {
           field: 'Status of the register of licenses as of 17:33 17.08.2023',
-          value: <a href="/files/licenziya.pdf" target="_blank" rel="noopener noreferrer">Document link</a>
+          value: <a href="/files/Выписка.pdf" target="_blank" rel="noopener noreferrer">Document link</a>
         }
       ]
     },

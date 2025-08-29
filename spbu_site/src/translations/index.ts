@@ -127,15 +127,42 @@ export const translations = {
     startPage: {
         ru: {
             welcome: 'Добро пожаловать в филиал СПбГУ',
-            description: 'Ведущий центр образования и науки'
+            description: 'Ведущий центр образования и науки',
+            more: 'Подробнее',
+            cards: {
+                licenseTitle: 'Лицензия',
+                licenseDesc: 'Лицензия на осуществление образовательной деятельности',
+                orgInfoTitle: 'Сведения об образовательной организации',
+                orgInfoDesc: 'Информация о филиале Санкт-Петербургского государственного университета в городе Ташкенте',
+                staffTitle: 'Сотрудники',
+                staffDesc: 'Профессорско-преподавательский состав'
+            }
         },
         en: {
             welcome: 'Welcome to SPbU',
-            description: 'Leading Center of Education and Science'
+            description: 'Leading Center of Education and Science',
+            more: 'Learn more',
+            cards: {
+                licenseTitle: 'License',
+                licenseDesc: 'License for educational activities',
+                orgInfoTitle: 'Organization Information',
+                orgInfoDesc: 'Information about the SPbU branch in Tashkent',
+                staffTitle: 'Staff',
+                staffDesc: 'Faculty members'
+            }
         },
         uz: {
             welcome: 'SPbDUga xush kelibsiz',
-            description: 'Taʼlim va fan yetakchi markazi'
+            description: 'Taʼlim va fan yetakchi markazi',
+            more: 'Batafsil',
+            cards: {
+                licenseTitle: 'Litsenziya',
+                licenseDesc: 'Taʼlim faoliyatini amalga oshirish litsenziyasi',
+                orgInfoTitle: 'Taʼlim muassasasi haqida maʼlumot',
+                orgInfoDesc: 'Toshkentdagi SPbDU filiali haqida maʼlumot',
+                staffTitle: 'Xodimlar',
+                staffDesc: 'Professor-oʻqituvchilar tarkibi'
+            }
         }
     }
 };
