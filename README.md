@@ -6,7 +6,7 @@
 
 ## 🏷️ Статус проекта
 
-[![human CODED](https://img.shields.io/badge/human-CODED-brightgreen?style=for-the-badge&logo=user)](https://github.com/stastashpulatov/spbu_site-1)
+[![human CODED](https://img.shields.io/badge/human-CODED-brightgreen?style=for-the-badge&logo=code&logoColor=white)](https://github.com/stastashpulatov/spbu_site-1)
 [![Status](https://img.shields.io/badge/Status-Production%20in%20Development-orange?style=for-the-badge&logo=construction)](https://github.com/stastashpulatov/spbu_site-1)
 [![Version](https://img.shields.io/badge/Version-2.0.0-blue?style=for-the-badge&logo=semantic-release)](https://github.com/stastashpulatov/spbu_site-1/releases)
 [![Last Update](https://img.shields.io/badge/Last%20Update-August%202025-orange?style=for-the-badge&logo=calendar)](https://github.com/stastashpulatov/spbu_site-1/commits/main)
