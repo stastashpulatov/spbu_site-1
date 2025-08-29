@@ -27,14 +27,30 @@ interface ProgramPageProps {
 }
 
 const ProgramPage: React.FC<ProgramPageProps> = ({ programInfo }) => {
+  const headerStyle: React.CSSProperties = {
+    backgroundImage: programInfo.backgroundImage
+      ? `url(${programInfo.backgroundImage})`
+      : undefined,
+    backgroundPosition: programInfo.backgroundPosition || 'center',
+  };
+
   return (
     <div className="program-page">
       <div className="program-container">
-        <div className="program-header">
-          <h1 className="program-title">{programInfo.title}</h1>
-          {programInfo.description && (
-            <p className="program-description">{programInfo.description}</p>
-          )}
+        <div className="program-header" style={headerStyle}>
+          <div className="hero-content">
+            <div className="page-title-container">
+              <span className="page-title-icon">🎓</span>
+              <div className="page-title-content">
+                <h1 className="page-main-title" data-text={programInfo.title}>
+                  {programInfo.title}
+                </h1>
+                {programInfo.description && (
+                  <p className="page-subtitle">{programInfo.description}</p>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="program-section">

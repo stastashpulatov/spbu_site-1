@@ -58,7 +58,7 @@ const menuItems: MenuItems = {
 
   "Поступающим": [
     { title: 'Приём', link: '/admission' },
-    { title: 'Личный кабинет поступающего', link: 'https://cabinet.spbu.ru/' }
+    { title: 'Личный кабинет поступающего', link: 'https://application.spbu.ru/rus-sign-in' }
   ],
   "Студентам": [
     { title: 'Расписание занятий', link: '/schedule' },
