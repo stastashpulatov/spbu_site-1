@@ -9,6 +9,7 @@ interface MenuItem {
   title: string;
   link?: string;
   submenu?: MenuItem[];
+  targetBlank?: boolean;
 }
 
 interface MenuItems {
@@ -63,7 +64,7 @@ const menuItems: MenuItems = {
   "Студентам": [
     { title: 'Расписание занятий', link: '/schedule' },
     { title: 'Научная библиотека имени М. Горького', link: '/library' },
-    { title: 'Личный кабинет студента', link: '/student-account' }
+    { title: 'Личный кабинет студента', link: '/student-account', targetBlank: true }
   ],
   "ТРКИ": [
     { title: 'Общая информация', link: '/trki/general-info' },
@@ -137,7 +138,7 @@ function Header() {
                               {item.title}
                             </a>
                           ) : (
-                            <Link to={item.link} className="dropdown-item text-sm">
+                            <Link to={item.link} className="dropdown-item text-sm" target={item.targetBlank ? '_blank' : undefined} rel={item.targetBlank ? 'noopener noreferrer' : undefined}>
                               {item.title}
                             </Link>
                           )
@@ -178,6 +179,8 @@ function Header() {
                                   key={subIndex}
                                   to={subItem.link || ''}
                                   className="dropdown-item text-sm"
+                                  target={subItem.targetBlank ? '_blank' : undefined}
+                                  rel={subItem.targetBlank ? 'noopener noreferrer' : undefined}
                                 >
                                   {subItem.title}
                                 </Link>
