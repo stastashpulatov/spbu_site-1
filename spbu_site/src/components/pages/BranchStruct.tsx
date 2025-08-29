@@ -67,6 +67,18 @@ type Translations = {
       info: string;
       phone: string;
     }[];
+    finalTable: {
+       headers: string[];
+       data: {
+        name: string;
+        head: string;
+        position: string;
+        address: string;
+        website: string;
+        email: string;
+        regulation: string;
+      }[];
+    };
   };
 };
 
@@ -199,7 +211,38 @@ const translations: Translations = {
         info: '',
         phone: ''
       }
-    ]
+    ],
+    finalTable: {
+      headers: [
+        'Наименование органа управления / структурного подразделения',
+        'ФИО руководителя структурного подразделения', 
+        'Должность руководителя структурного подразделения',
+        'Адрес местонахождения структурного подразделения',
+        'Адрес официального сайта структурного подразделения',
+        'Адрес электронной почты структурного подразделения',
+        'Положение об органе управления / о структурном подразделении'
+      ],
+      data: [
+        {
+          name: 'Дирекция',
+          head: 'Зиядуллаев Махмуджон Джуракулович',
+          position: 'Руководитель',
+          address: 'Республика Узбекистан, г. Ташкент, Мирободский район, ул. Шахрисабз, д. 16',
+          website: 'https://spbu.uz',
+          email: 'm.ziyadullaev@spbu.ru',
+          regulation: 'Положение о филиале'
+        },
+        {
+          name: 'Дирекция',
+          head: 'Усмонов Дилшод Лапасович', 
+          position: 'Начальник Управления делами',
+          address: 'Республика Узбекистан, г. Ташкент, Мирободский район, ул. Шахрисабз, д. 16',
+          website: 'https://spbu.uz',
+          email: 'нет',
+          regulation: 'нет'
+        }
+      ]
+    }
   },
   uz: {
     title: 'TA\'LIM TASHKILOTINING TUZILISHI VA BOSHQARUV ORGANLARI',
@@ -329,7 +372,38 @@ const translations: Translations = {
         info: '',
         phone: ''
       }
-    ]
+    ],
+    finalTable: {
+      headers: [
+        'Boshqaruv organi / tarkibiy bo\'linma nomi',
+        'Tarkibiy bo\'linma rahbarining F.I.SH.',
+        'Tarkibiy bo\'linma rahbarining lavozimi',
+        'Tarkibiy bo\'linmaning joylashuv manzili',
+        'Tarkibiy bo\'linmaning rasmiy veb-sayt manzili',
+        'Tarkibiy bo\'linmaning elektron pochta manzili',
+        'Boshqaruv organi / tarkibiy bo\'linma to\'g\'risidagi nizom'
+      ],
+      data: [
+        {
+          name: 'Direksiya',
+          head: 'Ziyadullaev Mahmujon Djurakulovich',
+          position: 'Rahbar',
+          address: 'O\'zbekiston Respublikasi, Toshkent shahri, Mirobod tumani, Shahrisabz ko\'chasi, 16-uy',
+          website: 'https://spbu.uz',
+          email: 'm.ziyadullaev@spbu.ru',
+          regulation: 'Filial to\'g\'risidagi nizom'
+        },
+        {
+          name: 'Direksiya', 
+          head: 'Usmonov Dilshod Lapasovich',
+          position: 'Ishlar boshqarmasi boshlig\'i',
+          address: 'O\'zbekiston Respublikasi, Toshkent shahri, Mirobod tumani, Shahrisabz ko\'chasi, 16-uy',
+          website: 'https://spbu.uz',
+          email: 'yo\'q',
+          regulation: 'yo\'q'
+        }
+      ]
+  }
   },
   en: {
     title: 'STRUCTURE AND MANAGEMENT BODIES OF THE EDUCATIONAL ORGANIZATION',
@@ -459,9 +533,41 @@ const translations: Translations = {
         info: '',
         phone: ''
       }
-    ]
+    ],
+    finalTable: {
+      headers: [
+        'Name of management body / structural unit',
+        'Full name of the head of structural unit',
+        'Position of the head of structural unit', 
+        'Location address of structural unit',
+        'Official website address of structural unit',
+        'Email address of structural unit',
+        'Regulation on management body / structural unit'
+      ],
+      data: [
+        {
+          name: 'Directorate',
+          head: 'Ziyadullaev Makhmudjon Djurakulovich',
+          position: 'Head',
+          address: 'Republic of Uzbekistan, Tashkent, Mirobod district, Shahrisabz street, 16',
+          website: 'https://spbu.uz',
+          email: 'm.ziyadullaev@spbu.ru',
+          regulation: 'Branch Regulation'
+        },
+        {
+          name: 'Directorate',
+          head: 'Usmanov Dilshod Lapasovich',
+          position: 'Head of Administrative Affairs',
+          address: 'Republic of Uzbekistan, Tashkent, Mirobod district, Shahrisabz street, 16', 
+          website: 'https://spbu.uz',
+          email: 'none',
+          regulation: 'none'
+        }
+      ]
+    }
   }
 };
+
 
 const BranchStruct: React.FC = () => {
   const langContext = useContext(LanguageContext);
@@ -524,21 +630,34 @@ const BranchStruct: React.FC = () => {
 
   const emptyRow = ['1', 'Отсутствует', 'Отсутствует', 'Отсутствует', 'Отсутствует', 'Отсутствует', 'Отсутствует', 'Отсутствует'];
 
+  // Функция для преобразования объекта в массив значений в правильном порядке
+  const getFinalTableRowData = (row: any) => {
+    return [
+      row.name,
+      row.head,
+      row.position,
+      row.address,
+      row.website,
+      row.email,
+      row.regulation
+    ];
+  };
+
   return (
     <div className="branch-struct">
       <div className="content-container">
         <div className="main-header">
           <span className="main-header-icon">📋</span>
           <h1 className="main-title">{t.title}</h1>
-
         </div>
+        
         <div className="section-block">
           <div className="sub-header">
             <span className="sub-header-icon">👥</span>
             <h2 className="section-title">{sectionTitles[language].management}</h2>
           </div>
           <div className="info-table-container">
-             <table className="info-table">
+            <table className="info-table">
               <thead>
                 <tr>
                   <th>{t.tableHeaders.name}</th>
@@ -579,7 +698,6 @@ const BranchStruct: React.FC = () => {
           </div>
         </div>
 
-        
         <div className="section-block">
           <div className="sub-header">
             <span className="sub-header-icon">🧩</span>
@@ -667,46 +785,29 @@ const BranchStruct: React.FC = () => {
             <span className="sub-header-icon">🌍</span>
             <h2 className="section-title">{extraSectionTitles[language].info}</h2>
           </div>
-
           <div className="info-table-container">
+            <h3>Сводная информация</h3>
             <table className="info-table">
               <thead>
                 <tr>
-                  {extraHeaders.branches[language].map((h) => (
-                    <th key={`bh-${h}`}>{h}</th>
+                  {t.finalTable.headers.map((header, index) => (
+                    <th key={`final-header-${index}`}>{header}</th>
                   ))}
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  {emptyRow.map((cell, idx) => (
-                    <td key={`br-${idx}`}>{cell}</td>
-                  ))}
-                </tr>
+                {t.finalTable.data.map((row, rowIndex) => (
+                  <tr key={`final-row-${rowIndex}`}>
+                    {getFinalTableRowData(row).map((cell, cellIndex) => (
+                      <td key={`final-cell-${rowIndex}-${cellIndex}`}>{cell}</td>
+                    ))}
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
-
-          <div className="info-table-container">
-            <table className="info-table">
-              <thead>
-                <tr>
-                  {extraHeaders.reps[language].map((h) => (
-                    <th key={`rh-${h}`}>{h}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  {emptyRow.map((cell, idx) => (
-                    <td key={`rp-${idx}`}>{cell}</td>
-                  ))}
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
         </div>
+
 
         <div className="info-table-container">
           <table className="info-table">
@@ -744,6 +845,7 @@ const BranchStruct: React.FC = () => {
           </table>
 
         </div>
+
 
       </div>
     </div>
