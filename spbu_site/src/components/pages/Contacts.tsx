@@ -19,7 +19,7 @@ type Translations = {
 
 const translations: Translations = {
   ru: {
-    title: 'Контакты',
+    title: 'Контактная информация',
     subtitle: 'Свяжитесь с нами для получения дополнительной информации',
     address: 'Адрес',
     addressText: '100060, Республика Узбекистан, г. Ташкент, Мирабадский район, ул. Шахрисабз, д. 16 (метро: Айбек)',
@@ -30,7 +30,7 @@ const translations: Translations = {
     mapTitle: 'Карта расположения филиала СПбГУ в Ташкенте'
   },
   uz: {
-    title: 'Aloqa',
+    title: 'Aloqa ma\'lumotlari',
     subtitle: 'Qo\'shimcha ma\'lumot olish uchun biz bilan bog\'laning',
     address: 'Manzil',
     addressText: '100060, O\'zbekiston Respublikasi, Toshkent shahri, Mirabad tumani, Shahrisabz ko\'chasi, 16-uy (metro: Oybek)',
@@ -41,7 +41,7 @@ const translations: Translations = {
     mapTitle: 'Toshkentdagi SPbDU filiali joylashuv xaritasi'
   },
   en: {
-    title: 'Contacts',
+    title: 'Contact Information',
     subtitle: 'Contact us for additional information',
     address: 'Address',
     addressText: '100060, Republic of Uzbekistan, Tashkent, Mirabad district, Shahrisabz street, 16 (metro: Oybek)',
@@ -73,9 +73,10 @@ const Contacts: React.FC = () => {
       <div className="container">
         <div className="contacts-content">
           <div className="contact-info-section">
+            <h2 className="section-title">{t.title}</h2>
             <div className="contact-image-container">
               <img 
-                src="/images/building.png" 
+                src="/images/logo.png" 
                 alt={t.mapTitle}
                 className="contact-image"
               />

@@ -111,8 +111,9 @@ const BranchAbout: React.FC = () => {
               </div>
               <p className="address-text">{t.address.text}</p>
             </div>
-            <div className="info-card">
+            <div className="info-card contacts-card">
               <div className="card-header">
+                <span className="card-icon">📞</span>
                 <h2>{t.contacts.title}</h2>
               </div>
               <div className="contact-links">

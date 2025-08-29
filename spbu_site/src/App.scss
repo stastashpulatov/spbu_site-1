@@ -1,3 +1,6 @@
+/* Импортируем стили кнопок */
+@use './styles/buttons.scss';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -63,6 +66,3 @@
     color: var(--text-color);
   }
 }
-
-/* Импортируем стили кнопок */
-@import './styles/buttons.scss';
