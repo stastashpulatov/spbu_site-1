@@ -729,7 +729,7 @@ const BranchStruct: React.FC = () => {
                 <td>Республика Узбекистан, г. Ташкент, Мирободский район, ул. Шахрисабз, д. 16</td>
                 <td><a href="https://spbu.uz" target="_blank" rel="noopener noreferrer">https://spbu.uz</a></td>
                 <td><a href="mailto:m.ziyadullaev@spbu.ru">m.ziyadullaev@spbu.ru</a></td>
-                <td><a href="/files/ПОЛОЖЕНИЕ_о_филиале_СПбГУ_в_г_Ташкенте.pdf" target="_blank" rel="noopener noreferrer">Положение о филиале</a></td>
+                <td><a href="/files/ПОЛОЖЕНИЕ_о_филиале_СПбГУ_в_г_Ташкенте (2).pdf" target="_blank" rel="noopener noreferrer">Положение о филиале</a></td>
               </tr>
               <tr>
                 <td>Дирекция</td>

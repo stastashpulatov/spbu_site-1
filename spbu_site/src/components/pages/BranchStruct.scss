@@ -1,440 +1,265 @@
-.branch-struct {
-  padding: 2rem !important;
-  min-height: calc(100vh - 4rem) !important;
-  background-color: #fff8f8 !important;
-  color: #333 !important;
-  margin-top: 5rem !important;
+.branch-struct-page {
+  margin-top: 5rem;
+  padding: 2rem;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fff8f8 0%, #f8f9fa 100%);
 
   [data-theme='dark'] & {
-    background-color: #1f1720 !important;
-    color: #f8f9fa !important;
+    background: linear-gradient(135deg, #1f1720 0%, #2d1b2d 100%);
   }
 
   .content-container {
-    max-width: 1200px !important;
-    margin: 0 auto !important;
-    padding: 1.5rem !important;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+
+    [data-theme='dark'] & {
+      background: rgba(45, 27, 45, 0.95);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
   }
 
-  /* Header exactly like BranchCommon */
-  .main-header {
-    display: flex !important;
-    align-items: center !important;
-    margin-bottom: 3rem !important;
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 3px solid #a94442;
+    position: relative;
 
-    .main-header-icon {
-      font-size: 2.5rem !important;
-      margin-right: 1.5rem !important;
-      color: #a94442 !important;
+    [data-theme='dark'] & {
+      border-bottom-color: #e87681;
     }
 
-    .main-title {
-      margin: 0 !important;
-      font-size: 2.5rem !important;
-      font-weight: 600 !important;
-      color: #a94442 !important;
-      position: relative !important;
+    .header-icon {
+      font-size: 3rem;
+      margin-right: 1.5rem;
+      color: #a94442;
 
       [data-theme='dark'] & {
-        color: #e87681 !important;
+        color: #e87681;
+      }
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #333;
+      margin: 0;
+      position: relative;
+
+      [data-theme='dark'] & {
+        color: #fff;
       }
 
       &:after {
-        content: '' !important;
-        position: absolute !important;
-        bottom: -10px !important;
-        left: 0 !important;
-        width: 60px !important;
-        height: 3px !important;
-        background-color: #a94442 !important;
-        border-radius: 2px !important;
-
-        [data-theme='dark'] & {
-          background-color: #e87681 !important;
-        }
+        content: '';
+        position: absolute;
+        bottom: -0.5rem;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, #a94442, #e87681);
+        border-radius: 2px;
       }
     }
   }
 
+  .info-section {
+    margin-bottom: 3rem;
 
-  /* Subsection headers (with emoji and underline) */
-  .sub-header {
-    display: flex !important;
-    align-items: center !important;
-    gap: 0.75rem !important;
-    margin: 2rem 0 1rem 0 !important;
-  }
-
-  .sub-header-icon {
-    font-size: 1.4rem !important;
-  }
-
-  .section-title {
-    position: relative !important;
-    margin: 0 !important;
-    padding-bottom: 0.25rem !important;
-  }
-
-  .section-title:after {
-    content: '' !important;
-    position: absolute !important;
-    left: 0 !important;
-    bottom: -6px !important;
-    width: 200px !important;
-    height: 3px !important;
-    background-color: #a94442 !important;
-    border-radius: 2px !important;
-
-    [data-theme='dark'] & {
-      background-color: #e87681 !important;
-    }
-  }
-
-  /* Card/table container exactly like BranchCommon */
-  .info-table-container {
-    background-color: white !important;
-    border-radius: 12px !important;
-    padding: 0 !important;
-    margin-bottom: 2rem !important;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1) !important;
-    border: 1px solid #e0e0e0 !important;
-    overflow: hidden !important;
-
-    [data-theme='dark'] & {
-      background-color: #2d232a !important;
-      border-color: #4a5568 !important;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
-    }
-  }
-
-  /* removed table-scroll wrapper */
-
-  /* removed scrollable modifier */
-
-  .info-table {
-    width: 100% !important;
-    border-collapse: collapse !important;
-    table-layout: fixed !important;
-    margin-top: 0 !important;
-    border-radius: 12px !important;
-    overflow: hidden !important;
-    box-shadow: 0 4px 15px rgba(169, 68, 66, 0.1) !important;
-
-    [data-theme='dark'] & {
-      box-shadow: 0 4px 15px rgba(232, 118, 129, 0.1) !important;
-    }
-
-    th, td {
-      padding: 0.9rem 1.1rem !important;
-      text-align: left !important;
-      border-bottom: 1px solid #e0e0e0 !important;
-      white-space: normal !important;
-      word-break: break-word !important;
-      overflow-wrap: anywhere !important;
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #a94442;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
 
       [data-theme='dark'] & {
-        border-bottom-color: #4a5568 !important;
+        color: #e87681;
       }
-    }
 
-
-  /* Card/table container exactly like BranchCommon */
-  .info-table-container {
-    background-color: white !important;
-    border-radius: 12px !important;
-    padding: 0 !important;
-    margin-bottom: 2rem !important;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1) !important;
-    border: 1px solid #e0e0e0 !important;
-    overflow: hidden !important;
-
-    [data-theme='dark'] & {
-      background-color: #2d232a !important;
-      border-color: #4a5568 !important;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
+      .section-icon {
+        margin-right: 0.75rem;
+        font-size: 1.5rem;
+      }
     }
   }
 
   .info-table {
-    width: 100% !important;
-    border-collapse: collapse !important;
-    margin-top: 0 !important;
-    border-radius: 12px !important;
-    overflow: hidden !important;
-    box-shadow: 0 4px 15px rgba(169, 68, 66, 0.1) !important;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 
     [data-theme='dark'] & {
-      box-shadow: 0 4px 15px rgba(232, 118, 129, 0.1) !important;
+      background: #2d1b2d;
     }
 
     th, td {
-      padding: 1rem 1.2rem !important;
-      text-align: left !important;
-      border-bottom: 1px solid #e0e0e0 !important;
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #eee;
 
       [data-theme='dark'] & {
-        border-bottom-color: #4a5568 !important;
+        border-bottom-color: #444;
       }
     }
-
 
     th {
-      background: linear-gradient(135deg, #a94442 0%, #c55a5a 100%) !important;
-      color: white !important;
-      font-weight: 600 !important;
-
-      font-size: 0.9rem !important;
-      line-height: 1.25 !important;
-      text-transform: none !important;
-      letter-spacing: 0 !important;
-      text-shadow: none !important;
-      vertical-align: top !important;
-      padding: 0.75rem 1rem !important;
-      hyphens: auto !important;
-
-      font-size: 1rem !important;
-      text-transform: uppercase !important;
-      letter-spacing: 0.5px !important;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
-
+      background: #a94442;
+      color: white;
+      font-weight: 600;
+      font-size: 1.1rem;
 
       [data-theme='dark'] & {
-        background: linear-gradient(135deg, #e87681 0%, #d15a6a 100%) !important;
+        background: #e87681;
       }
     }
 
-
-    thead th:first-child {
-      border-top-left-radius: 12px !important;
-    }
-
-    thead th:last-child {
-      border-top-right-radius: 12px !important;
-    }
-
-    tr {
-      transition: background-color 0.2s ease !important;
-
-      &:hover {
-        background-color: rgba(169, 68, 66, 0.03) !important;
-      }
-
-      &:last-child td {
-        border-bottom: none !important;
-      }
-    }
-    a {
-      color: #a94442 !important;
-      text-decoration: none !important;
-      transition: color 0.2s ease !important;
+    tr:hover {
+      background: #f8f9fa;
 
       [data-theme='dark'] & {
-        color: #e87681 !important;
+        background: #3d2b3d;
       }
-
-      &:hover {
-        color: #8b3a3a !important;
-        text-decoration: underline !important;
-
-        [data-theme='dark'] & {
-          color: #d15a6a !important;
-        }
-      }
-    }
-  }
-  /* Removed legacy table/header styles to match BranchCommon exactly */
-
-  /* Cards layout for responsive replacement of tables */
-  .cards-section {
-    margin-bottom: 2rem !important;
-  }
-
-  .section-title {
-    font-size: 1.5rem !important;
-    font-weight: 600 !important;
-    color: #a94442 !important;
-    margin: 0 0 1rem 0 !important;
-
-    [data-theme='dark'] & {
-      color: #e87681 !important;
     }
   }
 
   .cards-grid {
-    display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-    gap: 1rem !important;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
   }
 
   .card {
-    background-color: #ffffff !important;
-    border-radius: 12px !important;
-    border: 1px solid #e0e0e0 !important;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08) !important;
-    padding: 1rem 1.2rem !important;
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     [data-theme='dark'] & {
-      background-color: #2d232a !important;
-      border-color: #4a5568 !important;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
+      background: #2d1b2d;
     }
 
-
-    thead th:first-child {
-      border-top-left-radius: 12px !important;
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
     }
 
-    thead th:last-child {
-      border-top-right-radius: 12px !important;
-    }
-
-    tr {
-      transition: background-color 0.2s ease !important;
-
-      &:hover {
-        background-color: rgba(169, 68, 66, 0.03) !important;
-      }
-
-      &:last-child td {
-        border-bottom: none !important;
-      }
-    }
-
-    a {
-      color: #a94442 !important;
-      text-decoration: none !important;
-      transition: color 0.2s ease !important;
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #a94442;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
 
       [data-theme='dark'] & {
-        color: #e87681 !important;
+        color: #e87681;
       }
 
-      &:hover {
-        color: #8b3a3a !important;
-        text-decoration: underline !important;
+      .card-icon {
+        margin-right: 0.5rem;
+        font-size: 1.2rem;
+      }
+    }
 
-        [data-theme='dark'] & {
-          color: #d15a6a !important;
-        }
+    .card-content {
+      color: #666;
+
+      [data-theme='dark'] & {
+        color: #ccc;
       }
     }
   }
-  /* Removed legacy table/header styles to match BranchCommon exactly */
-
-  @media (max-width: 768px) {
-    margin-top: 4rem !important;
-    padding: 1rem !important;
-
 
   .card-row {
-    display: grid !important;
-    grid-template-columns: 1fr 2fr !important;
-    gap: 0.75rem !important;
-    padding: 0.6rem 0 !important;
-    border-bottom: 1px solid #e0e0e0 !important;
-
-    [data-theme='dark'] & {
-      border-bottom-color: #4a5568 !important;
-    }
-
-    &:last-child {
-      border-bottom: none !important;
-
-    .content-container {
-      padding: 1rem !important;
-    }
-
-    .header h1 {
-      font-size: 1.75rem !important;
-
-    }
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
   }
 
-
   .label {
-    font-weight: 600 !important;
-    color: #a94442 !important;
+    font-weight: 600;
+    color: #a94442;
 
     [data-theme='dark'] & {
-      color: #e87681 !important;
+      color: #e87681;
     }
   }
 
   .value {
-    color: inherit !important;
-    word-break: break-word !important;
+    color: inherit;
+    word-break: break-word;
   }
 
   @media (max-width: 768px) {
-    margin-top: 4rem !important;
-    padding: 1rem !important;
+    margin-top: 4rem;
+    padding: 1rem;
 
     .content-container {
-      padding: 1rem !important;
+      padding: 1rem;
     }
 
     .header h1 {
-      font-size: 1.75rem !important;
+      font-size: 1.75rem;
     }
 
     table {
-      font-size: 0.85rem !important;
+      font-size: 0.85rem;
     }
 
     .cards-grid {
-      grid-template-columns: 1fr !important;
+      grid-template-columns: 1fr;
     }
 
     .card-row {
-      grid-template-columns: 1fr !important;
+      grid-template-columns: 1fr;
     }
   }
 
   @media (max-width: 480px) {
-    margin-top: 3.5rem !important;
-    padding: 0.75rem !important;
+    margin-top: 3.5rem;
+    padding: 0.75rem;
 
     .content-container {
-      padding: 0.75rem !important;
+      padding: 0.75rem;
     }
 
     .header {
-      flex-direction: column !important;
-      text-align: center !important;
-      gap: 1rem !important;
-
-    table {
-      font-size: 0.85rem !important;
-    }
-  }
-
-  @media (max-width: 480px) {
-    margin-top: 3.5rem !important;
-    padding: 0.75rem !important;
-
-    .content-container {
-      padding: 0.75rem !important;
-    }
-
-    .header {
-      flex-direction: column !important;
-      text-align: center !important;
-      gap: 1rem !important;
-
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
 
       .header-icon {
-        margin-right: 0 !important;
-        margin-bottom: 0.5rem !important;
+        margin-right: 0;
+        margin-bottom: 0.5rem;
       }
 
       h1 {
-        font-size: 1.75rem !important;
+        font-size: 1.75rem;
 
         &:after {
-          left: 50% !important;
-          transform: translateX(-50%) !important;
+          left: 50%;
+          transform: translateX(-50%);
         }
       }
+    }
+
+    table {
+      font-size: 0.85rem;
     }
   }
 }

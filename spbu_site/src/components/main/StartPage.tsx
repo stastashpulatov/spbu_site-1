@@ -6,7 +6,7 @@ import NewsBar from '../shared/NewsBar';
 
 function StartPage() {
     const { language } = useLanguage();
-    const content = translations.startPage[language];
+    const content = translations.startPage[language] as any;
 
     return (
         <div className="start-page">
@@ -14,7 +14,7 @@ function StartPage() {
                 <div className="banner-content">
                     <h1>{content.welcome}</h1>
                     <p>{content.description}</p>
-                    <Link to="/about" className="main-btn">Подробнее</Link>
+                    <Link to="/about" className="main-btn">{content.more}</Link>
                 </div>
             </div>
             <NewsBar />
@@ -23,22 +23,22 @@ function StartPage() {
                 <Link to="/documents" className="info-card">
                     <div className="icon license" />
                     <div>
-                        <div className="card-title">Лицензия</div>
-                        <div className="card-desc">Лицензия на осуществление образовательной деятельности</div>
+                        <div className="card-title">{content.cards.licenseTitle}</div>
+                        <div className="card-desc">{content.cards.licenseDesc}</div>
                     </div>
                 </Link>
                 <Link to="/branch-tashkent/sveden" className="info-card">
                     <div className="icon university" />
                     <div>
-                        <div className="card-title">Сведения об образовательной организации</div>
-                        <div className="card-desc">Информация о филиале Санкт-Петербургского государственного университета в городе Ташкенте</div>
+                        <div className="card-title">{content.cards.orgInfoTitle}</div>
+                        <div className="card-desc">{content.cards.orgInfoDesc}</div>
                     </div>
                 </Link>
                 <Link to="/branch-tashkent/leadership" className="info-card">
                     <div className="icon staff" />
                     <div>
-                        <div className="card-title">Сотрудники</div>
-                        <div className="card-desc">Профессорско-преподавательский состав</div>
+                        <div className="card-title">{content.cards.staffTitle}</div>
+                        <div className="card-desc">{content.cards.staffDesc}</div>
                     </div>
                 </Link>
             </div>

@@ -12,6 +12,9 @@ type Translations = {
     documentsTitle: string;
     documentsText: string;
     downloadButton: string;
+    previewButton: string;
+    documentName: string;
+    documentDesc: string;
     videoTitle: string;
     videoSubtitle: string;
     watchOnYouTube: string;
@@ -27,6 +30,9 @@ const translations: Translations = {
     documentsTitle: 'Документы для поступления',
     documentsText: 'Ознакомьтесь с полным списком необходимых документов для поступления в наш университет.',
     downloadButton: 'Скачать документ',
+    previewButton: 'Предварительный просмотр',
+    documentName: 'Прием_2024.pdf',
+    documentDesc: 'Документ с информацией о приеме 2024',
     videoTitle: 'Инструкция для иностранных абитуриентов',
     videoSubtitle: 'Работа с личным кабинетом',
     watchOnYouTube: 'Посмотреть на YouTube'
@@ -39,6 +45,9 @@ const translations: Translations = {
     documentsTitle: 'Qabul uchun hujjatlar',
     documentsText: 'Bizning universitetga qabul uchun zarur bo\'lgan hujjatlar ro\'yxatini ko\'rib chiqing.',
     downloadButton: 'Hujjatni yuklab olish',
+    previewButton: 'Oldindan ko\'rish',
+    documentName: 'Qabul_2024.pdf',
+    documentDesc: '2024 qabul haqida ma\'lumotnoma hujjati',
     videoTitle: 'Chet ellik abituriyentlar uchun yo\'riqnoma',
     videoSubtitle: 'Shaxsiy kabinet bilan ishlash',
     watchOnYouTube: 'YouTube\'da ko\'rish'
@@ -51,6 +60,9 @@ const translations: Translations = {
     documentsTitle: 'Admission Documents',
     documentsText: 'Review the complete list of required documents for admission to our university.',
     downloadButton: 'Download Document',
+    previewButton: 'Preview',
+    documentName: 'Admission_2024.pdf',
+    documentDesc: 'Document with information about 2024 admission',
     videoTitle: 'Instructions for Foreign Applicants',
     videoSubtitle: 'Working with Personal Account',
     watchOnYouTube: 'Watch on YouTube'
@@ -94,8 +106,8 @@ const Admission: React.FC = () => {
             <div className="document-preview">
               <div className="pdf-icon">📄</div>
               <div className="document-info">
-                <h3>Прием_2024.pdf</h3>
-                <p>Документ с информацией о приеме 2024</p>
+                <h3>{t.documentName}</h3>
+                <p>{t.documentDesc}</p>
               </div>
             </div>
             <div className="document-actions">
@@ -108,7 +120,7 @@ const Admission: React.FC = () => {
                 <svg viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
                 </svg>
-                Предварительный просмотр
+                {t.previewButton}
               </a>
               <a 
                 href="/files/Прием_2024.pdf" 
