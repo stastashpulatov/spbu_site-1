@@ -6,7 +6,7 @@ import NewsBar from '../shared/NewsBar';
 
 function StartPage() {
     const { language } = useLanguage();
-    const content = translations.startPage[language] as any;
+    const content = translations.startPage[language];
 
     return (
         <div className="start-page">

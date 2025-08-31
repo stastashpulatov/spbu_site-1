@@ -615,23 +615,10 @@ const BranchStruct: React.FC = () => {
     }
   };
 
-  const extraHeaders = {
-    branches: {
-      ru: ['№ п/п', 'Наименование филиала', 'ФИО руководителя филиала', 'Должность руководителя филиала', 'Адрес места нахождения', 'Электронная почта', 'Адрес официального сайта или страницы филиала в сети "Интернет"', 'Положение о филиале'],
-      uz: ['№', 'Filial nomi', 'Filial rahbarining F.I.SH.', 'Filial rahbarining lavozimi', 'Manzil', 'Elektron pochta', 'Filialning rasmiy sayti yoki sahifasi manzili', "Filial to'g'risidagi nizom"],
-      en: ['#', 'Branch name', 'Head of branch (Full name)', 'Position of branch head', 'Address', 'Email', 'Official website or page address', 'Regulation about branch']
-    },
-    reps: {
-      ru: ['№ п/п', 'Наименование представительства', 'ФИО руководителя представительства', 'Должность руководителя представительства', 'Адрес места нахождения', 'Электронная почта', 'Адрес официального сайта или страницы представительства в сети "Интернет"', 'Положение о представительстве'],
-      uz: ['№', 'Vakolatxona nomi', 'Vakolatxona rahbarining F.I.SH.', 'Vakolatxona rahbarining lavozimi', 'Manzil', 'Elektron pochta', 'Vakolatxonaning rasmiy sayti yoki sahifasi manzili', 'Vakolatxona nizomi'],
-      en: ['#', 'Representation name', 'Head of representation (Full name)', 'Position of representation head', 'Address', 'Email', 'Official website or page address', 'Regulation about representation']
-    }
-  } as const;
-
-  const emptyRow = ['1', 'Отсутствует', 'Отсутствует', 'Отсутствует', 'Отсутствует', 'Отсутствует', 'Отсутствует', 'Отсутствует'];
+  // Убраны неиспользуемые переменные extraHeaders и emptyRow
 
   // Функция для преобразования объекта в массив значений в правильном порядке
-  const getFinalTableRowData = (row: any) => {
+  const getFinalTableRowData = (row: Record<string, string>) => {
     return [
       row.name,
       row.head,
