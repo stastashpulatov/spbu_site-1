@@ -6,9 +6,10 @@ import './BranchStruct.scss';
 type Translations = {
   [key in Language]: {
     title: string;
-    subtitle: string;
+    managementTitle: string;
+    adminTitle: string;
+    educationalTitle: string;
     tableHeaders: {
-      number: string;
       name: string;
       head: string;
       position: string;
@@ -16,10 +17,8 @@ type Translations = {
       website: string;
       email: string;
       regulation: string;
-      formation: string;
-      phone: string;
     };
-    tableData: {
+    managementData: {
       id: number;
       name: string;
       head: string;
@@ -28,22 +27,8 @@ type Translations = {
       website: string;
       email: string;
       regulation: string;
-      formation: string;
-      phone: string;
     }[];
-    departmentTableHeaders: {
-      number: string;
-      name: string;
-      head: string;
-      position: string;
-      address: string;
-      website: string;
-      email: string;
-      documents: string;
-      info: string;
-      phone: string;
-    };
-    departmentTableData: {
+    adminData: {
       id: number;
       name: string;
       head: string;
@@ -51,11 +36,9 @@ type Translations = {
       address: string;
       website: string;
       email: string;
-      documents: string;
-      info: string;
-      phone: string;
+      regulation: string;
     }[];
-    educationalTableData: {
+    educationalData: {
       id: number;
       name: string;
       head: string;
@@ -63,203 +46,128 @@ type Translations = {
       address: string;
       website: string;
       email: string;
-      documents: string;
-      info: string;
-      phone: string;
+      regulation: string;
     }[];
-    finalTable: {
-       headers: string[];
-       data: {
-        name: string;
-        head: string;
-        position: string;
-        address: string;
-        website: string;
-        email: string;
-        regulation: string;
-      }[];
-    };
   };
 };
 
 const translations: Translations = {
   ru: {
     title: 'СТРУКТУРА И ОРГАНЫ УПРАВЛЕНИЯ ОБРАЗОВАТЕЛЬНОЙ ОРГАНИЗАЦИЕЙ',
-    subtitle: 'Наука',
+    managementTitle: 'Руководство филиала',
+    adminTitle: 'Административные подразделения',
+    educationalTitle: 'Образовательные и специализированные подразделения',
     tableHeaders: {
-      number: '#',
-      name: 'Наименование органа управления',
-      head: 'ФИО руководителя органа управления',
-      position: 'Должность руководителя органа управления',
-      address: 'Адрес местонахождения органа управления',
-      website: 'Адрес официального сайта в сети "Интернет"',
-      email: 'Адреса электронной почты органа управления',
-      regulation: 'Положение об органе управления',
-      formation: 'Порядок формирования',
-      phone: 'Контактный телефон'
+      name: 'Наименование органа управления / структурного подразделения',
+      head: 'ФИО руководителя структурного подразделения',
+      position: 'Должность руководителя структурного подразделения',
+      address: 'Адрес местонахождения структурного подразделения',
+      website: 'Адрес официального сайта структурного подразделения',
+      email: 'Адрес электронной почты структурного подразделения',
+      regulation: 'Положение об органе управления / о структурном подразделении'
     },
-    tableData: [
+    managementData: [
       {
         id: 1,
         name: 'Дирекция',
         head: 'Зиядуллаев Махмуджон Джуракулович',
         position: 'Руководитель',
-        address: 'Республика Узбекистан, г. Ташкент, Мирободский район, ул. Шахрисабз, д 16',
+        address: 'Республика Узбекистан, г. Ташкент, Мирободский район, ул. Шахрисабз, д. 16',
         website: 'https://spbu.uz',
         email: 'm.ziyadullaev@spbu.ru',
-        regulation: 'Положение о филиале (прикрепить файл, который я отправил)',
-        formation: '',
-        phone: ''
+        regulation: 'Положение о филиале'
       },
       {
         id: 2,
         name: 'Дирекция',
         head: 'Усмонов Дилшод Лапасович',
         position: 'Начальник Управления делами',
-        address: 'Республика Узбекистан, г. Ташкент, Мирободский район, ул. Шахрисабз, д 16',
+        address: 'Республика Узбекистан, г. Ташкент, Мирободский район, ул. Шахрисабз, д. 16',
         website: 'https://spbu.uz',
         email: 'нет',
-        regulation: 'нет',
-        formation: '',
-        phone: ''
+        regulation: 'нет'
       }
     ],
-    departmentTableHeaders: {
-      number: '№',
-      name: 'Наименование структурного подразделения',
-      head: 'ФИО руководителя структурного подразделения',
-      position: 'Должность руководителя структурного подразделения',
-      address: 'Адрес местонахождения структурного подразделения',
-      website: 'Адрес официального сайта в сети "Интернет" структурного подразделения (при наличии)',
-      email: 'Адреса электронной почты структурного подразделения (при наличии)',
-      documents: 'Сведения о наличии положений о подразделениях с приложением электронных копий указанных документов, подписанных электронной подписью',
-      info: 'Информация о подразделении',
-      phone: 'Контактный телефон структурного подразделения (при наличии)'
-    },
-    departmentTableData: [
+    adminData: [
       {
         id: 1,
         name: 'Бухгалтерия',
         head: 'Кедиров Носиржон Садуллаевич',
         position: 'Главный бухгалтер',
-        address: 'Республика Узбекистан, г. Ташкент, Мирабадский район, ул. Шахрисабз, д 16',
+        address: 'Республика Узбекистан, г. Ташкент, Мирабадский район, ул. Шахрисабз, д. 16',
         website: 'https://spbu.uz',
         email: 'нет',
-        documents: 'нет',
-        info: '',
-        phone: ''
+        regulation: 'нет'
       },
       {
         id: 2,
         name: 'Отдел по работе с молодежью, духовности и просветительства',
         head: 'Пайзиев Махмуджон Азаматович',
         position: 'Начальник отдела',
-        address: 'Республика Узбекистан, г. Ташкент, Мирабадский район, ул. Шахрисабз, д 16',
+        address: 'Республика Узбекистан, г. Ташкент, Мирабадский район, ул. Шахрисабз, д. 16',
         website: 'https://spbu.uz',
         email: 'нет',
-        documents: 'нет',
-        info: '',
-        phone: ''
+        regulation: 'нет'
       },
       {
         id: 3,
         name: 'Сектор по работе с обращениями физических и юридических лиц, контролю и мониторингу',
         head: 'Эшматова Дилноза Анваровна',
         position: 'Главный специалист',
-        address: 'Республика Узбекистан, г. Ташкент, Мирабадский район, ул. Шахрисабз, д 16',
+        address: 'Республика Узбекистан, г. Ташкент, Мирабадский район, ул. Шахрисабз, д. 16',
         website: 'https://spbu.uz',
         email: 'нет',
-        documents: 'нет',
-        info: '',
-        phone: ''
+        regulation: 'нет'
       }
     ],
-    educationalTableData: [
+    educationalData: [
       {
         id: 1,
         name: 'Отдел контроля качества образования',
         head: 'Миразеева Файзиннисо Абдуллахатовна',
         position: 'Главный специалист',
-        address: 'Республика Узбекистан, г. Ташкент, Мирабадский район, ул. Шахрисабз, д 16',
+        address: 'Республика Узбекистан, г. Ташкент, Мирабадский район, ул. Шахрисабз, д. 16',
         website: 'https://spbu.uz',
         email: 'нет',
-        documents: 'нет',
-        info: '',
-        phone: ''
+        regulation: 'нет'
       },
       {
         id: 2,
         name: 'Отдел кадров',
         head: 'Екубхуҷаев Шахриёржон Эркин угли',
         position: 'Инспектор',
-        address: 'Республика Узбекистан, г. Ташкент, Мирабадский район, ул. Шахрисабз, д 16',
+        address: 'Республика Узбекистан, г. Ташкент, Мирабадский район, ул. Шахрисабз, д. 16',
         website: 'https://spbu.uz',
         email: 'нет',
-        documents: 'нет',
-        info: '',
-        phone: ''
+        regulation: 'нет'
       },
       {
         id: 3,
         name: 'Центр цифровых образовательных технологий',
         head: 'Хаитбоев Мавлонбек Шухрат угли',
         position: 'Начальник центра',
-        address: 'Республика Узбекистан, г. Ташкент, Мирабадский район, ул. Шахрисабз, д 16',
+        address: 'Республика Узбекистан, г. Ташкент, Мирабадский район, ул. Шахрисабз, д. 16',
         website: 'https://spbu.uz',
         email: 'нет',
-        documents: 'нет',
-        info: '',
-        phone: ''
+        regulation: 'нет'
       }
-    ],
-    finalTable: {
-      headers: [
-        'Наименование органа управления / структурного подразделения',
-        'ФИО руководителя структурного подразделения', 
-        'Должность руководителя структурного подразделения',
-        'Адрес местонахождения структурного подразделения',
-        'Адрес официального сайта структурного подразделения',
-        'Адрес электронной почты структурного подразделения',
-        'Положение об органе управления / о структурном подразделении'
-      ],
-      data: [
-        {
-          name: 'Дирекция',
-          head: 'Зиядуллаев Махмуджон Джуракулович',
-          position: 'Руководитель',
-          address: 'Республика Узбекистан, г. Ташкент, Мирободский район, ул. Шахрисабз, д. 16',
-          website: 'https://spbu.uz',
-          email: 'm.ziyadullaev@spbu.ru',
-          regulation: 'Положение о филиале'
-        },
-        {
-          name: 'Дирекция',
-          head: 'Усмонов Дилшод Лапасович', 
-          position: 'Начальник Управления делами',
-          address: 'Республика Узбекистан, г. Ташкент, Мирободский район, ул. Шахрисабз, д. 16',
-          website: 'https://spbu.uz',
-          email: 'нет',
-          regulation: 'нет'
-        }
-      ]
-    }
+    ]
   },
   uz: {
     title: 'TA\'LIM TASHKILOTINING TUZILISHI VA BOSHQARUV ORGANLARI',
-    subtitle: 'Fan',
+    managementTitle: 'Filial rahbariyati',
+    adminTitle: "Ma'muriy bo'limlar",
+    educationalTitle: "Ta'lim va ixtisoslashgan bo'limlar",
     tableHeaders: {
-      number: '#',
-      name: 'Boshqaruv organining nomi',
-      head: 'Boshqaruv organi rahbarining F.I.SH.',
-      position: 'Boshqaruv organi rahbarining lavozimi',
-      address: 'Boshqaruv organining joylashuv manzili',
-      website: '"Internet" tarmog\'idagi rasmiy veb-sayt manzili',
-      email: 'Boshqaruv organining elektron pochta manzili',
-      regulation: 'Boshqaruv organi to\'g\'risidagi nizom',
-      formation: 'Shakllantirish tartibi',
-      phone: 'Aloqa telefoni'
+      name: 'Boshqaruv organi / tarkibiy bo\'linma nomi',
+      head: 'Tarkibiy bo\'linma rahbarining F.I.SH.',
+      position: 'Tarkibiy bo\'linma rahbarining lavozimi',
+      address: 'Tarkibiy bo\'linmaning joylashuv manzili',
+      website: 'Tarkibiy bo\'linmaning rasmiy veb-sayt manzili',
+      email: 'Tarkibiy bo\'linmaning elektron pochta manzili',
+      regulation: 'Boshqaruv organi / tarkibiy bo\'linma to\'g\'risidagi nizom'
     },
-    tableData: [
+    managementData: [
       {
         id: 1,
         name: 'Direksiya',
@@ -268,9 +176,7 @@ const translations: Translations = {
         address: 'O\'zbekiston Respublikasi, Toshkent shahri, Mirobod tumani, Shahrisabz ko\'chasi, 16-uy',
         website: 'https://spbu.uz',
         email: 'm.ziyadullaev@spbu.ru',
-        regulation: 'Filial to\'g\'risidagi nizom (yuborgan faylni biriktirish)',
-        formation: '',
-        phone: ''
+        regulation: 'Filial to\'g\'risidagi nizom'
       },
       {
         id: 2,
@@ -280,24 +186,10 @@ const translations: Translations = {
         address: 'O\'zbekiston Respublikasi, Toshkent shahri, Mirobod tumani, Shahrisabz ko\'chasi, 16-uy',
         website: 'https://spbu.uz',
         email: 'yo\'q',
-        regulation: 'yo\'q',
-        formation: '',
-        phone: ''
+        regulation: 'yo\'q'
       }
     ],
-    departmentTableHeaders: {
-      number: '№',
-      name: 'Tarkibiy bo\'linma nomi',
-      head: 'Tarkibiy bo\'linma rahbarining F.I.SH.',
-      position: 'Tarkibiy bo\'linma rahbarining lavozimi',
-      address: 'Tarkibiy bo\'linmaning joylashuv manzili',
-      website: '"Internet" tarmog\'idagi rasmiy veb-sayt manzili (mavjud bo\'lsa)',
-      email: 'Tarkibiy bo\'linmaning elektron pochta manzili (mavjud bo\'lsa)',
-      documents: 'Bo\'linmalar to\'g\'risidagi nizomlar mavjudligi to\'g\'risida ma\'lumot, elektron imzo bilan imzolangan ko\'rsatilgan hujjatlarning elektron nusxalari ilova qilingan',
-      info: 'Bo\'linma haqida ma\'lumot',
-      phone: 'Tarkibiy bo\'linmaning aloqa telefoni (mavjud bo\'lsa)'
-    },
-    departmentTableData: [
+    adminData: [
       {
         id: 1,
         name: 'Buxgalteriya',
@@ -306,9 +198,7 @@ const translations: Translations = {
         address: 'O\'zbekiston Respublikasi, Toshkent shahri, Mirobod tumani, Shahrisabz ko\'chasi, 16-uy',
         website: 'https://spbu.uz',
         email: 'yo\'q',
-        documents: 'yo\'q',
-        info: '',
-        phone: ''
+        regulation: 'yo\'q'
       },
       {
         id: 2,
@@ -318,9 +208,7 @@ const translations: Translations = {
         address: 'O\'zbekiston Respublikasi, Toshkent shahri, Mirobod tumani, Shahrisabz ko\'chasi, 16-uy',
         website: 'https://spbu.uz',
         email: 'yo\'q',
-        documents: 'yo\'q',
-        info: '',
-        phone: ''
+        regulation: 'yo\'q'
       },
       {
         id: 3,
@@ -330,12 +218,10 @@ const translations: Translations = {
         address: 'O\'zbekiston Respublikasi, Toshkent shahri, Mirobod tumani, Shahrisabz ko\'chasi, 16-uy',
         website: 'https://spbu.uz',
         email: 'yo\'q',
-        documents: 'yo\'q',
-        info: '',
-        phone: ''
+        regulation: 'yo\'q'
       }
     ],
-    educationalTableData: [
+    educationalData: [
       {
         id: 1,
         name: 'Ta\'lim sifatini nazorat qilish bo\'limi',
@@ -344,9 +230,7 @@ const translations: Translations = {
         address: 'O\'zbekiston Respublikasi, Toshkent shahri, Mirobod tumani, Shahrisabz ko\'chasi, 16-uy',
         website: 'https://spbu.uz',
         email: 'yo\'q',
-        documents: 'yo\'q',
-        info: '',
-        phone: ''
+        regulation: 'yo\'q'
       },
       {
         id: 2,
@@ -356,9 +240,7 @@ const translations: Translations = {
         address: 'O\'zbekiston Respublikasi, Toshkent shahri, Mirobod tumani, Shahrisabz ko\'chasi, 16-uy',
         website: 'https://spbu.uz',
         email: 'yo\'q',
-        documents: 'yo\'q',
-        info: '',
-        phone: ''
+        regulation: 'yo\'q'
       },
       {
         id: 3,
@@ -368,59 +250,25 @@ const translations: Translations = {
         address: 'O\'zbekiston Respublikasi, Toshkent shahri, Mirobod tumani, Shahrisabz ko\'chasi, 16-uy',
         website: 'https://spbu.uz',
         email: 'yo\'q',
-        documents: 'yo\'q',
-        info: '',
-        phone: ''
+        regulation: 'yo\'q'
       }
-    ],
-    finalTable: {
-      headers: [
-        'Boshqaruv organi / tarkibiy bo\'linma nomi',
-        'Tarkibiy bo\'linma rahbarining F.I.SH.',
-        'Tarkibiy bo\'linma rahbarining lavozimi',
-        'Tarkibiy bo\'linmaning joylashuv manzili',
-        'Tarkibiy bo\'linmaning rasmiy veb-sayt manzili',
-        'Tarkibiy bo\'linmaning elektron pochta manzili',
-        'Boshqaruv organi / tarkibiy bo\'linma to\'g\'risidagi nizom'
-      ],
-      data: [
-        {
-          name: 'Direksiya',
-          head: 'Ziyadullaev Mahmujon Djurakulovich',
-          position: 'Rahbar',
-          address: 'O\'zbekiston Respublikasi, Toshkent shahri, Mirobod tumani, Shahrisabz ko\'chasi, 16-uy',
-          website: 'https://spbu.uz',
-          email: 'm.ziyadullaev@spbu.ru',
-          regulation: 'Filial to\'g\'risidagi nizom'
-        },
-        {
-          name: 'Direksiya', 
-          head: 'Usmonov Dilshod Lapasovich',
-          position: 'Ishlar boshqarmasi boshlig\'i',
-          address: 'O\'zbekiston Respublikasi, Toshkent shahri, Mirobod tumani, Shahrisabz ko\'chasi, 16-uy',
-          website: 'https://spbu.uz',
-          email: 'yo\'q',
-          regulation: 'yo\'q'
-        }
-      ]
-  }
+    ]
   },
   en: {
     title: 'STRUCTURE AND MANAGEMENT BODIES OF THE EDUCATIONAL ORGANIZATION',
-    subtitle: 'Science',
+    managementTitle: 'Branch management',
+    adminTitle: 'Administrative departments',
+    educationalTitle: 'Educational and specialized departments',
     tableHeaders: {
-      number: '#',
-      name: 'Name of the management body',
-      head: 'Full name of the head of the management body',
-      position: 'Position of the head of the management body',
-      address: 'Location address of the management body',
-      website: 'Address of the official website on the Internet',
-      email: 'Email address of the management body',
-      regulation: 'Regulation on the management body',
-      formation: 'Formation procedure',
-      phone: 'Contact phone'
+      name: 'Name of management body / structural unit',
+      head: 'Full name of the head of structural unit',
+      position: 'Position of the head of structural unit',
+      address: 'Location address of structural unit',
+      website: 'Official website address of structural unit',
+      email: 'Email address of structural unit',
+      regulation: 'Regulation on management body / structural unit'
     },
-    tableData: [
+    managementData: [
       {
         id: 1,
         name: 'Directorate',
@@ -429,9 +277,7 @@ const translations: Translations = {
         address: 'Republic of Uzbekistan, Tashkent, Mirobod district, Shahrisabz street, 16',
         website: 'https://spbu.uz',
         email: 'm.ziyadullaev@spbu.ru',
-        regulation: 'Regulation on the branch (attach the file I sent)',
-        formation: '',
-        phone: ''
+        regulation: 'Branch Regulation'
       },
       {
         id: 2,
@@ -441,24 +287,10 @@ const translations: Translations = {
         address: 'Republic of Uzbekistan, Tashkent, Mirobod district, Shahrisabz street, 16',
         website: 'https://spbu.uz',
         email: 'none',
-        regulation: 'none',
-        formation: '',
-        phone: ''
+        regulation: 'none'
       }
     ],
-    departmentTableHeaders: {
-      number: '#',
-      name: 'Name of the structural unit',
-      head: 'Full name of the head of the structural unit',
-      position: 'Position of the head of the structural unit',
-      address: 'Location address of the structural unit',
-      website: 'Address of the official website on the Internet (if available)',
-      email: 'Email address of the structural unit (if available)',
-      documents: 'Information on the availability of regulations on units with attached electronic copies of these documents signed with an electronic signature',
-      info: 'Information about the unit',
-      phone: 'Contact phone of the structural unit (if available)'
-    },
-    departmentTableData: [
+    adminData: [
       {
         id: 1,
         name: 'Accounting Department',
@@ -467,9 +299,7 @@ const translations: Translations = {
         address: 'Republic of Uzbekistan, Tashkent, Mirobod district, Shahrisabz street, 16',
         website: 'https://spbu.uz',
         email: 'none',
-        documents: 'none',
-        info: '',
-        phone: ''
+        regulation: 'none'
       },
       {
         id: 2,
@@ -479,9 +309,7 @@ const translations: Translations = {
         address: 'Republic of Uzbekistan, Tashkent, Mirobod district, Shahrisabz street, 16',
         website: 'https://spbu.uz',
         email: 'none',
-        documents: 'none',
-        info: '',
-        phone: ''
+        regulation: 'none'
       },
       {
         id: 3,
@@ -491,12 +319,10 @@ const translations: Translations = {
         address: 'Republic of Uzbekistan, Tashkent, Mirobod district, Shahrisabz street, 16',
         website: 'https://spbu.uz',
         email: 'none',
-        documents: 'none',
-        info: '',
-        phone: ''
+        regulation: 'none'
       }
     ],
-    educationalTableData: [
+    educationalData: [
       {
         id: 1,
         name: 'Department of Education Quality Control',
@@ -505,9 +331,7 @@ const translations: Translations = {
         address: 'Republic of Uzbekistan, Tashkent, Mirobod district, Shahrisabz street, 16',
         website: 'https://spbu.uz',
         email: 'none',
-        documents: 'none',
-        info: '',
-        phone: ''
+        regulation: 'none'
       },
       {
         id: 2,
@@ -517,9 +341,7 @@ const translations: Translations = {
         address: 'Republic of Uzbekistan, Tashkent, Mirobod district, Shahrisabz street, 16',
         website: 'https://spbu.uz',
         email: 'none',
-        documents: 'none',
-        info: '',
-        phone: ''
+        regulation: 'none'
       },
       {
         id: 3,
@@ -529,45 +351,11 @@ const translations: Translations = {
         address: 'Republic of Uzbekistan, Tashkent, Mirobod district, Shahrisabz street, 16',
         website: 'https://spbu.uz',
         email: 'none',
-        documents: 'none',
-        info: '',
-        phone: ''
+        regulation: 'none'
       }
-    ],
-    finalTable: {
-      headers: [
-        'Name of management body / structural unit',
-        'Full name of the head of structural unit',
-        'Position of the head of structural unit', 
-        'Location address of structural unit',
-        'Official website address of structural unit',
-        'Email address of structural unit',
-        'Regulation on management body / structural unit'
-      ],
-      data: [
-        {
-          name: 'Directorate',
-          head: 'Ziyadullaev Makhmudjon Djurakulovich',
-          position: 'Head',
-          address: 'Republic of Uzbekistan, Tashkent, Mirobod district, Shahrisabz street, 16',
-          website: 'https://spbu.uz',
-          email: 'm.ziyadullaev@spbu.ru',
-          regulation: 'Branch Regulation'
-        },
-        {
-          name: 'Directorate',
-          head: 'Usmanov Dilshod Lapasovich',
-          position: 'Head of Administrative Affairs',
-          address: 'Republic of Uzbekistan, Tashkent, Mirobod district, Shahrisabz street, 16', 
-          website: 'https://spbu.uz',
-          email: 'none',
-          regulation: 'none'
-        }
-      ]
-    }
+    ]
   }
 };
-
 
 const BranchStruct: React.FC = () => {
   const langContext = useContext(LanguageContext);
@@ -579,56 +367,60 @@ const BranchStruct: React.FC = () => {
   const { language } = langContext;
   const t = translations[language];
 
-  const sectionTitles: Record<Language, { management: string; departments: string }> = {
-    ru: { management: 'Руководство филиала', departments: 'Структурные подразделения' },
-    uz: { management: 'Filial rahbariyati', departments: "Tarkibiy bo'linmalar" },
-    en: { management: 'Branch management', departments: 'Structural units' }
-  };
-
-  const extraSectionTitles: Record<Language, {
-    admin: string;
-    educational: string;
-    info: string;
-    branchesTable: string;
-    repsTable: string;
-  }> = {
-    ru: {
-      admin: 'Административные подразделения',
-      educational: 'Образовательные и специализированные подразделения',
-      info: 'Информация о филиалах и представительствах',
-      branchesTable: 'Информация о филиалах образовательной организации',
-      repsTable: 'Информация о представительствах образовательной организации'
-    },
-    uz: {
-      admin: "Ma'muriy bo'limlar",
-      educational: "Ta'lim va ixtisoslashgan bo'limlar",
-      info: "Filial va vakolatxonalar haqidagi ma'lumot",
-      branchesTable: "Ta'lim tashkilotining filiallari haqida ma'lumot",
-      repsTable: "Ta'lim tashkilotining vakolatxonalari haqida ma'lumot"
-    },
-    en: {
-      admin: 'Administrative departments',
-      educational: 'Educational and specialized departments',
-      info: 'Information about branches and representations',
-      branchesTable: 'Information about branches of the educational organization',
-      repsTable: 'Information about representations of the educational organization'
-    }
-  };
-
-  // Убраны неиспользуемые переменные extraHeaders и emptyRow
-
-  // Функция для преобразования объекта в массив значений в правильном порядке
-  const getFinalTableRowData = (row: Record<string, string>) => {
-    return [
-      row.name,
-      row.head,
-      row.position,
-      row.address,
-      row.website,
-      row.email,
-      row.regulation
-    ];
-  };
+  const renderTable = (data: typeof t.managementData, sectionTitle: string, icon: string) => (
+    <div className="section-block">
+      <div className="sub-header">
+        <span className="sub-header-icon">{icon}</span>
+        <h2 className="section-title">{sectionTitle}</h2>
+      </div>
+      <div className="info-table-container">
+        <table className="info-table">
+          <thead>
+            <tr>
+              <th>{t.tableHeaders.name}</th>
+              <th>{t.tableHeaders.head}</th>
+              <th>{t.tableHeaders.position}</th>
+              <th>{t.tableHeaders.address}</th>
+              <th>{t.tableHeaders.website}</th>
+              <th>{t.tableHeaders.email}</th>
+              <th>{t.tableHeaders.regulation}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((item) => (
+              <tr key={item.id}>
+                <td>{item.name}</td>
+                <td>{item.head}</td>
+                <td>{item.position}</td>
+                <td>{item.address}</td>
+                <td>
+                  {item.website ? (
+                    <a href={item.website} target="_blank" rel="noopener noreferrer">{item.website}</a>
+                  ) : (
+                    '—'
+                  )}
+                </td>
+                <td>
+                  {item.email && item.email.includes('@') ? (
+                    <a href={`mailto:${item.email}`}>{item.email}</a>
+                  ) : (
+                    item.email || '—'
+                  )}
+                </td>
+                <td>
+                  {item.regulation && item.regulation !== 'нет' && item.regulation !== 'yo\'q' && item.regulation !== 'none' ? (
+                    <a href="/files/ПОЛОЖЕНИЕ_о_филиале_СПбГУ_в_г_Ташкенте (2).pdf" target="_blank" rel="noopener noreferrer">{item.regulation}</a>
+                  ) : (
+                    item.regulation || '—'
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
 
   return (
     <div className="branch-struct">
@@ -638,202 +430,9 @@ const BranchStruct: React.FC = () => {
           <h1 className="main-title">{t.title}</h1>
         </div>
         
-        <div className="section-block">
-          <div className="sub-header">
-            <span className="sub-header-icon">👥</span>
-            <h2 className="section-title">{sectionTitles[language].management}</h2>
-          </div>
-          <div className="info-table-container">
-            <table className="info-table">
-              <thead>
-                <tr>
-                  <th>{t.tableHeaders.name}</th>
-                  <th>{t.tableHeaders.head}</th>
-                  <th>{t.tableHeaders.position}</th>
-                  <th>{t.tableHeaders.address}</th>
-                  <th>{t.tableHeaders.website}</th>
-                  <th>{t.tableHeaders.email}</th>
-                  <th>{t.tableHeaders.regulation}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {t.tableData.map((item) => (
-                  <tr key={item.id}>
-                    <td>{item.name}</td>
-                    <td>{item.head}</td>
-                    <td>{item.position}</td>
-                    <td>{item.address}</td>
-                    <td>
-                      {item.website ? (
-                        <a href={(item.website.startsWith('http') ? '' : 'https://') + item.website.replace(/^https?:\/\//, '')} target="_blank" rel="noopener noreferrer">{item.website}</a>
-                      ) : (
-                        '—'
-                      )}
-                    </td>
-                    <td>
-                      {item.email && item.email.includes('@') ? (
-                        <a href={`mailto:${item.email}`}>{item.email}</a>
-                      ) : (
-                        item.email || '—'
-                      )}
-                    </td>
-                    <td>{item.regulation || '—'}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div className="section-block">
-          <div className="sub-header">
-            <span className="sub-header-icon">🧩</span>
-            <h2 className="section-title">{extraSectionTitles[language].admin}</h2>
-          </div>
-          <div className="info-table-container">
-            <table className="info-table">
-              <thead>
-                <tr>
-                  <th>{t.departmentTableHeaders.name}</th>
-                  <th>{t.departmentTableHeaders.head}</th>
-                  <th>{t.departmentTableHeaders.position}</th>
-                  <th>{t.departmentTableHeaders.address}</th>
-                  <th>{t.departmentTableHeaders.website}</th>
-                  <th>{t.departmentTableHeaders.email}</th>
-                  <th>{t.departmentTableHeaders.documents}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {t.departmentTableData.map((item) => (
-                  <tr key={`admin-${item.id}`}>
-                    <td>{item.name}</td>
-                    <td>{item.head}</td>
-                    <td>{item.position}</td>
-                    <td>{item.address}</td>
-                    <td>
-                      {item.website ? (
-                        <a href={(item.website.startsWith('http') ? '' : 'https://') + item.website.replace(/^https?:\/\//, '')} target="_blank" rel="noopener noreferrer">{item.website}</a>
-                      ) : (
-                        'нет'
-                      )}
-                    </td>
-                    <td>{item.email || 'нет'}</td>
-                    <td>{item.documents || 'нет'}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div className="section-block">
-          <div className="sub-header">
-            <span className="sub-header-icon">🎓</span>
-            <h2 className="section-title">{extraSectionTitles[language].educational}</h2>
-          </div>
-          <div className="info-table-container">
-            <table className="info-table">
-              <thead>
-                <tr>
-                  <th>{t.departmentTableHeaders.name}</th>
-                  <th>{t.departmentTableHeaders.head}</th>
-                  <th>{t.departmentTableHeaders.position}</th>
-                  <th>{t.departmentTableHeaders.address}</th>
-                  <th>{t.departmentTableHeaders.website}</th>
-                  <th>{t.departmentTableHeaders.email}</th>
-                  <th>{t.departmentTableHeaders.documents}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {t.educationalTableData.map((item) => (
-                  <tr key={`edu-${item.id}`}>
-                    <td>{item.name}</td>
-                    <td>{item.head}</td>
-                    <td>{item.position}</td>
-                    <td>{item.address}</td>
-                    <td>
-                      {item.website ? (
-                        <a href={(item.website.startsWith('http') ? '' : 'https://') + item.website.replace(/^https?:\/\//, '')} target="_blank" rel="noopener noreferrer">{item.website}</a>
-                      ) : (
-                        'нет'
-                      )}
-                    </td>
-                    <td>{item.email || 'нет'}</td>
-                    <td>{item.documents || 'нет'}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div className="section-block">
-          <div className="sub-header">
-            <span className="sub-header-icon">🌍</span>
-            <h2 className="section-title">{extraSectionTitles[language].info}</h2>
-          </div>
-          <div className="info-table-container">
-            <h3>Сводная информация</h3>
-            <table className="info-table">
-              <thead>
-                <tr>
-                  {t.finalTable.headers.map((header, index) => (
-                    <th key={`final-header-${index}`}>{header}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {t.finalTable.data.map((row, rowIndex) => (
-                  <tr key={`final-row-${rowIndex}`}>
-                    {getFinalTableRowData(row).map((cell, cellIndex) => (
-                      <td key={`final-cell-${rowIndex}-${cellIndex}`}>{cell}</td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-
-        <div className="info-table-container">
-          <table className="info-table">
-            <thead>
-              <tr>
-                <th>Наименование органа управления / структурного подразделения</th>
-                <th>ФИО руководителя структурного подразделения</th>
-                <th>Должность руководителя структурного подразделения</th>
-                <th>Адрес местонахождения структурного подразделения</th>
-                <th>Адрес официального сайта структурного подразделения</th>
-                <th>Адрес электронной почты структурного подразделения</th>
-                <th>Положение об органе управления / о структурном подразделении</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Дирекция</td>
-                <td>Зиядуллаев Махмуджон Джуракулович</td>
-                <td>Руководитель</td>
-                <td>Республика Узбекистан, г. Ташкент, Мирободский район, ул. Шахрисабз, д. 16</td>
-                <td><a href="https://spbu.uz" target="_blank" rel="noopener noreferrer">https://spbu.uz</a></td>
-                <td><a href="mailto:m.ziyadullaev@spbu.ru">m.ziyadullaev@spbu.ru</a></td>
-                <td><a href="/files/ПОЛОЖЕНИЕ_о_филиале_СПбГУ_в_г_Ташкенте (2).pdf" target="_blank" rel="noopener noreferrer">Положение о филиале</a></td>
-              </tr>
-              <tr>
-                <td>Дирекция</td>
-                <td>Усмонов Дилшод Лапасович</td>
-                <td>Начальник Управления делами</td>
-                <td>Республика Узбекистан, г. Ташкент, Мирободский район, ул. Шахрисабз, д. 16</td>
-                <td><a href="https://spbu.uz" target="_blank" rel="noopener noreferrer">https://spbu.uz</a></td>
-                <td>нет</td>
-                <td>нет</td>
-              </tr>
-            </tbody>
-          </table>
-
-        </div>
-
-
+        {renderTable(t.managementData, t.managementTitle, '👥')}
+        {renderTable(t.adminData, t.adminTitle, '🧩')}
+        {renderTable(t.educationalData, t.educationalTitle, '🎓')}
       </div>
     </div>
   );
