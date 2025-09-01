@@ -26,6 +26,7 @@ import Contacts from "./components/pages/Contacts";
 import Library from "./components/pages/Library";
 import StudentAccount from "./components/pages/StudentAccount";
 import Documents from "./components/pages/Documents";
+import LocalDocuments from "./components/pages/LocalDocuments";
 import Agreements from "./components/pages/Agreements";
 import NewsPage from "./components/pages/NewsPage";
 import SchedulePage from "./components/pages/SchedulePage";
@@ -69,6 +70,7 @@ function App() {
                   <Route path='/trki/exam-preparation' element={<ExamPreparation />} />
                   <Route path='/contacts' element={<Contacts />} />
                   <Route path='/documents' element={<Documents />} />
+                  <Route path='/local-documents' element={<LocalDocuments />} />
                   <Route path='/agreements' element={<Agreements />} />
                   <Route path='/library' element={<Library />} />
                   <Route path='/student-account' element={<StudentAccount />} />
