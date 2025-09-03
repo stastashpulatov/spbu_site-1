@@ -12,6 +12,7 @@ import BranchSveden from "./components/pages/BranchSveden";
 import BranchCommon from "./components/pages/BranchCommon";
 import BranchStruct from "./components/pages/BranchStruct";
 import BranchDocument from "./components/pages/BranchDocument";
+import BranchEducation from "./components/pages/BranchEducation";
 import BranchEmployees from "./components/pages/BranchEmployees";
 import Leadership from "./components/pages/Leadership";
 import InternationalBusiness from "./components/pages/InternationalBusiness";
@@ -58,6 +59,7 @@ function App() {
                   <Route path='/branch-tashkent/sveden/common' element={<BranchCommon />} />
                   <Route path='/branch-tashkent/sveden/struct' element={<BranchStruct />} />
                   <Route path='/branch-tashkent/sveden/document' element={<BranchDocument />} />
+                  <Route path='/branch-tashkent/sveden/education' element={<BranchEducation />} />
                   <Route path="/branch-tashkent/sveden/employees" element={<BranchEmployees />} />
                   <Route path='/branch-tashkent/leadership' element={<Leadership />} />
                   <Route path='/education/bachelor/economy' element={<InternationalBusiness />} />
