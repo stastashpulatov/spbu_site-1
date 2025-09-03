@@ -116,7 +116,7 @@ const translations: Record<'ru' | 'en' | 'uz', Translations> = {
       {
         title: 'Информация о численности обучающихся.pdf',
         link: 'Информация о численности обучающихся',
-        url: 'https://spbu.ru/sites/default/files/2025-07/chislennost-obuchayushchikhsya_tashkent_20251009.pdf'
+        url: 'https://spbu.ru/sites/default/files/2025-07/chislennost-obuchayuschikhsya-po-istochnikam-finansirovaniya_tashkent_20251009.pdf'
       },
       {
         title: 'Информация о результатах перевода, восстановления и отчисления.pdf',
@@ -203,7 +203,7 @@ const translations: Record<'ru' | 'en' | 'uz', Translations> = {
       {
         title: 'Information on the number of students.pdf',
         link: 'Information on the number of students',
-        url: 'https://spbu.ru/sites/default/files/2025-07/chislennost-obuchayushchikhsya_tashkent_20251009.pdf'
+        url: 'https://spbu.ru/sites/default/files/2025-07/chislennost-obuchayuschikhsya-po-istochnikam-finansirovaniya_tashkent_20251009.pdf'
       },
       {
         title: 'Information on transfer results, restoration and expulsion.pdf',
@@ -290,7 +290,7 @@ const translations: Record<'ru' | 'en' | 'uz', Translations> = {
       {
         title: 'Talabalar soni haqida ma\'lumot.pdf',
         link: 'Talabalar soni haqida ma\'lumot',
-        url: 'https://spbu.ru/sites/default/files/2025-07/chislennost-obuchayushchikhsya_tashkent_20251009.pdf'
+        url: 'https://spbu.ru/sites/default/files/2025-07/chislennost-obuchayuschikhsya-po-istochnikam-finansirovaniya_tashkent_20251009.pdf'
       },
       {
         title: 'Ko\'chirish, tiklash va chetlatish natijalari haqida ma\'lumot.pdf',
