@@ -12,6 +12,7 @@ import BranchSveden from "./components/pages/BranchSveden";
 import BranchCommon from "./components/pages/BranchCommon";
 import BranchStruct from "./components/pages/BranchStruct";
 import BranchDocument from "./components/pages/BranchDocument";
+import BranchEducation from "./components/pages/BranchEducation";
 import BranchEmployees from "./components/pages/BranchEmployees";
 import Leadership from "./components/pages/Leadership";
 import InternationalBusiness from "./components/pages/InternationalBusiness";
@@ -26,6 +27,7 @@ import Contacts from "./components/pages/Contacts";
 import Library from "./components/pages/Library";
 import StudentAccount from "./components/pages/StudentAccount";
 import Documents from "./components/pages/Documents";
+import LocalDocuments from "./components/pages/LocalDocuments";
 import Agreements from "./components/pages/Agreements";
 import NewsPage from "./components/pages/NewsPage";
 import SchedulePage from "./components/pages/SchedulePage";
@@ -57,6 +59,7 @@ function App() {
                   <Route path='/branch-tashkent/sveden/common' element={<BranchCommon />} />
                   <Route path='/branch-tashkent/sveden/struct' element={<BranchStruct />} />
                   <Route path='/branch-tashkent/sveden/document' element={<BranchDocument />} />
+                  <Route path='/branch-tashkent/sveden/education' element={<BranchEducation />} />
                   <Route path="/branch-tashkent/sveden/employees" element={<BranchEmployees />} />
                   <Route path='/branch-tashkent/leadership' element={<Leadership />} />
                   <Route path='/education/bachelor/economy' element={<InternationalBusiness />} />
@@ -69,6 +72,7 @@ function App() {
                   <Route path='/trki/exam-preparation' element={<ExamPreparation />} />
                   <Route path='/contacts' element={<Contacts />} />
                   <Route path='/documents' element={<Documents />} />
+                  <Route path='/local-documents' element={<LocalDocuments />} />
                   <Route path='/agreements' element={<Agreements />} />
                   <Route path='/library' element={<Library />} />
                   <Route path='/student-account' element={<StudentAccount />} />

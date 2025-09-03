@@ -1,0 +1,323 @@
+.branch-education {
+  padding: 2rem !important;
+  min-height: calc(100vh - 4rem) !important;
+  background-color: #fff8f8 !important;
+  color: #333 !important;
+  margin-top: 5rem !important; /* Отступ для фиксированного хедера */
+  
+  [data-theme='dark'] & {
+    background-color: #1f1720 !important;
+    color: #f8f9fa !important;
+  }
+  
+  &.light {
+    background-color: #fff8f8 !important;
+    color: #333 !important;
+  }
+  
+  &.dark {
+    background-color: #1f1720 !important;
+    color: #f8f9fa !important;
+  }
+  
+  .content-container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 1.5rem !important;
+  }
+  
+  .main-header {
+    display: flex !important;
+    align-items: center !important;
+    margin-bottom: 3rem !important;
+    
+    .main-header-icon {
+      font-size: 2.5rem !important;
+      margin-right: 1.5rem !important;
+      color: #a94442 !important;
+    }
+    
+    .main-title {
+      font-size: 2.5rem !important;
+      font-weight: 600 !important;
+      margin: 0 !important;
+      color: #a94442 !important;
+      position: relative !important;
+      
+      [data-theme='dark'] & {
+        color: #e87681 !important;
+      }
+      
+      &:after {
+        content: '' !important;
+        position: absolute !important;
+        bottom: -10px !important;
+        left: 0 !important;
+        width: 60px !important;
+        height: 3px !important;
+        background-color: #a94442 !important;
+        border-radius: 2px !important;
+        
+        [data-theme='dark'] & {
+          background-color: #e87681 !important;
+        }
+      }
+    }
+  }
+  
+  .section-block {
+    background-color: white !important;
+    border-radius: 12px !important;
+    padding: 2rem !important;
+    margin-bottom: 2rem !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid #a94442 !important;
+    
+    [data-theme='dark'] & {
+      background-color: #2d232a !important;
+      border-color: #e87681 !important;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
+    }
+  }
+  
+  .sub-header {
+    display: flex !important;
+    align-items: center !important;
+    margin-bottom: 2rem !important;
+    
+    .sub-header-icon {
+      font-size: 1.5rem !important;
+      margin-right: 1rem !important;
+      color: #a94442 !important;
+      
+      [data-theme='dark'] & {
+        color: #e87681 !important;
+      }
+    }
+    
+    .section-title {
+      font-size: 1.8rem !important;
+      font-weight: 600 !important;
+      margin: 0 !important;
+      color: #333 !important;
+      
+      [data-theme='dark'] & {
+        color: #f8f9fa !important;
+      }
+    }
+  }
+  
+         .info-table-container {
+       background-color: white !important;
+       border-radius: 12px !important;
+       padding: 2rem !important;
+       margin-bottom: 2rem !important;
+       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1) !important;
+       border: 1px solid #e0e0e0 !important;
+       overflow-x: auto !important;
+       
+       [data-theme='dark'] & {
+         background-color: #2d232a !important;
+         border-color: #4a5568 !important;
+         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
+       }
+       
+       .info-table {
+         width: 100% !important;
+         min-width: 1200px !important;
+         border-collapse: collapse !important;
+         font-size: 0.9rem !important;
+         
+         th, td {
+           padding: 0.75rem !important;
+           text-align: left !important;
+           border-bottom: 1px solid #e0e0e0 !important;
+           vertical-align: top !important;
+           white-space: nowrap !important;
+         }
+      
+      th {
+        background-color: #a94442 !important;
+        color: white !important;
+        font-weight: 600 !important;
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 10 !important;
+        
+        [data-theme='dark'] & {
+          background-color: #e87681 !important;
+        }
+      }
+      
+      td {
+        background-color: white !important;
+        color: #333 !important;
+        
+        [data-theme='dark'] & {
+          background-color: #2d232a !important;
+          color: #f8f9fa !important;
+        }
+      }
+      
+      tr:hover td {
+        background-color: #f8f9fa !important;
+        
+        [data-theme='dark'] & {
+          background-color: #3d333a !important;
+        }
+      }
+      
+                                  // Стили для колонок с длинным текстом
+        th:nth-child(3), td:nth-child(3), // Наименование
+        th:nth-child(4), td:nth-child(4), // Образовательная программа
+        th:nth-child(8), td:nth-child(8), // Учебные предметы
+        th:nth-child(9), td:nth-child(9) { // Практики
+          min-width: 200px !important;
+          max-width: 300px !important;
+          word-wrap: break-word !important;
+          white-space: normal !important;
+        }
+       
+       // Стили для коротких колонок
+       th:nth-child(1), td:nth-child(1), // № п/п
+       th:nth-child(2), td:nth-child(2), // Код
+       th:nth-child(5), td:nth-child(5), // Уровень
+       th:nth-child(6), td:nth-child(6), // Форма
+       th:nth-child(7), td:nth-child(7) { // Срок
+         min-width: 100px !important;
+         max-width: 150px !important;
+       }
+    }
+  }
+  
+  .document-links {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    
+    .document-link {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 0.5rem !important;
+      padding: 1rem 1.5rem !important;
+      background: linear-gradient(135deg, #a94442, #c85a5a) !important;
+      color: white !important;
+      text-decoration: none !important;
+      border-radius: 8px !important;
+      font-weight: 500 !important;
+      transition: all 0.3s ease !important;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+      
+      [data-theme='dark'] & {
+        background: linear-gradient(135deg, #e87681, #d65a65) !important;
+      }
+      
+      &:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+        background: linear-gradient(135deg, #c85a5a, #a94442) !important;
+        
+        [data-theme='dark'] & {
+          background: linear-gradient(135deg, #d65a65, #e87681) !important;
+        }
+      }
+      
+      &::before {
+        content: '📄' !important;
+        font-size: 1.2rem !important;
+      }
+    }
+  }
+}
+
+// Адаптивность
+@media (max-width: 768px) {
+  .branch-education {
+    padding: 1rem !important;
+    
+    .content-container {
+      padding: 1rem !important;
+    }
+    
+    .main-header {
+      flex-direction: column !important;
+      text-align: center !important;
+      gap: 0.5rem !important;
+      
+      .main-title {
+        font-size: 2rem !important;
+      }
+    }
+    
+    .section-block {
+      padding: 1rem !important;
+      
+      .sub-header {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 0.5rem !important;
+        
+        .section-title {
+          font-size: 1.25rem !important;
+        }
+      }
+    }
+    
+         .info-table-container {
+       padding: 1rem !important;
+       
+       .info-table {
+         font-size: 0.8rem !important;
+         min-width: 800px !important;
+         
+         th, td {
+           padding: 0.5rem !important;
+         }
+         
+         // На мобильных устройствах делаем таблицу более компактной
+         th:nth-child(3), td:nth-child(3),
+         th:nth-child(4), td:nth-child(4),
+         th:nth-child(8), td:nth-child(8),
+         th:nth-child(9), td:nth-child(9) {
+           min-width: 150px !important;
+           max-width: 200px !important;
+         }
+       }
+     }
+    
+    .document-links {
+      .document-link {
+        padding: 0.75rem 1rem !important;
+        font-size: 0.9rem !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .branch-education {
+    .main-header {
+      .main-title {
+        font-size: 1.75rem !important;
+      }
+    }
+    
+    .section-block {
+      .sub-header {
+        .section-title {
+          font-size: 1.1rem !important;
+        }
+      }
+    }
+    
+    .info-table-container {
+      .info-table {
+        font-size: 0.75rem !important;
+        
+        th, td {
+          padding: 0.4rem !important;
+        }
+      }
+    }
+  }
+}

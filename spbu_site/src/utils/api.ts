@@ -75,7 +75,7 @@ export const getNewsById = async (id: number) => {
   }
 };
 
-export const createNews = async (newsData: any) => {
+export const createNews = async (newsData: Record<string, string | File>) => {
   try {
     // Создаем FormData для загрузки изображений
     const formData = new FormData();
@@ -102,7 +102,7 @@ export const createNews = async (newsData: any) => {
   }
 };
 
-export const updateNews = async (id: number, newsData: any) => {
+export const updateNews = async (id: number, newsData: Record<string, string | File>) => {
   try {
     // Создаем FormData для загрузки изображений
     const formData = new FormData();
@@ -151,11 +151,11 @@ export const getScheduleById = async (id: number) => {
   return api.get(`/schedule/${id}/`);
 };
 
-export const createSchedule = async (scheduleData: any) => {
+export const createSchedule = async (scheduleData: Record<string, string | number | Date>) => {
   return api.post('/schedule/', scheduleData);
 };
 
-export const updateSchedule = async (id: number, scheduleData: any) => {
+export const updateSchedule = async (id: number, scheduleData: Record<string, string | number | Date>) => {
   return api.put(`/schedule/${id}/`, scheduleData);
 };
 
