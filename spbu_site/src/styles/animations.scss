@@ -1,20 +1,47 @@
+/* Глобальные, мягкие анимации для всех страниц */
 .page-transition {
-  animation: smoothPageTransition 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: pageFadeSlide var(--page-anim-duration, 420ms) var(--page-anim-ease, cubic-bezier(0.22, 1, 0.36, 1));
   min-height: 100vh;
   will-change: opacity, transform;
-  transform-origin: center;
+  transform-origin: 50% 20%;
   backface-visibility: hidden;
 }
 
-@keyframes smoothPageTransition {
-  from {
+@keyframes pageFadeSlide {
+  0% {
     opacity: 0;
-    transform: scale(0.98);
+    transform: translateY(12px) scale(0.995);
+    filter: saturate(0.98) contrast(0.98);
   }
-  to {
+  100% {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0) scale(1);
+    filter: saturate(1) contrast(1);
   }
+}
+
+/* Hover-анимация для ссылок в едином стиле */
+a {
+  transition: color 160ms ease, text-shadow 160ms ease;
+}
+a:hover {
+  text-shadow: 0 0 0 rgba(0,0,0,0), 0 1px 0 rgba(0,0,0,0.02);
+}
+
+/* Адаптация под устройства: на мобильных чуть быстрее и меньше смещение */
+@media (max-width: 768px) {
+  :root { --page-anim-duration: 360ms; }
+  .page-transition { animation-name: pageFadeSlideMobile; }
+  @keyframes pageFadeSlideMobile {
+    from { opacity: 0; transform: translateY(8px) scale(0.997); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+}
+
+/* Учитываем предпочтения пользователей по сокращению анимации */
+@media (prefers-reduced-motion: reduce) {
+  .page-transition { animation: none; }
+  * { transition: none !important; }
 }
 
 .loading-container {
