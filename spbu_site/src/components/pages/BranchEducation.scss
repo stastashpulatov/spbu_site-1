@@ -128,6 +128,16 @@
          border-collapse: collapse !important;
          font-size: 0.9rem !important;
          
+         &.program-description-table {
+           min-width: 1800px !important;
+           font-size: 0.8rem !important;
+         }
+         
+         &.employment-table {
+           min-width: 1000px !important;
+           font-size: 0.9rem !important;
+         }
+         
          th, td {
            padding: 0.75rem !important;
            text-align: left !important;
@@ -187,9 +197,118 @@
          min-width: 100px !important;
          max-width: 150px !important;
        }
+       
+       // Стили для таблицы описания программ
+       &.program-description-table {
+         // Короткие колонки
+         th:nth-child(1), td:nth-child(1), // № п/п
+         th:nth-child(2), td:nth-child(2), // Код
+         th:nth-child(4), td:nth-child(4), // Уровень
+         th:nth-child(6), td:nth-child(6) { // Формы
+           min-width: 80px !important;
+           max-width: 120px !important;
+         }
+         
+         // Колонки с ссылками
+         th:nth-child(7), td:nth-child(7), // Описание программы
+         th:nth-child(8), td:nth-child(8), // Учебный план
+         th:nth-child(9), td:nth-child(9), // Рабочие программы
+         th:nth-child(10), td:nth-child(10), // Календарный график
+         th:nth-child(11), td:nth-child(11), // Программы практик
+         th:nth-child(12), td:nth-child(12) { // Методические документы
+           min-width: 100px !important;
+           max-width: 150px !important;
+           text-align: center !important;
+         }
+         
+         // Длинные колонки
+         th:nth-child(3), td:nth-child(3), // Наименование
+         th:nth-child(5), td:nth-child(5) { // Образовательная программа
+           min-width: 200px !important;
+           max-width: 300px !important;
+           word-wrap: break-word !important;
+           white-space: normal !important;
+         }
+       }
+       
+       // Стили для таблицы о трудоустройстве
+       &.employment-table {
+         // Короткие колонки
+         th:nth-child(1), td:nth-child(1), // Код
+         th:nth-child(4), td:nth-child(4), // Количество выпускников
+         th:nth-child(5), td:nth-child(5) { // Количество трудоустроенных
+           min-width: 120px !important;
+           max-width: 150px !important;
+           text-align: center !important;
+         }
+         
+         // Длинные колонки
+         th:nth-child(2), td:nth-child(2), // Наименование
+         th:nth-child(3), td:nth-child(3) { // Образовательная программа
+           min-width: 250px !important;
+           max-width: 400px !important;
+           word-wrap: break-word !important;
+           white-space: normal !important;
+         }
+       }
     }
   }
   
+  // Стили для ссылок на годы
+  .year-links {
+    display: inline-flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 0 !important;
+    
+    .year-link {
+      color: #a94442 !important;
+      text-decoration: underline !important;
+      font-weight: 500 !important;
+      transition: all 0.2s ease !important;
+      cursor: pointer !important;
+      
+      [data-theme='dark'] & {
+        color: #e87681 !important;
+      }
+      
+      &:hover {
+        color: #8a3636 !important;
+        text-decoration: none !important;
+        background-color: rgba(169, 68, 66, 0.1) !important;
+        border-radius: 3px !important;
+        padding: 1px 3px !important;
+        
+        [data-theme='dark'] & {
+          color: #f0a0a8 !important;
+          background-color: rgba(232, 118, 129, 0.1) !important;
+        }
+      }
+      
+      &:active {
+        transform: scale(0.98) !important;
+      }
+    }
+    
+    .year-text {
+      color: #333 !important;
+      font-weight: 500 !important;
+      
+      [data-theme='dark'] & {
+        color: #f8f9fa !important;
+      }
+    }
+    
+    .year-separator {
+      color: #666 !important;
+      margin: 0 2px !important;
+      
+      [data-theme='dark'] & {
+        color: #999 !important;
+      }
+    }
+  }
+
   .document-links {
     display: flex !important;
     flex-direction: column !important;
@@ -281,6 +400,43 @@
          th:nth-child(9), td:nth-child(9) {
            min-width: 150px !important;
            max-width: 200px !important;
+         }
+         
+         &.program-description-table {
+           min-width: 1200px !important;
+           font-size: 0.7rem !important;
+           
+           th, td {
+             padding: 0.4rem !important;
+           }
+           
+           // Адаптивные стили для таблицы описания программ
+           th:nth-child(7), td:nth-child(7),
+           th:nth-child(8), td:nth-child(8),
+           th:nth-child(9), td:nth-child(9),
+           th:nth-child(10), td:nth-child(10),
+           th:nth-child(11), td:nth-child(11),
+           th:nth-child(12), td:nth-child(12) {
+             min-width: 80px !important;
+             max-width: 100px !important;
+           }
+         }
+         
+         &.employment-table {
+           min-width: 800px !important;
+           font-size: 0.8rem !important;
+           
+           th, td {
+             padding: 0.5rem !important;
+           }
+           
+           // Адаптивные стили для таблицы о трудоустройстве
+           th:nth-child(1), td:nth-child(1),
+           th:nth-child(4), td:nth-child(4),
+           th:nth-child(5), td:nth-child(5) {
+             min-width: 100px !important;
+             max-width: 120px !important;
+           }
          }
        }
      }
