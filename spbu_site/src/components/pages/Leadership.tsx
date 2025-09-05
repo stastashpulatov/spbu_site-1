@@ -34,12 +34,12 @@ const translations: Translations = {
     },
     leadership: [
       {
-        name: 'Ходжаев Алишер Сайдуллаевич',
-        position: 'Директор филиала',
+        name: 'Зиядуллаев Махмуджон Джуракулович',
+        position: 'Руководитель',
         image: '/images/director.png',
-        email: 'a.khodjaev@spbu.ru',
-        phone: '+998 71 203 22 06',
-        office: '201'
+        email: 'm.ziyadullaev@spbu.ru',
+        phone: '+998 97 735 48 05',
+        office: '405'
       }
     ]
   },
@@ -52,12 +52,12 @@ const translations: Translations = {
     },
     leadership: [
       {
-        name: 'Xo\'jayev Alisher Saydullayevich',
-        position: 'Filial direktori',
+        name: 'Ziyadullaev Mahmujon Djurakulovich',
+        position: 'Rahbar',
         image: '/images/director.png',
-        email: 'a.khodjaev@spbu.ru',
-        phone: '+998 71 203 22 06',
-        office: '201'
+        email: 'm.ziyadullaev@spbu.ru',
+        phone: '+998 97 735 48 05',
+        office: '405'
       }
     ]
   },
@@ -70,12 +70,12 @@ const translations: Translations = {
     },
     leadership: [
       {
-        name: 'Alisher Khodjaev',
-        position: 'Branch Director',
+        name: 'Ziyadullaev Mahmujon Djurakulovich',
+        position: 'Head',
         image: '/images/director.png',
-        email: 'a.khodjaev@spbu.ru',
-        phone: '+998 71 203 22 06',
-        office: '201'
+        email: 'm.ziyadullaev@spbu.ru',
+        phone: '+998 97 735 48 05',
+        office: '405'
       }
     ]
   }

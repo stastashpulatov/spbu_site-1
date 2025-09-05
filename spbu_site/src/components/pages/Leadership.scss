@@ -21,6 +21,7 @@
   background: var(--bg-color, #fff8f8);
   color: var(--text-color, #333);
   padding: 2rem 0;
+  margin-top: 5rem; /* отступ от фиксированного хедера */
 
   h1 {
     font-size: 2.5rem;
@@ -30,10 +31,107 @@
     font-weight: 700;
   }
 
+  /* Единый заголовок в стиле других страниц */
+  .main-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: flex-start;
+  }
+  .main-header-icon {
+    font-size: 2.2rem;
+    color: #a94442;
+  }
+  .main-title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin: 0;
+    color: #a94442;
+    position: relative;
+  }
+  .main-title:after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #a94442;
+    border-radius: 2px;
+  }
+
   .content-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+  }
+
+  /* Табличные стили в стиле раздела Сведения */
+  .section-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    border-bottom: 4px solid #a94442;
+    color: #a94442;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+  }
+
+  .info-table-container {
+    background: #fff;
+    border: 1px solid #e9d6d6;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    margin-bottom: 1.5rem;
+    overflow-x: auto;
+  }
+
+  .info-table {
+    width: 100%;
+    min-width: 900px;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+
+    thead th {
+      background: #a94442;
+      color: #fff;
+      font-weight: 700;
+      text-align: left;
+      padding: 0.75rem 0.75rem;
+      white-space: nowrap;
+    }
+
+    tbody td {
+      padding: 0.75rem 0.75rem;
+      border-bottom: 1px solid #f0e2e2;
+      color: var(--text-color, #333);
+    }
+
+    tbody tr:hover {
+      background: rgba(169, 68, 66, 0.05);
+    }
+
+    &.leadership-table {
+      th:nth-child(1), td:nth-child(1) {
+        width: 70px;
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      th:nth-child(3), td:nth-child(3) { /* Должность */
+        min-width: 180px;
+      }
+
+      th:nth-child(4), td:nth-child(4),
+      th:nth-child(5), td:nth-child(5) { /* Телефон/Email */
+        min-width: 180px;
+        white-space: nowrap;
+      }
+    }
   }
 
   .leaders-grid {
@@ -143,6 +241,10 @@
 
     .content-container {
       padding: 0 1rem;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
     }
 
     .leaders-grid {

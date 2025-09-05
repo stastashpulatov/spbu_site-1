@@ -15,6 +15,7 @@ import BranchDocument from "./components/pages/BranchDocument";
 import BranchEducation from "./components/pages/BranchEducation";
 import BranchEmployees from "./components/pages/BranchEmployees";
 import Leadership from "./components/pages/Leadership";
+import BranchLeadership from "./components/pages/BranchLeadership";
 import InternationalBusiness from "./components/pages/InternationalBusiness";
 import Programming from "./components/pages/Programming";
 import DigitalEntrepreneurship from "./components/pages/DigitalEntrepreneurship";
@@ -62,6 +63,7 @@ function App() {
                   <Route path='/branch-tashkent/sveden/education' element={<BranchEducation />} />
                   <Route path="/branch-tashkent/sveden/employees" element={<BranchEmployees />} />
                   <Route path='/branch-tashkent/leadership' element={<Leadership />} />
+                  <Route path='/branch-tashkent/sveden/leadership' element={<BranchLeadership />} />
                   <Route path='/education/bachelor/economy' element={<InternationalBusiness />} />
                   <Route path='/education/bachelor/programming' element={<Programming />} />
                   <Route path='/education/master/digital-entrepreneurship' element={<DigitalEntrepreneurship />} />
