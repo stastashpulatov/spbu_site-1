@@ -204,8 +204,8 @@ const translations: Translations = {
       ]
     },
     accreditationSection: {
-      title: 'Аккредитация',
-      value: 'Аккредитация образовательной организации № 1234567890 от 22.09.2022'
+      title: 'Государственная аккредитация образовательной деятельности по реализуемым образовательным программам',
+      value: 'Отсутствует'
     },
     founderSection: {
       title: 'Информация об учредителе (учредителях) образовательной организации',
@@ -372,8 +372,8 @@ const translations: Translations = {
       ]
     },
     accreditationSection: {
-      title: 'Akkreditasiya',
-      value: 'Akkreditasiya muassasasi uchun № 1234567890 22.09.2022'
+      title: 'Amalga oshirilayotgan ta\'lim dasturlari bo\'yicha ta\'lim faoliyatining davlat akkreditatsiyasi',
+      value: 'Yo\'q'
     },
     founderSection: {
       title: 'Mudir',
@@ -541,8 +541,8 @@ const translations: Translations = {
       ]
     },
     accreditationSection: {
-      title: 'Accreditation',
-      value: 'Accreditation of the educational organization № 1234567890 from 22.09.2022'
+      title: 'State accreditation of educational activities for implemented educational programs',
+      value: 'Absent'
     },
     founderSection: {
       title: 'Founder',
@@ -703,13 +703,13 @@ const BranchCommon: React.FC = () => {
 
         {/* Раздел с аккредитацией */}
         <div className="info-section accreditation-section">
-          <h2 className="section-title centered-title">Государственная аккредитация образовательной деятельности по реализуемым образовательным программам</h2>
+          <h2 className="section-title centered-title">{t.accreditationSection.title}</h2>
           <div className="table-container">
             <table className="info-table accreditation-table">
               <tbody>
                 <tr>
-                  <td className="field-name">Государственная аккредитация образовательной деятельности по реализуемым образовательным программам</td>
-                  <td className="field-value">Отсутствует</td>
+                  <td className="field-name">{t.accreditationSection.title}</td>
+                  <td className="field-value">{t.accreditationSection.value}</td>
                 </tr>
               </tbody>
             </table>

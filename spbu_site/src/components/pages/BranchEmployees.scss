@@ -138,21 +138,60 @@
   
   @media (max-width: 768px) {
     padding: 1rem;
+    margin-top: 8rem; // Увеличиваем отступ сверху для мобильных
     
     .content-container {
+      padding: 1rem;
+      margin: 0;
+      max-width: 100%;
+    }
+    
+    .main-title {
+      font-size: 1.5rem;
+    }
+    
+    .info-table-container {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 0 -1rem;
       padding: 1rem;
     }
     
     .info-table, .founders-table {
+      min-width: 600px; // Минимальная ширина для таблицы
+      
       th, td {
-        padding: 0.75rem;
-        font-size: 0.9rem;
+        padding: 0.5rem;
+        font-size: 0.85rem;
+        white-space: nowrap;
+      }
+      
+      .field-name {
+        width: 40%;
+        min-width: 150px;
+      }
+      
+      .field-value {
+        width: 60%;
+        min-width: 200px;
       }
     }
     
     .founders-table {
       display: block;
       overflow-x: auto;
+    }
+    
+    .programs-scan-list {
+      .group-title {
+        font-size: 1rem;
+        margin-top: 1rem;
+      }
+      
+      .program-item {
+        font-size: 0.9rem;
+        margin-left: 0.5rem;
+      }
     }
   }
 }

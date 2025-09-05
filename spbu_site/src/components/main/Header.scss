@@ -254,6 +254,7 @@
     min-width: auto !important;
     background: transparent !important;
     color: white !important;
+    display: block !important;
   }
   
   .submenu {
@@ -261,10 +262,11 @@
     box-shadow: none !important;
     border: none !important;
     margin: 0 !important;
-    padding: 0.5rem !important;
+    padding: 0.5rem 0 0.5rem 1rem !important;
     min-width: auto !important;
     background: transparent !important;
     color: white !important;
+    display: block !important;
   }
   
   .dropdown-item {
@@ -273,6 +275,22 @@
     &:hover {
       color: white !important;
       background-color: rgba(255, 255, 255, 0.1) !important;
+    }
+  }
+  
+  .dropdown-item-container {
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .submenu-trigger {
+    cursor: pointer !important;
+    
+    .submenu-icon {
+      transition: transform 0.2s ease-in-out !important;
+    }
+    
+    &.has-submenu .submenu-icon {
+      transform: rotate(-90deg) !important;
     }
   }
 }

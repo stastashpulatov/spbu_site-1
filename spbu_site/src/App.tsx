@@ -31,6 +31,8 @@ import Documents from "./components/pages/Documents";
 import LocalDocuments from "./components/pages/LocalDocuments";
 import Agreements from "./components/pages/Agreements";
 import NewsPage from "./components/pages/NewsPage";
+import EventsPage from "./components/pages/EventsPage";
+import GalleryPage from "./components/pages/GalleryPage";
 import SchedulePage from "./components/pages/SchedulePage";
 import MaintenancePage from "./components/pages/MaintenancePage";
 import MaintenanceCheck from "./components/common/MaintenanceCheck";
@@ -79,6 +81,8 @@ function App() {
                   <Route path='/library' element={<Library />} />
                   <Route path='/student-account' element={<StudentAccount />} />
                   <Route path='/news' element={<NewsPage />} />
+                  <Route path='/events' element={<EventsPage />} />
+                  <Route path='/gallery' element={<GalleryPage />} />
                   <Route path='/schedule' element={<SchedulePage />} />
                   <Route path='/maintenance' element={<MaintenancePage />} />
                 </Routes>
