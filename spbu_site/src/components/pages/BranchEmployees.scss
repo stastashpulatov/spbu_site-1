@@ -1,6 +1,7 @@
-.branch-common {
+.branch-employees {
   padding: 2rem;
   min-height: calc(100vh - 80px);
+  margin-top: 5rem;
   
   &.light {
     background-color: var(--bg-color);
@@ -29,55 +30,55 @@
     }
   }
   
-  .header {
+  .main-header {
     display: flex;
     align-items: center;
-    margin-bottom: 2rem;
-    
-    .header-icon {
-      font-size: 2rem;
-      margin-right: 1rem;
-      color: var(--primary-color);
-    }
-    
-    h1 {
-      margin: 0;
-      font-size: 2rem;
-      color: var(--text-color);
-    }
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .main-header-icon { font-size: 2rem; color: #a94442; }
+  .main-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #a94442;
+    margin: 0;
+    position: relative;
+  }
+  .main-title:after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: #a94442;
+    border-radius: 2px;
   }
   
   .info-table-container, .founders-section {
     margin-bottom: 2rem;
+    background: #fff;
+    border: 1px solid #e9d6d6;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
   }
   
-  .info-table, .founders-table {
+  .employees-table, .founders-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     
     th, td {
-      padding: 1rem;
+      padding: 0.75rem;
       text-align: left;
-      border: 1px solid;
-      
-      .light & {
-        border-color: var(--border-color);
-      }
-      
-      .dark & {
-        border-color: var(--border-color);
-      }
+      border-bottom: 1px solid #f0e2e2;
     }
     
     th {
-      .light & {
-        background-color: var(--hover-bg);
-      }
-      
-      .dark & {
-        background-color: var(--card-bg);
-      }
+      background: #a94442;
+      color: #fff;
+      white-space: nowrap;
     }
     
     .field-name {
@@ -89,6 +90,43 @@
       width: 70%;
     }
   }
+
+  .programs-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.5rem;
+  }
+  .program-link {
+    background: transparent;
+    border: none;
+    color: #a94442;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 0.95rem;
+  }
+  .program-link.active { color: #8a3636; text-decoration: none; font-weight: 600; }
+
+  /* Список под скриншот */
+  .programs-scan-list {
+    list-style: none;
+    padding-left: 1rem;
+    margin: 0.5rem 0 0 0;
+    display: grid;
+    gap: 0.6rem;
+  }
+  .group-title {
+    font-weight: 700;
+    margin-top: 0.6rem;
+  }
+  .program-item { margin-left: 1rem; }
+  .program-item::before {
+    content: '•';
+    margin-right: 0.5rem;
+    color: #a94442;
+  }
+  .program-link { color: #a94442; text-decoration: underline; }
   
   .founders-section {
     h2 {

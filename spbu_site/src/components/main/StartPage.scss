@@ -14,10 +14,12 @@
   }
 
   .banner {
-    background: linear-gradient(to right, #f5e9db, rgba(245, 233, 219, 0.8), transparent) !important;
-    background-image: url('/images/image.png') !important;
-    background-position: right center !important;
+    /* Усиливаем видимость фоновой картинки */
+    background-image: url('/images/photo_2025-09-05_14-23-24.png') !important;
+    background-color: #f5e9db !important;
+    background-position: 78% center !important; /* немного смещаем вправо */
     background-size: cover !important;
+    background-repeat: no-repeat !important;
     padding: 3rem 2rem 2.5rem !important;
     border-radius: 0 0 6rem 6rem !important;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
@@ -28,7 +30,8 @@
       content: '';
       position: absolute !important;
       inset: 0 !important;
-      background: linear-gradient(to right, #f5e9db, rgba(245, 233, 219, 0.9), rgba(245, 233, 219, 0.7)) !important;
+      /* Ослабляем оверлей-градиент, чтобы фон был заметнее */
+      background: linear-gradient(to right, rgba(245, 233, 219, 0.55), rgba(245, 233, 219, 0.35), rgba(245, 233, 219, 0.15)) !important;
       border-radius: 0 0 6rem 6rem !important;
       z-index: 10 !important;
     }

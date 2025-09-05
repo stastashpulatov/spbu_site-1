@@ -82,13 +82,13 @@
 
   .contacts-content {
     display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 4rem !important;
+    grid-template-columns: 1fr 1.2fr !important; /* делаем колонку с картой шире */
+    gap: 3rem !important;
     align-items: start !important;
     
-    @media (max-width: 1024px) {
+    @media (max-width: 1200px) {
       grid-template-columns: 1fr !important;
-      gap: 3rem !important;
+      gap: 2rem !important;
     }
   }
 
@@ -357,6 +357,10 @@
           0 20px 40px rgba(0, 0, 0, 0.3),
           0 8px 20px rgba(0, 0, 0, 0.2) !important;
       }
+    }
+
+    &.wide iframe {
+      height: 520px !important;
     }
 
     iframe {

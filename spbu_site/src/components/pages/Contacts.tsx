@@ -74,14 +74,6 @@ const Contacts: React.FC = () => {
         <div className="contacts-content">
           <div className="contact-info-section">
             <h2 className="section-title">{t.title}</h2>
-            <div className="contact-image-container">
-              <img 
-                src="/images/logo.png" 
-                alt={t.mapTitle}
-                className="contact-image"
-              />
-            </div>
-            
             <div className="contact-details">
               <div className="contact-card">
                 <div className="contact-icon">
@@ -127,11 +119,11 @@ const Contacts: React.FC = () => {
           
           <div className="map-section">
             <h3 className="map-title">{t.howToFind}</h3>
-            <div className="map-container">
+            <div className="map-container wide">
               <iframe 
                 src="https://yandex.uz/map-widget/v1/?from=mapframe&ll=69.274471%2C41.298603&mode=search&ol=geo%5Bpoint%5D=69.274449%2C41.298588&poi%5Buri%5D=ymapsbm1%3A%2Forg%3Foid%3D122210742797&source=mapframe&utm_source=mapframe&z=20.8"
                 width="100%"
-                height="400"
+                height="520"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
