@@ -13,6 +13,7 @@ import BranchCommon from "./components/pages/BranchCommon";
 import BranchStruct from "./components/pages/BranchStruct";
 import BranchDocument from "./components/pages/BranchDocument";
 import BranchEducation from "./components/pages/BranchEducation";
+import EducationalStandards from "./components/pages/EducationalStandards";
 import BranchEmployees from "./components/pages/BranchEmployees";
 import Leadership from "./components/pages/Leadership";
 import BranchLeadership from "./components/pages/BranchLeadership";
@@ -31,6 +32,8 @@ import Documents from "./components/pages/Documents";
 import LocalDocuments from "./components/pages/LocalDocuments";
 import Agreements from "./components/pages/Agreements";
 import NewsPage from "./components/pages/NewsPage";
+import EventsPage from "./components/pages/EventsPage";
+import GalleryPage from "./components/pages/GalleryPage";
 import SchedulePage from "./components/pages/SchedulePage";
 import MaintenancePage from "./components/pages/MaintenancePage";
 import MaintenanceCheck from "./components/common/MaintenanceCheck";
@@ -61,6 +64,7 @@ function App() {
                   <Route path='/branch-tashkent/sveden/struct' element={<BranchStruct />} />
                   <Route path='/branch-tashkent/sveden/document' element={<BranchDocument />} />
                   <Route path='/branch-tashkent/sveden/education' element={<BranchEducation />} />
+                  <Route path='/branch-tashkent/sveden/eduStandarts' element={<EducationalStandards />} />
                   <Route path="/branch-tashkent/sveden/employees" element={<BranchEmployees />} />
                   <Route path='/branch-tashkent/leadership' element={<Leadership />} />
                   <Route path='/branch-tashkent/sveden/leadership' element={<BranchLeadership />} />
@@ -79,6 +83,8 @@ function App() {
                   <Route path='/library' element={<Library />} />
                   <Route path='/student-account' element={<StudentAccount />} />
                   <Route path='/news' element={<NewsPage />} />
+                  <Route path='/events' element={<EventsPage />} />
+                  <Route path='/gallery' element={<GalleryPage />} />
                   <Route path='/schedule' element={<SchedulePage />} />
                   <Route path='/maintenance' element={<MaintenancePage />} />
                 </Routes>

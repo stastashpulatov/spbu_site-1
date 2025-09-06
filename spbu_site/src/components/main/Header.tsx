@@ -232,6 +232,29 @@ function Header() {
     setOpenSubmenu(null);
   };
 
+  // Mobile click handlers
+  const handleMenuClick = (menuKey: string) => {
+    if (window.innerWidth <= 768) {
+      if (openMenu === menuKey) {
+        setOpenMenu(null);
+        setOpenSubmenu(null);
+      } else {
+        setOpenMenu(menuKey);
+        setOpenSubmenu(null);
+      }
+    }
+  };
+
+  const handleSubmenuClick = (submenuKey: string) => {
+    if (window.innerWidth <= 768) {
+      if (openSubmenu === submenuKey) {
+        setOpenSubmenu(null);
+      } else {
+        setOpenSubmenu(submenuKey);
+      }
+    }
+  };
+
   return (
     <div className="header">
       <div className="logo-container">
@@ -249,6 +272,7 @@ function Header() {
                   className={`header-item flex items-center space-x-1 text-sm ${openMenu === key ? 'menu-open' : ''}`}
                   onMouseEnter={() => handleMenuEnter(key)}
                   onMouseLeave={handleMenuLeave}
+                  onClick={() => handleMenuClick(key)}
                 >
                   <span>{key}</span>
                   <ChevronDown size={16} />
@@ -272,6 +296,7 @@ function Header() {
                             className={`dropdown-item text-sm submenu-trigger ${item.submenu ? 'has-submenu' : ''}`}
                             onMouseEnter={() => handleSubmenuEnter(item.title)}
                             onMouseLeave={handleSubmenuLeave}
+                            onClick={() => handleSubmenuClick(item.title)}
                           >
                             {item.title}
                             {item.submenu && (
