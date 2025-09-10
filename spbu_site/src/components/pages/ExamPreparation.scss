@@ -5,6 +5,18 @@
     color: var(--text-color, #333) !important;
     padding-top: 5rem !important;
 
+    @media (max-width: 1024px) {
+      padding-top: 4.5rem !important;
+    }
+
+    @media (max-width: 768px) {
+      padding-top: 4rem !important;
+    }
+
+    @media (max-width: 480px) {
+      padding-top: 3.5rem !important;
+    }
+
     [data-theme='dark'] & {
       background-color: var(--bg-color, #1f1720) !important;
       color: var(--text-color, #f8f9fa) !important;
