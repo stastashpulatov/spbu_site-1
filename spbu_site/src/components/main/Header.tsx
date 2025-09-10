@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './Header.scss';
-import { useState, useMemo } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { useState, useMemo, useEffect } from 'react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 import ThemeToggle from '../common/ThemeToggle';
 import LanguageSelector from '../common/LanguageSelector';
 import { useLanguage } from '../../hooks/useLanguage';
@@ -207,34 +207,72 @@ const localizedMenuByLang: Record<'ru' | 'en' | 'uz', { title: string; logoAlt: 
   }
 };
 
-
-
 function Header() {
   const { language } = useLanguage();
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const { title, logoAlt, menu } = useMemo(() => localizedMenuByLang[language], [language]);
   
+  // Detect mobile device
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, []);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
   const handleMenuEnter = (menu: string) => {
-    setOpenMenu(menu);
+    if (!isMobile) {
+      setOpenMenu(menu);
+    }
   };
 
   const handleMenuLeave = () => {
-    setOpenMenu(null);
-    setOpenSubmenu(null);
+    if (!isMobile) {
+      setOpenMenu(null);
+      setOpenSubmenu(null);
+    }
   };
 
   const handleSubmenuEnter = (submenu: string) => {
-    setOpenSubmenu(submenu);
+    if (!isMobile) {
+      setOpenSubmenu(submenu);
+    }
   };
 
   const handleSubmenuLeave = () => {
-    setOpenSubmenu(null);
+    if (!isMobile) {
+      setOpenSubmenu(null);
+    }
   };
 
   // Mobile click handlers
   const handleMenuClick = (menuKey: string) => {
-    if (window.innerWidth <= 768) {
+    if (isMobile) {
       if (openMenu === menuKey) {
         setOpenMenu(null);
         setOpenSubmenu(null);
@@ -246,7 +284,7 @@ function Header() {
   };
 
   const handleSubmenuClick = (submenuKey: string) => {
-    if (window.innerWidth <= 768) {
+    if (isMobile) {
       if (openSubmenu === submenuKey) {
         setOpenSubmenu(null);
       } else {
@@ -255,110 +293,256 @@ function Header() {
     }
   };
 
+  const handleLinkClick = () => {
+    setIsMobileMenuOpen(false);
+    setOpenMenu(null);
+    setOpenSubmenu(null);
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+    setOpenMenu(null);
+    setOpenSubmenu(null);
+  };
+
   return (
-    <div className="header">
-      <div className="logo-container">
-        <Link to="/">
-          <img src="/images/logo.png" alt={logoAlt} className="header-logo" />
-        </Link>
-        <div className="header-title">{title}</div>
-      </div>
-      <div className="menu-section">
-        {Object.keys(menu).map((key) => (
-          <div key={key} className="relative">
-            {menu[key].length > 0 ? (
-              <>
-                <button
-                  className={`header-item flex items-center space-x-1 text-sm ${openMenu === key ? 'menu-open' : ''}`}
-                  onMouseEnter={() => handleMenuEnter(key)}
-                  onMouseLeave={handleMenuLeave}
-                  onClick={() => handleMenuClick(key)}
-                >
-                  <span>{key}</span>
-                  <ChevronDown size={16} />
-                </button>
-                {openMenu === key && (
-                  <div className="dropdown-menu" onMouseEnter={() => handleMenuEnter(key)} onMouseLeave={handleMenuLeave}>
-                    {menu[key].map((item, index) => (
-                      <div key={index} className="dropdown-item-container">
-                        {item.link ? (
-                          item.link.startsWith('http') ? (
-                            <a href={item.link} className="dropdown-item text-sm" target="_blank" rel="noopener noreferrer">
-                              {item.title}
-                            </a>
-                          ) : (
-                            <Link to={item.link} className="dropdown-item text-sm" target={item.targetBlank ? '_blank' : undefined} rel={item.targetBlank ? 'noopener noreferrer' : undefined}>
-                              {item.title}
-                            </Link>
-                          )
-                        ) : (
-                          <div 
-                            className={`dropdown-item text-sm submenu-trigger ${item.submenu ? 'has-submenu' : ''}`}
-                            onMouseEnter={() => handleSubmenuEnter(item.title)}
-                            onMouseLeave={handleSubmenuLeave}
-                            onClick={() => handleSubmenuClick(item.title)}
-                          >
-                            {item.title}
-                            {item.submenu && (
-                              <ChevronDown 
-                                size={16} 
-                                className="submenu-icon" 
-                              />
-                            )}
-                          </div>
-                        )}
-                        {item.submenu && openSubmenu === item.title && (
-                          <div 
-                            className="submenu"
-                            onMouseEnter={() => handleSubmenuEnter(item.title)}
-                            onMouseLeave={handleSubmenuLeave}
-                          >
-                            {item.submenu.map((subItem, subIndex) => (
-                              subItem.link?.startsWith('http') ? (
-                                <a
-                                  key={subIndex}
-                                  href={subItem.link}
-                                  className="dropdown-item text-sm"
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                >
-                                  {subItem.title}
-                                </a>
+    <>
+      <div className={`header ${isMobile ? 'mobile' : ''}`}>
+        {/* Desktop layout */}
+        {!isMobile ? (
+          <>
+            <div className="header-top">
+              <div className="logo-container">
+                <Link to="/" onClick={handleLinkClick}>
+                  <img src="/images/logo.png" alt={logoAlt} className="header-logo" />
+                </Link>
+                <div className="header-title">{title}</div>
+              </div>
+              
+            </div>
+
+            <div className="menu-section desktop">
+              {Object.keys(menu).map((key) => (
+                <div key={key} className="relative">
+                  {menu[key].length > 0 ? (
+                    <>
+                      <button
+                        className={`header-item ${openMenu === key ? 'menu-open' : ''}`}
+                        onMouseEnter={() => handleMenuEnter(key)}
+                        onMouseLeave={handleMenuLeave}
+                      >
+                        <span>{key}</span>
+                        <ChevronDown />
+                      </button>
+                      {openMenu === key && (
+                        <div className="dropdown-menu" onMouseEnter={() => handleMenuEnter(key)} onMouseLeave={handleMenuLeave}>
+                          {menu[key].map((item, index) => (
+                            <div key={index} className="dropdown-item-container">
+                              {item.link ? (
+                                item.link.startsWith('http') ? (
+                                  <a href={item.link} className="dropdown-item" target="_blank" rel="noopener noreferrer">
+                                    {item.title}
+                                  </a>
+                                ) : (
+                                  <Link to={item.link} className="dropdown-item" target={item.targetBlank ? '_blank' : undefined} rel={item.targetBlank ? 'noopener noreferrer' : undefined}>
+                                    {item.title}
+                                  </Link>
+                                )
                               ) : (
-                                <Link
-                                  key={subIndex}
-                                  to={subItem.link || ''}
-                                  className="dropdown-item text-sm"
-                                  target={subItem.targetBlank ? '_blank' : undefined}
-                                  rel={subItem.targetBlank ? 'noopener noreferrer' : undefined}
+                                <div 
+                                  className={`dropdown-item submenu-trigger ${item.submenu ? 'has-submenu' : ''}`}
+                                  onMouseEnter={() => handleSubmenuEnter(item.title)}
+                                  onMouseLeave={handleSubmenuLeave}
                                 >
-                                  {subItem.title}
-                                </Link>
-                              )
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </>
-            ) : (
-              <Link
-                to={`/${key.toLowerCase()}`}
-                className="header-item flex items-center space-x-1 text-sm"
-              >
-                <span>{key}</span>
+                                  {item.title}
+                                  {item.submenu && (
+                                    <ChevronDown className="submenu-icon" />
+                                  )}
+                                </div>
+                              )}
+                              {item.submenu && openSubmenu === item.title && (
+                                <div 
+                                  className="submenu"
+                                  onMouseEnter={() => handleSubmenuEnter(item.title)}
+                                  onMouseLeave={handleSubmenuLeave}
+                                >
+                                  {item.submenu.map((subItem, subIndex) => (
+                                    subItem.link?.startsWith('http') ? (
+                                      <a
+                                        key={subIndex}
+                                        href={subItem.link}
+                                        className="dropdown-item"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                      >
+                                        {subItem.title}
+                                      </a>
+                                    ) : (
+                                      <Link
+                                        key={subIndex}
+                                        to={subItem.link || ''}
+                                        className="dropdown-item"
+                                        target={subItem.targetBlank ? '_blank' : undefined}
+                                        rel={subItem.targetBlank ? 'noopener noreferrer' : undefined}
+                                      >
+                                        {subItem.title}
+                                      </Link>
+                                    )
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <Link
+                      to={`/${key.toLowerCase()}`}
+                      className="header-item"
+                    >
+                      <span>{key}</span>
+                    </Link>
+                  )}
+                </div>
+              ))}
+              <div className="theme-toggle-container desktop">
+                <LanguageSelector />
+                <ThemeToggle />
+              </div>
+            </div>
+          </>
+        ) : (
+          // Mobile layout
+          <div className="header-top">
+            <div className="logo-container">
+              <Link to="/" onClick={handleLinkClick}>
+                <img src="/images/logo.png" alt={logoAlt} className="header-logo" />
               </Link>
-            )}
+              <div className="header-title">{title}</div>
+            </div>
+            
+            <button 
+              className="mobile-menu-toggle"
+              onClick={toggleMobileMenu}
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
-        ))}
+        )}
       </div>
-      <div className="theme-toggle-container">
-        <LanguageSelector />
-        <ThemeToggle />
-      </div>
-    </div>
+
+      {/* Mobile Menu Overlay */}
+      {isMobile && (
+        <div className={`mobile-menu-overlay ${isMobileMenuOpen ? 'open' : ''}`}>
+          <div className="mobile-menu-content">
+            {/* Mobile controls */}
+            <div className="mobile-controls">
+              <LanguageSelector />
+              <ThemeToggle />
+            </div>
+            
+            {/* Mobile navigation */}
+            <nav className="mobile-nav">
+              {Object.keys(menu).map((key) => (
+                <div key={key} className="mobile-menu-item">
+                  <button
+                    className={`mobile-menu-button ${openMenu === key ? 'active' : ''}`}
+                    onClick={() => handleMenuClick(key)}
+                  >
+                    <span>{key}</span>
+                    {menu[key].length > 0 && (
+                      <ChevronDown 
+                        size={20} 
+                        className={`chevron ${openMenu === key ? 'rotated' : ''}`}
+                      />
+                    )}
+                  </button>
+                  
+                  {openMenu === key && menu[key].length > 0 && (
+                    <div className="mobile-submenu">
+                      {menu[key].map((item, index) => (
+                        <div key={index} className="mobile-submenu-item">
+                          {item.link ? (
+                            item.link.startsWith('http') ? (
+                              <a 
+                                href={item.link} 
+                                className="mobile-link"
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                onClick={handleLinkClick}
+                              >
+                                {item.title}
+                              </a>
+                            ) : (
+                              <Link 
+                                to={item.link} 
+                                className="mobile-link"
+                                onClick={handleLinkClick}
+                                target={item.targetBlank ? '_blank' : undefined}
+                                rel={item.targetBlank ? 'noopener noreferrer' : undefined}
+                              >
+                                {item.title}
+                              </Link>
+                            )
+                          ) : (
+                            <>
+                              <button
+                                className={`mobile-submenu-button ${openSubmenu === item.title ? 'active' : ''}`}
+                                onClick={() => handleSubmenuClick(item.title)}
+                              >
+                                <span>{item.title}</span>
+                                {item.submenu && (
+                                  <ChevronDown 
+                                    size={18} 
+                                    className={`chevron ${openSubmenu === item.title ? 'rotated' : ''}`}
+                                  />
+                                )}
+                              </button>
+                              
+                              {item.submenu && openSubmenu === item.title && (
+                                <div className="mobile-nested-submenu">
+                                  {item.submenu.map((subItem, subIndex) => (
+                                    subItem.link?.startsWith('http') ? (
+                                      <a
+                                        key={subIndex}
+                                        href={subItem.link}
+                                        className="mobile-link nested"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        onClick={handleLinkClick}
+                                      >
+                                        {subItem.title}
+                                      </a>
+                                    ) : (
+                                      <Link
+                                        key={subIndex}
+                                        to={subItem.link || ''}
+                                        className="mobile-link nested"
+                                        onClick={handleLinkClick}
+                                        target={subItem.targetBlank ? '_blank' : undefined}
+                                        rel={subItem.targetBlank ? 'noopener noreferrer' : undefined}
+                                      >
+                                        {subItem.title}
+                                      </Link>
+                                    )
+                                  ))}
+                                </div>
+                              )}
+                            </>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </nav>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
