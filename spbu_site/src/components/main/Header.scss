@@ -23,12 +23,12 @@
     }
   }
 
-  // Правильные отступы для body
+  // Снимаем глобальный отступ у body — отступы задаются на страницах
   body {
-    padding-top: 5rem !important;
+    padding-top: 0 !important;
     
     &.mobile-mode {
-      padding-top: 4.5rem !important;
+      padding-top: 0 !important;
     }
   }
 
@@ -477,7 +477,7 @@
     }
     
     body {
-      padding-top: 6rem !important;
+      padding-top: 0 !important;
     }
     
     .header-top {
@@ -523,7 +523,7 @@
     }
     
     body {
-      padding-top: 7rem !important;
+      padding-top: 0 !important;
     }
     
     .header-top {
@@ -560,7 +560,7 @@
     }
     
     body {
-      padding-top: 4.5rem !important;
+      padding-top: 0 !important;
     }
     
     .header-top {
@@ -596,7 +596,7 @@
     }
     
     body {
-      padding-top: 4rem !important;
+      padding-top: 0 !important;
     }
     
     .header-top {
@@ -631,7 +631,7 @@
   @media (max-width: 768px) {
     body {
       &.mobile-mode {
-        padding-top: 4.5rem !important;
+        padding-top: 0 !important;
       }
     }
     
@@ -661,7 +661,7 @@
   @media (max-width: 480px) {
     body {
       &.mobile-mode {
-        padding-top: 4rem !important;
+        padding-top: 0 !important;
       }
     }
     
