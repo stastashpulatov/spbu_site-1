@@ -36,6 +36,7 @@ import EventsPage from "./components/pages/EventsPage";
 import GalleryPage from "./components/pages/GalleryPage";
 import SchedulePage from "./components/pages/SchedulePage";
 import MaintenancePage from "./components/pages/MaintenancePage";
+import Grants from "./components/pages/Grants";
 import MaintenanceCheck from "./components/common/MaintenanceCheck";
 
 import TransitionWrapper from "./components/common/TransitionWrapper";
@@ -66,6 +67,7 @@ function App() {
                   <Route path='/branch-tashkent/sveden/education' element={<BranchEducation />} />
                   <Route path='/branch-tashkent/sveden/eduStandarts' element={<EducationalStandards />} />
                   <Route path="/branch-tashkent/sveden/employees" element={<BranchEmployees />} />
+                  <Route path='/branch-tashkent/sveden/grants' element={<Grants />} />
                   <Route path='/branch-tashkent/leadership' element={<Leadership />} />
                   <Route path='/branch-tashkent/sveden/leadership' element={<BranchLeadership />} />
                   <Route path='/education/bachelor/economy' element={<InternationalBusiness />} />
