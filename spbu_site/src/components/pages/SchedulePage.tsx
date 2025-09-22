@@ -110,11 +110,11 @@ const SchedulePage: React.FC = () => {
             <div className="error-message">{error}</div>
           ) : (
             <div className="group-select-container">
-              <select 
-                id="group-select"
+              <select
+                name="group"
+                aria-label={t.selectGroupTitle}
                 value={selectedGroup}
                 onChange={(e) => setSelectedGroup(e.target.value)}
-                className="group-select"
               >
                 <option value="">{t.selectPlaceholder}</option>
                 {groups.map(group => (

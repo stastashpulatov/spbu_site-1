@@ -4,6 +4,7 @@
 """
 import os
 import django
+import pytest
 
 # Настройка Django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'spbu_site.settings')
@@ -12,6 +13,7 @@ django.setup()
 from site_maintenance.models import MaintenanceMode
 from django.utils import timezone
 
+@pytest.mark.django_db
 def test_maintenance():
     print("=== Тест системы технических работ ===")
     
