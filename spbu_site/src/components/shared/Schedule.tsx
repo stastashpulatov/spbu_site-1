@@ -173,7 +173,7 @@ const Schedule: React.FC<ScheduleProps> = ({ group }) => {
     };
 
     fetchSchedule();
-  }, [group]);
+  }, [group, dayOrder]);
 
   const formatTime = (timeString: string) => {
     return timeString.substring(0, 5); // Format "HH:MM" from "HH:MM:SS"

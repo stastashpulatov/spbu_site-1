@@ -33,3 +33,39 @@
   --dropdown-border: #581c25;
   --hover-color: #fb7185;
 }
+
+/* Global responsive defaults */
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+
+/* Prevent unexpected text zoom on iOS */
+html { -webkit-text-size-adjust: 100%; }
+
+img, svg, video, canvas { max-width: 100%; height: auto; display: block; }
+img { image-rendering: -webkit-optimize-contrast; }
+
+body { margin: 0; min-height: 100vh; }
+
+/* Respect iOS safe areas */
+body {
+  padding-top: env(safe-area-inset-top, 0);
+  padding-right: env(safe-area-inset-right, 0);
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  padding-left: env(safe-area-inset-left, 0);
+}
+
+/* Ensure form controls inherit font sizing */
+button, input, select, textarea { font: inherit; }
+
+/* Accessible focus defaults across browsers */
+:focus-visible { outline: 2px solid #fb7185; outline-offset: 2px; }
+
+/* Respect user reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
