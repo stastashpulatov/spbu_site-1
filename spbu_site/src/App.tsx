@@ -30,6 +30,7 @@ import Library from "./components/pages/Library";
 import StudentAccount from "./components/pages/StudentAccount";
 import Documents from "./components/pages/Documents";
 import LocalDocuments from "./components/pages/LocalDocuments";
+import PaidEdu from "./components/pages/PaidEdu";
 import Agreements from "./components/pages/Agreements";
 import NewsPage from "./components/pages/NewsPage";
 import EventsPage from "./components/pages/EventsPage";
@@ -68,6 +69,7 @@ function App() {
                   <Route path='/branch-tashkent/sveden/eduStandarts' element={<EducationalStandards />} />
                   <Route path="/branch-tashkent/sveden/employees" element={<BranchEmployees />} />
                   <Route path='/branch-tashkent/sveden/grants' element={<Grants />} />
+                  <Route path='/branch-tashkent/sveden/paid_edu' element={<PaidEdu />} />
                   <Route path='/branch-tashkent/leadership' element={<Leadership />} />
                   <Route path='/branch-tashkent/sveden/leadership' element={<BranchLeadership />} />
                   <Route path='/education/bachelor/economy' element={<InternationalBusiness />} />

@@ -125,7 +125,12 @@ const Grants: React.FC = () => {
             <h2 className="section-title">{t.scholarshipInfo.title}</h2>
           </div>
           <div className="document-link">
-            <a href="#" className="document-link-text">
+            <a
+              href="/files/Временное положение о стипендии.pdf"
+              className="document-link-text"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {t.scholarshipInfo.document}
             </a>
           </div>
