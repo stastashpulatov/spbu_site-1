@@ -39,7 +39,7 @@ const BranchVacant: React.FC = () => {
     <div className="branch-common">
       <div className="content-container">
         <div className="main-header">
-          <span className="main-header-icon">📋</span>
+          <span className="main-header-icon">🎯</span>
           <h1 className="main-title">{t.title}</h1>
         </div>
 
