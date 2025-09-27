@@ -26,7 +26,7 @@ class UserViewSet(viewsets.ModelViewSet):
             username=serializer.validated_data['username'],
             full_name=serializer.validated_data.get('full_name', ''),
             password=serializer.validated_data['password'],
-            role=serializer.validated_data.get('role', 'student'),
+            role=serializer.validated_data.get('role', 'admin'),
         )
 
     @staticmethod
@@ -40,14 +40,16 @@ class UserViewSet(viewsets.ModelViewSet):
         )
 
     def create(self, request, *args, **kwargs):
-        if request.data['role'] != 'admin' and request.data['role'] != 'teacher':
+        if 'is_superuser' in request.data and request.data['is_superuser']:
+            serializer = self.get_serializer(data=request.data)
+            serializer.is_valid(raise_exception=True)
+            self.perform_create_admin(serializer)
+        else:
             serializer = self.get_serializer(data=request.data)
             serializer.is_valid(raise_exception=True)
             self.perform_create(serializer)
-            headers = self.get_success_headers(serializer.data)
-            return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
-
-        else:
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
             if request.user.is_authenticated and request.user.role == 'admin':
                 if request.data['role'] == 'admin':
                     serializer = self.get_serializer(data=request.data)

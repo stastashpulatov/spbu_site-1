@@ -11,7 +11,7 @@ class IsOwnerOrAdminCanReadUpdate(BasePermission):
             return True
         if request.user.is_authenticated:
             try:
-                return obj.creator == request.user or request.user.role == 'admin'
+                return obj.creator == request.user or request.user.is_superuser or request.user.role == 'admin'
             except AttributeError:
                 return request.user.role == 'admin'
         else:
