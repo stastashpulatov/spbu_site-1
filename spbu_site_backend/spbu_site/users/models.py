@@ -9,7 +9,7 @@ from django.contrib.auth.hashers import make_password
 
 
 class CustomUserManager(BaseUserManager):
-    def create_user(self, username, full_name=None, password=None, role='Teacher'):
+    def create_user(self, username, full_name=None, password=None, role='admin'):
         if not username:
             raise ValueError('Users must have an username')
         if not password:
@@ -57,9 +57,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         max_length=20,
         choices=[
             ('admin', 'Admin'),
-            ('teacher', 'Teacher'),
         ],
-        default='student'
+        default='admin'
     )
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['role', 'password']

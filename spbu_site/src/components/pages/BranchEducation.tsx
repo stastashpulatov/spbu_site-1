@@ -1014,7 +1014,7 @@ const BranchEducation: React.FC = () => {
     <div className="branch-education">
       <div className="content-container">
         <div className="main-header">
-          <span className="main-header-icon">📋</span>
+          <span className="main-header-icon">🎓</span>
           <h1 className="main-title">{t.title}</h1>
         </div>
 

@@ -6,7 +6,7 @@ from rest_framework.response import Response
 
 from .models import Schedule, Group
 from .serializers import ScheduleSerializer, GroupSerializer
-from .permissions import IsAdminOrOwnerTeacher
+
 
 class ScheduleViewSet(viewsets.ModelViewSet):
     serializer_class = ScheduleSerializer
@@ -21,7 +21,7 @@ class ScheduleViewSet(viewsets.ModelViewSet):
         
         # Фильтруем только видимые записи для неавторизованных пользователей
         if not (self.request.user.is_authenticated and 
-                (self.request.user.is_staff or getattr(self.request.user, 'role', None) in ['admin', 'teacher'])):
+                (self.request.user.is_staff or getattr(self.request.user, 'role', None) == 'admin')):
             queryset = queryset.filter(is_visible=True)
         
         return queryset

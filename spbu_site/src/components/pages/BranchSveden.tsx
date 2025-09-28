@@ -35,7 +35,7 @@ const translations: Translations = {
       { title: 'Платные образовательные услуги', link: '/branch-tashkent/sveden/paid_edu' },
       { title: 'Финансово-хозяйственная деятельность', link: '/branch-tashkent/sveden/budget' },
       { title: 'Вакантные места для приема', link: '/branch-tashkent/sveden/vacant' },
-      { title: 'Доступная среда', link: '/branch-tashkent/sveden/ovz' },
+      { title: 'Организация питания в образовательной организации', link: '/branch-tashkent/sveden/food' },
       { title: 'Международное сотрудничество', link: '/branch-tashkent/sveden/inter' }
     ]
   },
@@ -58,7 +58,7 @@ const translations: Translations = {
       { title: 'Pullik ta\'lim xizmatlari', link: '/branch-tashkent/sveden/paid_edu' },
       { title: 'Moliyaviy-xo\'jalik faoliyati', link: '/branch-tashkent/sveden/budget' },
       { title: 'Qabul uchun bo\'sh joylar', link: '/branch-tashkent/sveden/vacant' },
-      { title: 'Qulay muhit', link: '/branch-tashkent/sveden/ovz' },
+      { title: 'Ta\'lim tashkilotida ovqatlanishni tashkil etish', link: '/branch-tashkent/sveden/food' },
       { title: 'Xalqaro hamkorlik', link: '/branch-tashkent/sveden/inter' }
     ]
   },
@@ -81,7 +81,7 @@ const translations: Translations = {
       { title: 'Paid educational services', link: '/branch-tashkent/sveden/paid_edu' },
       { title: 'Financial and economic activities', link: '/branch-tashkent/sveden/budget' },
       { title: 'Vacant places for admission', link: '/branch-tashkent/sveden/vacant' },
-      { title: 'Accessible environment', link: '/branch-tashkent/sveden/ovz' },
+      { title: 'Organization of meals in the educational organization', link: '/branch-tashkent/sveden/food' },
       { title: 'International cooperation', link: '/branch-tashkent/sveden/inter' }
     ]
   }
@@ -101,7 +101,7 @@ const BranchSveden: React.FC = () => {
     <div className="branch-sveden">
       <div className="content-container">
         <div className="header">
-          <span className="header-icon">📋</span>
+          <span className="header-icon">�</span>
           <h1>{t.title}</h1>
         </div>
         <div className="description-card">

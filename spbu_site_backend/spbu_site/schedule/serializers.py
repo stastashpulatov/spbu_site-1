@@ -1,10 +1,7 @@
 from rest_framework import serializers
-from .models import Schedule, Teacher, Group, Room
+from .models import Schedule, Group, Room
 
-class TeacherSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Teacher
-        fields = ['id', 'name']
+
 
 class GroupSerializer(serializers.ModelSerializer):
     class Meta:
@@ -17,7 +14,7 @@ class RoomSerializer(serializers.ModelSerializer):
         fields = ['id', 'name']
 
 class ScheduleSerializer(serializers.ModelSerializer):
-    teacher = TeacherSerializer()
+
     group = GroupSerializer()
     location = RoomSerializer()
     class Meta:

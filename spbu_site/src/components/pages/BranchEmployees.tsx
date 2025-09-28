@@ -6,7 +6,7 @@ const BranchEmployees: React.FC = () => {
     <div className="branch-employees">
       <div className="content-container">
         <div className="main-header">
-          <span className="main-header-icon">👩‍🏫</span>
+                    <span className="main-header-icon">�‍🏫</span>
           <h1 className="main-title">Педагогический состав</h1>
         </div>
 

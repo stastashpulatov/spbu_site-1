@@ -38,6 +38,9 @@ import GalleryPage from "./components/pages/GalleryPage";
 import SchedulePage from "./components/pages/SchedulePage";
 import MaintenancePage from "./components/pages/MaintenancePage";
 import Grants from "./components/pages/Grants";
+import BranchVacant from "./components/pages/BranchVacant";
+import BranchInter from "./components/pages/BranchInter";
+import BranchFood from "./components/pages/BranchFood";
 import MaintenanceCheck from "./components/common/MaintenanceCheck";
 
 import TransitionWrapper from "./components/common/TransitionWrapper";
@@ -70,6 +73,11 @@ function App() {
                   <Route path="/branch-tashkent/sveden/employees" element={<BranchEmployees />} />
                   <Route path='/branch-tashkent/sveden/grants' element={<Grants />} />
                   <Route path='/branch-tashkent/sveden/paid_edu' element={<PaidEdu />} />
+
+                  <Route path='/branch-tashkent/sveden/vacant' element={<BranchVacant />} />
+                  <Route path='/branch-tashkent/sveden/food' element={<BranchFood />} />
+                  <Route path='/branch-tashkent/sveden/inter' element={<BranchInter />} />
+
                   <Route path='/branch-tashkent/leadership' element={<Leadership />} />
                   <Route path='/branch-tashkent/sveden/leadership' element={<BranchLeadership />} />
                   <Route path='/education/bachelor/economy' element={<InternationalBusiness />} />

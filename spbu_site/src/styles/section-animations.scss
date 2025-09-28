@@ -1,0 +1,80 @@
+@layer components {
+  .branch-common {
+    .content-container {
+      opacity: 0;
+      animation: fadeIn 0.5s ease-out forwards !important;
+    }
+
+    .main-header {
+      transform: translateY(20px);
+      opacity: 0;
+      animation: slideInUp 0.5s ease-out 0.2s forwards !important;
+
+      .main-header-icon {
+        transition: transform 0.3s ease !important;
+        
+        &:hover {
+          transform: scale(1.1) !important;
+        }
+      }
+    }
+
+    .info-section {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideInUp 0.5s ease-out 0.4s forwards !important;
+    }
+
+    .table-wrapper {
+      transition: all 0.3s ease !important;
+
+      &:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+      }
+    }
+
+    .info-table {
+      thead {
+        th {
+          transition: background-color 0.3s ease !important;
+          
+          &:hover {
+            background-color: darken(#f8f9fa, 5%) !important;
+          }
+        }
+      }
+      
+      tbody {
+        tr {
+          transition: all 0.2s ease-in-out !important;
+          
+          &:hover {
+            background-color: #fff5f5 !important;
+            transform: scale(1.005) !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
