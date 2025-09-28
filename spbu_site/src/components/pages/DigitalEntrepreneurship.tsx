@@ -131,7 +131,7 @@ const translations: Translations = {
     form: 'Full-time',
     duration: '2 years',
     department: 'Economics',
-    cost: '32,000,000 UZS',
+    cost: '32 000 000 UZS',
     admissionTitle: 'Entrance Examinations',
     admissionText: [
       'Economics (written)',

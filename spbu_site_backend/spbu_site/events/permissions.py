@@ -1,6 +1,6 @@
 from rest_framework.permissions import BasePermission, SAFE_METHODS
 
-class IsAdminOrTeacher(BasePermission):
+class IsAdminOrSuperUser(BasePermission):
     def has_permission(self, request, view):
         if request.method in SAFE_METHODS:
             return True
@@ -9,4 +9,4 @@ class IsAdminOrTeacher(BasePermission):
             return False
 
         role = getattr(request.user, 'role', None)
-        return role in ['admin', 'teacher'] or request.user.is_staff or request.user.is_superuser
+        return role in ['admin'] or request.user.is_staff or request.user.is_superuser

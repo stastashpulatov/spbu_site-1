@@ -6,12 +6,12 @@ from rest_framework.response import Response
 
 from .models import Schedule, Group
 from .serializers import ScheduleSerializer, GroupSerializer
-
+from .permissions import IsAdminOrSuperUser
 
 class ScheduleViewSet(viewsets.ModelViewSet):
     serializer_class = ScheduleSerializer
     pagination_class = PageNumberPagination
-    permission_classes = [permissions.AllowAny]  # Разрешаем публичный доступ к расписанию
+    permission_classes = [IsAdminOrSuperUser]  # Разрешаем публичный доступ к расписанию
 
     def get_queryset(self):
         queryset = Schedule.objects.all().order_by('day_of_week', 'start_time')

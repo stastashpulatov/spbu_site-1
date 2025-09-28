@@ -134,7 +134,7 @@ const translations: Translations = {
     form: 'Full-time',
     duration: '4 years',
     department: 'Programming',
-    cost: '27,195,000 UZS',
+    cost: '27 195 000 UZS',
     admissionTitle: 'Entrance Examinations',
     admissionText: [
       'Russian Language (testing)',
