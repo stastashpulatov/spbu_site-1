@@ -135,7 +135,7 @@ const translations: Translations = {
     form: 'Full-time',
     duration: '2 years',
     department: 'Law',
-    cost: '28,000,000 UZS',
+    cost: '28 000 000 UZS',
     admissionTitle: 'Entrance Examinations',
     admissionText: [
       'Theory of State and Law (written)',

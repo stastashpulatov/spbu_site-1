@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
-from .permissions import IsAdminOrTeacher
+from .permissions import IsAdminOrSuperUser
 
 from .models import News, Event
 from .serializers import NewsSerializer, EventSerializer
@@ -13,7 +13,7 @@ from .serializers import NewsSerializer, EventSerializer
 class NewsViewSet(viewsets.ModelViewSet):
     serializer_class = NewsSerializer
     pagination_class = PageNumberPagination
-    permission_classes = [IsAdminOrTeacher]
+    permission_classes = [IsAdminOrSuperUser]
 
     def get_queryset(self):
         queryset = News.objects.all().order_by('-publication_date')
@@ -39,7 +39,7 @@ class NewsViewSet(viewsets.ModelViewSet):
 class EventViewSet(viewsets.ModelViewSet):
     serializer_class = EventSerializer
     pagination_class = PageNumberPagination
-    permission_classes = [IsAdminOrTeacher]
+    permission_classes = [IsAdminOrSuperUser]
 
     def get_queryset(self):
         queryset = Event.objects.all().order_by('-date')
