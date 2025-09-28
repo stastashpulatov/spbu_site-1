@@ -35,7 +35,7 @@ class Schedule(models.Model):
     start_time = models.TimeField('Время начала')
     end_time = models.TimeField('Время окончания')
     location = models.ForeignKey(Room, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Аудитория')
-
+    teacher = models.CharField('Преподаватель', max_length=200, blank=True, null=True)
     group = models.ForeignKey(Group, on_delete=models.CASCADE, verbose_name='Группа')
     is_visible = models.BooleanField('Видимость', default=True)
     

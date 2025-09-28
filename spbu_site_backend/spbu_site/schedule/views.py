@@ -19,9 +19,9 @@ class ScheduleViewSet(viewsets.ModelViewSet):
         if group_id:
             queryset = queryset.filter(group__id=group_id)
         
-        # Фильтруем записи: все для админов и суперпользователей, только видимые для остальных
+        # Фильтруем только видимые записи для неавторизованных пользователей
         if not (self.request.user.is_authenticated and 
-                (self.request.user.is_superuser or getattr(self.request.user, 'role', None) == 'admin')):
+                (self.request.user.is_staff or getattr(self.request.user, 'role', None) == 'admin')):
             queryset = queryset.filter(is_visible=True)
         
         return queryset
