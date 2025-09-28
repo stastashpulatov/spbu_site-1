@@ -20,8 +20,6 @@ type Translations = {
     mainCourses: string[];
     mainProgramTitle: string;
     mainProgramPoints: string[];
-    teachersTitle: string;
-    teachers: string[];
   };
 };
 
@@ -29,35 +27,35 @@ const translations: Translations = {
   ru: {
     backgroundImage: '/images/pravo.png',
     backgroundPosition: 'center 25%',
-    title: 'Международное частное право',
-    code: '40.04.01',
+    title: 'Международное предпринимательство в цифровой экономике',
+    code: '38.04.01',
     level: 'Магистратура',
     form: 'Очная',
     duration: '2 года',
-    department: 'Юриспруденция',
+    department: 'Экономика',
     cost: '33 000 000 сум',
     admissionTitle: 'Вступительные испытания',
     admissionText: [
-      'Теория государства и права (письменно)',
-      'Английский язык (тестирование)'
+      '<a href="/files/25_mag_portfolio-filial-v-tashkente.pdf" target="_blank">Программа вступительного испытания</a>',
+      '<a href="/files/programma_vstupit_ispytaniy_b2-50.pdf" target="_blank">Программа вступительного испытания: Русский язык</a>'
     ],
     mainCoursesTitle: 'Основные учебные курсы',
     mainCourses: [
-      'Международное частное право',
+      'Микро - и макроэкономика - продвинутый уровень',
+      'Цифровая экономика: современные вызовы',
+      'Менеджмент в цифровой экономике',
+      'Международные экономические отношения - продвинутый уровень',
+      'Международные валютно-кредитные отношения - продвинутый уровень',
+      'Международная коммерческая деятельность',
+      'Кросскультурный менеджмент',
+      'Русский язык как иностранный',
+      'Китайский язык для начинающих',
+      'Цифровая трансформация бизнеса',
+      'Финтех, технологии распределенных реестров и искусственного интеллекта',
       'Право международной торговли',
-      'Международный коммерческий арбитраж',
-      'Международное корпоративное право',
-      'Международное банковское право',
-      'Правовое регулирование иностранных инвестиций',
-      'Международное семейное право',
-      'Международный гражданский процесс',
-      'Международное авторское право',
-      'Международное патентное право',
-      'Международное контрактное право',
-      'Трансграничные банкротства',
-      'Международное налоговое право',
-      'Правовое регулирование международных перевозок',
-      'Международное трудовое право'
+      'Экономика предприятия в цифровую эпоху',
+      'Управление бизнес-коммуникациями и развитие бизнес-навыков (тренинг)',
+      'Стратегия деловых переговоров'
     ],
     mainProgramTitle: 'О программе',
     mainProgramPoints: [
@@ -66,48 +64,40 @@ const translations: Translations = {
       'Особое внимание уделяется изучению международных коммерческих контрактов и международного коммерческого арбитража.',
       'В рамках программы изучаются вопросы международной купли-продажи, трансграничных перевозок и международных расчетов.',
       'Выпускники работают в международных юридических фирмах, транснациональных корпорациях и консалтинговых компаниях.'
-    ],
-    teachersTitle: 'Известные преподаватели',
-    teachers: [
-      'Л.Н. Галенская – доктор юридических наук, профессор кафедры международного права СПбГУ',
-      'С.В. Бахин – доктор юридических наук, профессор, заведующий кафедрой международного права СПбГУ',
-      'А.И. Абдуллин – доктор юридических наук, профессор кафедры международного и европейского права СПбГУ',
-      'Н.Ю. Ерпылева – доктор юридических наук, профессор кафедры международного частного права СПбГУ',
-      'И.В. Гетьман-Павлова – доктор юридических наук, профессор кафедры международного частного права СПбГУ'
     ]
   },
   uz: {
     backgroundImage: '/images/pravo.png',
     backgroundPosition: 'center 25%',
-    title: 'Xalqaro xususiy huquq',
-    code: '40.04.01',
+    title: 'Raqamli iqtisodiyotda xalqaro tadbirkorlik',
+    code: '38.04.01',
     level: 'Magistratura',
     form: 'Kunduzgi',
     duration: '2 yil',
-    department: 'Huquqshunoslik',
-    cost: '28 000 000 so\'m',
+    department: 'Iqtisodiyot',
+    cost: '33 000 000 so\'m',
     admissionTitle: 'Kirish imtihonlari',
     admissionText: [
-      'Davlat va huquq nazariyasi (yozma)',
-      'Ingliz tili (test)'
+      '<a href="/files/25_mag_portfolio-filial-v-tashkente.pdf" target="_blank">Kirish imtihoni dasturi</a>',
+      '<a href="/files/programma_vstupit_ispytaniy_b2-50.pdf" target="_blank">Kirish imtihoni dasturi: Rus tili</a>'
     ],
     mainCoursesTitle: 'Asosiy o\'quv kurslari',
     mainCourses: [
-      'Xalqaro xususiy huquq',
+      'Mikro va makroiqtisodiyot - takomillashgan daraja',
+      'Raqamli iqtisodiyot: zamonaviy muammolar',
+      'Raqamli iqtisodiyotda menejment',
+      'Xalqaro iqtisodiy munosabatlar - takomillashgan daraja',
+      'Xalqaro valyuta-kredit munosabatlari - takomillashgan daraja',
+      'Xalqaro tijorat faoliyati',
+      'Madaniyatlararo menejment',
+      'Rus tili chet tili sifatida',
+      'Xitoy tili boshlang\'ich daraja uchun',
+      'Biznesning raqamli transformatsiyasi',
+      'Fintech, taqsimlangan reyestrlar texnologiyalari va sun\'iy intellekt',
       'Xalqaro savdo huquqi',
-      'Xalqaro tijorat arbitraji',
-      'Xalqaro korporativ huquq',
-      'Xalqaro bank huquqi',
-      'Xorijiy investitsiyalarni huquqiy tartibga solish',
-      'Xalqaro oila huquqi',
-      'Xalqaro fuqarolik jarayoni',
-      'Xalqaro mualliflik huquqi',
-      'Xalqaro patent huquqi',
-      'Xalqaro shartnoma huquqi',
-      'Chegaralararo bankrotliklar',
-      'Xalqaro soliq huquqi',
-      'Xalqaro tashishlarni huquqiy tartibga solish',
-      'Xalqaro mehnat huquqi'
+      'Raqamli davr korxona iqtisodiyoti',
+      'Biznes-kommunikatsiyalarni boshqarish va biznes ko\'nikmalarini rivojlantirish (trening)',
+      'Ishbilarmonlik muzokaralari strategiyasi'
     ],
     mainProgramTitle: 'Dastur haqida',
     mainProgramPoints: [
@@ -116,48 +106,40 @@ const translations: Translations = {
       'Xalqaro tijorat shartnomalari va xalqaro tijorat arbitrajini o\'rganishga alohida e\'tibor qaratiladi.',
       'Dastur doirasida xalqaro savdo-sotiq, chegaralararo tashish va xalqaro hisob-kitoblar masalalari o\'rganiladi.',
       'Bitiruvchilar xalqaro huquq firmalarida, transmilliy korporatsiyalarda va konsalting kompaniyalarida ishlaydilar.'
-    ],
-    teachersTitle: 'Mashhur o\'qituvchilar',
-    teachers: [
-      'L.N. Galenskaya – yuridik fanlar doktori, SPbDU xalqaro huquq kafedrasi professori',
-      'S.V. Baxin – yuridik fanlar doktori, professor, SPbDU xalqaro huquq kafedrasi mudiri',
-      'A.I. Abdullin – yuridik fanlar doktori, SPbDU xalqaro va yevropa huquqi kafedrasi professori',
-      'N.Yu. Yerpileva – yuridik fanlar doktori, SPbDU xalqaro xususiy huquq kafedrasi professori',
-      'I.V. Getman-Pavlova – yuridik fanlar doktori, SPbDU xalqaro xususiy huquq kafedrasi professori'
     ]
   },
   en: {
     backgroundImage: '/images/pravo.png',
     backgroundPosition: 'center 25%',
-    title: 'International Private Law',
-    code: '40.04.01',
+    title: 'International Business in Digital Economy',
+    code: '38.04.01',
     level: 'Master\'s degree',
     form: 'Full-time',
     duration: '2 years',
-    department: 'Law',
-    cost: '28 000 000 UZS',
+    department: 'Economics',
+    cost: '33 000 000 UZS',
     admissionTitle: 'Entrance Examinations',
     admissionText: [
-      'Theory of State and Law (written)',
-      'English language (testing)'
+      '<a href="/files/25_mag_portfolio-filial-v-tashkente.pdf" target="_blank">Entrance Examination Program</a>',
+      '<a href="/files/programma_vstupit_ispytaniy_b2-50.pdf" target="_blank">Entrance Examination Program: Russian Language</a>'
     ],
     mainCoursesTitle: 'Main Courses',
     mainCourses: [
-      'International Private Law',
+      'Micro and Macroeconomics - Advanced Level',
+      'Digital Economy: Modern Challenges',
+      'Management in Digital Economy',
+      'International Economic Relations - Advanced Level',
+      'International Monetary Relations - Advanced Level',
+      'International Commercial Activity',
+      'Cross-cultural Management',
+      'Russian as a Foreign Language',
+      'Chinese for Beginners',
+      'Digital Business Transformation',
+      'Fintech, Distributed Ledger Technologies and Artificial Intelligence',
       'International Trade Law',
-      'International Commercial Arbitration',
-      'International Corporate Law',
-      'International Banking Law',
-      'Legal Regulation of Foreign Investment',
-      'International Family Law',
-      'International Civil Procedure',
-      'International Copyright Law',
-      'International Patent Law',
-      'International Contract Law',
-      'Cross-border Bankruptcy',
-      'International Tax Law',
-      'Legal Regulation of International Transportation',
-      'International Labor Law'
+      'Enterprise Economics in the Digital Age',
+      'Business Communication Management and Business Skills Development (Training)',
+      'Business Negotiation Strategy'
     ],
     mainProgramTitle: 'About the Program',
     mainProgramPoints: [
@@ -166,14 +148,6 @@ const translations: Translations = {
       'Special attention is paid to the study of international commercial contracts and international commercial arbitration.',
       'The program covers issues of international sales, cross-border transportation, and international settlements.',
       'Graduates work in international law firms, multinational corporations, and consulting companies.'
-    ],
-    teachersTitle: 'Distinguished Faculty',
-    teachers: [
-      'L.N. Galenskaya – Doctor of Law, Professor of International Law Department at SPbU',
-      'S.V. Bakhin – Doctor of Law, Professor, Head of International Law Department at SPbU',
-      'A.I. Abdullin – Doctor of Law, Professor of International and European Law Department at SPbU',
-      'N.Yu. Erpyleva – Doctor of Law, Professor of International Private Law Department at SPbU',
-      'I.V. Getman-Pavlova – Doctor of Law, Professor of International Private Law Department at SPbU'
     ]
   }
 };

@@ -20,8 +20,6 @@ type Translations = {
     mainCourses: string[];
     mainProgramTitle: string;
     mainProgramPoints: string[];
-    teachersTitle: string;
-    teachers: string[];
   };
 };
 
@@ -64,14 +62,6 @@ const translations: Translations = {
       'Программа готовит специалистов в области международного предпринимательства с фокусом на цифровую экономику и инновационные технологии.',
       'Студенты получают практические навыки в создании и управлении цифровым бизнесом на международном уровне.',
       'Выпускники программы становятся востребованными специалистами в области цифровой трансформации бизнеса и международного предпринимательства.'
-    ],
-    teachersTitle: 'Известные преподаватели',
-    teachers: [
-      'А.Н. Андреев – доктор экономических наук, профессор, заведующий кафедрой цифровой экономики СПбГУ',
-      'М.В. Иванова – доктор экономических наук, профессор кафедры международного бизнеса СПбГУ',
-      'С.П. Петров – доктор технических наук, профессор кафедры информационных систем в экономике СПбГУ',
-      'Е.А. Смирнова – доктор экономических наук, профессор кафедры мировой экономики СПбГУ',
-      'В.Д. Морозов – кандидат экономических наук, доцент кафедры предпринимательства СПбГУ'
     ]
   },
   uz: {
@@ -113,14 +103,7 @@ const translations: Translations = {
       'Talabalar xalqaro darajada raqamli biznesni yaratish va boshqarish bo\'yicha amaliy ko\'nikmalarni oladilar.',
       'Dastur bitiruvchilari biznesning raqamli transformatsiyasi va xalqaro tadbirkorlik sohasida talab qilinadigan mutaxassislarga aylanadilar.'
     ],
-    teachersTitle: 'Mashhur o\'qituvchilar',
-    teachers: [
-      'A.N. Andreyev – iqtisodiyot fanlari doktori, professor, SPbDU Raqamli iqtisodiyot kafedrasi mudiri',
-      'M.V. Ivanova – iqtisodiyot fanlari doktori, SPbDU Xalqaro biznes kafedrasi professori',
-      'S.P. Petrov – texnika fanlari doktori, SPbDU Iqtisodiyotda axborot tizimlari kafedrasi professori',
-      'Ye.A. Smirnova – iqtisodiyot fanlari doktori, SPbDU Jahon iqtisodiyoti kafedrasi professori',
-      'V.D. Morozov – iqtisodiyot fanlari nomzodi, SPbDU Tadbirkorlik kafedrasi dotsenti'
-    ]
+    
   },
   en: {
     backgroundImage: '/images/image.png',
@@ -160,14 +143,6 @@ const translations: Translations = {
       'The program prepares specialists in international entrepreneurship with a focus on digital economy and innovative technologies.',
       'Students gain practical skills in creating and managing digital business at the international level.',
       'Graduates of the program become sought-after specialists in the field of digital business transformation and international entrepreneurship.'
-    ],
-    teachersTitle: 'Distinguished Faculty',
-    teachers: [
-      'A.N. Andreev – Doctor of Economics, Professor, Head of Digital Economy Department at SPbU',
-      'M.V. Ivanova – Doctor of Economics, Professor of International Business Department at SPbU',
-      'S.P. Petrov – Doctor of Technical Sciences, Professor of Information Systems in Economics Department at SPbU',
-      'E.A. Smirnova – Doctor of Economics, Professor of World Economy Department at SPbU',
-      'V.D. Morozov – Candidate of Economics, Associate Professor of Entrepreneurship Department at SPbU'
     ]
   }
 };

@@ -38,29 +38,18 @@ const translations: Translations = {
     cost: '27 195 000 сум',
     admissionTitle: 'Вступительные испытания',
     admissionText: [
-      'Русский язык (тестирование)',
-      'Математика (от 25 до 100 баллов)'
+      '<a href="/files/programma_vstupit_ispytaniy_b1-50.pdf" target="_blank">Программа вступительного испытания: Русский язык</a>',
+      '<a href="/files/25_bak_spets_portfolio-filial-v-tashkente.pdf" target="_blank">Программа вступительного испытания: Математика</a>'
     ],
     mainCoursesTitle: 'Основные учебные курсы',
     mainCourses: [
-      'Макро- и микроэкономика',
-      'Менеджмент',
-      'Цифровая культура бизнес-сред',
-      'Мировая экономика',
-      'Международная бизнес-среда и информация',
-      'Теория организации и организационное поведение',
-      'Учет, финансы и аудит в цифровой среде',
-      'Международный маркетинг и маркетинговые исследования',
-      'Управление международными проектами и бизнес-процессами',
-      'Экономика и управление фирмой',
-      'Математические методы',
-      'Эконометрика',
-      'Статистика',
-      'Россия в глобальной международной экономической системе',
-      'Международные экономические отношения',
-      'Международная торговля и торговая политика',
-      'Конкурентная среда',
-      'Экономика и организация внешнеэкономической деятельности'
+      'Микро-, Макро-, Мировая экономика',
+      'Цифровая культура (онлайн-курс): Бизнес-анализ информации; Правовое регулирование отношений в Интернете',
+      'Инвестиционные проекты в цифровой экономике; Учет, отчетность и аудит в цифровой среде; Международная торговля в условиях цифровизации мировой экономики; Правила международного налогообложения в условиях цифровизации экономики; Финансовые рынки и регулирование в условиях цифровизации',
+      'Экономика и управление фирмой; Финансовый менеджмент; Маркетинг; Международный бизнес',
+      'Россия и Узбекистан в международных экономических отношениях; Россия и Узбекистан в международных валютно-кредитных отношениях; Экономика стран ислама и исламский бизнес в условиях развития цифровой экономики',
+      'Математический анализ; Линейная алгебра; Статистика с основами эконометрики',
+      'Русский язык как иностранный'
     ],
     mainProgramTitle: 'О программе',
     mainProgramPoints: [
@@ -93,29 +82,18 @@ const translations: Translations = {
     cost: '27 195 000 so\'m',
     admissionTitle: 'Kirish imtihonlari',
     admissionText: [
-      'Rus tili (test)',
-      'Matematika (25 dan 100 ballgacha)'
+      '<a href="/files/programma_vstupit_ispytaniy_b1-50.pdf" target="_blank">Rus tili (test)</a>',
+      '<a href="/files/25_bak_spets_portfolio-filial-v-tashkente.pdf" target="_blank">Matematika (25 dan 100 ballgacha)</a>'
     ],
-    mainCoursesTitle: 'Asosiy o\'quv kurslari',
+    mainCoursesTitle: "Asosiy o\'quv kurslari",
     mainCourses: [
-      'Makro va mikroiqtisodiyot',
-      'Menejment',
-      'Biznes muhitining raqamli madaniyati',
-      'Jahon iqtisodiyoti',
-      'Xalqaro biznes muhiti va axborot',
-      'Tashkilot nazariyasi va tashkiliy xulq-atvor',
-      'Raqamli muhitda hisob, moliya va audit',
-      'Xalqaro marketing va marketing tadqiqotlari',
-      'Xalqaro loyihalar va biznes jarayonlarini boshqarish',
-      'Firma iqtisodiyoti va boshqaruvi',
-      'Matematik usullar',
-      'Ekonometrika',
-      'Statistika',
-      'Rossiya global xalqaro iqtisodiy tizimda',
-      'Xalqaro iqtisodiy munosabatlar',
-      'Xalqaro savdo va savdo siyosati',
-      'Raqobat muhiti',
-      'Tashqi iqtisodiy faoliyat iqtisodiyoti va tashkil etilishi'
+      'Mikro-, Makro-, Jahon iqtisodiyoti',
+      'Raqamli madaniyat (onlayn kurs): Biznes ma\'lumotlarini tahlil qilish; Internetdagi munosabatlarni huquqiy tartibga solish',
+      'Raqamli iqtisodiyotda investitsiya loyihalari; Raqamli muhitda buxgalteriya hisobi, hisobot va audit; Jahon iqtisodiyoti raqamlashtirilishi sharoitida xalqaro savdo; Raqamli iqtisodiyot sharoitida xalqaro soliqqa tortish qoidalari; Raqamlashtirish sharoitida moliya bozorlari va tartibga solish',
+      'Iqtisodiyot va kompaniyani boshqarish; Moliyaviy menejment; Marketing; Xalqaro biznes',
+      'Rossiya va O\'zbekiston xalqaro iqtisodiy munosabatlarda; Rossiya va O\'zbekiston xalqaro valyuta-kredit munosabatlarida; Raqamli iqtisodiyot rivojlanishi sharoitida islom mamlakatlari iqtisodiyoti va islom biznesi',
+      'Matematik tahlil; Chiziqli algebra; Ekonometrika asoslari bilan statistika',
+      'Rus tili chet tili sifatida'
     ],
     mainProgramTitle: 'Dastur haqida',
     mainProgramPoints: [
@@ -148,29 +126,18 @@ const translations: Translations = {
     cost: '27 195 000 UZS',
     admissionTitle: 'Entrance Examinations',
     admissionText: [
-      'Russian language (testing)',
-      'Mathematics (25 to 100 points)'
+      '<a href="/files/programma_vstupit_ispytaniy_b1-50.pdf" target="_blank">Entrance examination program: Russian language</a>',
+      '<a href="/files/25_bak_spets_portfolio-filial-v-tashkente.pdf" target="_blank">Entrance examination program: Mathematics</a>'
     ],
-    mainCoursesTitle: 'Main Courses',
+    mainCoursesTitle: 'Main courses',
     mainCourses: [
-      'Macro and Microeconomics',
-      'Management',
-      'Digital Culture of Business Environments',
-      'World Economy',
-      'International Business Environment and Information',
-      'Organization Theory and Organizational Behavior',
-      'Accounting, Finance and Audit in Digital Environment',
-      'International Marketing and Marketing Research',
-      'International Project and Business Process Management',
-      'Economics and Company Management',
-      'Mathematical Methods',
-      'Econometrics',
-      'Statistics',
-      'Russia in the Global International Economic System',
-      'International Economic Relations',
-      'International Trade and Trade Policy',
-      'Competitive Environment',
-      'Economics and Organization of Foreign Economic Activity'
+      'Micro-, Macro-, World Economics',
+      'Digital Culture (online course): Business Information Analysis; Legal Regulation of Internet Relations',
+      'Investment Projects in Digital Economy; Accounting, Reporting and Audit in Digital Environment; International Trade in Digital World Economy; International Taxation Rules in Digital Economy; Financial Markets and Regulation in Digital Era',
+      'Economics and Company Management; Financial Management; Marketing; International Business',
+      'Russia and Uzbekistan in International Economic Relations; Russia and Uzbekistan in International Monetary Relations; Islamic Countries Economics and Islamic Business in Digital Economy',
+      'Mathematical Analysis; Linear Algebra; Statistics with Basics of Econometrics',
+      'Russian as a Foreign Language'
     ],
     mainProgramTitle: 'About the Program',
     mainProgramPoints: [

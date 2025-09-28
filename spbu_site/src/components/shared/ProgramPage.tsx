@@ -18,8 +18,6 @@ interface ProgramInfo {
   mainCourses: string[];
   mainProgramTitle?: string;
   mainProgramPoints: string[];
-  teachersTitle?: string;
-  teachers?: string[];
 }
 
 interface ProgramPageProps {
@@ -216,7 +214,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({ programInfo }) => {
           <div className="section-content">
             <ul>
               {programInfo.admissionText.map((text, index) => (
-                <li key={index}>{text}</li>
+                <li key={index} dangerouslySetInnerHTML={{ __html: text }}></li>
               ))}
             </ul>
           </div>
@@ -248,21 +246,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({ programInfo }) => {
           </div>
         </div>
 
-        {programInfo.teachersTitle && (
-          <div className="program-section">
-            <h2>
-              <span className="section-icon">👥</span>
-              {programInfo.teachersTitle}
-            </h2>
-            <div className="section-content">
-              <ul>
-                {programInfo.teachers?.map((teacher, index) => (
-                  <li key={index}>{teacher}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        )}
+
       </div>
     </div>
   );
