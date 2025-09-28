@@ -32,7 +32,7 @@ const translations: Translations = {
     form: 'Очная',
     duration: '2 года',
     department: 'Востоковедение',
-    cost: '33 000 000 сум',
+    cost: '29 370 600 сум',
     admissionTitle: 'Вступительные испытания',
     admissionText: [
       'Востоковедение (письменно)',

@@ -35,7 +35,7 @@ const translations: Translations = {
     form: 'Очная',
     duration: '2 года',
     department: 'Юриспруденция',
-    cost: '28 000 000 сум',
+    cost: '33 000 000 сум',
     admissionTitle: 'Вступительные испытания',
     admissionText: [
       'Теория государства и права (письменно)',
