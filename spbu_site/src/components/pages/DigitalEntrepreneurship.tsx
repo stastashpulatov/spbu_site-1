@@ -33,7 +33,7 @@ const translations: Translations = {
     form: 'Очная',
     duration: '2 года',
     department: 'Экономика',
-    cost: '29 370 600 сум',
+    cost: '32 000 000 сум',
     admissionTitle: 'Вступительные испытания',
     admissionText: [
       'Экономика (письменно)',

@@ -84,8 +84,8 @@ const translations: Translations = {
         position: 'Начальник Управления делами',
         address: 'Республика Узбекистан, г. Ташкент, Мирободский район, ул. Шахрисабз, д. 16',
         website: 'https://spbu.uz',
-        email: 'нет',
-        regulation: 'нет'
+        email: '—',
+        regulation: '—'
       }
     ],
     adminData: [
@@ -185,8 +185,8 @@ const translations: Translations = {
         position: 'Ishlar boshqarmasi boshlig\'i',
         address: 'O\'zbekiston Respublikasi, Toshkent shahri, Mirobod tumani, Shahrisabz ko\'chasi, 16-uy',
         website: 'https://spbu.uz',
-        email: 'yo\'q',
-        regulation: 'yo\'q'
+        email: '—',
+        regulation: '—'
       }
     ],
     adminData: [
@@ -286,8 +286,8 @@ const translations: Translations = {
         position: 'Head of Administrative Affairs',
         address: 'Republic of Uzbekistan, Tashkent, Mirobod district, Shahrisabz street, 16',
         website: 'https://spbu.uz',
-        email: 'none',
-        regulation: 'none'
+        email: '—',
+        regulation: '—'
       }
     ],
     adminData: [
@@ -336,7 +336,7 @@ const translations: Translations = {
       {
         id: 2,
         name: 'Human Resources Department',
-        head: 'Ekyubkhuzhaev Shakhriyorjon Erkin ogli',
+        head: 'Ekyubkhuzhaev Shakhriyorjon Erkin ugli',
         position: 'Inspector',
         address: 'Republic of Uzbekistan, Tashkent, Mirobod district, Shahrisabz street, 16',
         website: 'https://spbu.uz',
@@ -346,7 +346,7 @@ const translations: Translations = {
       {
         id: 3,
         name: 'Center for Digital Educational Technologies',
-        head: 'Khaitboev Mavlonbek Shuhrat ogli',
+        head: 'Khaitboev Mavlonbek Shuhrat ugli',
         position: 'Head of Center',
         address: 'Republic of Uzbekistan, Tashkent, Mirobod district, Shahrisabz street, 16',
         website: 'https://spbu.uz',
