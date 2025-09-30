@@ -18,8 +18,6 @@ interface ProgramInfo {
   mainCourses: string[];
   mainProgramTitle?: string;
   mainProgramPoints: string[];
-  teachersTitle?: string;
-  teachers?: string[];
 }
 
 interface ProgramPageProps {
@@ -57,28 +55,30 @@ const ProgramPage: React.FC<ProgramPageProps> = ({ programInfo }) => {
         {(programInfo.cost || programInfo.duration || programInfo.level || programInfo.form || programInfo.department || programInfo.code) && (
           <div style={{
             margin: '20px 0',
-            borderRadius: '10px',
+            borderRadius: '12px',
             overflow: 'hidden',
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+            backgroundColor: '#f8fafc',
+            boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1)'
           }}>
             <table style={{
               width: '100%',
               borderCollapse: 'collapse',
-              backgroundColor: 'white',
-              fontSize: '16px'
+              backgroundColor: '#f8fafc',
+              fontSize: '15px'
             }}>
               <thead>
                 <tr style={{
-                  backgroundColor: '#2563eb',
-                  color: 'white'
+                  backgroundColor: '#f8fafc',
+                  borderBottom: '2px solid #e2e8f0'
                 }}>
                   <th style={{
-                    padding: '15px 20px',
+                    padding: '16px 20px',
                     textAlign: 'left',
                     fontWeight: '600',
-                    fontSize: '18px'
+                    fontSize: '16px',
+                    color: '#1e3a8a'
                   }} colSpan={2}>
-                    📋 Основная информация о программе
+                    ▣ Основная информация о программе
                   </th>
                 </tr>
               </thead>
@@ -86,18 +86,19 @@ const ProgramPage: React.FC<ProgramPageProps> = ({ programInfo }) => {
                 {programInfo.code && (
                   <tr style={{borderBottom: '1px solid #e5e7eb'}}>
                     <td style={{
-                      padding: '15px 20px',
-                      fontWeight: '600',
-                      backgroundColor: '#f9fafb',
+                      padding: '14px 20px',
+                      fontWeight: '500',
                       width: '40%',
-                      borderRight: '1px solid #e5e7eb'
+                      color: '#475569',
+                      backgroundColor: '#f1f5f9'
                     }}>
-                      🔢 Код направления
+                      � Код направления
                     </td>
                     <td style={{
-                      padding: '15px 20px',
-                      fontSize: '16px',
-                      fontWeight: '500'
+                      padding: '14px 20px',
+                      fontSize: '15px',
+                      fontWeight: '500',
+                      color: '#1e3a8a'
                     }}>
                       {programInfo.code}
                     </td>
@@ -115,10 +116,10 @@ const ProgramPage: React.FC<ProgramPageProps> = ({ programInfo }) => {
                       💰 Стоимость обучения
                     </td>
                     <td style={{
-                      padding: '15px 20px',
-                      fontSize: '18px',
-                      fontWeight: '600',
-                      color: '#059669'
+                      padding: '14px 20px',
+                      fontSize: '15px',
+                      fontWeight: '500',
+                      color: '#1e3a8a'
                     }}>
                       {programInfo.cost}
                     </td>
@@ -190,7 +191,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({ programInfo }) => {
                       backgroundColor: '#f9fafb',
                       borderRight: '1px solid #e5e7eb'
                     }}>
-                      🏛️ Факультет
+                      � Факультет
                     </td>
                     <td style={{
                       padding: '15px 20px',
@@ -213,7 +214,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({ programInfo }) => {
           <div className="section-content">
             <ul>
               {programInfo.admissionText.map((text, index) => (
-                <li key={index}>{text}</li>
+                <li key={index} dangerouslySetInnerHTML={{ __html: text }}></li>
               ))}
             </ul>
           </div>
@@ -245,21 +246,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({ programInfo }) => {
           </div>
         </div>
 
-        {programInfo.teachersTitle && (
-          <div className="program-section">
-            <h2>
-              <span className="section-icon">👥</span>
-              {programInfo.teachersTitle}
-            </h2>
-            <div className="section-content">
-              <ul>
-                {programInfo.teachers?.map((teacher, index) => (
-                  <li key={index}>{teacher}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        )}
+
       </div>
     </div>
   );

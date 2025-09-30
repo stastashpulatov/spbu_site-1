@@ -249,7 +249,7 @@ const translations: Translations = {
     practicePlacesSection: {
       title: 'Места проведения практики',
       tableHeaders: {
-        number: '№ п/п',
+        number: '№',
         address: 'Адрес места осуществления образовательной деятельности'
       },
       tableData: [
@@ -259,7 +259,7 @@ const translations: Translations = {
     practicalTrainingPlacesSection: {
       title: 'Места проведения практической подготовки обучающихся',
       tableHeaders: {
-        number: '№ п/п',
+        number: '№',
         address: 'Адрес места осуществления образовательной деятельности'
       },
       tableData: [
@@ -269,7 +269,7 @@ const translations: Translations = {
     stateCertificationPlacesSection: {
       title: 'Места проведения государственной итоговой аттестации',
       tableHeaders: {
-        number: '№ п/п',
+        number: '№',
         address: 'Адрес места осуществления образовательной деятельности'
       },
       tableData: [
@@ -376,7 +376,7 @@ const translations: Translations = {
       value: 'Yo\'q'
     },
     founderSection: {
-      title: 'Mudir',
+      title: "Ta'sis etuvchi",
       tableHeaders: {
         name: 'Nomi',
         address: 'Manzil',
@@ -406,9 +406,9 @@ const translations: Translations = {
       ]
     },
     networkPlacesSection: {
-      title: 'Ta\'lim faoliyati amalga oshirish joylari',
+      title: "Ta'lim dasturlarini tarmoq shakli orqali amalga oshirish joylari",
       tableHeaders: {
-        number: '№ п/п',
+        number: '№',
         address: 'Ta\'lim faoliyatini amalga oshirish joyining manzili'
       },
       tableData: [
