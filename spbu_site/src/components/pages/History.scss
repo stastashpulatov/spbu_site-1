@@ -1,26 +1,22 @@
 @media (max-width: 600px) {
   .details-button {
-    font-size: 0.95rem !important;
-    padding: 0.5rem 1.2rem !important;
-    border-radius: 32px !important;
-    margin-top: 0.5rem !important;
-    box-shadow: 0 5px 12px rgba(0,0,0,0.15) !important;
-    width: 100% !important;
-    max-width: 250px !important;
-  }
-}
-@media (max-width: 600px) {
-  .history-card, .main-header, .section-title {
-    width: 100% !important;
-    margin: 0.5rem 0 !important;
-    padding: 0.5rem !important;
+    display: block !important;
+    width: 90vw !important;
+    max-width: 320px !important;
+    font-size: 1.05rem !important;
+    padding: 0.85rem 1.5rem !important;
     border-radius: 8px !important;
-    box-sizing: border-box;
-    font-size: 1rem !important;
-  }
-  .history-row, .history-columns {
-    flex-direction: column !important;
-    gap: 0.5rem !important;
+    margin: 1rem auto !important;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.15) !important;
+    background: linear-gradient(135deg, #a94442, #922d2b) !important;
+    color: #fff !important;
+    text-align: center !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease-in-out !important;
+    height: auto !important;
+    line-height: normal !important;
+    overflow: visible !important;
   }
   .table-container, .table-wrapper {
     overflow-x: auto !important;
@@ -36,7 +32,6 @@
     padding: 0.4rem !important;
     word-break: break-word;
   }
-}
 @layer components {
   .history-page {
     min-height: calc(100vh - 4rem) !important;
@@ -136,12 +131,12 @@
     margin-top: 1rem !important;
     text-align: center !important;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2) !important;
-
-    &:hover {
-      background: linear-gradient(135deg, #922d2b, #8b2d2b) !important;
-      transform: translateY(-2px) !important;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3) !important;
-    }
+    cursor: pointer !important;
+  }
+  .details-button:hover {
+    background: linear-gradient(135deg, #922d2b, #8b2d2b) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3) !important;
   }
 }
 
@@ -228,11 +223,13 @@
   .details-button {
     font-size: 0.95rem !important;
     padding: 0.75rem 1.5rem !important;
-
-  min-height: 100vh !important;
-  background: var(--bg-color, #fff8f8) !important;
-  color: var(--text-color, #333) !important;
-  padding: 2rem 0 !important;
+  }
+  .history-page {
+    min-height: 100vh !important;
+    background: var(--bg-color, #fff8f8) !important;
+    color: var(--text-color, #333) !important;
+    padding: 2rem 0 !important;
+  }
 
     .container {
   max-width: 1200px !important;
