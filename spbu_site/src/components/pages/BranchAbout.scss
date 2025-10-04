@@ -1,3 +1,5 @@
+// Removed duplicate/conflicting mobile queries for .about-card, .info-card, .about-row, .about-columns, .table-container, .table-wrapper, table, th, td, .mobile-menu-icon
+// All mobile styles for BranchAbout page are handled by the main media queries below
 .branch-about {
   min-height: 100vh;
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
@@ -312,6 +314,10 @@
 
   .team-image {
     height: 450px;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
   }
 
   .about-grid {

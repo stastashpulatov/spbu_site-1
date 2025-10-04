@@ -53,131 +53,66 @@ const ProgramPage: React.FC<ProgramPageProps> = ({ programInfo }) => {
 
         {/* Информационная таблица */}
         {(programInfo.cost || programInfo.duration || programInfo.level || programInfo.form || programInfo.department || programInfo.code) && (
-          <div style={{
-            margin: '20px 0',
-            borderRadius: '12px',
-            overflow: 'hidden',
-            backgroundColor: '#f8fafc',
-            boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1)'
-          }}>
-            <table style={{
-              width: '100%',
-              borderCollapse: 'collapse',
-              backgroundColor: '#f8fafc',
-              fontSize: '15px'
-            }}>
+          <div className="program-info-table-wrapper">
+            <table className="program-info-table">
               <thead>
-                <tr style={{
-                  backgroundColor: '#f8fafc',
-                  borderBottom: '2px solid #e2e8f0'
-                }}>
-                  <th style={{
-                    padding: '16px 20px',
-                    textAlign: 'left',
-                    fontWeight: '600',
-                    fontSize: '16px',
-                    color: '#1e3a8a'
-                  }} colSpan={2}>
+                <tr>
+                  <th colSpan={2}>
                     ▣ Основная информация о программе
                   </th>
                 </tr>
               </thead>
               <tbody>
                 {programInfo.code && (
-                  <tr style={{borderBottom: '1px solid #e5e7eb'}}>
-                    <td style={{
-                      padding: '14px 20px',
-                      fontWeight: '500',
-                      width: '40%',
-                      color: '#475569',
-                      backgroundColor: '#f1f5f9'
-                    }}>
+                  <tr>
+                    <td className="program-info-label">
                       � Код направления
                     </td>
-                    <td style={{
-                      padding: '14px 20px',
-                      fontSize: '15px',
-                      fontWeight: '500',
-                      color: '#1e3a8a'
-                    }}>
+                    <td className="program-info-value">
                       {programInfo.code}
                     </td>
                   </tr>
                 )}
 
                 {programInfo.cost && (
-                  <tr style={{borderBottom: '1px solid #e5e7eb'}}>
-                    <td style={{
-                      padding: '15px 20px',
-                      fontWeight: '600',
-                      backgroundColor: '#f9fafb',
-                      borderRight: '1px solid #e5e7eb'
-                    }}>
+                  <tr>
+                    <td className="program-info-label">
                       💰 Стоимость обучения
                     </td>
-                    <td style={{
-                      padding: '14px 20px',
-                      fontSize: '15px',
-                      fontWeight: '500',
-                      color: '#1e3a8a'
-                    }}>
+                    <td className="program-info-value">
                       {programInfo.cost}
                     </td>
                   </tr>
                 )}
                 
                 {programInfo.duration && (
-                  <tr style={{borderBottom: '1px solid #e5e7eb'}}>
-                    <td style={{
-                      padding: '15px 20px',
-                      fontWeight: '600',
-                      backgroundColor: '#f9fafb',
-                      borderRight: '1px solid #e5e7eb'
-                    }}>
+                  <tr>
+                    <td className="program-info-label">
                       ⏱️ Продолжительность
                     </td>
-                    <td style={{
-                      padding: '15px 20px',
-                      fontSize: '16px'
-                    }}>
+                    <td className="program-info-value">
                       {programInfo.duration}
                     </td>
                   </tr>
                 )}
                 
                 {programInfo.level && (
-                  <tr style={{borderBottom: '1px solid #e5e7eb'}}>
-                    <td style={{
-                      padding: '15px 20px',
-                      fontWeight: '600',
-                      backgroundColor: '#f9fafb',
-                      borderRight: '1px solid #e5e7eb'
-                    }}>
+                  <tr>
+                    <td className="program-info-label">
                       🎓 Уровень образования
                     </td>
-                    <td style={{
-                      padding: '15px 20px',
-                      fontSize: '16px'
-                    }}>
+                    <td className="program-info-value">
                       {programInfo.level}
                     </td>
                   </tr>
                 )}
                 
                 {programInfo.form && (
-                  <tr style={{borderBottom: '1px solid #e5e7eb'}}>
-                    <td style={{
-                      padding: '15px 20px',
-                      fontWeight: '600',
-                      backgroundColor: '#f9fafb',
-                      borderRight: '1px solid #e5e7eb'
-                    }}>
+                  <tr>
+                    <td className="program-info-label">
                       📚 Форма обучения
                     </td>
-                    <td style={{
-                      padding: '15px 20px',
-                      fontSize: '16px'
-                    }}>
+                    <td className="program-info-value">
                       {programInfo.form}
                     </td>
                   </tr>
@@ -185,18 +120,10 @@ const ProgramPage: React.FC<ProgramPageProps> = ({ programInfo }) => {
                 
                 {programInfo.department && (
                   <tr>
-                    <td style={{
-                      padding: '15px 20px',
-                      fontWeight: '600',
-                      backgroundColor: '#f9fafb',
-                      borderRight: '1px solid #e5e7eb'
-                    }}>
+                    <td className="program-info-label">
                       � Факультет
                     </td>
-                    <td style={{
-                      padding: '15px 20px',
-                      fontSize: '16px'
-                    }}>
+                    <td className="program-info-value">
                       {programInfo.department}
                     </td>
                   </tr>
