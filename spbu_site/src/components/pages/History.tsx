@@ -53,29 +53,27 @@ const History: React.FC = () => {
 
   return (
     <div className="history-page">
-      <div className="content-container">
-        <h1>{t.title}</h1>
-        <div className="history-content">
-          <div className="history-image-container">
-            <img 
-              src="/images/image.png" 
-              alt="Saint Petersburg State University" 
-              className="history-image"
-            />
-          </div>
-          <div className="history-text">
-            {t.text.map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
-            <a 
-              href="https://spbu.ru/history" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="details-button"
-            >
-              {t.detailsButton}
-            </a>
-          </div>
+      <div className="history-content">
+        <h1 className="page-title">{t.title}</h1>
+        <div className="history-image-container">
+          <img 
+            src="/images/image.png" 
+            alt="Saint Petersburg State University" 
+            className="history-image"
+          />
+        </div>
+        <div className="history-text">
+          {t.text.map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
+          <a 
+            href="https://spbu.ru/history" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="details-button"
+          >
+            {t.detailsButton}
+          </a>
         </div>
       </div>
     </div>

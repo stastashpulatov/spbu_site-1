@@ -24,7 +24,7 @@ class CustomUserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, username, full_name=None, password=None, role='admin'):
+    def create_superuser(self, username, full_name=None, password=None, role='superuser'):
         if not username:
             raise ValueError('Users must have an username')
         if not password:
@@ -57,6 +57,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         max_length=20,
         choices=[
             ('admin', 'Admin'),
+            ('superuser', 'Superuser'),
         ],
         default='admin'
     )
