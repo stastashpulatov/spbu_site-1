@@ -331,7 +331,7 @@
 @media (max-width: 768px) {
   .branch-about {
     padding: 1rem 0;
-    margin-top: 4rem;
+    margin-top: 4.5rem;
   }
 
   .branch-about .content-container {
@@ -364,10 +364,12 @@
   .branch-about .team-image-container {
     margin: 0 auto 2rem;
     max-width: 100%;
+    border-radius: 12px;
   }
 
   .branch-about .team-image {
     height: auto;
+    border-radius: 12px;
   }
   
   .branch-about .description-card p {
@@ -393,11 +395,11 @@
 @media (max-width: 480px) {
   .branch-about {
     padding: 0.75rem 0;
-    margin-top: 3.5rem;
+    margin-top: 4rem;
   }
 
   .branch-about .content-container {
-    padding: 0 0.75rem;
+    padding: 0 1rem;
   }
 
   .branch-about .header {
@@ -413,8 +415,14 @@
     font-size: 2rem;
   }
 
+  .branch-about .team-image-container {
+    margin: 0 auto 1.5rem;
+    border-radius: 12px;
+  }
+
   .branch-about .team-image {
-    height: 250px;
+    height: auto;
+    border-radius: 12px;
   }
 
   .branch-about .description-card,
