@@ -86,6 +86,16 @@ const BranchAbout: React.FC = () => {
   return (
     <div className="branch-about">
       <div className="content-container">
+
+
+        {/* Header */}
+        <div className="header">
+          <span className="header-icon">🏛️</span>
+          <h1>{t.title}</h1>
+          <div className="header-subline"></div>
+        </div>
+
+
         {/* Team Image */}
         <div className="team-image-container">
           <img 
