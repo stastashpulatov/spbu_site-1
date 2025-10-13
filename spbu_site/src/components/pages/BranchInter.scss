@@ -1,4 +1,4 @@
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .branch-common {
     .inter-block {
       margin: 0.5rem 0 !important;
@@ -7,24 +7,83 @@
       font-size: 1rem !important;
       box-sizing: border-box;
     }
+    
     .section-title.centered-title {
       font-size: 1rem !important;
       margin-bottom: 0.5rem !important;
       padding: 0.5rem !important;
     }
-    .inter-table {
-      font-size: 0.8rem !important;
-      min-width: 400px !important;
-      th, td {
-        padding: 0.4rem !important;
-        word-break: break-word;
-      }
-    }
+    
     .table-wrapper {
-      overflow-x: auto !important;
-      max-width: 100vw !important;
-      border-radius: 6px !important;
+      overflow-x: visible !important;
       margin: 0.5rem 0 !important;
+    }
+    
+    // Адаптивные таблицы: превращаем в карточки на мобильных
+    .inter-table {
+      border: none !important;
+      box-shadow: none !important;
+      
+      thead {
+        display: none !important;
+      }
+      
+      tbody {
+        display: block !important;
+      }
+      
+      tr {
+        display: block !important;
+        margin-bottom: 1.5rem !important;
+        border: 2px solid #a94442 !important;
+        border-radius: 12px !important;
+        padding: 1rem !important;
+        background-color: white !important;
+        box-shadow: 0 4px 12px rgba(169, 68, 66, 0.15) !important;
+        
+        [data-theme='dark'] & {
+          background-color: #2d232a !important;
+          border-color: #e87681 !important;
+          box-shadow: 0 4px 12px rgba(232, 118, 129, 0.15) !important;
+        }
+        
+        &:hover {
+          transform: none !important;
+        }
+      }
+      
+      td {
+        display: block !important;
+        text-align: left !important;
+        padding: 0.75rem 0 !important;
+        border: none !important;
+        background-color: transparent !important;
+        width: 100% !important;
+        min-width: unset !important;
+        white-space: normal !important;
+        
+        &:before {
+          content: attr(data-label) ": " !important;
+          font-weight: 600 !important;
+          color: #a94442 !important;
+          display: inline-block !important;
+          min-width: 120px !important;
+          
+          [data-theme='dark'] & {
+            color: #e87681 !important;
+          }
+        }
+        
+        &:not(:last-child) {
+          border-bottom: 1px solid #e0e0e0 !important;
+          margin-bottom: 0.5rem !important;
+          padding-bottom: 0.75rem !important;
+          
+          [data-theme='dark'] & {
+            border-bottom-color: #4a5568 !important;
+          }
+        }
+      }
     }
   }
 }

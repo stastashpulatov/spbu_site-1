@@ -1,3 +1,89 @@
+// Адаптивные стили для мобильных устройств
+@media (max-width: 768px) {
+  .branch-education {
+    padding: 1rem !important;
+    
+    .content-container {
+      padding: 0.5rem !important;
+    }
+    
+    .info-table-container {
+      overflow-x: visible !important;
+      margin: 0.5rem 0 !important;
+      padding: 1rem !important;
+    }
+    
+    // Адаптивные таблицы: превращаем в карточки на мобильных
+    .info-table {
+      min-width: unset !important;
+      border: none !important;
+      box-shadow: none !important;
+      
+      thead {
+        display: none !important;
+      }
+      
+      tbody {
+        display: block !important;
+      }
+      
+      tr {
+        display: block !important;
+        margin-bottom: 1.5rem !important;
+        border: 2px solid #a94442 !important;
+        border-radius: 12px !important;
+        padding: 1rem !important;
+        background-color: white !important;
+        box-shadow: 0 4px 12px rgba(169, 68, 66, 0.15) !important;
+        
+        [data-theme='dark'] & {
+          background-color: #2d232a !important;
+          border-color: #e87681 !important;
+          box-shadow: 0 4px 12px rgba(232, 118, 129, 0.15) !important;
+        }
+        
+        &:hover {
+          transform: none !important;
+        }
+      }
+      
+      td {
+        display: block !important;
+        text-align: left !important;
+        padding: 0.75rem 0 !important;
+        border: none !important;
+        background-color: transparent !important;
+        width: 100% !important;
+        min-width: unset !important;
+        max-width: unset !important;
+        white-space: normal !important;
+        
+        &:before {
+          content: attr(data-label) ": " !important;
+          font-weight: 600 !important;
+          color: #a94442 !important;
+          display: inline-block !important;
+          min-width: 120px !important;
+          
+          [data-theme='dark'] & {
+            color: #e87681 !important;
+          }
+        }
+        
+        &:not(:last-child) {
+          border-bottom: 1px solid #e0e0e0 !important;
+          margin-bottom: 0.5rem !important;
+          padding-bottom: 0.75rem !important;
+          
+          [data-theme='dark'] & {
+            border-bottom-color: #4a5568 !important;
+          }
+        }
+      }
+    }
+  }
+}
+
 .branch-education {
   padding: 2rem !important;
   min-height: calc(100vh - 4rem) !important;
@@ -349,15 +435,9 @@
   }
 }
 
-// Адаптивность
+// Дополнительные адаптивные стили
 @media (max-width: 768px) {
   .branch-education {
-    padding: 1rem !important;
-    
-    .content-container {
-      padding: 1rem !important;
-    }
-    
     .main-header {
       flex-direction: column !important;
       text-align: center !important;
@@ -369,8 +449,6 @@
     }
     
     .section-block {
-      padding: 1rem !important;
-      
       .sub-header {
         flex-direction: column !important;
         text-align: center !important;
@@ -381,65 +459,6 @@
         }
       }
     }
-    
-         .info-table-container {
-       padding: 1rem !important;
-       
-       .info-table {
-         font-size: 0.8rem !important;
-         min-width: 800px !important;
-         
-         th, td {
-           padding: 0.5rem !important;
-         }
-         
-         // На мобильных устройствах делаем таблицу более компактной
-         th:nth-child(3), td:nth-child(3),
-         th:nth-child(4), td:nth-child(4),
-         th:nth-child(8), td:nth-child(8),
-         th:nth-child(9), td:nth-child(9) {
-           min-width: 150px !important;
-           max-width: 200px !important;
-         }
-         
-         &.program-description-table {
-           min-width: 1200px !important;
-           font-size: 0.7rem !important;
-           
-           th, td {
-             padding: 0.4rem !important;
-           }
-           
-           // Адаптивные стили для таблицы описания программ
-           th:nth-child(7), td:nth-child(7),
-           th:nth-child(8), td:nth-child(8),
-           th:nth-child(9), td:nth-child(9),
-           th:nth-child(10), td:nth-child(10),
-           th:nth-child(11), td:nth-child(11),
-           th:nth-child(12), td:nth-child(12) {
-             min-width: 80px !important;
-             max-width: 100px !important;
-           }
-         }
-         
-         &.employment-table {
-           min-width: 800px !important;
-           font-size: 0.8rem !important;
-           
-           th, td {
-             padding: 0.5rem !important;
-           }
-           
-           // Адаптивные стили для таблицы о трудоустройстве
-           th:nth-child(1), td:nth-child(1),
-           th:nth-child(4), td:nth-child(4),
-           th:nth-child(5), td:nth-child(5) {
-             min-width: 100px !important;
-             max-width: 120px !important;
-           }
-         }
-       }
-     }
     
     .document-links {
       .document-link {

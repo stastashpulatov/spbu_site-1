@@ -1,6 +1,8 @@
 /* Импортируем стили кнопок */
 @use './styles/buttons.scss';
 @use './styles/section-animations.scss';
+@use './styles/mobile-responsive.scss';
+@use './styles/page-mobile.scss';
 
 @tailwind base;
 @tailwind components;

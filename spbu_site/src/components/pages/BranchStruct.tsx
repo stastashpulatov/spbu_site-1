@@ -389,25 +389,25 @@ const BranchStruct: React.FC = () => {
           <tbody>
             {data.map((item) => (
               <tr key={item.id}>
-                <td>{item.name}</td>
-                <td>{item.head}</td>
-                <td>{item.position}</td>
-                <td>{item.address}</td>
-                <td>
+                <td data-label={t.tableHeaders.name}>{item.name}</td>
+                <td data-label={t.tableHeaders.head}>{item.head}</td>
+                <td data-label={t.tableHeaders.position}>{item.position}</td>
+                <td data-label={t.tableHeaders.address}>{item.address}</td>
+                <td data-label={t.tableHeaders.website}>
                   {item.website ? (
                     <a href={item.website} target="_blank" rel="noopener noreferrer">{item.website}</a>
                   ) : (
                     '—'
                   )}
                 </td>
-                <td>
+                <td data-label={t.tableHeaders.email}>
                   {item.email && item.email.includes('@') ? (
                     <a href={`mailto:${item.email}`}>{item.email}</a>
                   ) : (
                     item.email || '—'
                   )}
                 </td>
-                <td>
+                <td data-label={t.tableHeaders.regulation}>
                   {item.regulation && item.regulation !== 'нет' && item.regulation !== 'yo\'q' && item.regulation !== 'none' ? (
                     <a href="/files/ПОЛОЖЕНИЕ_о_филиале_СПбГУ_в_г_Ташкенте (2).pdf" target="_blank" rel="noopener noreferrer">{item.regulation}</a>
                   ) : (

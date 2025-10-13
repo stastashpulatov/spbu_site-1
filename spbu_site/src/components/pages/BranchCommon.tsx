@@ -733,11 +733,11 @@ const BranchCommon: React.FC = () => {
               <tbody>
                 {t.founderSection.tableData.map((founder, index) => (
                   <tr key={index}>
-                    <td>{founder.name}</td>
-                    <td>{founder.address}</td>
-                    <td>{founder.phones}</td>
-                    <td>{founder.email}</td>
-                    <td><a href={`https://${founder.website}`} target="_blank" rel="noopener noreferrer">{founder.website}</a></td>
+                    <td data-label={t.founderSection.tableHeaders.name}>{founder.name}</td>
+                    <td data-label={t.founderSection.tableHeaders.address}>{founder.address}</td>
+                    <td data-label={t.founderSection.tableHeaders.phones}>{founder.phones}</td>
+                    <td data-label={t.founderSection.tableHeaders.email}>{founder.email}</td>
+                    <td data-label={t.founderSection.tableHeaders.website}><a href={`https://${founder.website}`} target="_blank" rel="noopener noreferrer">{founder.website}</a></td>
                   </tr>
                 ))}
               </tbody>
@@ -759,8 +759,8 @@ const BranchCommon: React.FC = () => {
               <tbody>
                 {t.placesSection.tableData.map((place, index) => (
                   <tr key={index}>
-                    <td>{place.number}</td>
-                    <td>{place.address}</td>
+                    <td data-label={t.placesSection.tableHeaders.number}>{place.number}</td>
+                    <td data-label={t.placesSection.tableHeaders.address}>{place.address}</td>
                   </tr>
                 ))}
               </tbody>
@@ -782,8 +782,8 @@ const BranchCommon: React.FC = () => {
               <tbody>
                 {t.networkPlacesSection.tableData.map((place, index) => (
                   <tr key={index}>
-                    <td>{place.number}</td>
-                    <td>{place.address}</td>
+                    <td data-label={t.networkPlacesSection.tableHeaders.number}>{place.number}</td>
+                    <td data-label={t.networkPlacesSection.tableHeaders.address}>{place.address}</td>
                   </tr>
                 ))}
               </tbody>
@@ -805,8 +805,8 @@ const BranchCommon: React.FC = () => {
               <tbody>
                 {t.practicePlacesSection.tableData.map((place, index) => (
                   <tr key={index}>
-                    <td>{place.number}</td>
-                    <td>{place.address}</td>
+                    <td data-label={t.practicePlacesSection.tableHeaders.number}>{place.number}</td>
+                    <td data-label={t.practicePlacesSection.tableHeaders.address}>{place.address}</td>
                   </tr>
                 ))}
               </tbody>
@@ -828,8 +828,8 @@ const BranchCommon: React.FC = () => {
               <tbody>
                 {t.practicalTrainingPlacesSection.tableData.map((place, index) => (
                   <tr key={index}>
-                    <td>{place.number}</td>
-                    <td>{place.address}</td>
+                    <td data-label={t.practicalTrainingPlacesSection.tableHeaders.number}>{place.number}</td>
+                    <td data-label={t.practicalTrainingPlacesSection.tableHeaders.address}>{place.address}</td>
                   </tr>
                 ))}
               </tbody>
@@ -851,8 +851,8 @@ const BranchCommon: React.FC = () => {
               <tbody>
                 {t.stateCertificationPlacesSection.tableData.map((place, index) => (
                   <tr key={index}>
-                    <td>{place.number}</td>
-                    <td>{place.address}</td>
+                    <td data-label={t.stateCertificationPlacesSection.tableHeaders.number}>{place.number}</td>
+                    <td data-label={t.stateCertificationPlacesSection.tableHeaders.address}>{place.address}</td>
                   </tr>
                 ))}
               </tbody>
@@ -874,8 +874,8 @@ const BranchCommon: React.FC = () => {
               <tbody>
                 {t.additionalEducationPlacesSection.tableData.map((place, index) => (
                   <tr key={index}>
-                    <td>{place.number}</td>
-                    <td>{place.address}</td>
+                    <td data-label={t.additionalEducationPlacesSection.tableHeaders.number}>{place.number}</td>
+                    <td data-label={t.additionalEducationPlacesSection.tableHeaders.address}>{place.address}</td>
                   </tr>
                 ))}
               </tbody>
@@ -897,8 +897,8 @@ const BranchCommon: React.FC = () => {
               <tbody>
                 {t.professionalTrainingPlacesSection.tableData.map((place, index) => (
                   <tr key={index}>
-                    <td>{place.number}</td>
-                    <td>{place.address}</td>
+                    <td data-label={t.professionalTrainingPlacesSection.tableHeaders.number}>{place.number}</td>
+                    <td data-label={t.professionalTrainingPlacesSection.tableHeaders.address}>{place.address}</td>
                   </tr>
                 ))}
               </tbody>

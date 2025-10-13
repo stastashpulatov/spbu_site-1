@@ -77,9 +77,9 @@ const BranchInter: React.FC = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    <td>{t.empty}</td>
-                    <td>{t.empty}</td>
-                    <td>{t.empty}</td>
+                    <td data-label={t.tableHeaders.country}>{t.empty}</td>
+                    <td data-label={t.tableHeaders.organization}>{t.empty}</td>
+                    <td data-label={t.tableHeaders.details}>{t.empty}</td>
                   </tr>
                 </tbody>
               </table>

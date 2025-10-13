@@ -127,11 +127,11 @@ const BranchLeadership: React.FC = () => {
             <tbody>
               {t.heads.map(row => (
                 <tr key={row.number}>
-                  <td>{row.number}</td>
-                  <td>{row.fullName}</td>
-                  <td>{row.position}</td>
-                  <td>{row.phone}</td>
-                  <td><a href={`mailto:${row.email}`}>{row.email}</a></td>
+                  <td data-label={t.headers.number}>{row.number}</td>
+                  <td data-label={t.headers.fullName}>{row.fullName}</td>
+                  <td data-label={t.headers.position}>{row.position}</td>
+                  <td data-label={t.headers.phone}>{row.phone}</td>
+                  <td data-label={t.headers.email}><a href={`mailto:${row.email}`}>{row.email}</a></td>
                 </tr>
               ))}
             </tbody>
@@ -154,12 +154,12 @@ const BranchLeadership: React.FC = () => {
             <tbody>
               {t.branchHeads.map(row => (
                 <tr key={row.number}>
-                  <td>{row.number}</td>
-                  <td>{row.branchName}</td>
-                  <td>{row.fullName}</td>
-                  <td>{row.position}</td>
-                  <td>{row.phone}</td>
-                  <td>{row.email}</td>
+                  <td data-label={t.headers.number}>{row.number}</td>
+                  <td data-label={t.headers.branchName}>{row.branchName}</td>
+                  <td data-label={t.headers.fullName}>{row.fullName}</td>
+                  <td data-label={t.headers.position}>{row.position}</td>
+                  <td data-label={t.headers.phone}>{row.phone}</td>
+                  <td data-label={t.headers.email}>{row.email}</td>
                 </tr>
               ))}
             </tbody>

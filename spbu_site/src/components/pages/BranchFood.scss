@@ -1,5 +1,9 @@
 @layer components {
-  .branch-common {
+  @import './responsive-tables';
+
+  .branch-food {
+    @include responsive-table;
+
     .food-block {
       margin: 1.5rem 0;
       padding: 1rem;
