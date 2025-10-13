@@ -11,7 +11,15 @@ from .permissions import IsAdminOrSuperUser
 class ScheduleViewSet(viewsets.ModelViewSet):
     serializer_class = ScheduleSerializer
     pagination_class = PageNumberPagination
-    permission_classes = [IsAdminOrSuperUser]  # Разрешаем публичный доступ к расписанию
+    
+    def get_permissions(self):
+        """
+        Разрешаем публичный доступ для чтения (GET),
+        но требуем права администратора для изменений
+        """
+        if self.action in ['list', 'retrieve', 'groups']:
+            return [permissions.AllowAny()]
+        return [IsAdminOrSuperUser()]
 
     def get_queryset(self):
         queryset = Schedule.objects.all().order_by('day_of_week', 'start_time')

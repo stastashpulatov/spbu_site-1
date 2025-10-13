@@ -1042,17 +1042,17 @@ const BranchEducation: React.FC = () => {
               <tbody>
                 {t.educationData.map((row, index) => (
                   <tr key={index}>
-                    <td>{row.number}</td>
-                    <td>{row.code}</td>
-                    <td>{row.name}</td>
-                    <td>{row.program}</td>
-                    <td>{row.level}</td>
-                    <td>{row.form}</td>
-                    <td>{row.duration}</td>
-                    <td>
+                    <td data-label={t.tableHeaders.number}>{row.number}</td>
+                    <td data-label={t.tableHeaders.code}>{row.code}</td>
+                    <td data-label={t.tableHeaders.name}>{row.name}</td>
+                    <td data-label={t.tableHeaders.program}>{row.program}</td>
+                    <td data-label={t.tableHeaders.level}>{row.level}</td>
+                    <td data-label={t.tableHeaders.form}>{row.form}</td>
+                    <td data-label={t.tableHeaders.duration}>{row.duration}</td>
+                    <td data-label={t.tableHeaders.subjects}>
                       <YearLinks yearLinks={row.subjects} />
                     </td>
-                    <td>{row.practices}</td>
+                    <td data-label={t.tableHeaders.practices}>{row.practices}</td>
                   </tr>
                 ))}
               </tbody>
@@ -1123,48 +1123,48 @@ const BranchEducation: React.FC = () => {
               <tbody>
                 {t.programDescriptionData.map((row, index) => (
                   <tr key={index}>
-                    <td>{row.number}</td>
-                    <td>{row.code}</td>
-                    <td>{row.name}</td>
-                    <td>{row.level}</td>
-                    <td>{row.program}</td>
-                    <td>{row.forms}</td>
-                    <td>
+                    <td data-label={t.programDescriptionHeaders.number}>{row.number}</td>
+                    <td data-label={t.programDescriptionHeaders.code}>{row.code}</td>
+                    <td data-label={t.programDescriptionHeaders.name}>{row.name}</td>
+                    <td data-label={t.programDescriptionHeaders.level}>{row.level}</td>
+                    <td data-label={t.programDescriptionHeaders.program}>{row.program}</td>
+                    <td data-label={t.programDescriptionHeaders.forms}>{row.forms}</td>
+                    <td data-label={t.programDescriptionHeaders.descriptionLink}>
                       {row.descriptionLink && row.descriptionLink.length > 0 ? (
                         <YearLinks yearLinks={row.descriptionLink} />
                       ) : (
                         <span className="year-text">-</span>
                       )}
                     </td>
-                    <td>
+                    <td data-label={t.programDescriptionHeaders.curriculumLink}>
                       {row.curriculumLink && row.curriculumLink.length > 0 ? (
                         <YearLinks yearLinks={row.curriculumLink} />
                       ) : (
                         <span className="year-text">-</span>
                       )}
                     </td>
-                    <td>
+                    <td data-label={t.programDescriptionHeaders.workProgramsLink}>
                       {row.workProgramsLink && row.workProgramsLink.length > 0 ? (
                         <YearLinks yearLinks={row.workProgramsLink} />
                       ) : (
                         <span className="year-text">-</span>
                       )}
                     </td>
-                    <td>
+                    <td data-label={t.programDescriptionHeaders.calendarLink}>
                       {row.calendarLink && row.calendarLink.length > 0 ? (
                         <YearLinks yearLinks={row.calendarLink} />
                       ) : (
                         <span className="year-text">-</span>
                       )}
                     </td>
-                    <td>
+                    <td data-label={t.programDescriptionHeaders.practiceProgramsLink}>
                       {row.practiceProgramsLink && row.practiceProgramsLink.length > 0 ? (
                         <YearLinks yearLinks={row.practiceProgramsLink} />
                       ) : (
                         <span className="year-text">-</span>
                       )}
                     </td>
-                    <td>
+                    <td data-label={t.programDescriptionHeaders.methodicalDocumentsLink}>
                       {row.methodicalDocumentsLink && row.methodicalDocumentsLink.length > 0 ? (
                         <YearLinks yearLinks={row.methodicalDocumentsLink} />
                       ) : (
@@ -1198,11 +1198,11 @@ const BranchEducation: React.FC = () => {
               <tbody>
                 {t.employmentData.map((row, index) => (
                   <tr key={index}>
-                    <td>{row.code}</td>
-                    <td>{row.name}</td>
-                    <td>{row.program}</td>
-                    <td>{row.graduatesCount}</td>
-                    <td>{row.employedCount}</td>
+                    <td data-label={t.employmentHeaders.code}>{row.code}</td>
+                    <td data-label={t.employmentHeaders.name}>{row.name}</td>
+                    <td data-label={t.employmentHeaders.program}>{row.program}</td>
+                    <td data-label={t.employmentHeaders.graduatesCount}>{row.graduatesCount}</td>
+                    <td data-label={t.employmentHeaders.employedCount}>{row.employedCount}</td>
                   </tr>
                 ))}
               </tbody>

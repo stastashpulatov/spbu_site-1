@@ -1,4 +1,7 @@
+@import './responsive-tables';
+
 .branch-struct {
+  @include responsive-table;
   padding: 2rem !important;
   min-height: calc(100vh - 4rem) !important;
   background-color: #fff8f8 !important;

@@ -119,9 +119,16 @@ const BranchVacant: React.FC = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    {Array.from({ length: 10 }).map((_, i) => (
-                      <td key={i}>{t.empty}</td>
-                    ))}
+                    <td data-label={t.tableHeaders.code}>{t.empty}</td>
+                    <td data-label={t.tableHeaders.name}>{t.empty}</td>
+                    <td data-label={t.tableHeaders.level}>{t.empty}</td>
+                    <td data-label={t.tableHeaders.program}>{t.empty}</td>
+                    <td data-label={t.tableHeaders.course}>{t.empty}</td>
+                    <td data-label={t.tableHeaders.form}>{t.empty}</td>
+                    <td data-label={t.tableHeaders.federal}>{t.empty}</td>
+                    <td data-label={t.tableHeaders.regional}>{t.empty}</td>
+                    <td data-label={t.tableHeaders.local}>{t.empty}</td>
+                    <td data-label={t.tableHeaders.contract}>{t.empty}</td>
                   </tr>
                 </tbody>
               </table>

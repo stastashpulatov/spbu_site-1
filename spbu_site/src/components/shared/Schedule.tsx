@@ -1,11 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { getSchedule } from '../../utils/api';
+import { LanguageContext } from '../../contexts/LanguageContext';
+import { Language } from '../../contexts/LanguageContextType';
 import './Schedule.scss';
-
-interface Teacher {
-  id: number;
-  name: string;
-}
 
 interface Group {
   id: number;
@@ -26,7 +23,7 @@ interface ScheduleItem {
   start_time: string;
   end_time: string;
   location: Room;
-  teacher: Teacher;
+  teacher: string | null;
   group: Group;
   is_visible: boolean;
 }
@@ -36,20 +33,74 @@ interface ScheduleProps {
 }
 
 const Schedule: React.FC<ScheduleProps> = ({ group }) => {
+  const langContext = useContext(LanguageContext);
+  
+  if (!langContext) {
+    throw new Error('Schedule must be used within Language Provider');
+  }
+  
+  const { language } = langContext;
+  
   const [scheduleData, setScheduleData] = useState<Record<string, ScheduleItem[]>>({});
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [activeDay, setActiveDay] = useState<string>('monday');
 
-  const dayNames: Record<string, string> = {
-    monday: 'Понедельник',
-    tuesday: 'Вторник',
-    wednesday: 'Среда',
-    thursday: 'Четверг',
-    friday: 'Пятница',
-    saturday: 'Суббота',
-    sunday: 'Воскресенье',
+  const translations: Record<Language, {
+    dayNames: Record<string, string>;
+    notSpecified: string;
+    noClasses: string;
+    loading: string;
+    notFound: string;
+  }> = {
+    ru: {
+      dayNames: {
+        monday: 'Понедельник',
+        tuesday: 'Вторник',
+        wednesday: 'Среда',
+        thursday: 'Четверг',
+        friday: 'Пятница',
+        saturday: 'Суббота',
+        sunday: 'Воскресенье',
+      },
+      notSpecified: 'Не указано',
+      noClasses: 'Нет занятий в этот день',
+      loading: 'Загрузка расписания...',
+      notFound: 'Расписание не найдено',
+    },
+    uz: {
+      dayNames: {
+        monday: 'Dushanba',
+        tuesday: 'Seshanba',
+        wednesday: 'Chorshanba',
+        thursday: 'Payshanba',
+        friday: 'Juma',
+        saturday: 'Shanba',
+        sunday: 'Yakshanba',
+      },
+      notSpecified: 'Ko\'rsatilmagan',
+      noClasses: 'Bu kunda darslar yo\'q',
+      loading: 'Jadval yuklanmoqda...',
+      notFound: 'Jadval topilmadi',
+    },
+    en: {
+      dayNames: {
+        monday: 'Monday',
+        tuesday: 'Tuesday',
+        wednesday: 'Wednesday',
+        thursday: 'Thursday',
+        friday: 'Friday',
+        saturday: 'Saturday',
+        sunday: 'Sunday',
+      },
+      notSpecified: 'Not specified',
+      noClasses: 'No classes on this day',
+      loading: 'Loading schedule...',
+      notFound: 'Schedule not found',
+    },
   };
+  
+  const t = translations[language];
 
   const dayOrder = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
 
@@ -116,71 +167,30 @@ const Schedule: React.FC<ScheduleProps> = ({ group }) => {
         }
         
         setError(null);
-      } catch (err) {
+      } catch (err: any) {
         console.error('Error fetching schedule:', err);
-        // Добавляем fallback данные для демонстрации
-        const fallbackSchedule: Record<string, ScheduleItem[]> = {
-          monday: [
-            {
-              id: 1,
-              title: 'Математика',
-              title_uz: 'Matematika',
-              title_en: 'Mathematics',
-              day_of_week: 'monday',
-              start_time: '09:00:00',
-              end_time: '10:30:00',
-              location: { id: 1, name: 'Аудитория 101' },
-              teacher: { id: 1, name: 'Иванов И.И.' },
-              group: { id: 1, name: 'Группа 1' },
-              is_visible: true
-            },
-            {
-              id: 2,
-              title: 'Физика',
-              title_uz: 'Fizika',
-              title_en: 'Physics',
-              day_of_week: 'monday',
-              start_time: '11:00:00',
-              end_time: '12:30:00',
-              location: { id: 2, name: 'Аудитория 102' },
-              teacher: { id: 2, name: 'Петров П.П.' },
-              group: { id: 1, name: 'Группа 1' },
-              is_visible: true
-            }
-          ],
-          tuesday: [
-            {
-              id: 3,
-              title: 'Химия',
-              title_uz: 'Kimyo',
-              title_en: 'Chemistry',
-              day_of_week: 'tuesday',
-              start_time: '09:00:00',
-              end_time: '10:30:00',
-              location: { id: 3, name: 'Лаборатория 201' },
-              teacher: { id: 3, name: 'Сидоров С.С.' },
-              group: { id: 1, name: 'Группа 1' },
-              is_visible: true
-            }
-          ]
-        };
-        setScheduleData(fallbackSchedule);
-        setActiveDay('monday');
-        setError(null); // Убираем ошибку, показываем fallback данные
+        console.error('Error details:', {
+          message: err.message,
+          response: err.response,
+          request: err.request
+        });
+        const errorMessage = err.response?.data?.detail || err.message || 'Не удалось загрузить расписание. Проверьте подключение к серверу.';
+        setError(errorMessage);
+        setScheduleData({});
       } finally {
         setLoading(false);
       }
     };
 
     fetchSchedule();
-  }, [group, dayOrder]);
+  }, [group]);
 
   const formatTime = (timeString: string) => {
     return timeString.substring(0, 5); // Format "HH:MM" from "HH:MM:SS"
   };
 
   if (loading) {
-    return <div className="schedule-loading">Загрузка расписания...</div>;
+    return <div className="schedule-loading">{t.loading}</div>;
   }
 
   if (error) {
@@ -188,7 +198,7 @@ const Schedule: React.FC<ScheduleProps> = ({ group }) => {
   }
 
   if (Object.keys(scheduleData).length === 0) {
-    return <div className="schedule-empty">Расписание не найдено</div>;
+    return <div className="schedule-empty">{t.notFound}</div>;
   }
 
   return (
@@ -201,7 +211,7 @@ const Schedule: React.FC<ScheduleProps> = ({ group }) => {
               className={`schedule-tab ${activeDay === day ? 'active' : ''}`}
               onClick={() => setActiveDay(day)}
             >
-              {dayNames[day]}
+              {t.dayNames[day]}
             </button>
           )
         ))}
@@ -218,13 +228,15 @@ const Schedule: React.FC<ScheduleProps> = ({ group }) => {
                   <span className="end-time">{formatTime(item.end_time)}</span>
                 </div>
                 <div className="schedule-item-details">
-                  <h3 className="schedule-item-title">{item.title}</h3>
+                  <h3 className="schedule-item-title">
+                    {language === 'ru' ? item.title : language === 'uz' ? item.title_uz : item.title_en}
+                  </h3>
                   <div className="schedule-item-info">
                     <span className="schedule-item-location">
-                      <i className="location-icon">📍</i> {item.location?.name || 'Не указано'}
+                      <i className="location-icon">📍</i> {item.location?.name || t.notSpecified}
                     </span>
                     <span className="schedule-item-teacher">
-                      <i className="teacher-icon">👨‍🏫</i> {item.teacher?.name || 'Не указано'}
+                      <i className="teacher-icon">👨‍🏫</i> {item.teacher || t.notSpecified}
                     </span>
                   </div>
                 </div>
@@ -233,7 +245,7 @@ const Schedule: React.FC<ScheduleProps> = ({ group }) => {
           </div>
         ) : (
           <div className="schedule-empty-day">
-            Нет занятий в этот день
+            {t.noClasses}
           </div>
         )}
       </div>

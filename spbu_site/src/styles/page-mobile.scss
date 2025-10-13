@@ -1,0 +1,312 @@
+// Глобальные адаптивные стили для всех страниц
+
+// Базовые стили для всех страниц
+@media (max-width: 768px) {
+  // Все страницы с классом, содержащим "page" или основные компоненты
+  [class*="page"],
+  [class*="-common"],
+  [class*="branch-"],
+  .leadership,
+  .about,
+  .contacts,
+  .library {
+    // Уменьшаем верхний отступ для мобильных
+    margin-top: 4rem !important;
+    padding: 1rem !important;
+    
+    // Контейнеры контента
+    .content-container {
+      padding: 1rem !important;
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+    }
+    
+    // Заголовки страниц
+    .main-header {
+      flex-direction: column !important;
+      text-align: center !important;
+      gap: 0.5rem !important;
+      margin-bottom: 1.5rem !important;
+      
+      .main-header-icon {
+        margin-right: 0 !important;
+        font-size: 2rem !important;
+      }
+      
+      .main-title {
+        font-size: 1.75rem !important;
+        
+        &:after {
+          left: 50% !important;
+          transform: translateX(-50%) !important;
+        }
+      }
+    }
+    
+    // Секции
+    .section-block,
+    .info-section {
+      padding: 1rem !important;
+      margin-bottom: 1.5rem !important;
+      
+      .sub-header,
+      .section-header {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 0.5rem !important;
+        
+        .sub-header-icon,
+        .section-icon {
+          margin-right: 0 !important;
+        }
+        
+        .section-title {
+          font-size: 1.25rem !important;
+        }
+      }
+    }
+    
+    // Карточки
+    .card,
+    .info-card,
+    .common-card {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      padding: 1rem !important;
+    }
+    
+    // Сетки
+    .grid,
+    [class*="-grid"] {
+      grid-template-columns: 1fr !important;
+      gap: 1rem !important;
+    }
+    
+    // Flex контейнеры
+    .row,
+    [class*="-row"],
+    .columns,
+    [class*="-columns"] {
+      flex-direction: column !important;
+      gap: 1rem !important;
+    }
+    
+    // Изображения
+    img {
+      max-width: 100% !important;
+      height: auto !important;
+    }
+    
+    // Кнопки и ссылки
+    .document-link,
+    .btn,
+    button {
+      padding: 0.75rem 1rem !important;
+      font-size: 0.9375rem !important;
+      width: 100% !important;
+      text-align: center !important;
+    }
+    
+    // Списки документов
+    .document-links {
+      gap: 0.75rem !important;
+      
+      .document-link {
+        width: 100% !important;
+      }
+    }
+  }
+}
+
+// Очень маленькие экраны
+@media (max-width: 480px) {
+  [class*="page"],
+  [class*="-common"],
+  [class*="branch-"],
+  .leadership,
+  .about,
+  .contacts,
+  .library {
+    margin-top: 3.5rem !important;
+    padding: 0.75rem !important;
+    
+    .content-container {
+      padding: 0.75rem !important;
+    }
+    
+    .main-header {
+      .main-title {
+        font-size: 1.5rem !important;
+      }
+    }
+    
+    .section-block,
+    .info-section {
+      padding: 0.75rem !important;
+      
+      .section-header {
+        .section-title {
+          font-size: 1.125rem !important;
+        }
+      }
+    }
+    
+    .card,
+    .info-card {
+      padding: 0.75rem !important;
+    }
+  }
+}
+
+// Специальные стили для таблиц на десктопе (не ломаем)
+@media (min-width: 769px) {
+  .info-table,
+  table {
+    // Сохраняем нормальное поведение таблиц на десктопе
+    min-width: auto !important;
+  }
+  
+  .table-container,
+  .info-table-container {
+    overflow-x: auto !important;
+  }
+}
+
+// Адаптивные стили для контактов и форм
+@media (max-width: 768px) {
+  .contact-info,
+  .contact-section {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    
+    .contact-item {
+      width: 100% !important;
+    }
+  }
+  
+  .map-container,
+  iframe {
+    width: 100% !important;
+    height: 300px !important;
+  }
+}
+
+// Адаптивные стили для галереи
+@media (max-width: 768px) {
+  .gallery-grid,
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid,
+  .photo-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+// Адаптивные стили для новостей и событий
+@media (max-width: 768px) {
+  .news-grid,
+  .events-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  
+  .news-card,
+  .event-card {
+    width: 100% !important;
+  }
+}
+
+// Адаптивные стили для аккордеонов и вкладок
+@media (max-width: 768px) {
+  .tabs,
+  .tab-list {
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+  }
+  
+  .tab {
+    flex: 1 1 auto !important;
+    min-width: 120px !important;
+    font-size: 0.875rem !important;
+    padding: 0.5rem !important;
+  }
+}
+
+// Адаптивные стили для модальных окон
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95% !important;
+    max-width: 95% !important;
+    margin: 1rem auto !important;
+    padding: 1rem !important;
+  }
+  
+  .modal-header {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+}
+
+// Адаптивные стили для breadcrumbs
+@media (max-width: 768px) {
+  .breadcrumbs {
+    font-size: 0.875rem !important;
+    flex-wrap: wrap !important;
+    gap: 0.25rem !important;
+  }
+}
+
+// Адаптивные стили для пагинации
+@media (max-width: 768px) {
+  .pagination {
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+    justify-content: center !important;
+  }
+  
+  .pagination-item {
+    min-width: 36px !important;
+    padding: 0.5rem !important;
+  }
+}
+
+// Улучшение touch-взаимодействия
+@media (max-width: 768px) {
+  a,
+  button,
+  .clickable {
+    -webkit-tap-highlight-color: rgba(169, 68, 66, 0.2) !important;
+  }
+}
+
+// Предотвращение горизонтального скролла
+@media (max-width: 768px) {
+  body,
+  .app-container,
+  main {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+  
+  .content-container,
+  .section-block,
+  .info-section {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+  }
+  
+  // Предотвращаем выход элементов за границы экрана
+  img,
+  video,
+  iframe,
+  table {
+    max-width: 100% !important;
+  }
+}

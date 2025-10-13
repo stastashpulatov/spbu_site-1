@@ -120,11 +120,11 @@ const BranchFood: React.FC = () => {
                 <tbody>
                   {t.tableData.map((row, index) => (
                     <tr key={index}>
-                      <td>{row.name}</td>
-                      <td>{row.address}</td>
-                      <td>{row.area}</td>
-                      <td>{row.seats}</td>
-                      <td>{row.accessibility}</td>
+                      <td data-label={t.tableHeaders.name}>{row.name}</td>
+                      <td data-label={t.tableHeaders.address}>{row.address}</td>
+                      <td data-label={t.tableHeaders.area}>{row.area}</td>
+                      <td data-label={t.tableHeaders.seats}>{row.seats}</td>
+                      <td data-label={t.tableHeaders.accessibility}>{row.accessibility}</td>
                     </tr>
                   ))}
                 </tbody>

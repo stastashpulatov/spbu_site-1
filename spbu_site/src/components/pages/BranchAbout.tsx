@@ -87,8 +87,9 @@ const BranchAbout: React.FC = () => {
       <div className="content-container">
         {/* Header */}
         <div className="header">
-          <div className="header-icon">🏛️</div>
+          <span className="header-icon">🏛️</span>
           <h1>{t.title}</h1>
+          <div className="header-subline"></div>
         </div>
 
         {/* Team Image */}
@@ -112,7 +113,7 @@ const BranchAbout: React.FC = () => {
           {/* Info Cards */}
           <div className="info-cards">
             {/* Address Card */}
-            <div className="info-card address-card">
+            <div className="info-card">
               <div className="card-header">
                 <span className="card-icon">📍</span>
                 <h2>{t.address.title}</h2>
