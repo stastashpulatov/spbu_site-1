@@ -53,6 +53,19 @@
 }
 
 .branch-about .header h1 {
+
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  color: #a94442 !important;
+  margin: 0 0 1rem 0 !important;
+  line-height: 1.2 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  
+  [data-theme='dark'] & {
+    color: #e87681 !important;
+
   font-size: 2.5rem;
   font-weight: 700;
   color: #a94442;
@@ -61,6 +74,7 @@
   
   [data-theme='dark'] & {
     color: #e87681;
+
   }
 }
 
@@ -78,7 +92,12 @@
 
 /* Image Section */
 .branch-about .team-image-container {
+
+  margin: 0 auto 3rem;
+  max-width: 700px;
+
   margin: 0 0 3rem;
+
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 8px 20px rgba(169, 68, 66, 0.15);
@@ -101,7 +120,11 @@
 
 .branch-about .team-image {
   width: 100%;
+
+  height: auto;
+
   height: 400px;
+
   object-fit: cover;
   display: block;
 }
@@ -327,7 +350,11 @@
 @media (max-width: 768px) {
   .branch-about {
     padding: 1rem 0;
+
+    margin-top: 4.5rem;
+
     margin-top: 4rem;
+
   }
 
   .branch-about .content-container {
@@ -350,6 +377,40 @@
   .branch-about .about-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+
+  }
+
+  .branch-about .description-card,
+  .branch-about .info-card {
+    padding: 1.5rem;
+  }
+
+  .branch-about .team-image-container {
+    margin: 0 auto 2rem;
+    max-width: 100%;
+    border-radius: 12px;
+  }
+
+  .branch-about .team-image {
+    height: auto;
+    border-radius: 12px;
+  }
+  
+  .branch-about .description-card p {
+    font-size: 1rem;
+    text-align: left;
+  }
+  
+  .branch-about .info-card h2 {
+    font-size: 1.25rem;
+  }
+  
+  .branch-about .address-text {
+    font-size: 0.9375rem;
+    padding: 1rem;
+  }
+  
+
   }
 
   .branch-about .description-card,
@@ -379,6 +440,7 @@
     padding: 1rem;
   }
   
+
   .branch-about .contact-link {
     font-size: 0.9375rem;
     padding: 0.875rem 1.25rem;
@@ -388,11 +450,19 @@
 @media (max-width: 480px) {
   .branch-about {
     padding: 0.75rem 0;
+
+    margin-top: 4rem;
+  }
+
+  .branch-about .content-container {
+    padding: 0 1rem;
+
     margin-top: 3.5rem;
   }
 
   .branch-about .content-container {
     padding: 0 0.75rem;
+
   }
 
   .branch-about .header {
@@ -402,6 +472,22 @@
 
   .branch-about .header h1 {
     font-size: 1.5rem;
+
+  }
+  
+  .branch-about .header-icon {
+    font-size: 2rem;
+  }
+
+  .branch-about .team-image-container {
+    margin: 0 auto 1.5rem;
+    border-radius: 12px;
+  }
+
+  .branch-about .team-image {
+    height: auto;
+    border-radius: 12px;
+
   }
   
   .branch-about .header-icon {
@@ -410,6 +496,7 @@
 
   .branch-about .team-image {
     height: 250px;
+
   }
 
   .branch-about .description-card,
