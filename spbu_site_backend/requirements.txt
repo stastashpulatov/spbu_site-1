@@ -1,7 +1,7 @@
 annotated-types==0.7.0
 anyio==4.11.0
 asgiref==3.9.2
-Authlib==1.6.4
+Authlib==1.6.5
 bandit==1.7.5
 black==25.9.0
 certifi==2025.8.3
