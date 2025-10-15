@@ -18,8 +18,9 @@ const Loader: React.FC<LoaderProps> = ({
   const transitionManager = TransitionManager.getInstance();
 
   useEffect(() => {
-    if (containerRef.current) {
-      transitionManager.showLoader(containerRef.current, {
+    const el = containerRef.current;
+    if (el) {
+      transitionManager.showLoader(el, {
         type,
         color,
         size,
@@ -29,11 +30,9 @@ const Loader: React.FC<LoaderProps> = ({
     }
 
     return () => {
-      if (containerRef.current) {
-        transitionManager.hideLoader(containerRef.current);
-      }
+      if (el) transitionManager.hideLoader(el);
     };
-  }, [type, color, size]);
+  }, [type, color, size, transitionManager]);
 
   return <div ref={containerRef} className={className} />;
 };

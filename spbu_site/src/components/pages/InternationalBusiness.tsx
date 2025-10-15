@@ -85,7 +85,7 @@ const translations: Translations = {
       '<a href="/files/programma_vstupit_ispytaniy_b1-50.pdf" target="_blank">Rus tili (test)</a>',
       '<a href="/files/25_bak_spets_portfolio-filial-v-tashkente.pdf" target="_blank">Matematika (25 dan 100 ballgacha)</a>'
     ],
-    mainCoursesTitle: "Asosiy o\'quv kurslari",
+    mainCoursesTitle: "Asosiy o'quv kurslari",
     mainCourses: [
       'Mikro-, Makro-, Jahon iqtisodiyoti',
       'Raqamli madaniyat (onlayn kurs): Biznes ma\'lumotlarini tahlil qilish; Internetdagi munosabatlarni huquqiy tartibga solish',

@@ -1,5 +1,6 @@
+@use './responsive-tables' as *;
+
 @layer components {
-  @import './responsive-tables';
 
   .branch-vacant {
     @include responsive-table;

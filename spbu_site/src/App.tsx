@@ -95,7 +95,9 @@ function App() {
                   <Route path='/library' element={<Library />} />
                   <Route path='/student-account' element={<StudentAccount />} />
                   <Route path='/news' element={<NewsPage />} />
+                  <Route path='/news/:id' element={<NewsPage />} />
                   <Route path='/events' element={<EventsPage />} />
+                  <Route path='/announcements' element={<NewsPage />} />
                   <Route path='/gallery' element={<GalleryPage />} />
                   <Route path='/schedule' element={<SchedulePage />} />
                   <Route path='/maintenance' element={<MaintenancePage />} />

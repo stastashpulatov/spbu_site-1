@@ -4,6 +4,8 @@ import { LanguageContext } from '../../contexts/LanguageContext';
 import { Language } from '../../contexts/LanguageContextType';
 import './Schedule.scss';
 
+const DAY_ORDER = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'] as const;
+
 interface Group {
   id: number;
   name: string;
@@ -102,8 +104,6 @@ const Schedule: React.FC<ScheduleProps> = ({ group }) => {
   
   const t = translations[language];
 
-  const dayOrder = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
-
   useEffect(() => {
     const fetchSchedule = async () => {
       try {
@@ -162,20 +162,20 @@ const Schedule: React.FC<ScheduleProps> = ({ group }) => {
         
         // Устанавливаем активный день
         if (Object.keys(groupedByDay).length > 0) {
-          const firstDay = dayOrder.find(day => groupedByDay[day]?.length > 0) || 'monday';
+          const firstDay = DAY_ORDER.find(day => groupedByDay[day]?.length > 0) || 'monday';
           setActiveDay(firstDay);
         }
         
         setError(null);
-      } catch (err: any) {
+      } catch (err: unknown) {
         console.error('Error fetching schedule:', err);
-        console.error('Error details:', {
-          message: err.message,
-          response: err.response,
-          request: err.request
-        });
-        const errorMessage = err.response?.data?.detail || err.message || 'Не удалось загрузить расписание. Проверьте подключение к серверу.';
-        setError(errorMessage);
+        let message = 'Не удалось загрузить расписание. Проверьте подключение к серверу.';
+        // Attempt to extract more details if this looks like an axios error
+        if (typeof err === 'object' && err !== null) {
+          const anyErr = err as { message?: string; response?: { data?: { detail?: string } } };
+          message = anyErr.response?.data?.detail || anyErr.message || message;
+        }
+        setError(message);
         setScheduleData({});
       } finally {
         setLoading(false);
@@ -204,7 +204,7 @@ const Schedule: React.FC<ScheduleProps> = ({ group }) => {
   return (
     <div className="schedule-container">
       <div className="schedule-tabs">
-        {dayOrder.map(day => (
+        {DAY_ORDER.map(day => (
           scheduleData[day] && scheduleData[day].length > 0 && (
             <button
               key={day}

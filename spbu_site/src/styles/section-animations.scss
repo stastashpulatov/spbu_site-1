@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 @layer components {
   .branch-common {
     .content-container {
@@ -40,7 +42,7 @@
           transition: background-color 0.3s ease !important;
           
           &:hover {
-            background-color: darken(#f8f9fa, 5%) !important;
+            background-color: color.adjust(#f8f9fa, $lightness: -5%) !important;
           }
         }
       }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './MaintenancePage.scss';
 
@@ -19,41 +19,7 @@ const MaintenancePage: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState<number | null>(null);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetchMaintenanceStatus();
-    
-    // Автоматически обновляем статус каждые 5 секунд для быстрого реагирования
-    const statusInterval = setInterval(() => {
-      fetchMaintenanceStatus();
-    }, 5000);
-    
-    return () => {
-      clearInterval(statusInterval);
-    };
-  }, []);
-
-  useEffect(() => {
-    let interval: number;
-    
-    if (maintenanceData?.is_active && maintenanceData.remaining_time && maintenanceData.remaining_time > 0) {
-      interval = setInterval(() => {
-        setTimeLeft(prev => {
-          if (prev && prev > 0) {
-            return prev - 1;
-          }
-          return 0;
-        });
-      }, 1000);
-    }
-
-    return () => {
-      if (interval) {
-        clearInterval(interval);
-      }
-    };
-  }, [maintenanceData]);
-
-  const fetchMaintenanceStatus = async () => {
+  const fetchMaintenanceStatus = useCallback(async () => {
     try {
       console.log('🔍 MaintenancePage: Проверяю статус тех. работ...');
       setLoading(true);
@@ -85,7 +51,43 @@ const MaintenancePage: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [navigate]);
+
+  useEffect(() => {
+    fetchMaintenanceStatus();
+    
+    // Автоматически обновляем статус каждые 5 секунд для быстрого реагирования
+    const statusInterval = setInterval(() => {
+      fetchMaintenanceStatus();
+    }, 5000);
+    
+    return () => {
+      clearInterval(statusInterval);
+    };
+  }, [fetchMaintenanceStatus]);
+
+  useEffect(() => {
+    let interval: number;
+    
+    if (maintenanceData?.is_active && maintenanceData.remaining_time && maintenanceData.remaining_time > 0) {
+      interval = setInterval(() => {
+        setTimeLeft(prev => {
+          if (prev && prev > 0) {
+            return prev - 1;
+          }
+          return 0;
+        });
+      }, 1000);
+    }
+
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
+  }, [maintenanceData]);
+
+  
 
   const formatTime = (seconds: number): string => {
     const hours = Math.floor(seconds / 3600);
