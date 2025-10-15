@@ -555,99 +555,6 @@
             color: #a94442 !important;
             font-weight: 500 !important;
             transition: all 0.3s ease !important;
-            
-            [data-theme='dark'] & {
-              color: #e87681 !important;
-            }
-            
-            &:hover {
-              color: #8b3a3a !important;
-              text-decoration: underline !important;
-              
-              [data-theme='dark'] & {
-                color: #d15a6a !important;
-              }
-            }
-          }
-        }
-      }
-      
-      .license-table {
-        border: none !important;
-        box-shadow: 0 4px 15px rgba(169, 68, 66, 0.15) !important;
-        
-        [data-theme='dark'] & {
-          box-shadow: 0 4px 15px rgba(232, 118, 129, 0.15) !important;
-        }
-        
-        tr {
-          border-bottom: 1px solid #e0e0e0 !important;
-          transition: all 0.3s ease !important;
-          
-          [data-theme='dark'] & {
-            border-bottom-color: #4a5568 !important;
-          }
-          
-          &:last-child {
-            border-bottom: none !important;
-          }
-          
-          &:hover {
-            background-color: rgba(169, 68, 66, 0.05) !important;
-            transform: translateY(-1px) !important;
-            box-shadow: 0 2px 8px rgba(169, 68, 66, 0.1) !important;
-            
-            [data-theme='dark'] & {
-              background-color: rgba(232, 118, 129, 0.05) !important;
-              box-shadow: 0 2px 8px rgba(232, 118, 129, 0.1) !important;
-            }
-          }
-        }
-        
-        td {
-          padding: 1.5rem !important;
-          vertical-align: top !important;
-          
-          &:first-child {
-            border-right: 1px solid #e0e0e0 !important;
-            background-color: #f8f9fa !important;
-            font-weight: 600 !important;
-            color: #2c3e50 !important;
-            width: 40% !important;
-            
-            [data-theme='dark'] & {
-              border-right-color: #4a5568 !important;
-              background-color: #3a3f4a !important;
-              color: #f8f9fa !important;
-            }
-          }
-          
-          &:last-child {
-            background-color: white !important;
-            color: #34495e !important;
-            width: 60% !important;
-            
-            [data-theme='dark'] & {
-              background-color: #2d232a !important;
-              color: #cbd5e0 !important;
-            }
-          }
-        }
-        
-        .field-name {
-          font-weight: 600 !important;
-          color: #2c3e50 !important;
-          
-          [data-theme='dark'] & {
-            color: #f8f9fa !important;
-          }
-        }
-        
-        .field-value {
-          a {
-            color: #a94442 !important;
-            font-weight: 500 !important;
-            transition: all 0.3s ease !important;
             text-decoration: none !important;
             
             [data-theme='dark'] & {
@@ -666,7 +573,7 @@
         }
       }
       
-      .accreditation-table {
+      .license-table {
         border: none !important;
         box-shadow: 0 4px 15px rgba(169, 68, 66, 0.15) !important;
         
@@ -881,10 +788,11 @@
   }
   
   @media (max-width: 768px) {
-    padding: 1rem;
+    margin-top: 4rem !important;
+    padding: 0.875rem !important;
     
     .content-container {
-      padding: 1rem;
+      padding: 0.875rem !important;
     }
     
     .section-title.centered-title {

@@ -363,8 +363,8 @@
     }
     
     .section-block {
-      padding: 1.5rem !important;
-      margin-bottom: 1.5rem !important;
+      padding: 1.25rem !important;
+      margin-bottom: 1.25rem !important;
     }
     
     .sub-header .section-title {
@@ -377,7 +377,11 @@
     }
     
     .document-card {
-      padding: 1.25rem !important;
+      padding: 1rem !important;
+    }
+    
+    .document-actions {
+      .action-buttons { flex-direction: column !important; gap: 0.5rem !important; }
     }
   }
   
