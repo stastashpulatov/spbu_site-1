@@ -1,12 +1,12 @@
-@import './responsive-tables';
+@use './responsive-tables' as *;
 
 .branch-struct {
-  @include responsive-table;
   padding: 2rem !important;
   min-height: calc(100vh - 4rem) !important;
   background-color: #fff8f8 !important;
   color: #333 !important;
   margin-top: 5rem !important; /* Отступ для фиксированного хедера */
+  @include responsive-table;
   
   [data-theme='dark'] & {
     background-color: #1f1720 !important;

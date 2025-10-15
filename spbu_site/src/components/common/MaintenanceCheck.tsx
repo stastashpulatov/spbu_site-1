@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import MaintenancePage from '../pages/MaintenancePage';
 
@@ -23,22 +23,7 @@ const MaintenanceCheck: React.FC<MaintenanceCheckProps> = ({ children }) => {
   const [apiAvailable, setApiAvailable] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Добавляем небольшую задержку перед проверкой
-    const timer = setTimeout(() => {
-      checkMaintenanceStatus();
-    }, 100);
-    
-    // Автоматически обновляем статус каждые 5 секунд для быстрого реагирования
-    const interval = setInterval(checkMaintenanceStatus, 5000);
-    
-    return () => {
-      clearTimeout(timer);
-      clearInterval(interval);
-    };
-  }, []);
-
-  const checkMaintenanceStatus = async () => {
+  const checkMaintenanceStatus = useCallback(async () => {
     try {
       console.log('🔍 Проверяю статус тех. работ...');
       
@@ -86,7 +71,22 @@ const MaintenanceCheck: React.FC<MaintenanceCheckProps> = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [navigate]);
+
+  useEffect(() => {
+    // Добавляем небольшую задержку перед проверкой
+    const timer = setTimeout(() => {
+      checkMaintenanceStatus();
+    }, 100);
+    
+    // Автоматически обновляем статус каждые 5 секунд для быстрого реагирования
+    const interval = setInterval(() => checkMaintenanceStatus(), 5000);
+    
+    return () => {
+      clearTimeout(timer);
+      clearInterval(interval);
+    };
+  }, [checkMaintenanceStatus]);
 
   // Если загрузка, показываем обычную страницу
   if (loading) {

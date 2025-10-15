@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './ProgramPage.scss';
 
 interface ProgramInfo {
@@ -25,12 +25,24 @@ interface ProgramPageProps {
 }
 
 const ProgramPage: React.FC<ProgramPageProps> = ({ programInfo }) => {
+  const admissionRef = useRef<HTMLDivElement>(null);
   const headerStyle: React.CSSProperties = {
     backgroundImage: programInfo.backgroundImage
       ? `url(${programInfo.backgroundImage})`
       : undefined,
     backgroundPosition: programInfo.backgroundPosition || 'center',
   };
+
+  useEffect(() => {
+    const root = admissionRef.current;
+    if (!root) return;
+    const anchors = root.querySelectorAll('a[target="_blank"]');
+    anchors.forEach((a) => {
+      if (!a.getAttribute('rel')) {
+        a.setAttribute('rel', 'noopener noreferrer');
+      }
+    });
+  }, [programInfo.admissionText]);
 
   return (
     <div className="program-page">
@@ -138,7 +150,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({ programInfo }) => {
             <span className="section-icon">📝</span>
             {programInfo.admissionTitle}
           </h2>
-          <div className="section-content">
+          <div className="section-content" ref={admissionRef}>
             <ul>
               {programInfo.admissionText.map((text, index) => (
                 <li key={index} dangerouslySetInnerHTML={{ __html: text }}></li>

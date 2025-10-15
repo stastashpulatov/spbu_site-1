@@ -22,15 +22,16 @@ const Transition: React.FC<TransitionProps> = ({
   const transitionManager = TransitionManager.getInstance();
 
   useEffect(() => {
-    if (elementRef.current) {
-      transitionManager.animateElement(elementRef.current, {
+    const el = elementRef.current;
+    if (el) {
+      transitionManager.animateElement(el, {
         type,
         direction,
         duration,
         easing
       });
     }
-  }, [children]);
+  }, [children, type, direction, duration, easing, transitionManager]);
 
   return (
     <div ref={elementRef} className={className}>

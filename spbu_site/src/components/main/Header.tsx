@@ -330,6 +330,9 @@ function Header() {
                         className={`header-item ${openMenu === key ? 'menu-open' : ''}`}
                         onMouseEnter={() => handleMenuEnter(key)}
                         onMouseLeave={handleMenuLeave}
+                        type="button"
+                        aria-haspopup="true"
+                        aria-expanded={openMenu === key}
                       >
                         <span>{key}</span>
                         <ChevronDown />
@@ -426,6 +429,9 @@ function Header() {
               className="mobile-menu-toggle"
               onClick={toggleMobileMenu}
               aria-label="Toggle menu"
+              type="button"
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-menu"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -435,7 +441,7 @@ function Header() {
 
       {/* Mobile Menu Overlay */}
       {isMobile && (
-        <div className={`mobile-menu-overlay ${isMobileMenuOpen ? 'open' : ''}`}>
+        <div id="mobile-menu" className={`mobile-menu-overlay ${isMobileMenuOpen ? 'open' : ''}`}>
           <div className="mobile-menu-content">
             {/* Mobile controls */}
             <div className="mobile-controls">
@@ -450,6 +456,9 @@ function Header() {
                   <button
                     className={`mobile-menu-button ${openMenu === key ? 'active' : ''}`}
                     onClick={() => handleMenuClick(key)}
+                    type="button"
+                    aria-expanded={openMenu === key}
+                    aria-haspopup="true"
                   >
                     <span>{key}</span>
                     {menu[key].length > 0 && (
@@ -491,6 +500,9 @@ function Header() {
                               <button
                                 className={`mobile-submenu-button ${openSubmenu === item.title ? 'active' : ''}`}
                                 onClick={() => handleSubmenuClick(item.title)}
+                                type="button"
+                                aria-expanded={openSubmenu === item.title}
+                                aria-haspopup={!!item.submenu}
                               >
                                 <span>{item.title}</span>
                                 {item.submenu && (

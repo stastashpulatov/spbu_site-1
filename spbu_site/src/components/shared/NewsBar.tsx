@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { getNews } from '../../utils/api';
 import { useLanguage } from '../../hooks/useLanguage';
 import { Link } from 'react-router-dom';
@@ -42,9 +42,9 @@ const NewsBar: React.FC = () => {
   }, []);
 
   // Функция для перехода к следующему слайду
-  const goToNextSlide = () => {
+  const goToNextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % news.length);
-  };
+  }, [news.length]);
 
   // Функция для перехода к предыдущему слайду
   const goToPrevSlide = () => {
@@ -76,7 +76,7 @@ const NewsBar: React.FC = () => {
         clearInterval(intervalRef.current);
       }
     };
-  }, [news.length, isPaused]);
+  }, [news.length, isPaused, goToNextSlide]);
 
   // Очистка интервала при размонтировании компонента
   useEffect(() => {
@@ -123,6 +123,7 @@ const NewsBar: React.FC = () => {
             className="news-slider-btn prev" 
             onClick={goToPrevSlide}
             aria-label="Предыдущая новость"
+            type="button"
           >
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -132,6 +133,7 @@ const NewsBar: React.FC = () => {
             className="news-slider-btn next" 
             onClick={goToNextSlide}
             aria-label="Следующая новость"
+            type="button"
           >
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -189,6 +191,7 @@ const NewsBar: React.FC = () => {
               className={`news-slider-indicator ${index === currentSlide ? 'active' : ''}`}
               onClick={() => goToSlide(index)}
               aria-label={`Перейти к новости ${index + 1}`}
+              type="button"
             />
           ))}
         </div>
