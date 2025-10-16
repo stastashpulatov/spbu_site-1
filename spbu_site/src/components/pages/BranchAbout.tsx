@@ -89,7 +89,7 @@ const BranchAbout: React.FC = () => {
 
 
         {/* Header */}
-        <div className="header">
+        <div className="about-header">
           <span className="header-icon">🏛️</span>
           <h1>{t.title}</h1>
           <div className="header-subline"></div>

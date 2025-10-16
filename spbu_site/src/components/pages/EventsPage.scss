@@ -103,7 +103,7 @@
   
   @media (max-width: 768px) {
     padding: 1rem;
-    margin-top: 8rem;
+    margin-top: 7rem;
     
     .events-page-header {
       h1 {
@@ -115,13 +115,15 @@
       }
     }
     
+    .events-list { gap: 1rem; }
     .event-item {
       padding: 1rem;
       
+      .event-item-image img { height: 190px; object-fit: cover; }
+      
       .event-item-content {
-        .event-item-title {
-          font-size: 1.25rem;
-        }
+        .event-item-title { font-size: 1.25rem; }
+        .event-item-description { font-size: 0.975rem; line-height: 1.65; }
       }
     }
   }

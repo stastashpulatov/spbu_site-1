@@ -196,10 +196,10 @@
   
   @media (max-width: 768px) {
     margin-top: 4rem !important;
-    padding: 1rem !important;
+    padding: 0.875rem !important;
     
     .content-container {
-      padding: 1rem !important;
+      padding: 0.875rem !important;
     }
     
     .main-header {
@@ -215,8 +215,8 @@
     }
     
     .section-block {
-      padding: 1.5rem !important;
-      margin-bottom: 1.5rem !important;
+      padding: 1.25rem !important;
+      margin-bottom: 1.25rem !important;
     }
     
     .sub-header .section-title {
@@ -225,10 +225,7 @@
     
     .info-table-container .info-table {
       font-size: 0.8rem !important;
-      
-      th, td {
-        padding: 0.5rem !important;
-      }
+      th, td { padding: 0.45rem !important; }
     }
   }
   
