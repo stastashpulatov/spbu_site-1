@@ -338,6 +338,7 @@
   }
 
   // Сдвигаем контент ниже фиксированной шапки, если нужно
+
   .header.mobile + * { margin-top: 4.5rem !important; }
 }
 
@@ -348,4 +349,9 @@
 
 @media (max-width: 360px) {
   .header.mobile + * { margin-top: 3.75rem !important; }
+
+  .header.mobile + * {
+    margin-top: 4.25rem !important;
+  }
+
 }

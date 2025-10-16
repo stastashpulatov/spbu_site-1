@@ -353,6 +353,7 @@
     
     .document-card {
       padding: 0.875rem !important;
+
     }
     
     .document-header {
@@ -363,6 +364,7 @@
     
     .document-meta {
       align-items: flex-start !important;
+
     }
     
     .document-title {
@@ -373,6 +375,7 @@
       padding: 0.5rem 1rem !important;
       font-size: 0.8rem !important;
     }
+
     
     .document-actions { 
       flex-direction: column !important; 
@@ -401,5 +404,9 @@
     
     .view-button,
     .download-button { font-size: 0.85rem !important; padding: 0.6rem 0.9rem !important; }
+
+    .document-actions { flex-direction: column !important; gap: 0.5rem !important; }
+    .action-buttons { flex-direction: column !important; gap: 0.5rem !important; }
+
   }
 }
