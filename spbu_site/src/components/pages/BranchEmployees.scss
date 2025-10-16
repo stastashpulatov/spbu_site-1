@@ -236,4 +236,18 @@
       }
     }
   }
+
+  // Extra small devices
+  @media (max-width: 480px) {
+    .employees-table, .founders-table {
+      td {
+        word-break: break-word !important;
+        overflow-wrap: anywhere !important;
+
+        &:before {
+          min-width: 90px !important;
+        }
+      }
+    }
+  }
 }

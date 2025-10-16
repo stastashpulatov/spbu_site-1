@@ -686,4 +686,22 @@
       }
     }
   }
+
+  @media (max-width: 360px) {
+    .header.mobile {
+      height: 3.75rem !important;
+    }
+    .header-top {
+      padding: 0.75rem !important;
+      gap: 0.75rem !important;
+    }
+    .logo-container {
+      gap: 0.5rem !important;
+      .header-title { font-size: 0.8rem !important; }
+    }
+    .mobile-menu-button {
+      padding: 0.875rem !important;
+      font-size: 1rem !important;
+    }
+  }
 }

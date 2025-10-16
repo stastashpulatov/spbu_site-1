@@ -103,4 +103,16 @@
   }
 }
 
+// Extra small devices
+@media (max-width: 480px) {
+  .branch-vacant {
+    .vacant-table {
+      td {
+        word-break: break-word !important;
+        overflow-wrap: anywhere !important;
+      }
+    }
+  }
+}
+
 

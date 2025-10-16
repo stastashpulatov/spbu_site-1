@@ -10,8 +10,8 @@
   .about,
   .contacts,
   .library {
-    // Уменьшаем верхний отступ для мобильных
-    margin-top: 4rem !important;
+    // Переносим отступ под фикс‑хедер на глобальное правило ниже
+    margin-top: 0 !important;
     padding: 1rem !important;
     
     // Контейнеры контента
@@ -136,7 +136,7 @@
   .about,
   .contacts,
   .library {
-    margin-top: 3.5rem !important;
+    margin-top: 0 !important;
     padding: 0.75rem !important;
     
     .content-container {
@@ -338,7 +338,14 @@
   }
 
   // Сдвигаем контент ниже фиксированной шапки, если нужно
-  .header.mobile + * {
-    margin-top: 4.25rem !important;
-  }
+  .header.mobile + * { margin-top: 4.5rem !important; }
+}
+
+// Точное соответствие высоте шапки на меньших брейкпоинтах
+@media (max-width: 480px) {
+  .header.mobile + * { margin-top: 4rem !important; }
+}
+
+@media (max-width: 360px) {
+  .header.mobile + * { margin-top: 3.75rem !important; }
 }
