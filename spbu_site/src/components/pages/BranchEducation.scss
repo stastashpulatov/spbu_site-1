@@ -492,6 +492,12 @@
         th, td {
           padding: 0.4rem !important;
         }
+
+        td {
+          &:before {
+            min-width: 90px !important;
+          }
+        }
       }
     }
   }

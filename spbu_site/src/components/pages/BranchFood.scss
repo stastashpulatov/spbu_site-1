@@ -97,5 +97,14 @@
         margin: 0.5rem 0;
       }
     }
+
+    @media (max-width: 480px) {
+      .food-table {
+        td {
+          word-break: break-word !important;
+          overflow-wrap: anywhere !important;
+        }
+      }
+    }
   }
 }

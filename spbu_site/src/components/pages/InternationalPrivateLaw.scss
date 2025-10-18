@@ -253,10 +253,36 @@
     .info-grid {
       grid-template-columns: 1fr;
       margin-top: -2rem;
+      padding: 1rem;
+      gap: 1rem;
     }
 
     .courses-section ul {
       grid-template-columns: 1fr;
     }
+
+    .description-section,
+    .admission-section,
+    .teachers-section,
+    .courses-section {
+      margin: 2rem auto;
+      padding: 1.25rem;
+      width: 92%;
+    }
+
+    .teachers-section ul {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .international-private-law {
+    .info-grid { padding: 0.75rem; gap: 0.75rem; }
+    .description-section,
+    .admission-section,
+    .teachers-section,
+    .courses-section { margin: 1.5rem auto; padding: 1rem; width: 94%; }
   }
 }

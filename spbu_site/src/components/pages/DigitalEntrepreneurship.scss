@@ -238,16 +238,11 @@
 
   @media (max-width: 768px) {
     .hero-section {
+      height: 80vh;
       .hero-content {
         padding: 1.5rem;
-
-        h1 {
-          font-size: 2rem;
-        }
-
-        .info-list {
-          padding: 1.5rem;
-        }
+        h1 { font-size: 2rem; }
+        .info-list { padding: 1.5rem; }
       }
     }
 
@@ -267,16 +262,11 @@
 
   @media (max-width: 480px) {
     .hero-section {
+      height: 70vh;
       .hero-content {
         padding: 1rem;
-
-        h1 {
-          font-size: 1.75rem;
-        }
-
-        .info-list {
-          padding: 1rem;
-        }
+        h1 { font-size: 1.75rem; }
+        .info-list { padding: 1rem; }
       }
     }
 

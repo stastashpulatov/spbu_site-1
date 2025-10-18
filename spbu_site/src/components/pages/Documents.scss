@@ -198,6 +198,8 @@
     color: #333 !important;
     margin: 0 0 1rem 0 !important;
     line-height: 1.4 !important;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
     
     [data-theme='dark'] & {
       color: #f8f9fa !important;
@@ -351,6 +353,18 @@
     
     .document-card {
       padding: 0.875rem !important;
+
+    }
+    
+    .document-header {
+      flex-direction: column !important;
+      align-items: stretch !important;
+      gap: 0.5rem !important;
+    }
+    
+    .document-meta {
+      align-items: flex-start !important;
+
     }
     
     .document-title {
@@ -361,7 +375,38 @@
       padding: 0.5rem 1rem !important;
       font-size: 0.8rem !important;
     }
+
+    
+    .document-actions { 
+      flex-direction: column !important; 
+      gap: 0.5rem !important; 
+    }
+    
+    .action-buttons { 
+      flex-direction: column !important; 
+      gap: 0.5rem !important; 
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .documents-page {
+    .main-header {
+      .main-header-icon { font-size: 2rem !important; }
+      .main-title { font-size: 1.6rem !important; }
+    }
+    
+    .documents-grid { gap: 1rem !important; }
+    
+    .document-icon { width: 2.5rem !important; height: 2.5rem !important; }
+    
+    .document-title { font-size: 0.95rem !important; }
+    
+    .view-button,
+    .download-button { font-size: 0.85rem !important; padding: 0.6rem 0.9rem !important; }
+
     .document-actions { flex-direction: column !important; gap: 0.5rem !important; }
     .action-buttons { flex-direction: column !important; gap: 0.5rem !important; }
+
   }
 }
